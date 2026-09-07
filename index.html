@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Quizz – Spiel</title>
+  <link rel="stylesheet" href="styles/core.css" />
+  <link rel="stylesheet" href="themes/standard/theme.css" />
+  <link rel="stylesheet" href="themes/oktoberfest/theme.css" />
+  <link rel="stylesheet" href="themes/christmas/theme.css" />
+  <link rel="stylesheet" href="themes/carnival/theme.css" />
+  <link rel="stylesheet" href="themes/nerd/theme.css" />
+</head>
+
+<!-- Das Start-Theme wird aus scripts/config.js übernommen. -->
+<body data-theme="oktoberfest">
+  <div class="app">
+    <div class="topbar">
+      <div class="brand">Quizz</div>
+      <div class="top-actions">
+        <button class="btn ghost" id="settingsBtn">⚙ Einstellungen</button>
+        <button class="btn ghost hidden" id="resetBtn">Neues Spiel</button>
+      </div>
+    </div>
+
+    <main>
+      <section id="setupScreen" class="screen active panel">
+        <h1>Spiel vorbereiten</h1>
+        <p class="lead">Teams eintragen und loslegen. Die Spieloptionen findest du unter „Einstellungen“.</p>
+        <div id="resumeBox" class="status hidden"></div>
+
+        <div class="team-list" id="teamList"></div>
+        <div class="setup-actions"><button class="btn secondary" id="addTeamBtn">+ Team</button></div>
+        <div class="setup-actions">
+          <button class="btn accent" id="startBtn" disabled>Spiel starten</button>
+          <button class="btn secondary hidden" id="resumeBtn">Spiel fortsetzen</button>
+        </div>
+        <p class="note hidden" id="setupNotice" role="status" aria-live="polite"></p>
+        <noscript>Bitte JavaScript aktivieren, um das Quiz zu spielen.</noscript>
+      </section>
+
+      <section id="boardScreen" class="screen">
+        <div class="scorebar" id="scorebar"></div>
+        <div class="turnline">
+          <div>Am Zug: <strong id="turnName"></strong></div>
+          <div id="progressText"></div>
+          <div class="field starting-team hidden" id="startingTeamField">
+            <label for="startingTeam">Startendes Team</label>
+            <select id="startingTeam" aria-describedby="startingTeamHint"></select>
+            <small id="startingTeamHint">Wählbar bis zur ersten Frage.</small>
+          </div>
+        </div>
+        <div class="board-wrap">
+          <div id="board" class="board"></div>
+        </div>
+      </section>
+
+      <section id="questionScreen" class="screen panel">
+        <div id="questionTimer" class="question-timer hidden" aria-hidden="true"><div id="timerBar"></div></div>
+        <div class="question-shell">
+          <div class="question-back"><button class="btn ghost" id="backToBoardBtn">← Zurück zum Board</button></div>
+          <div class="question-meta"><span class="pill" id="qCategory"></span><span class="pill"
+              id="qPoints"></span><span class="pill" id="qTeam"></span></div>
+          <span id="timerDisplay" class="sr-only" role="timer" aria-label="Verbleibende Antwortzeit"></span>
+          <span id="timerStatus" class="sr-only" role="status" aria-live="polite"></span>
+          <div class="question-text" id="questionText"></div>
+          <div id="helpInfo" class="help-info hidden"></div>
+          <div id="choices" class="choices hidden"></div>
+          <div id="answerBox" class="answer-box"></div>
+          <div class="q-actions" id="preRevealActions">
+            <button class="btn secondary" id="helpBtn">MC-Hilfe</button>
+            <button class="btn accent" id="revealBtn">Lösung zeigen</button>
+          </div>
+          <div class="q-actions hidden" id="judgeActions">
+            <button class="btn success" id="correctBtn">✓ Richtig</button>
+            <button class="btn danger" id="wrongBtn">✕ Falsch</button>
+          </div>
+          <div id="mcResult" class="mc-result hidden"></div>
+          <div class="q-actions hidden" id="mcContinueActions">
+            <button class="btn accent" id="mcContinueBtn">Ergebnis übernehmen &amp; weiter</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="endScreen" class="screen panel">
+        <div class="end-grid">
+          <div>
+            <h1>Spiel beendet</h1>
+            <p class="lead" id="winnerText"></p>
+            <div id="ranking" class="ranking"></div>
+            <div id="tiebreakerPrompt" class="tiebreaker-card hidden"></div>
+            <div class="setup-actions"><button class="btn accent" id="newGameBtn">Neue Runde</button></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="footer">© Thomas Schüller · Spielstand wird automatisch auf diesem Gerät gespeichert.</div>
+  </div>
+
+  <div id="tiebreakerOverlay" class="tiebreaker-overlay hidden">
+    <section id="tiebreakerArea" class="tiebreaker-stage panel"></section>
+  </div>
+
+  <dialog id="confirmDialog">
+    <div class="dialog-body">
+      <h2>Neues Spiel?</h2>
+      <p>Der aktuelle Spielstand wird gelöscht.</p>
+      <div class="dialog-actions"><button class="btn ghost" id="cancelResetBtn">Abbrechen</button><button
+          class="btn danger" id="confirmResetBtn">Ja, neu starten</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="scoreDialog">
+    <div class="dialog-body">
+      <h2 id="scoreDialogTitle">Punkte korrigieren</h2>
+      <div class="field">
+        <label for="scoreInput">Punktestand</label>
+        <input id="scoreInput" type="number" step="1" inputmode="numeric" />
+      </div>
+      <div class="score-adjust">
+        <button class="btn danger" type="button" data-score-delta="-500">−500</button>
+        <button class="btn danger" type="button" data-score-delta="-100">−100</button>
+        <button class="btn success" type="button" data-score-delta="100">+100</button>
+        <button class="btn success" type="button" data-score-delta="500">+500</button>
+      </div>
+      <div class="dialog-actions">
+        <button class="btn ghost" id="cancelScoreBtn">Abbrechen</button>
+        <button class="btn accent" id="saveScoreBtn">Speichern</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="settingsDialog">
+    <div class="dialog-body">
+      <h2>Einstellungen</h2>
+      <p class="note">Gilt für die nächste Runde. Während des Spiels bleiben alle Einstellungen gesperrt.</p>
+      <fieldset id="settingsFields" aria-label="Optionen für die nächste Runde">
+        <h2>Spielmodus</h2>
+        <div class="mode-cards">
+          <label class="mode-card"><input type="radio" name="mode" value="open"><span>Offene
+              Fragen<small>MC-Hilfe kann eingeblendet werden</small></span></label>
+          <label class="mode-card"><input type="radio" name="mode" value="mc"><span>Multiple
+              Choice<small>Antwortmöglichkeiten sofort sichtbar</small></span></label>
+
+        </div>
+        <div class="field option-field" id="mcPenaltyField">
+          <label for="mcPenalty">Punkte bei MC-Hilfe</label>
+          <select id="mcPenalty">
+            <option value="1">100 %</option>
+            <option value="0.75">75 %</option>
+            <option value="0.5">50 %</option>
+            <option value="0.25">25 %</option>
+            <option value="0">0 %</option>
+          </select>
+        </div>
+        <div class="field option-field">
+          <label for="poolSelect">Fragenpool</label>
+          <select id="poolSelect" disabled></select>
+        </div>
+
+        <div class="round-options">
+          <div class="field">
+            <label for="categoryCount">Kategorien</label>
+            <select id="categoryCount">
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="questionCount">Fragen je Kategorie</label>
+            <select id="questionCount">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="field timer-setting">
+            <label class="timer-toggle" for="timerEnabled"><input id="timerEnabled" type="checkbox"> Antwort-Timer</label>
+            <div class="timer-duration"><input id="timerSeconds" type="number" min="5" max="600" step="1" required disabled aria-label="Antwortzeit in Sekunden" aria-describedby="timerHint"><span>Sekunden</span></div>
+          </div>
+        </div>
+        <p class="note timer-hint" id="timerHint">Optional: 5–600 Sekunden je Frage. Bei Zeitablauf entscheidet die Spielleitung über die Wertung.</p>
+
+        <div class="field">
+          <label for="themeSelect">Theme</label>
+          <select id="themeSelect">
+            <option value="standard">Standard</option>
+            <option value="oktoberfest">Oktoberfest</option>
+            <option value="christmas">Weihnachten</option>
+            <option value="carnival">Karneval</option>
+            <option value="nerd">Nerd</option>
+          </select>
+        </div>
+      </fieldset>
+      <p class="note" id="poolInfo" role="status" aria-live="polite"></p>
+      <div class="dialog-actions">
+        <button class="btn accent" id="closeSettingsBtn">Fertig</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="scripts/config.js"></script>
+  <script src="pools/index.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+body[data-theme="carnival"] {
+  --bg: #2c114d;
+  --panel: #43196d;
+  --panel-2: #65289a;
+  --accent: #ffdb3d;
+  --muted: #eee3ff;
+  --danger: #ff6f9f;
+  --success: #65e5d1;
+  --page-bg: radial-gradient(circle at top, #6d2ca0 0%, #351459 50%, #1d0b35 100%);
+  --theme-image: url("background.jpg");
+  --custom-overlay-top: rgba(41, 10, 69, .22);
+  --custom-overlay-bottom: rgba(23, 5, 42, .84);
+}
+
+body[data-theme="carnival"],
+body[data-theme="carnival"] .tiebreaker-overlay {
+  background-color: #351459;
+  background-image:
+    linear-gradient(180deg, rgba(24, 5, 45, .1), rgba(24, 5, 45, .78)),
+    var(--theme-image),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180' viewBox='0 0 220 180'%3E%3Cg fill='%23ffdb3d' fill-opacity='.4'%3E%3Crect x='18' y='18' width='8' height='24' transform='rotate(-25 22 30)'/%3E%3Crect x='170' y='116' width='9' height='25' transform='rotate(28 174 128)'/%3E%3Ccircle cx='112' cy='26' r='6'/%3E%3C/g%3E%3Cg fill='%2365e5d1' fill-opacity='.4'%3E%3Crect x='68' y='88' width='8' height='25' transform='rotate(32 72 100)'/%3E%3Ccircle cx='199' cy='48' r='6'/%3E%3Cpath d='M22 142l10-8 7 11-11 7z'/%3E%3C/g%3E%3Cg fill='%23ff6f9f' fill-opacity='.42'%3E%3Crect x='145' y='55' width='9' height='24' transform='rotate(-38 149 67)'/%3E%3Ccircle cx='52' cy='55' r='6'/%3E%3Cpath d='M104 144l12-6 6 12-12 6z'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.25'%3E%3Ccircle cx='78' cy='154' r='4'/%3E%3Ccircle cx='191' cy='161' r='4'/%3E%3Cpath d='M125 74l8-7 7 8-8 7z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-position: center, center, center;
+  background-size: cover, cover, 220px 180px;
+}
+
+body[data-theme="carnival"] .brand::before { content: "✦"; color: var(--accent); margin-right: .42em; text-shadow: 0 2px 0 rgba(0, 0, 0, .28); }
+body[data-theme="carnival"] .brand::after { content: " · Karneval"; color: #65e5d1; font-size: .62em; letter-spacing: .07em; }
+body[data-theme="carnival"] .panel { background: rgba(49, 15, 82, .8); border-color: rgba(101, 229, 209, .48); box-shadow: 0 12px 32px rgba(16, 3, 31, .5); }
+body[data-theme="carnival"] .category { background: linear-gradient(135deg, #d63e8c, #7a36aa); border-color: #65e5d1; color: #fff; text-shadow: 1px 2px 0 rgba(0, 0, 0, .3); }
+body[data-theme="carnival"] .tile { background: #562285; border-color: #65e5d1; color: var(--accent); }
+body[data-theme="carnival"] .tile:hover { background: #7130a8; }
+body[data-theme="carnival"] .tile.used { background: #28103f; border-color: rgba(101, 229, 209, .28); }
+body[data-theme="carnival"] .team-score { background: rgba(45, 14, 75, .8); border-color: rgba(101, 229, 209, .28); backdrop-filter: blur(4px) saturate(.72); -webkit-backdrop-filter: blur(4px) saturate(.72); }
+body[data-theme="carnival"] .team-score:hover { background: rgba(62, 19, 101, .8); }
+body[data-theme="carnival"] .team-score.active { border-color: var(--accent); background: rgba(82, 25, 118, .8); }
+body[data-theme="carnival"] dialog { background: #351459; border: 2px solid #65e5d1; }
+body[data-theme="carnival"] .btn.secondary { background: #dcfff9; }
+body[data-theme="carnival"] .mode-card input:checked + span { background: rgba(214, 62, 140, .3); }
+body[data-theme="carnival"] .footer { color: #eee3ff; }

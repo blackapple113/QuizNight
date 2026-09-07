@@ -1,0 +1,43 @@
+body[data-theme="oktoberfest"] {
+  --bg: #064c80;
+  --panel: #064f84;
+  --panel-2: #0b6ea9;
+  --accent: #f6c64f;
+  --muted: #eaf5fb;
+  --danger: #ff9c8f;
+  --success: #8ee2ae;
+  --page-bg: linear-gradient(180deg, #0b70ad 0%, #064c80 68%, #04365d 100%);
+  --theme-image: url("background.jpg");
+  --custom-overlay-top: rgba(2, 40, 68, .3);
+  --custom-overlay-bottom: rgba(2, 33, 58, .86);
+}
+
+body[data-theme="oktoberfest"],
+body[data-theme="oktoberfest"] .tiebreaker-overlay {
+  background-color: #f7f2df;
+  background-image:
+    linear-gradient(180deg, rgba(2, 40, 68, .2) 0%, rgba(2, 40, 68, .4) 55%, rgba(2, 33, 58, .74) 100%),
+    var(--theme-image),
+    linear-gradient(135deg, #138fc7 25%, transparent 25%),
+    linear-gradient(225deg, #138fc7 25%, transparent 25%),
+    linear-gradient(45deg, #138fc7 25%, transparent 25%),
+    linear-gradient(315deg, #138fc7 25%, #f7f2df 25%);
+  background-repeat: no-repeat, no-repeat, repeat, repeat, repeat, repeat;
+  background-position: center, center, 60px 0, 60px 0, 0 0, 0 0;
+  background-size: cover, cover, 120px 200px, 120px 200px, 120px 200px, 120px 200px;
+}
+
+body[data-theme="oktoberfest"] .brand::before { content: "◆"; color: #fff; margin-right: .45em; text-shadow: 0 2px 0 rgba(0, 0, 0, .2); }
+body[data-theme="oktoberfest"] .brand::after { content: " · Oktoberfest"; color: var(--accent); font-size: .62em; letter-spacing: .08em; }
+body[data-theme="oktoberfest"] .panel { background: rgba(4, 54, 91, .8); border-color: rgba(246, 198, 79, .5); box-shadow: 0 12px 32px rgba(1, 28, 48, .42); }
+body[data-theme="oktoberfest"] .category { background: #f7f2df; border-color: #fff; color: #064b7d; text-shadow: none; }
+body[data-theme="oktoberfest"] .tile { background: #0b6faa; border-color: #f7f2df; color: var(--accent); }
+body[data-theme="oktoberfest"] .tile:hover { background: #1283c4; }
+body[data-theme="oktoberfest"] .tile.used { background: #043b64; border-color: rgba(247, 242, 223, .35); }
+body[data-theme="oktoberfest"] .team-score { background: rgba(3, 43, 73, .8); border-color: rgba(247, 242, 223, .35); backdrop-filter: blur(4px) saturate(.65); -webkit-backdrop-filter: blur(4px) saturate(.65); }
+body[data-theme="oktoberfest"] .team-score:hover { background: rgba(3, 55, 92, .8); }
+body[data-theme="oktoberfest"] .team-score.active { border-color: var(--accent); background: rgba(4, 61, 101, .8); }
+body[data-theme="oktoberfest"] dialog { background: #064c80; border: 2px solid var(--accent); }
+body[data-theme="oktoberfest"] .btn.secondary { background: #f7f2df; }
+body[data-theme="oktoberfest"] .mode-card input:checked + span { background: rgba(246, 198, 79, .2); }
+body[data-theme="oktoberfest"] .footer { color: #f7f2df; text-shadow: 0 1px 2px rgba(0, 0, 0, .5); }

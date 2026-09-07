@@ -1,0 +1,281 @@
+body[data-theme="nerd"] {
+  --bg: #071019;
+  --panel: #0b1724;
+  --panel-2: #102638;
+
+  --accent: #5eead4;
+  --muted: #c4d4df;
+
+  --danger: #ff7b8b;
+  --success: #74e39a;
+
+  --page-bg: #071019;
+  --theme-image: none;
+
+  --custom-overlay-top: rgba(2, 10, 17, .18);
+  --custom-overlay-bottom: rgba(2, 8, 14, .72);
+}
+
+body[data-theme="nerd"],
+body[data-theme="nerd"] .tiebreaker-overlay {
+  background-color: #071019;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(94, 234, 212, .10), transparent 28%),
+    radial-gradient(circle at 82% 12%, rgba(139, 92, 246, .10), transparent 30%),
+    linear-gradient(rgba(94, 234, 212, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, .035) 1px, transparent 1px),
+    linear-gradient(180deg, #0a1824 0%, #071019 58%, #04090e 100%);
+  background-size:
+    auto,
+    auto,
+    32px 32px,
+    32px 32px,
+    cover;
+  background-position:
+    center,
+    center,
+    center,
+    center,
+    center;
+}
+
+body[data-theme="nerd"] .brand {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  letter-spacing: .03em;
+}
+
+body[data-theme="nerd"] .brand::before {
+  content: ">_";
+  color: var(--accent);
+  margin-right: .45em;
+  text-shadow: 0 0 12px rgba(94, 234, 212, .55);
+}
+
+body[data-theme="nerd"] .brand::after {
+  content: " · Nerd Quiz";
+  color: #a78bfa;
+  font-size: .62em;
+  letter-spacing: .08em;
+}
+
+body[data-theme="nerd"] .panel {
+  background:
+    linear-gradient(180deg, rgba(15, 31, 46, .88), rgba(7, 18, 28, .88));
+  border-color: rgba(94, 234, 212, .28);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, .46),
+    inset 0 1px 0 rgba(255, 255, 255, .025);
+}
+
+body[data-theme="nerd"] .category {
+  background:
+    linear-gradient(180deg, #0f2636, #0b1d2a);
+  border-color: rgba(94, 234, 212, .75);
+  color: #dffdf8;
+  text-shadow:
+    0 0 10px rgba(94, 234, 212, .18);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+body[data-theme="nerd"] .tile {
+  background:
+    linear-gradient(180deg, #102c3e, #0b2030);
+  border-color: rgba(94, 234, 212, .58);
+  color: var(--accent);
+  text-shadow:
+    0 0 14px rgba(94, 234, 212, .28),
+    2px 3px 0 rgba(0, 0, 0, .42);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+body[data-theme="nerd"] .tile:hover {
+  background:
+    linear-gradient(180deg, #17425b, #0e2c40);
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, .18),
+    0 0 22px rgba(94, 234, 212, .10);
+}
+
+body[data-theme="nerd"] .tile.used {
+  background: #08131d;
+  border-color: rgba(148, 163, 184, .20);
+  box-shadow: none;
+}
+
+body[data-theme="nerd"] .team-score {
+  background:
+    linear-gradient(180deg, rgba(12, 31, 45, .88), rgba(7, 20, 30, .88));
+  border-color: rgba(94, 234, 212, .20);
+  backdrop-filter: blur(4px) saturate(.75);
+  -webkit-backdrop-filter: blur(4px) saturate(.75);
+}
+
+body[data-theme="nerd"] .team-score:hover {
+  background:
+    linear-gradient(180deg, rgba(17, 44, 61, .9), rgba(9, 27, 39, .9));
+}
+
+body[data-theme="nerd"] .team-score.active {
+  border-color: var(--accent);
+  background:
+    linear-gradient(180deg, rgba(19, 53, 70, .92), rgba(9, 31, 43, .92));
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, .12),
+    0 0 18px rgba(94, 234, 212, .08);
+}
+
+body[data-theme="nerd"] .team-score .score {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(94, 234, 212, .28);
+}
+
+body[data-theme="nerd"] .pill {
+  background: rgba(94, 234, 212, .07);
+  border-color: rgba(94, 234, 212, .25);
+  color: #d9fbf5;
+}
+
+body[data-theme="nerd"] .question-text {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .34);
+}
+
+body[data-theme="nerd"] .answer-box {
+  background: rgba(94, 234, 212, .08);
+  border-color: rgba(94, 234, 212, .28);
+}
+
+body[data-theme="nerd"] .choice {
+  background: rgba(16, 38, 54, .86);
+  border-color: rgba(94, 234, 212, .22);
+}
+
+body[data-theme="nerd"] .choice:hover:not(:disabled) {
+  background: rgba(22, 55, 76, .94);
+  border-color: rgba(94, 234, 212, .48);
+}
+
+body[data-theme="nerd"] .choice.correct {
+  background: rgba(116, 227, 154, .22);
+  border-color: var(--success);
+}
+
+body[data-theme="nerd"] .choice.wrong {
+  background: rgba(255, 123, 139, .20);
+  border-color: var(--danger);
+}
+
+body[data-theme="nerd"] .btn.accent {
+  background: var(--accent);
+  color: #06201d;
+  box-shadow: 0 0 18px rgba(94, 234, 212, .18);
+}
+
+body[data-theme="nerd"] .btn.secondary {
+  background: #d8f5f0;
+  color: #09222c;
+}
+
+body[data-theme="nerd"] .btn.ghost {
+  background: rgba(94, 234, 212, .07);
+  border-color: rgba(94, 234, 212, .22);
+  color: #eafffb;
+}
+
+body[data-theme="nerd"] .btn.ghost:hover {
+  background: rgba(94, 234, 212, .12);
+}
+
+body[data-theme="nerd"] .mode-card span {
+  background: rgba(12, 31, 45, .72);
+  border-color: rgba(94, 234, 212, .08);
+}
+
+body[data-theme="nerd"] .mode-card input:checked + span {
+  background: rgba(94, 234, 212, .12);
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(94, 234, 212, .08);
+}
+
+body[data-theme="nerd"] .field input,
+body[data-theme="nerd"] .field select,
+body[data-theme="nerd"] .team-row input,
+body[data-theme="nerd"] .tb-guess input {
+  background: #eaf8f6;
+  color: #09222c;
+  border-color: rgba(94, 234, 212, .38);
+}
+
+body[data-theme="nerd"] dialog {
+  background: #091722;
+  border: 2px solid rgba(94, 234, 212, .65);
+  box-shadow:
+    0 24px 90px rgba(0, 0, 0, .58),
+    0 0 28px rgba(94, 234, 212, .08);
+}
+
+body[data-theme="nerd"] .rank {
+  background: rgba(14, 35, 50, .78);
+  border: 1px solid rgba(94, 234, 212, .10);
+}
+
+body[data-theme="nerd"] .rank .place {
+  color: var(--accent);
+}
+
+body[data-theme="nerd"] .tiebreaker-card {
+  background: rgba(167, 139, 250, .10);
+  border-color: rgba(167, 139, 250, .38);
+}
+
+body[data-theme="nerd"] .tb-result {
+  background: rgba(14, 35, 50, .78);
+}
+
+body[data-theme="nerd"] .tb-result.closest {
+  border-color: var(--accent);
+  background: rgba(94, 234, 212, .12);
+}
+
+body[data-theme="nerd"] .help-info,
+body[data-theme="nerd"] .turnline strong {
+  color: var(--accent);
+}
+
+body[data-theme="nerd"] .status {
+  background: rgba(94, 234, 212, .07);
+  border: 1px solid rgba(94, 234, 212, .16);
+}
+
+body[data-theme="nerd"] .footer {
+  color: #b7cbd5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+}
+
+/* Subtiles Retro-Terminal-Detail */
+body[data-theme="nerd"] .category::before {
+  content: "[ ";
+  color: #a78bfa;
+}
+
+body[data-theme="nerd"] .category::after {
+  content: " ]";
+  color: #a78bfa;
+}
+
+/* Mobile: etwas weniger visuelles Rauschen */
+@media (max-width: 760px) {
+  body[data-theme="nerd"],
+  body[data-theme="nerd"] .tiebreaker-overlay {
+    background-size:
+      auto,
+      auto,
+      48px 48px,
+      48px 48px,
+      cover;
+  }
+
+  body[data-theme="nerd"] .brand::after {
+    font-size: .52em;
+  }
+}

@@ -5,7 +5,7 @@ Ein kleines browserbasiertes Quizspiel für **Spieleabende, Partys und gemütlic
 Keine Installation, kein Account, kein Server: Ordner herunterladen, `index.html` doppelklicken und losspielen.  
 Die Fragen werden zufällig aus verschiedenen Kategorien und Schwierigkeitsstufen zusammengestellt – dadurch sieht nicht jede Runde gleich aus.
 
-> **Einfach ausprobieren:** Eine Online-Demo kann z. B. über [raw.githack](https://raw.githack.com/) bereitgestellt werden.  
+> **Einfach ausprobieren:** Eine Online-Demo kann z. B. über [raw.githack](https://raw.githack.com/blackapple113/quizz/main/index.html) bereitgestellt werden.  
 > Den fertigen Demo-Link kannst du hier später direkt verlinken.
 
 ---

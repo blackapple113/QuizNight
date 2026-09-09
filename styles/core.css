@@ -61,17 +61,22 @@
   .setup-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
   .note{color:var(--muted);font-size:.9rem;line-height:1.45; padding-top:15px}
   .scorebar{display:flex;gap:10px;overflow-x:auto;padding-bottom:2px}
-  .team-score{min-width:150px;flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name score" "hint hint";align-items:center;gap:2px 10px;background:rgba(4,16,54,.8);border:2px solid rgba(255,255,255,.12);border-radius:14px;padding:10px 12px;transition:.15s;backdrop-filter:blur(4px) saturate(.75);-webkit-backdrop-filter:blur(4px) saturate(.75);box-shadow:0 5px 16px rgba(0,0,0,.2)}
-  button.team-score{color:#fff;text-align:left;cursor:pointer}
-  button.team-score:hover{background:rgba(8,31,92,.8)}
+  .team-score{min-width:150px;flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"main challenge";align-items:stretch;background:rgba(4,16,54,.8);border:2px solid rgba(255,255,255,.12);border-radius:14px;transition:.15s;backdrop-filter:blur(4px) saturate(.75);-webkit-backdrop-filter:blur(4px) saturate(.75);box-shadow:0 5px 16px rgba(0,0,0,.2)}
+  .team-score-main{grid-area:main;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name score" "hint hint";align-items:center;gap:2px 10px;min-width:0;padding:10px 12px;background:transparent;border:0;color:#fff;text-align:left;cursor:pointer}
+  .team-score-main:hover{background:rgba(8,31,92,.8)}
   .team-score.active{border-color:var(--accent);background:rgba(8,31,92,.8)}
+  .team-score.challenge-active{border-color:var(--danger);box-shadow:0 0 0 2px rgba(255,112,104,.26),0 5px 16px rgba(0,0,0,.2)}
   .team-score .name{grid-area:name;display:block;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .team-score .score{grid-area:score;display:block;font-size:1.55rem;font-weight:950;color:var(--accent);text-shadow:0 2px 3px rgba(0,0,0,.55)}
   .team-score .score-hint{grid-area:hint;display:block;margin-top:3px;color:var(--muted);font-size:.7rem;font-weight:700}
+  .challenge-btn{grid-area:challenge;align-self:center;margin:8px 8px 8px 0;padding:7px 9px;border-radius:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,213,74,.18);color:var(--accent);font-size:.75rem;font-weight:900;white-space:nowrap}
+  .challenge-btn:not(:disabled):hover{background:rgba(255,213,74,.3)}
+  .challenge-btn:disabled{cursor:not-allowed;opacity:.48}
   .turnline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}
   .turnline strong{color:var(--accent)}
-  .double-or-nothing{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .double-or-nothing small{color:var(--muted);font-size:.78rem;font-weight:700;max-width:270px}
+  .challenge-options{display:grid;grid-template-columns:minmax(150px,1fr) minmax(190px,1fr);gap:12px;align-items:end;padding-top:10px}
+  .challenge-options.disabled{opacity:.5}
+  .challenge-hint{padding-top:0;margin:8px 0 0}
   .board-wrap{overflow:auto;border-radius:0}
   .board{display:grid;grid-template-columns:repeat(var(--category-count,5),minmax(150px,1fr));gap:8px;min-width:var(--board-min-width,790px)}
   .category{background:#08246c;border:2px solid #d8e2ff;color:#fff;min-height:84px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:clamp(.95rem,1.6vw,1.35rem);font-weight:950;text-transform:uppercase;letter-spacing:.02em;text-shadow:1px 2px 0 rgba(0,0,0,.35)}
@@ -150,6 +155,7 @@
     .question-shell{gap:16px}
     .choices{grid-template-columns:1fr}
     .score-adjust{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .challenge-options{grid-template-columns:1fr}
     .tb-guess{grid-template-columns:1fr}
     .btn{padding:10px 12px}
   }

@@ -45,10 +45,6 @@
         <div class="turnline">
           <div>Am Zug: <strong id="turnName"></strong></div>
           <div id="progressText"></div>
-          <div class="double-or-nothing" aria-live="polite">
-            <button type="button" class="btn secondary" id="doubleOrNothingBtn">⚡ Double or Nothing aktivieren</button>
-            <small id="doubleOrNothingStatus"></small>
-          </div>
           <div class="field starting-team hidden" id="startingTeamField">
             <label for="startingTeam">Startendes Team</label>
             <select id="startingTeam" aria-describedby="startingTeamHint"></select>
@@ -157,6 +153,23 @@
             <option value="0.25">25 %</option>
             <option value="0">0 %</option>
           </select>
+        </div>
+        <div class="field option-field">
+          <label class="timer-toggle" for="challengeEnabled"><input id="challengeEnabled" type="checkbox"> Challenge aktivieren</label>
+          <div class="challenge-options" id="challengeOptions">
+            <div class="field">
+              <label for="challengeMultiplier">Multiplikator</label>
+              <select id="challengeMultiplier">
+                <option value="1.25">1,25×</option>
+                <option value="1.5">1,5×</option>
+                <option value="2">2,0×</option>
+                <option value="2.5">2,5×</option>
+                <option value="3">3,0×</option>
+              </select>
+            </div>
+            <label class="timer-toggle" for="allowNegativeScores"><input id="allowNegativeScores" type="checkbox"> Negative Punktestände erlauben</label>
+          </div>
+          <p class="note challenge-hint">Jedes Team darf die Challenge einmal pro Runde vor der Fragenwahl einsetzen.</p>
         </div>
         <div class="field option-field">
           <label for="poolSelect">Fragenpool</label>

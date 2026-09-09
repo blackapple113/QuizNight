@@ -36,6 +36,7 @@
   .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .brand{font-weight:900;letter-spacing:.04em;font-size:clamp(1.25rem,3vw,2rem);text-transform:uppercase}
   .top-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .top-actions #rulesBtn{width:42px;padding-left:0;padding-right:0;font-size:1.15rem}
   .btn{border:0;border-radius:12px;padding:11px 14px;background:#fff;color:#0b1d53;font-weight:800;box-shadow:0 4px 12px rgba(0,0,0,.16)}
   .btn:hover{filter:brightness(.97)}
   .btn.secondary{background:#dce6ff}
@@ -65,6 +66,7 @@
   .toggle-settings{padding:12px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(255,255,255,.06)}
   .toggle-row{display:flex;align-items:center;justify-content:space-between;gap:16px;color:#e8eeff;font-weight:800}
   .toggle-row input{width:20px;height:20px;flex:0 0 auto;margin:0;accent-color:var(--accent)}
+  .toggle-row.compact{justify-content:flex-end;gap:8px;text-align:right}
   .timer-duration{display:flex;align-items:center;gap:10px;margin-top:12px}
   .timer-duration input{min-width:0;width:100%;padding:12px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#f7f9ff;color:#10225e;outline:none}
   :is(.field input,.timer-duration input):disabled{opacity:.5}
@@ -162,10 +164,15 @@
   .tb-result{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08)}
   .tb-result.closest{border:1px solid var(--success);background:rgba(126,226,168,.14)}
   dialog{border:0;border-radius:18px;width:min(760px,calc(100% - 28px));padding:0;background:#071a52;color:#fff;box-shadow:0 20px 80px rgba(0,0,0,.5)}
-  #settingsDialog{max-height:calc(100dvh - 28px);overflow:auto}
+  #settingsDialog,#rulesDialog{max-height:calc(100dvh - 28px);overflow:auto}
   dialog::backdrop{background:rgba(0,0,0,.65)}
   .dialog-body{padding:20px}
   .dialog-actions{display:flex;gap:9px;justify-content:flex-end;flex-wrap:wrap;margin-top:16px}
+  .rules-summary{padding-top:0;margin-bottom:16px}
+  .rules-list{display:grid;gap:10px}
+  .rules-list section{padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06)}
+  .rules-list h3{margin:0 0 4px;font-size:1rem}
+  .rules-list p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.45}
   textarea{width:100%;min-height:260px;padding:12px;border-radius:12px;border:1px solid #ccd6f6;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.85rem}
   .hidden{display:none!important}
   .status{padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08);color:var(--muted);margin: 20px 0}

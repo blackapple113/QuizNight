@@ -58,6 +58,14 @@ function saveBoardSettings() {if (settingsLocked()) return; const settings = nor
 function settingsLocked() {return !$('#setupScreen').classList.contains('active');}
 function setupNotice(message = '') {$('#setupNotice').textContent = message; $('#setupNotice').classList.toggle('hidden', !message);}
 function openSettings() {if (settingsLocked()) return; $('#themeSelect').value = document.body.dataset.theme; $('#settingsDialog').showModal();}
+function openRules() {
+  const rules = game || {mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), allowNegativeScores: $('#allowNegativeScores').checked};
+  const mode = rules.mode === 'mc' ? 'Multiple Choice' : `offene Fragen${rules.mcMultiplier < 1 ? ` mit ${Math.round(rules.mcMultiplier * 100)} % bei MC-Hilfe` : ''}`;
+  const timer = rules.timerSeconds > 0 ? `Timer: ${rules.timerSeconds} Sekunden.` : 'Timer: aus.';
+  const challenge = rules.challengeEnabled ? `Challenge: ${String(rules.challengeMultiplier).replace('.', ',')}×, negative Punkte ${rules.allowNegativeScores ? 'erlaubt' : 'nicht erlaubt'}.` : 'Challenge: aus.';
+  $('#rulesSummary').textContent = `Aktuelle Regeln: ${mode} · ${timer} · ${challenge}`;
+  $('#rulesDialog').showModal();
+}
 function applyTheme(theme) {
   if (![...$('#themeSelect').options].some(option => option.value === theme)) return;
   document.body.dataset.theme = theme;
@@ -380,6 +388,7 @@ $$('[data-score-delta]').forEach(btn => btn.onclick = () => adjustScore(Number(b
 $('#cancelScoreBtn').onclick = () => $('#scoreDialog').close(); $('#saveScoreBtn').onclick = saveScoreCorrection;
 $('#scoreInput').onkeydown = e => {if (e.key === 'Enter') saveScoreCorrection();};
 $('#settingsBtn').onclick = openSettings;
+$('#rulesBtn').onclick = openRules; $('#closeRulesBtn').onclick = () => $('#rulesDialog').close();
 function closeSettings() {
   if ($('#timerEnabled').checked && !$('#timerSeconds').reportValidity()) return;
   saveBoardSettings(); saveTimerSettings(); saveRules(); $('#settingsDialog').close();

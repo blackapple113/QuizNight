@@ -19,6 +19,7 @@
     <div class="topbar">
       <div class="brand">Quizz</div>
       <div class="top-actions">
+        <button class="btn ghost" id="rulesBtn" aria-label="Spielregeln anzeigen" title="Spielregeln">?</button>
         <button class="btn ghost" id="settingsBtn">⚙ Einstellungen</button>
         <button class="btn ghost hidden" id="resetBtn">Neues Spiel</button>
       </div>
@@ -177,23 +178,21 @@
             <label class="mode-card"><input type="radio" name="mode" value="open"><span>Offene Fragen<small>MC-Hilfe kann später eingeblendet werden</small></span></label>
             <label class="mode-card"><input type="radio" name="mode" value="mc"><span>Multiple Choice<small>Antwortmöglichkeiten sind sofort sichtbar</small></span></label>
           </div>
-          <div class="settings-grid option-field">
-            <div class="field" id="mcPenaltyField">
-              <label for="mcPenalty">Punkte bei MC-Hilfe</label>
-              <select id="mcPenalty">
-                <option value="1">100 %</option>
-                <option value="0.75">75 %</option>
-                <option value="0.5">50 %</option>
-                <option value="0.25">25 %</option>
-                <option value="0">0 %</option>
-              </select>
-            </div>
-            <div class="toggle-settings timer-setting">
-              <label class="toggle-row" for="timerEnabled"><span>Antwort-Timer</span><input id="timerEnabled" type="checkbox"></label>
-              <div class="timer-duration"><input id="timerSeconds" type="number" min="5" max="600" step="1" required disabled aria-label="Antwortzeit in Sekunden" aria-describedby="timerHint"><span>Sekunden</span></div>
-            </div>
+          <div class="field option-field" id="mcPenaltyField">
+            <label for="mcPenalty">Punkte bei MC-Hilfe</label>
+            <select id="mcPenalty">
+              <option value="1">100 %</option>
+              <option value="0.75">75 %</option>
+              <option value="0.5">50 %</option>
+              <option value="0.25">25 %</option>
+              <option value="0">0 %</option>
+            </select>
           </div>
-          <p class="setting-hint" id="timerHint">Optional: 5–600 Sekunden je Frage. Bei Zeitablauf entscheidet die Spielleitung über die Wertung.</p>
+          <div class="toggle-settings timer-setting option-field">
+            <label class="toggle-row" for="timerEnabled"><span>Antwort-Timer</span><input id="timerEnabled" type="checkbox"></label>
+            <div class="timer-duration"><input id="timerSeconds" type="number" min="5" max="600" step="1" required disabled aria-label="Antwortzeit in Sekunden" aria-describedby="timerHint"><span>Sekunden</span></div>
+            <p class="setting-hint" id="timerHint">Optional: 5–600 Sekunden je Frage. Bei Zeitablauf entscheidet die Spielleitung über die Wertung.</p>
+          </div>
         </section>
 
         <section class="settings-group" aria-labelledby="challengeSettingsTitle">
@@ -214,10 +213,10 @@
                   <option value="3">3,0×</option>
                 </select>
               </div>
-              <label class="toggle-row" for="allowNegativeScores"><span>Negative Punktestände erlauben</span><input id="allowNegativeScores" type="checkbox"></label>
+              <label class="toggle-row compact" for="allowNegativeScores"><span>Negative Punktestände erlauben</span><input id="allowNegativeScores" type="checkbox"></label>
             </div>
+            <p class="setting-hint">Ohne negative Punktestände endet ein verlorener Einsatz bei 0 Punkten.</p>
           </div>
-          <p class="setting-hint">Ohne negative Punktestände endet ein verlorener Einsatz bei 0 Punkten.</p>
         </section>
 
         <section class="settings-group" aria-labelledby="appearanceSettingsTitle">
@@ -240,6 +239,21 @@
       <div class="dialog-actions">
         <button class="btn accent" id="closeSettingsBtn">Fertig</button>
       </div>
+    </div>
+  </dialog>
+
+  <dialog id="rulesDialog">
+    <div class="dialog-body">
+      <h2>Spielregeln</h2>
+      <p class="note rules-summary" id="rulesSummary"></p>
+      <div class="rules-list">
+        <section><h3>Spielzug</h3><p>Das aktive Team wählt ein Feld auf dem Board und beantwortet die Frage. Nach der Wertung ist das nächste Team am Zug.</p></section>
+        <section><h3>Punkte</h3><p>Bei einer richtigen Antwort erhält das aktive Team den Wert des Feldes. Falsche Antworten bringen ohne Challenge keine Punkte.</p></section>
+        <section><h3>Antworten &amp; Zeit</h3><p>Offene Fragen können mit MC-Hilfe ergänzt werden. Im Multiple-Choice-Modus sind die Antworten sofort sichtbar. Ein optionaler Timer dient der Spielleitung als Orientierung.</p></section>
+        <section><h3>Challenge</h3><p>Jedes Team kann die Challenge einmal pro Runde vor der Fragenwahl aktivieren. Die richtige Antwort wird multipliziert, eine falsche Antwort zieht denselben Einsatz ab.</p></section>
+        <section><h3>Ende der Runde</h3><p>Nach allen Fragen gewinnt das Team mit den meisten Punkten. Bei Gleichstand entscheidet eine Schätzfrage als Tie-Breaker.</p></section>
+      </div>
+      <div class="dialog-actions"><button class="btn accent" id="closeRulesBtn">Verstanden</button></div>
     </div>
   </dialog>
 

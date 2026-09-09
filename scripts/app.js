@@ -19,6 +19,8 @@ let game = null;
 let currentQuestion = null;
 let scoreEditTeam = null;
 let scoreEditReturn = 'board';
+let startingTeamTimers = [];
+let startingTeamRun = 0;
 
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
@@ -83,10 +85,11 @@ function saveTimerSettings() {
   if (!$('#timerSeconds').checkValidity()) return;
   storage.setItem(LS_TIMER, JSON.stringify({enabled: $('#timerEnabled').checked, seconds: Number($('#timerSeconds').value)}));
 }
+function startingTeamSettings() {return {enabled: $('#startingTeamSelectionEnabled').checked, mode: $('#startingTeamMode').value === 'random' ? 'random' : 'manual'};}
 function saveRules() {
   if (settingsLocked()) return;
-  storage.setItem(LS_RULES, JSON.stringify({mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), allowNegativeScores: $('#allowNegativeScores').checked}));
-  updateModeOptions(); updateChallengeOptions();
+  storage.setItem(LS_RULES, JSON.stringify({mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), allowNegativeScores: $('#allowNegativeScores').checked, startingTeamSelectionEnabled: $('#startingTeamSelectionEnabled').checked, startingTeamMode: $('#startingTeamMode').value}));
+  updateModeOptions(); updateChallengeOptions(); updateStartingTeamOptions();
 }
 function updateModeOptions() {$('#mcPenaltyField').classList.toggle('hidden', selectedMode() !== 'open');}
 function updateChallengeOptions() {
@@ -94,6 +97,11 @@ function updateChallengeOptions() {
   $('#challengeMultiplier').disabled = !enabled;
   $('#allowNegativeScores').disabled = !enabled;
   $('#challengeOptions').classList.toggle('disabled', !enabled);
+}
+function updateStartingTeamOptions() {
+  const enabled = $('#startingTeamSelectionEnabled').checked;
+  $('#startingTeamMode').disabled = !enabled;
+  $('#startingTeamOptions').classList.toggle('disabled', !enabled);
 }
 // Persist the deadline across reloads. Returning to the board resets unanswered questions.
 function timerRemaining(question) {
@@ -171,22 +179,58 @@ function startGame() {
   if ($('#timerEnabled').checked && !$('#timerSeconds').checkValidity()) {openSettings(); $('#timerSeconds').reportValidity(); return;}
   saveBoardSettings(); saveTimerSettings();
   const names = getTeamNames(); if (names.length < 2) {alert('Bitte mindestens zwei Teams eintragen.'); return;} if (names.length > 5) {alert('Es sind maximal fünf Teams möglich.'); return;}
-  try {const b = buildBoard(data, loadBoardSettings()); game = {version: 3, theme: document.body.dataset.theme, firstQuestionOpened: false, timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, poolId: activePoolId, tiebreakers: clone(data.tiebreakers), mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), allowNegativeScores: $('#allowNegativeScores').checked, teams: names.map(n => ({name: n, score: 0, doubleOrNothingUsed: false})), activeTeam: 0, categories: b.categories, points: b.points, cells: b.cells, answered: 0, startedAt: Date.now()}; saveGame(); renderBoard(); showScreen('boardScreen');} catch (e) {alert('Spiel kann nicht gestartet werden: ' + e.message);}
+  try {const b = buildBoard(data, loadBoardSettings()), startSettings = startingTeamSettings(); game = {version: 4, theme: document.body.dataset.theme, firstQuestionOpened: false, timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, poolId: activePoolId, tiebreakers: clone(data.tiebreakers), mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), allowNegativeScores: $('#allowNegativeScores').checked, startingTeamPending: startSettings.enabled, startingTeamMode: startSettings.mode, teams: names.map(n => ({name: n, score: 0, doubleOrNothingUsed: false})), activeTeam: 0, categories: b.categories, points: b.points, cells: b.cells, answered: 0, startedAt: Date.now()}; saveGame(); renderBoard(); showScreen('boardScreen'); if (game.startingTeamPending) openStartingTeamDialog();} catch (e) {alert('Spiel kann nicht gestartet werden: ' + e.message);}
 }
 function hasPendingDoubleOrNothing() {return hasPendingChallenge(game);}
-function canChooseStartingTeam() {return game && !hasPendingDoubleOrNothing() && !game.firstQuestionOpened && game.answered === 0 && !game.currentQuestionId && !game.cells.some(c => c._timer || c._helpUsed || c._revealed || c._choiceSelected);}
-function changeStartingTeam() {
-  if (!canChooseStartingTeam()) return;
-  const index = Number($('#startingTeam').value);
-  if (!Number.isInteger(index) || !game.teams[index]) return;
-  game.activeTeam = index; saveGame(); renderScores();
+function clearStartingTeamAnimation() {startingTeamRun++; startingTeamTimers.forEach(clearTimeout); startingTeamTimers = [];}
+function chooseStartingTeam(index) {
+  if (!game?.startingTeamPending || !Number.isInteger(index) || !game.teams[index]) return;
+  clearStartingTeamAnimation(); game.activeTeam = index; game.startingTeamPending = false; saveGame(); renderBoard(); $('#startingTeamDialog').close();
+}
+function renderRandomTeamCards() {$('#randomTeamCards').innerHTML = game.teams.map((team, index) => `<div class="random-team-card" data-random-team="${index}">${esc(team.name)}</div>`).join('');}
+function highlightRandomTeam(index, selected = false) {
+  $$('#randomTeamCards .random-team-card').forEach(card => card.classList.remove('is-flashing', 'is-selected'));
+  const card = $(`#randomTeamCards [data-random-team="${index}"]`);
+  if (card) card.classList.add(selected ? 'is-selected' : 'is-flashing');
+}
+function startRandomTeamSelection() {
+  clearStartingTeamAnimation();
+  const run = startingTeamRun;
+  const teamCount = game?.teams.length || 0;
+  if (!teamCount) return;
+  const finalIndex = Math.floor(Math.random() * teamCount);
+  const steps = Math.max(20, teamCount * 7);
+  const weights = Array.from({length: steps}, (_, index) => 1 + 9 * Math.pow(index / (steps - 1), 3));
+  const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+  const startIndex = (finalIndex - (steps - 1) % teamCount + teamCount) % teamCount;
+  let elapsed = 0;
+  $('#randomTeamStatus').textContent = 'Die Auslosung läuft …';
+  weights.forEach((weight, step) => {
+    startingTeamTimers.push(setTimeout(() => {if (run === startingTeamRun) highlightRandomTeam((startIndex + step) % teamCount);}, elapsed));
+    elapsed += Math.round(weight / totalWeight * 5000);
+  });
+  startingTeamTimers.push(setTimeout(() => {
+    if (run !== startingTeamRun) return;
+    highlightRandomTeam(finalIndex, true);
+    $('#randomTeamStatus').textContent = `${game.teams[finalIndex].name} beginnt!`;
+    startingTeamTimers.push(setTimeout(() => {if (run === startingTeamRun) chooseStartingTeam(finalIndex);}, 750));
+  }, elapsed));
+}
+function openStartingTeamDialog() {
+  if (!game?.startingTeamPending) return;
+  clearStartingTeamAnimation();
+  const random = game.startingTeamMode === 'random';
+  $('#startingTeamDialogIntro').textContent = random ? 'Das Startteam wird ausgelost.' : 'Wählt das Team für den ersten Spielzug.';
+  $('#manualStartingTeamSelection').classList.toggle('hidden', random);
+  $('#randomStartingTeamSelection').classList.toggle('hidden', !random);
+  $('#startingTeamDialogActions').classList.toggle('hidden', random);
+  $('#startingTeamSelect').innerHTML = game.teams.map((team, index) => `<option value="${index}">${esc(team.name)}</option>`).join('');
+  $('#startingTeamSelect').value = game.activeTeam;
+  if (random) {renderRandomTeamCards(); $('#randomTeamStatus').textContent = '';}
+  if (!$('#startingTeamDialog').open) $('#startingTeamDialog').showModal();
+  if (random) requestAnimationFrame(startRandomTeamSelection); else $('#startingTeamSelect').focus();
 }
 function renderScores() {
-  const canChoose = canChooseStartingTeam();
-  $('#startingTeamField').classList.toggle('hidden', !canChoose);
-  $('#startingTeam').disabled = !canChoose;
-  $('#startingTeam').innerHTML = game.teams.map((team, index) => `<option value="${index}">${esc(team.name)}</option>`).join('');
-  $('#startingTeam').value = game.activeTeam;
   const challengeEnabled = !!game.challengeEnabled;
   $('#scorebar').innerHTML = game.teams.map((t, i) => {
     const active = i === game.activeTeam;
@@ -243,6 +287,7 @@ function renderBoard() {
   }));
 }
 function openQuestion(id) {
+  if (game?.startingTeamPending) return;
   currentQuestion = game.cells.find(c => c.id === id && !c.used); if (!currentQuestion) return;
   game.firstQuestionOpened = true;
   game.currentQuestionId = id;
@@ -376,8 +421,8 @@ function evaluateTiebreaker(q, tied) {
   if (closest.length === 1) {const winner = closest[0]; $('#winnerText').textContent = `${winner.name} gewinnt den Tie-Breaker!`; evaluation.insertAdjacentHTML('beforeend', `<h2 style="margin-top:18px">🏆 ${esc(winner.name)} gewinnt!</h2><p>Dieses Team liegt am nächsten an der richtigen Antwort.</p><div class="setup-actions"><button class="btn accent" id="tbNewGameBtn">Neue Runde</button></div>`); $('#tbNewGameBtn').onclick = resetToSetup; storage.removeItem(LS_GAME);}
   else {evaluation.insertAdjacentHTML('beforeend', `<p class="status" style="margin-top:16px">${closest.map(t => esc(t.name)).join(' und ')} haben die gleiche Abweichung. Eine weitere Schätzfrage entscheidet.</p><div class="setup-actions"><button class="btn accent" id="nextTbBtn">Weitere Schätzfrage</button></div>`); $('#nextTbBtn').onclick = () => startTiebreaker(closest);}
 }
-function resumeGame() {game = loadGame(); if (!game) return; applyTheme(game.theme || storage.getItem(LS_THEME) || DEFAULTS.theme); if (game.answered >= game.cells.length) finishGame(); else if (game.currentQuestionId && game.cells.some(c => c.id === game.currentQuestionId && !c.used)) openQuestion(game.currentQuestionId); else {renderBoard(); showScreen('boardScreen');} }
-function resetToSetup() {document.body.classList.remove('tiebreaker-open'); $('#tiebreakerOverlay').classList.add('hidden'); $('#tiebreakerArea').classList.remove('evaluated'); clearGame(); showScreen('setupScreen'); applyTheme(storage.getItem(LS_THEME) || DEFAULTS.theme); $('#resetBtn').classList.add('hidden'); checkResume();}
+function resumeGame() {game = loadGame(); if (!game) return; applyTheme(game.theme || storage.getItem(LS_THEME) || DEFAULTS.theme); if (game.answered >= game.cells.length) finishGame(); else if (game.currentQuestionId && game.cells.some(c => c.id === game.currentQuestionId && !c.used)) openQuestion(game.currentQuestionId); else {renderBoard(); showScreen('boardScreen'); if (game.startingTeamPending) openStartingTeamDialog();} }
+function resetToSetup() {clearStartingTeamAnimation(); if ($('#startingTeamDialog').open) $('#startingTeamDialog').close(); document.body.classList.remove('tiebreaker-open'); $('#tiebreakerOverlay').classList.add('hidden'); $('#tiebreakerArea').classList.remove('evaluated'); clearGame(); showScreen('setupScreen'); applyTheme(storage.getItem(LS_THEME) || DEFAULTS.theme); $('#resetBtn').classList.add('hidden'); checkResume();}
 function checkResume() {const g = loadGame(); const box = $('#resumeBox'), btn = $('#resumeBtn'); if (g) {box.textContent = `Gespeichertes Spiel gefunden: ${g.teams.map(t => t.name).join(' · ')} · ${g.answered}/${g.cells.length} Fragen gespielt.`; box.classList.remove('hidden'); btn.classList.remove('hidden');} else {box.classList.add('hidden'); btn.classList.add('hidden');} }
 
 $('#addTeamBtn').onclick = () => addTeam(); $('#startBtn').onclick = startGame; $('#resumeBtn').onclick = resumeGame;
@@ -389,16 +434,17 @@ $('#cancelScoreBtn').onclick = () => $('#scoreDialog').close(); $('#saveScoreBtn
 $('#scoreInput').onkeydown = e => {if (e.key === 'Enter') saveScoreCorrection();};
 $('#settingsBtn').onclick = openSettings;
 $('#rulesBtn').onclick = openRules; $('#closeRulesBtn').onclick = () => $('#rulesDialog').close();
+$('#confirmStartingTeamBtn').onclick = () => chooseStartingTeam(Number($('#startingTeamSelect').value));
+$('#startingTeamDialog').addEventListener('cancel', event => event.preventDefault());
 function closeSettings() {
   if ($('#timerEnabled').checked && !$('#timerSeconds').reportValidity()) return;
   saveBoardSettings(); saveTimerSettings(); saveRules(); $('#settingsDialog').close();
 }
 $('#closeSettingsBtn').onclick = closeSettings;
 $('#settingsDialog').addEventListener('cancel', event => {event.preventDefault(); closeSettings();});
-$('#startingTeam').onchange = changeStartingTeam;
 $('#themeSelect').onchange = () => {if (settingsLocked()) return; applyTheme($('#themeSelect').value); storage.setItem(LS_THEME, document.body.dataset.theme);};
 $('#categoryCount').onchange = saveBoardSettings; $('#questionCount').onchange = saveBoardSettings;
-$('#mcPenalty').onchange = saveRules; $('#challengeEnabled').onchange = saveRules; $('#challengeMultiplier').onchange = saveRules; $('#allowNegativeScores').onchange = saveRules;
+$('#mcPenalty').onchange = saveRules; $('#challengeEnabled').onchange = saveRules; $('#challengeMultiplier').onchange = saveRules; $('#allowNegativeScores').onchange = saveRules; $('#startingTeamSelectionEnabled').onchange = saveRules; $('#startingTeamMode').onchange = saveRules;
 $('#timerEnabled').onchange = saveTimerSettings; $('#timerSeconds').oninput = saveTimerSettings;
 $$('input[name="mode"]').forEach(input => input.onchange = saveRules);
 
@@ -408,6 +454,8 @@ async function initialize() {
   $('#challengeEnabled').checked = DEFAULTS.challengeEnabled ?? true;
   $('#challengeMultiplier').value = defaultChallengeMultiplier(DEFAULTS);
   $('#allowNegativeScores').checked = DEFAULTS.allowNegativeScores ?? true;
+  $('#startingTeamSelectionEnabled').checked = DEFAULTS.startingTeamSelectionEnabled ?? true;
+  $('#startingTeamMode').value = DEFAULTS.startingTeamMode === 'random' ? 'random' : 'manual';
   try {
     const rules = JSON.parse(storage.getItem(LS_RULES) || '{}');
     if (['open', 'mc'].includes(rules.mode)) $(`input[name="mode"][value="${rules.mode}"]`).checked = true;
@@ -415,13 +463,15 @@ async function initialize() {
     if (typeof rules.challengeEnabled === 'boolean') $('#challengeEnabled').checked = rules.challengeEnabled;
     if (CHALLENGE_MULTIPLIERS.includes(Number(rules.challengeMultiplier))) $('#challengeMultiplier').value = rules.challengeMultiplier;
     if (typeof rules.allowNegativeScores === 'boolean') $('#allowNegativeScores').checked = rules.allowNegativeScores;
+    if (typeof rules.startingTeamSelectionEnabled === 'boolean') $('#startingTeamSelectionEnabled').checked = rules.startingTeamSelectionEnabled;
+    if (['manual', 'random'].includes(rules.startingTeamMode)) $('#startingTeamMode').value = rules.startingTeamMode;
   } catch {}
   const settings = loadBoardSettings();
   $('#categoryCount').value = settings.categoriesPerGame; $('#questionCount').value = settings.questionsPerCategory;
   const timer = loadTimerSettings();
   $('#timerEnabled').checked = timer.enabled; $('#timerSeconds').value = timer.seconds; $('#timerSeconds').disabled = !timer.enabled;
   applyTheme(storage.getItem(LS_THEME) || DEFAULTS.theme);
-  updateModeOptions(); updateChallengeOptions();
+  updateModeOptions(); updateChallengeOptions(); updateStartingTeamOptions();
   addTeam('Team 1'); addTeam('Team 2');
   const select = $('#poolSelect');
   pools.forEach(pool => {

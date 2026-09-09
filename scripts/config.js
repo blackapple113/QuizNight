@@ -8,6 +8,8 @@ window.QUIZZ_CONFIG = {
   challengeEnabled: true,    // Challenge pro Team und Runde aktivieren
   challengeMultiplier: 2,    // 1.25 | 1.5 | 2 | 2.5 | 3
   allowNegativeScores: true, // bei verlorener Challenge unter 0 Punkte erlauben
+  startingTeamSelectionEnabled: true, // vor jeder Runde das Startteam bestimmen
+  startingTeamMode: 'manual', // manual = Auswahl | random = Auslosung
   categoriesPerGame: 5,      // 3–6; der Pool braucht genügend vollständige Kategorien
   questionsPerCategory: 5,   // 2–5
   timerEnabled: false,       // true = Timer an | false = Timer aus

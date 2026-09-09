@@ -46,11 +46,6 @@
         <div class="turnline">
           <div>Am Zug: <strong id="turnName"></strong></div>
           <div id="progressText"></div>
-          <div class="field starting-team hidden" id="startingTeamField">
-            <label for="startingTeam">Startendes Team</label>
-            <select id="startingTeam" aria-describedby="startingTeamHint"></select>
-            <small id="startingTeamHint">Wählbar bis zur ersten Frage.</small>
-          </div>
         </div>
         <div class="board-wrap">
           <div id="board" class="board"></div>
@@ -219,6 +214,24 @@
           </div>
         </section>
 
+        <section class="settings-group" aria-labelledby="startingTeamSettingsTitle">
+          <div class="settings-group-heading">
+            <h3 id="startingTeamSettingsTitle">Startendes Team</h3>
+            <p>Bestimme, wie das Team für den ersten Spielzug ausgewählt wird.</p>
+          </div>
+          <div class="toggle-settings">
+            <label class="toggle-row" for="startingTeamSelectionEnabled"><span>Startteam vor der Runde auswählen</span><input id="startingTeamSelectionEnabled" type="checkbox"></label>
+            <div class="field option-field" id="startingTeamOptions">
+              <label for="startingTeamMode">Auswahlmethode</label>
+              <select id="startingTeamMode">
+                <option value="manual">Team auswählen</option>
+                <option value="random">Zufällig bestimmen</option>
+              </select>
+            </div>
+            <p class="setting-hint">Ist die Auswahl deaktiviert, beginnt immer Team 1.</p>
+          </div>
+        </section>
+
         <section class="settings-group" aria-labelledby="appearanceSettingsTitle">
           <div class="settings-group-heading">
             <h3 id="appearanceSettingsTitle">Erscheinungsbild</h3>
@@ -254,6 +267,23 @@
         <section><h3>Ende der Runde</h3><p>Nach allen Fragen gewinnt das Team mit den meisten Punkten. Bei Gleichstand entscheidet eine Schätzfrage als Tie-Breaker.</p></section>
       </div>
       <div class="dialog-actions"><button class="btn accent" id="closeRulesBtn">Verstanden</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="startingTeamDialog" aria-labelledby="startingTeamDialogTitle">
+    <div class="dialog-body">
+      <h2 id="startingTeamDialogTitle">Startendes Team</h2>
+      <p class="note rules-summary" id="startingTeamDialogIntro">Wählt das Team für den ersten Spielzug.</p>
+      <div class="field" id="manualStartingTeamSelection">
+        <label for="startingTeamSelect">Team auswählen</label>
+        <select id="startingTeamSelect"></select>
+      </div>
+      <div id="randomStartingTeamSelection" class="hidden">
+        <p class="setting-hint">Das Startteam wird ausgelost …</p>
+        <div class="random-team-cards" id="randomTeamCards" aria-live="polite"></div>
+        <p class="random-team-status" id="randomTeamStatus" role="status" aria-live="polite"></p>
+      </div>
+      <div class="dialog-actions" id="startingTeamDialogActions"><button class="btn accent" id="confirmStartingTeamBtn">Runde starten</button></div>
     </div>
   </dialog>
 

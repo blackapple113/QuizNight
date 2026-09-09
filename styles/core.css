@@ -18,8 +18,6 @@
     --challenge-button-hover:color-mix(in srgb,var(--challenge-color) 30%,transparent);
     --challenge-used-pattern:repeating-linear-gradient(135deg,transparent 0 8px,color-mix(in srgb,var(--challenge-color) 25%,transparent) 8px 14px);
     --challenge-used-button-bg:color-mix(in srgb,var(--challenge-color) 30%,transparent);
-    --timer-start:var(--success);
-    --timer-end:var(--danger);
   }
   *{box-sizing:border-box}
   html{margin:0;min-height:100%;background:var(--page-bg)}
@@ -116,9 +114,9 @@
   .tile.used{background:#06163f;color:transparent;cursor:default;transform:none;border-color:rgba(255,255,255,.2)}
   .question-shell{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:20px}
   #questionScreen{position:relative;overflow:hidden}
-  .question-timer{position:absolute;top:0;left:0;right:0;height:6px;background:color-mix(in srgb,var(--timer-end) 24%,transparent)}
-  #timerBar{height:100%;width:100%;transform-origin:left;background:linear-gradient(90deg,var(--timer-end),var(--timer-start));transform:scaleX(var(--timer-ratio,1))}
-  .question-timer.expired{background:color-mix(in srgb,var(--timer-end) 42%,transparent)}
+  .question-timer{position:absolute;top:0;left:0;right:0;height:6px;background:color-mix(in srgb,var(--timer-end,var(--danger)) 24%,transparent)}
+  #timerBar{height:100%;width:100%;transform-origin:left;background:linear-gradient(90deg,var(--timer-end,var(--danger)),var(--timer-start,var(--success)));transform:scaleX(var(--timer-ratio,1))}
+  .question-timer.expired{background:color-mix(in srgb,var(--timer-end,var(--danger)) 42%,transparent)}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
   #timerStatus.expired{position:static;width:auto;height:auto;margin:0;overflow:visible;clip-path:none;white-space:normal;color:var(--danger);font-size:.9rem}
   .question-meta{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;color:var(--muted);font-weight:800}

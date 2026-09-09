@@ -162,6 +162,7 @@
   .tb-result{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08)}
   .tb-result.closest{border:1px solid var(--success);background:rgba(126,226,168,.14)}
   dialog{border:0;border-radius:18px;width:min(760px,calc(100% - 28px));padding:0;background:#071a52;color:#fff;box-shadow:0 20px 80px rgba(0,0,0,.5)}
+  #startingTeamDialog{width:min(920px,calc(100% - 28px))}
   #settingsDialog,#rulesDialog,#startingTeamDialog{max-height:calc(100dvh - 28px);overflow:auto}
   dialog::backdrop{background:rgba(0,0,0,.65)}
   .dialog-body{padding:20px}
@@ -171,8 +172,8 @@
   .rules-list section{padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06)}
   .rules-list h3{margin:0 0 4px;font-size:1rem}
   .rules-list p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.45}
-  .random-team-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:14px}
-  .random-team-card{min-height:78px;display:flex;align-items:center;justify-content:center;padding:12px;border:2px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(255,255,255,.07);font-weight:900;text-align:center;transition:background .12s,border-color .12s,transform .12s,box-shadow .12s}
+  .random-team-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .random-team-card{min-height:96px;display:flex;align-items:center;justify-content:center;padding:14px;border:2px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(255,255,255,.07);font-size:clamp(1.1rem,2vw,1.35rem);font-weight:900;text-align:center;transition:background .12s,border-color .12s,transform .12s,box-shadow .12s}
   .random-team-card.is-flashing{transform:translateY(-2px) scale(1.02);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 25%,rgba(255,255,255,.08));box-shadow:0 0 20px color-mix(in srgb,var(--accent) 35%,transparent)}
   .random-team-card.is-selected{border-color:var(--success);background:rgba(126,226,168,.2);box-shadow:0 0 24px rgba(126,226,168,.35)}
   .random-team-status{min-height:1.5em;margin:14px 0 0;color:var(--accent);font-weight:900;text-align:center}

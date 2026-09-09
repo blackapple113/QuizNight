@@ -213,14 +213,15 @@ function startRandomTeamSelection() {
     if (run !== startingTeamRun) return;
     highlightRandomTeam(finalIndex, true);
     $('#randomTeamStatus').textContent = `${game.teams[finalIndex].name} beginnt!`;
-    startingTeamTimers.push(setTimeout(() => {if (run === startingTeamRun) chooseStartingTeam(finalIndex);}, 750));
+    startingTeamTimers.push(setTimeout(() => {if (run === startingTeamRun) chooseStartingTeam(finalIndex);}, 1750));
   }, elapsed));
 }
 function openStartingTeamDialog() {
   if (!game?.startingTeamPending) return;
   clearStartingTeamAnimation();
   const random = game.startingTeamMode === 'random';
-  $('#startingTeamDialogIntro').textContent = random ? 'Das Startteam wird ausgelost.' : 'Wählt das Team für den ersten Spielzug.';
+  $('#startingTeamDialogIntro').classList.toggle('hidden', random);
+  if (!random) $('#startingTeamDialogIntro').textContent = 'Wählt das Team für den ersten Spielzug.';
   $('#manualStartingTeamSelection').classList.toggle('hidden', random);
   $('#randomStartingTeamSelection').classList.toggle('hidden', !random);
   $('#startingTeamDialogActions').classList.toggle('hidden', random);

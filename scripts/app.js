@@ -248,10 +248,19 @@ function renderScores() {
     const pending = game.doubleOrNothingTeam === i;
     const challengeDisabled = !active || t.doubleOrNothingUsed || hasPendingDoubleOrNothing();
     const challengeLabel = pending ? 'Challenge aktiv' : t.doubleOrNothingUsed ? 'Challenge genutzt' : 'Challenge';
-    return `<div class="team-score ${active ? 'active' : ''} ${pending ? 'challenge-active' : ''}"><button type="button" class="team-score-main" data-team="${i}" aria-label="Punkte von ${esc(t.name)} korrigieren"><span class="name">${esc(t.name)}</span><span class="score">${t.score}</span></button>${challengeEnabled ? `<button type="button" class="challenge-btn" data-challenge-team="${i}" aria-label="${challengeLabel} für ${esc(t.name)}" title="${challengeLabel}" ${challengeDisabled ? 'disabled' : ''}><span aria-hidden="true">⚡</span><span class="challenge-label">${challengeLabel}</span></button>` : ''}</div>`;
+    return `<div class="team-score ${active ? 'active' : ''} ${challengeEnabled ? 'has-challenge' : ''} ${t.doubleOrNothingUsed ? 'challenge-used' : ''}"><button type="button" class="team-score-main" data-team="${i}" aria-label="Punkte von ${esc(t.name)} korrigieren"><span class="name">${esc(t.name)}</span><span class="score">${t.score}</span></button>${challengeEnabled ? `<button type="button" class="challenge-btn" data-challenge-team="${i}" aria-label="${challengeLabel} für ${esc(t.name)}" title="${challengeLabel}" ${challengeDisabled ? 'disabled' : ''}><span aria-hidden="true">⚡</span><span class="challenge-label">${challengeLabel}</span></button>` : ''}</div>`;
   }).join('');
   $$('#scorebar .team-score-main').forEach(btn => btn.onclick = () => openScoreDialog(Number(btn.dataset.team), 'board'));
   $$('#scorebar .challenge-btn').forEach(btn => btn.onclick = () => activateDoubleOrNothing(Number(btn.dataset.challengeTeam)));
+  if (window.matchMedia('(max-width: 760px)').matches) {
+    const activeCard = $('#scorebar .team-score.active');
+    requestAnimationFrame(() => {
+      if (!activeCard) return;
+      const scorebar = $('#scorebar');
+      const target = activeCard.offsetLeft - (scorebar.clientWidth - activeCard.clientWidth) / 2;
+      scorebar.scrollTo({left: Math.max(0, target), behavior: 'smooth'});
+    });
+  }
   $('#turnName').textContent = game.teams[game.activeTeam].name;
   $('#progressText').textContent = `${game.answered} / ${game.cells.length} Fragen`;
 }

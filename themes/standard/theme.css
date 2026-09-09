@@ -7,6 +7,7 @@ body[data-theme="standard"] {
   --muted: #c7d3ff;
   --danger: #ff8a80;
   --success: #7ee2a8;
+  --challenge-color: #ffd54a;
   --page-bg: radial-gradient(circle at top, #123da5 0, #071a52 48%, #04113a 100%);
   --theme-image: url("background.jpg");
   --custom-overlay-top: rgba(3, 18, 53, .12);

@@ -6,6 +6,7 @@ body[data-theme="carnival"] {
   --muted: #eee3ff;
   --danger: #ff6f9f;
   --success: #65e5d1;
+  --challenge-color: #ffdb3d;
   --page-bg: radial-gradient(circle at top, #6d2ca0 0%, #351459 50%, #1d0b35 100%);
   --theme-image: url("background.jpg");
   --custom-overlay-top: rgba(41, 10, 69, .22);
@@ -34,7 +35,7 @@ body[data-theme="carnival"] .tile.used { background: #28103f; border-color: rgba
 body[data-theme="carnival"] .team-score { background: rgba(45, 14, 75, .8); border-color: rgba(101, 229, 209, .28); backdrop-filter: blur(4px) saturate(.72); -webkit-backdrop-filter: blur(4px) saturate(.72); }
 body[data-theme="carnival"] .team-score:hover { background: rgba(62, 19, 101, .8); }
 body[data-theme="carnival"] .team-score.active { border-color: var(--accent); background: rgba(82, 25, 118, .8); }
-body[data-theme="carnival"] .team-score.challenge-active { border-color: var(--danger); background: rgba(132, 27, 78, .9); box-shadow: 0 0 0 2px rgba(255, 111, 159, .28), 0 5px 16px rgba(0, 0, 0, .2); }
+body[data-theme="carnival"] .team-score-main:hover { background-color: rgba(126, 47, 173, .72); }
 body[data-theme="carnival"] dialog { background: #351459; border: 2px solid #65e5d1; }
 body[data-theme="carnival"] .btn.secondary { background: #dcfff9; }
 body[data-theme="carnival"] .mode-card input:checked + span { background: rgba(214, 62, 140, .3); }

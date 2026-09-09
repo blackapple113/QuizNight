@@ -135,7 +135,7 @@ function renderQuestionTimer() {
   if (!timer) return;
   const ratio = Math.min(1, timerRemaining(currentQuestion) / (game.timerSeconds * 1000));
   $('#timerBar').style.setProperty('--timer-ratio', ratio);
-  $('#timerBar').style.backgroundColor = `hsl(${ratio * 120}, 75%, 48%)`;
+  $('#timerBar').style.setProperty('--timer-start-weight', `${Math.round(ratio * 100)}%`);
   const remaining = Math.ceil(timerRemaining(currentQuestion) / 1000);
   const expired = remaining === 0;
   $('#timerDisplay').textContent = `${Math.floor(remaining / 60)}:${String(remaining % 60).padStart(2, '0')}`;

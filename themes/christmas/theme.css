@@ -6,6 +6,8 @@ body[data-theme="christmas"] {
   --muted: #f0e9dc;
   --danger: #f08b85;
   --success: #8fd3a9;
+  --timer-start: #82d6be;
+  --timer-end: #f08b85;
   --challenge-color: #f1c75b;
   --team-card-bg: rgba(10, 49, 38, .8);
   --team-card-hover-bg: rgba(20, 72, 55, .8);

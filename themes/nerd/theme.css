@@ -8,8 +8,9 @@ body[data-theme="nerd"] {
 
   --danger: #ff7b8b;
   --challenge-color: #facc15;
-  --timer-start: #5eead4;
-  --timer-end: #a78bfa;
+  --nerd-violet: #a78bfa;
+  --timer-start: var(--accent);
+  --timer-end: var(--nerd-violet);
   --team-card-bg: linear-gradient(180deg, rgba(12, 31, 45, .88), rgba(7, 20, 30, .88));
   --team-card-border: rgba(94, 234, 212, .20);
   --team-card-hover-bg: linear-gradient(180deg, rgba(17, 44, 61, .9), rgba(9, 27, 39, .9));
@@ -63,7 +64,7 @@ body[data-theme="nerd"] .brand::before {
 
 body[data-theme="nerd"] .brand::after {
   content: " · Nerd Quizz";
-  color: #a78bfa;
+  color: var(--nerd-violet);
   font-size: .62em;
   letter-spacing: .08em;
 }
@@ -239,12 +240,12 @@ body[data-theme="nerd"] .footer {
 /* Subtiles Retro-Terminal-Detail */
 body[data-theme="nerd"] .category::before {
   content: "[ ";
-  color: #a78bfa;
+  color: var(--nerd-violet);
 }
 
 body[data-theme="nerd"] .category::after {
   content: " ]";
-  color: #a78bfa;
+  color: var(--nerd-violet);
 }
 
 /* Mobile: etwas weniger visuelles Rauschen */

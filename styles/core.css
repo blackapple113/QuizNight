@@ -18,8 +18,8 @@
     --challenge-button-hover:color-mix(in srgb,var(--challenge-color) 30%,transparent);
     --challenge-used-pattern:repeating-linear-gradient(135deg,transparent 0 8px,color-mix(in srgb,var(--challenge-color) 25%,transparent) 8px 14px);
     --challenge-used-button-bg:color-mix(in srgb,var(--challenge-color) 30%,transparent);
-    --timer-start:#7ee2d0;
-    --timer-end:#ff8a80;
+    --timer-start:var(--success);
+    --timer-end:var(--danger);
   }
   *{box-sizing:border-box}
   html{margin:0;min-height:100%;background:var(--page-bg)}

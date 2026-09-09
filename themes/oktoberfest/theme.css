@@ -6,8 +6,6 @@ body[data-theme="oktoberfest"] {
   --muted: #eaf5fb;
   --danger: #ff9c8f;
   --success: #8ee2ae;
-  --timer-start: #73d8d1;
-  --timer-end: #ff9c8f;
   --challenge-color: #f6c64f;
   --team-card-bg: rgba(3, 43, 73, .8);
   --team-card-border: rgba(247, 242, 223, .35);

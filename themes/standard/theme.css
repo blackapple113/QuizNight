@@ -7,8 +7,6 @@ body[data-theme="standard"] {
   --muted: #c7d3ff;
   --danger: #ff8a80;
   --success: #7ee2a8;
-  --timer-start: #72ded2;
-  --timer-end: #ff8a80;
   --challenge-color: #ffd54a;
   --team-card-bg: rgba(4, 16, 54, .8);
   --team-card-border: rgba(255, 255, 255, .12);

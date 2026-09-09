@@ -6,8 +6,6 @@ body[data-theme="carnival"] {
   --muted: #eee3ff;
   --danger: #ff6f9f;
   --success: #65e5d1;
-  --timer-start: #65e5d1;
-  --timer-end: #ff6f9f;
   --challenge-color: #ffdb3d;
   --team-card-bg: rgba(45, 14, 75, .8);
   --team-card-border: rgba(101, 229, 209, .28);

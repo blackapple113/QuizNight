@@ -34,6 +34,7 @@ body[data-theme="christmas"] .tile.used { background: #092b22; border-color: rgb
 body[data-theme="christmas"] .team-score { background: rgba(10, 49, 38, .8); backdrop-filter: blur(4px) saturate(.75); -webkit-backdrop-filter: blur(4px) saturate(.75); }
 body[data-theme="christmas"] .team-score:hover { background: rgba(20, 72, 55, .8); }
 body[data-theme="christmas"] .team-score.active { border-color: var(--accent); background: rgba(143, 35, 49, .8); }
+body[data-theme="christmas"] .team-score.challenge-active { border-color: var(--danger); background: rgba(122, 31, 43, .9); box-shadow: 0 0 0 2px rgba(240, 139, 133, .28), 0 5px 16px rgba(0, 0, 0, .2); }
 body[data-theme="christmas"] dialog { background: #0d3429; border: 2px solid var(--accent); }
 body[data-theme="christmas"] .btn.secondary { background: #f3e8d2; }
 body[data-theme="christmas"] .mode-card input:checked + span { background: rgba(143, 35, 49, .35); }

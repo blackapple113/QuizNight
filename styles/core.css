@@ -25,6 +25,8 @@
   .btn:hover{filter:brightness(.97)}
   .btn.secondary{background:#dce6ff}
   .btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2);box-shadow:none}
+  .top-actions .btn.ghost{background:rgba(0,0,0,.36);border-color:rgba(255,255,255,.3);box-shadow:0 5px 15px rgba(0,0,0,.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .top-actions .btn.ghost:hover{background:rgba(0,0,0,.48)}
   .btn.success{background:var(--success);color:#082516}
   .btn.danger{background:var(--danger);color:#3a0805}
   .btn.accent{background:var(--accent);color:#352600}
@@ -62,16 +64,17 @@
   .note{color:var(--muted);font-size:.9rem;line-height:1.45; padding-top:15px}
   .scorebar{display:flex;gap:10px;overflow-x:auto;padding-bottom:2px}
   .team-score{min-width:150px;flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"main challenge";align-items:stretch;background:rgba(4,16,54,.8);border:2px solid rgba(255,255,255,.12);border-radius:14px;transition:.15s;backdrop-filter:blur(4px) saturate(.75);-webkit-backdrop-filter:blur(4px) saturate(.75);box-shadow:0 5px 16px rgba(0,0,0,.2)}
-  .team-score-main{grid-area:main;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name score" "hint hint";align-items:center;gap:2px 10px;min-width:0;padding:10px 12px;background:transparent;border:0;color:#fff;text-align:left;cursor:pointer}
+  .team-score-main{grid-area:main;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name score";align-items:center;gap:12px;min-width:0;padding:12px 13px;background:transparent;border:0;color:#fff;text-align:left;cursor:pointer}
   .team-score-main:hover{background:rgba(8,31,92,.8)}
   .team-score.active{border-color:var(--accent);background:rgba(8,31,92,.8)}
   .team-score.challenge-active{border-color:var(--danger);box-shadow:0 0 0 2px rgba(255,112,104,.26),0 5px 16px rgba(0,0,0,.2)}
-  .team-score .name{grid-area:name;display:block;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .team-score .score{grid-area:score;display:block;font-size:1.55rem;font-weight:950;color:var(--accent);text-shadow:0 2px 3px rgba(0,0,0,.55)}
-  .team-score .score-hint{grid-area:hint;display:block;margin-top:3px;color:var(--muted);font-size:.7rem;font-weight:700}
-  .challenge-btn{grid-area:challenge;align-self:center;margin:8px 8px 8px 0;padding:7px 9px;border-radius:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,213,74,.18);color:var(--accent);font-size:.75rem;font-weight:900;white-space:nowrap}
+  .team-score .name{grid-area:name;display:block;font-size:clamp(1rem,1.4vw,1.22rem);font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .team-score .score{grid-area:score;display:block;font-size:clamp(1.75rem,2.4vw,2.15rem);font-weight:950;color:var(--accent);text-shadow:0 2px 3px rgba(0,0,0,.55)}
+  .challenge-btn{grid-area:challenge;display:flex;align-items:center;justify-content:center;gap:7px;min-width:46px;margin:0;padding:0 12px;border:0;border-left:1px solid rgba(255,255,255,.22);border-radius:0 11px 11px 0;background:rgba(255,213,74,.18);color:var(--accent);font-size:1.2rem;font-weight:900}
   .challenge-btn:not(:disabled):hover{background:rgba(255,213,74,.3)}
   .challenge-btn:disabled{cursor:not-allowed;opacity:.48}
+  .challenge-label{display:none;font-size:.78rem;white-space:nowrap}
+  .team-score.challenge-active .challenge-btn{background:rgba(255,112,104,.25);border-left-color:var(--danger);color:#fff}
   .turnline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}
   .turnline strong{color:var(--accent)}
   .challenge-options{display:grid;grid-template-columns:minmax(150px,1fr) minmax(190px,1fr);gap:12px;align-items:end;padding-top:10px}
@@ -156,6 +159,11 @@
     .choices{grid-template-columns:1fr}
     .score-adjust{grid-template-columns:repeat(2,minmax(0,1fr))}
     .challenge-options{grid-template-columns:1fr}
+    .team-score{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "challenge";min-width:172px}
+    .team-score-main{padding:11px 12px}
+    .challenge-btn{width:100%;min-height:38px;padding:8px 12px;border-top:1px solid rgba(255,255,255,.22);border-left:0;border-radius:0 0 11px 11px;font-size:1rem}
+    .team-score.challenge-active .challenge-btn{border-top-color:var(--danger);border-left:0}
+    .challenge-label{display:inline}
     .tb-guess{grid-template-columns:1fr}
     .btn{padding:10px 12px}
   }

@@ -37,6 +37,7 @@ body[data-theme="oktoberfest"] .tile.used { background: #043b64; border-color: r
 body[data-theme="oktoberfest"] .team-score { background: rgba(3, 43, 73, .8); border-color: rgba(247, 242, 223, .35); backdrop-filter: blur(4px) saturate(.65); -webkit-backdrop-filter: blur(4px) saturate(.65); }
 body[data-theme="oktoberfest"] .team-score:hover { background: rgba(3, 55, 92, .8); }
 body[data-theme="oktoberfest"] .team-score.active { border-color: var(--accent); background: rgba(4, 61, 101, .8); }
+body[data-theme="oktoberfest"] .team-score.challenge-active { border-color: var(--danger); background: rgba(100, 43, 52, .88); box-shadow: 0 0 0 2px rgba(255, 156, 143, .28), 0 5px 16px rgba(0, 0, 0, .2); }
 body[data-theme="oktoberfest"] dialog { background: #064c80; border: 2px solid var(--accent); }
 body[data-theme="oktoberfest"] .btn.secondary { background: #f7f2df; }
 body[data-theme="oktoberfest"] .mode-card input:checked + span { background: rgba(246, 198, 79, .2); }

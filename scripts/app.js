@@ -247,8 +247,8 @@ function renderScores() {
     const active = i === game.activeTeam;
     const pending = game.doubleOrNothingTeam === i;
     const challengeDisabled = !active || t.doubleOrNothingUsed || hasPendingDoubleOrNothing();
-    const challengeLabel = pending ? '⚡ Challenge aktiv' : t.doubleOrNothingUsed ? '⚡ Challenge genutzt' : '⚡ Challenge';
-    return `<div class="team-score ${active ? 'active' : ''} ${pending ? 'challenge-active' : ''}"><button type="button" class="team-score-main" data-team="${i}" aria-label="Punkte von ${esc(t.name)} korrigieren"><span class="name">${esc(t.name)}</span><span class="score">${t.score}</span><span class="score-hint">Antippen zum Korrigieren</span></button>${challengeEnabled ? `<button type="button" class="challenge-btn" data-challenge-team="${i}" ${challengeDisabled ? 'disabled' : ''}>${challengeLabel}</button>` : ''}</div>`;
+    const challengeLabel = pending ? 'Challenge aktiv' : t.doubleOrNothingUsed ? 'Challenge genutzt' : 'Challenge';
+    return `<div class="team-score ${active ? 'active' : ''} ${pending ? 'challenge-active' : ''}"><button type="button" class="team-score-main" data-team="${i}" aria-label="Punkte von ${esc(t.name)} korrigieren"><span class="name">${esc(t.name)}</span><span class="score">${t.score}</span></button>${challengeEnabled ? `<button type="button" class="challenge-btn" data-challenge-team="${i}" aria-label="${challengeLabel} für ${esc(t.name)}" title="${challengeLabel}" ${challengeDisabled ? 'disabled' : ''}><span aria-hidden="true">⚡</span><span class="challenge-label">${challengeLabel}</span></button>` : ''}</div>`;
   }).join('');
   $$('#scorebar .team-score-main').forEach(btn => btn.onclick = () => openScoreDialog(Number(btn.dataset.team), 'board'));
   $$('#scorebar .challenge-btn').forEach(btn => btn.onclick = () => activateDoubleOrNothing(Number(btn.dataset.challengeTeam)));

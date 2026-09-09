@@ -125,6 +125,12 @@ body[data-theme="nerd"] .team-score.active {
     0 0 18px rgba(94, 234, 212, .08);
 }
 
+body[data-theme="nerd"] .team-score.challenge-active {
+  border-color: var(--danger);
+  background: linear-gradient(180deg, rgba(86, 27, 44, .92), rgba(43, 15, 27, .92));
+  box-shadow: 0 0 0 1px rgba(255, 123, 139, .2), 0 0 18px rgba(255, 123, 139, .14);
+}
+
 body[data-theme="nerd"] .team-score .score {
   color: var(--accent);
   text-shadow: 0 0 12px rgba(94, 234, 212, .28);

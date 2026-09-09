@@ -176,7 +176,7 @@
   .random-team-card{min-height:96px;display:flex;align-items:center;justify-content:center;padding:14px;border:2px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(255,255,255,.07);font-size:clamp(1.1rem,2vw,1.35rem);font-weight:900;text-align:center;transition:background .12s,border-color .12s,transform .12s,box-shadow .12s}
   .random-team-card.is-flashing{transform:translateY(-2px) scale(1.02);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 25%,rgba(255,255,255,.08));box-shadow:0 0 20px color-mix(in srgb,var(--accent) 35%,transparent)}
   .random-team-card.is-selected{border-color:var(--success);background:rgba(126,226,168,.2);box-shadow:0 0 24px rgba(126,226,168,.35)}
-  .random-team-status{min-height:1.5em;margin:14px 0 0;color:var(--accent);font-weight:900;text-align:center}
+  .random-team-status{min-height:1.5em;margin:14px 0 0;color:var(--accent);font-size:clamp(1.15rem,2.2vw,1.45rem);font-weight:900;text-align:center}
   textarea{width:100%;min-height:260px;padding:12px;border-radius:12px;border:1px solid #ccd6f6;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.85rem}
   .hidden{display:none!important}
   .status{padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08);color:var(--muted);margin: 20px 0}

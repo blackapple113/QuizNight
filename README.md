@@ -35,12 +35,15 @@ Je nach Einstellung kann gespielt werden mit:
 - **Offenen Fragen** – die eigentliche Quizvariante. Auf Wunsch kann später MC-Hilfe eingeblendet werden.
 - **Multiple Choice** – alle Antwortmöglichkeiten sind direkt sichtbar.
 - **MC-Hilfe mit reduzierten Punkten** – ideal, wenn ein Team bei einer offenen Frage nicht weiterkommt.
-- **Challenge** – jedes Team kann pro Runde vor der Fragenwahl einmal alles auf eine Karte setzen. Multiplikator und negative Punktestände sind einstellbar.
+- **Challenge** – jedes Team kann pro Runde vor der Fragenwahl einmal alles auf eine Karte setzen. Richtige Antworten werden multipliziert; für falsche Antworten lässt sich ein einfacher oder ebenfalls multiplizierter Abzug wählen. Negative Punktestände sind optional.
 - **Antwort-Timer** – optional mit frei wählbarer Zeit.
+- **Startteam-Auswahl** – optional per Dropdown oder als kurze Zufallsauslosung; alternativ beginnt immer Team 1.
 - **Zufälligen Kategorien und Fragen** – mehrere Runden aus demselben Pool bleiben abwechslungsreich.
 - **Tie-Breakern** – bei Gleichstand entscheidet eine Schätzfrage.
 
 Punktestände können während des Spiels manuell korrigiert werden. Der aktuelle Spielstand wird außerdem im Browser gespeichert, sodass eine versehentlich geschlossene Seite nicht automatisch die ganze Runde beendet.
+
+Eine aktivierte Challenge kann vor dem Aufdecken oder Beantworten einer Frage mit **„Zurück zum Board“** wieder zurückgenommen werden.
 
 ---
 
@@ -96,9 +99,10 @@ Typische Defaults sind:
 | Kategorien pro Runde | z. B. 5 |
 | Fragen je Kategorie | z. B. 5 |
 | Punkte bei MC-Hilfe | z. B. 50 % |
-| Challenge | an/aus, Multiplikator und negative Punktestände |
+| Challenge | an/aus, Multiplikator, Abzug bei falscher Antwort und negative Punktestände |
 | Antwort-Timer | an / aus |
 | Antwortzeit | z. B. 30 Sekunden |
+| Startteam | Auswahl an/aus sowie manuell oder zufällig |
 
 Öffne dafür einfach:
 
@@ -303,8 +307,12 @@ Die Styles werden über das Theme-Attribut des `<body>` eingeschränkt:
 body[data-theme="mein-theme"] {
   --bg: #101820;
   --accent: #5eead4;
+  --success: #7ee2a8;
+  --danger: #ff8a80;
 }
 ```
+
+Der Antwort-Timer nutzt standardmäßig `--success` als Start- und `--danger` als Endfarbe. Bei Bedarf können eigene Themes dafür zusätzlich `--timer-start` und `--timer-end` setzen.
 
 Anschließend muss das Stylesheet in `index.html` eingebunden und das Theme zur Theme-Auswahl hinzugefügt werden.
 
@@ -320,7 +328,10 @@ Die wichtigsten Dateien auf einen Blick:
 │
 ├── scripts/
 │   ├── app.js
-│   └── config.js
+│   ├── config.js
+│   ├── question-bank.js
+│   ├── scoring.js
+│   └── storage.js
 │
 ├── pools/
 │   ├── index.js
@@ -343,7 +354,11 @@ Startpunkt des Spiels. Kann direkt per Doppelklick geöffnet werden.
 
 ### `scripts/app.js`
 
-Enthält die eigentliche Spiellogik.
+Verbindet Oberfläche, Spielablauf und die ausgelagerten Hilfsmodule.
+
+### `scripts/question-bank.js`, `scripts/scoring.js`, `scripts/storage.js`
+
+Enthalten die Aufbereitung der Fragenpools, die Punkte- und Challenge-Logik sowie den Browser-Speicher.
 
 ### `scripts/config.js`
 

@@ -144,7 +144,16 @@ function renderQuestionTimer() {
 }
 function selectedPoints() {const settings = loadBoardSettings(); return (data.config?.points || [100, 200, 300, 400, 500]).slice(0, settings.questionsPerCategory);}
 function saveGame() {if (game) storage.setItem(LS_GAME, JSON.stringify(game));}
-function loadGame() {try {const x = storage.getItem(LS_GAME); return x ? JSON.parse(x) : null} catch {return null} }
+function loadGame() {
+  try {
+    const savedGame = JSON.parse(storage.getItem(LS_GAME) || 'null');
+    if (!savedGame) return null;
+    // Spiele aus älteren Versionen bleiben fortsetzbar.
+    savedGame.teams?.forEach(team => {team.doubleOrNothingUsed = !!team.doubleOrNothingUsed;});
+    if (!Number.isInteger(savedGame.doubleOrNothingTeam) || !savedGame.teams?.[savedGame.doubleOrNothingTeam]) delete savedGame.doubleOrNothingTeam;
+    return savedGame;
+  } catch {return null;}
+}
 function clearGame() {clearInterval(timerInterval); storage.removeItem(LS_GAME); game = null; currentQuestion = null;}
 function esc(s) {return String(s ?? '').replace(/[&<>'"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'}[c]));}
 function validateData(d, checkBoard = true) {
@@ -206,9 +215,10 @@ function startGame() {
   if ($('#timerEnabled').checked && !$('#timerSeconds').checkValidity()) {openSettings(); $('#timerSeconds').reportValidity(); return;}
   saveBoardSettings(); saveTimerSettings();
   const names = getTeamNames(); if (names.length < 2) {alert('Bitte mindestens zwei Teams eintragen.'); return;} if (names.length > 5) {alert('Es sind maximal fünf Teams möglich.'); return;}
-  try {const b = buildBoard(); game = {version: 1, theme: document.body.dataset.theme, firstQuestionOpened: false, timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, poolId: activePoolId, tiebreakers: clone(data.tiebreakers), mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), teams: names.map(n => ({name: n, score: 0})), activeTeam: 0, categories: b.categories, points: b.points, cells: b.cells, answered: 0, startedAt: Date.now()}; saveGame(); renderBoard(); showScreen('boardScreen');} catch (e) {alert('Spiel kann nicht gestartet werden: ' + e.message);}
+  try {const b = buildBoard(); game = {version: 2, theme: document.body.dataset.theme, firstQuestionOpened: false, timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, poolId: activePoolId, tiebreakers: clone(data.tiebreakers), mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), teams: names.map(n => ({name: n, score: 0, doubleOrNothingUsed: false})), activeTeam: 0, categories: b.categories, points: b.points, cells: b.cells, answered: 0, startedAt: Date.now()}; saveGame(); renderBoard(); showScreen('boardScreen');} catch (e) {alert('Spiel kann nicht gestartet werden: ' + e.message);}
 }
-function canChooseStartingTeam() {return game && !game.firstQuestionOpened && game.answered === 0 && !game.currentQuestionId && !game.cells.some(c => c._timer || c._helpUsed || c._revealed || c._choiceSelected);}
+function hasPendingDoubleOrNothing() {return Number.isInteger(game?.doubleOrNothingTeam);}
+function canChooseStartingTeam() {return game && !hasPendingDoubleOrNothing() && !game.firstQuestionOpened && game.answered === 0 && !game.currentQuestionId && !game.cells.some(c => c._timer || c._helpUsed || c._revealed || c._choiceSelected);}
 function changeStartingTeam() {
   if (!canChooseStartingTeam()) return;
   const index = Number($('#startingTeam').value);
@@ -225,6 +235,25 @@ function renderScores() {
   $$('#scorebar .team-score').forEach(btn => btn.onclick = () => openScoreDialog(Number(btn.dataset.team), 'board'));
   $('#turnName').textContent = game.teams[game.activeTeam].name;
   $('#progressText').textContent = `${game.answered} / ${game.cells.length} Fragen`;
+}
+function renderDoubleOrNothing() {
+  const team = game.teams[game.activeTeam];
+  const pending = game.doubleOrNothingTeam === game.activeTeam;
+  const available = !team.doubleOrNothingUsed;
+  const button = $('#doubleOrNothingBtn');
+  button.disabled = pending || !available;
+  button.textContent = pending ? '⚡ Double or Nothing aktiviert' : '⚡ Double or Nothing aktivieren';
+  $('#doubleOrNothingStatus').textContent = pending
+    ? `Für ${team.name} gilt bei der nächsten Frage: richtig +2×, falsch −2× Punkte.`
+    : available
+      ? `${team.name} kann die Challenge in dieser Runde noch einmal einsetzen.`
+      : `${team.name} hat die Challenge in dieser Runde bereits eingesetzt.`;
+}
+function activateDoubleOrNothing() {
+  if (!game || hasPendingDoubleOrNothing() || game.teams[game.activeTeam].doubleOrNothingUsed) return;
+  game.teams[game.activeTeam].doubleOrNothingUsed = true;
+  game.doubleOrNothingTeam = game.activeTeam;
+  saveGame(); renderBoard();
 }
 function openScoreDialog(teamIndex, returnTo) {
   if (!game || !game.teams[teamIndex]) return;
@@ -246,7 +275,7 @@ function saveScoreCorrection() {
 }
 function cellFor(cat, p) {return game.cells.find(c => c.category === cat && Number(c.points) === Number(p));}
 function renderBoard() {
-  renderScores(); const b = $('#board'); b.innerHTML = '';
+  renderScores(); renderDoubleOrNothing(); const b = $('#board'); b.innerHTML = '';
   const categoryCount = game.categories.length; b.style.setProperty('--category-count', categoryCount); b.style.setProperty('--board-min-width', (categoryCount * 150 + (categoryCount - 1) * 8) + 'px'); b.style.setProperty('--board-mobile-min-width', (categoryCount * 112 + (categoryCount - 1) * 5) + 'px');
   game.categories.forEach(cat => {const el = document.createElement('div'); el.className = 'category'; el.textContent = cat; b.appendChild(el);});
   game.points.forEach(p => game.categories.forEach(cat => {
@@ -257,7 +286,8 @@ function openQuestion(id) {
   currentQuestion = game.cells.find(c => c.id === id && !c.used); if (!currentQuestion) return;
   game.firstQuestionOpened = true;
   game.currentQuestionId = id;
-  $('#qCategory').textContent = currentQuestion.category; $('#qPoints').textContent = currentQuestion.points + ' Punkte'; $('#qTeam').textContent = game.teams[game.activeTeam].name;
+  const doubleOrNothing = game.doubleOrNothingTeam === game.activeTeam;
+  $('#qCategory').textContent = currentQuestion.category; $('#qPoints').textContent = doubleOrNothing ? `${currentQuestion.points} Punkte · Double or Nothing: ±${Number(currentQuestion.points) * 2}` : currentQuestion.points + ' Punkte'; $('#qTeam').textContent = game.teams[game.activeTeam].name;
   const isJ = game.mode === 'jeopardy';
   $('#questionText').textContent = isJ ? currentQuestion.answer : currentQuestion.question;
   $('#answerBox').classList.remove('visible'); $('#answerBox').textContent = isJ ? ('Gesuchte Frage: ' + currentQuestion.question) : ('Antwort: ' + currentQuestion.answer);
@@ -302,6 +332,10 @@ function selectChoice(selectedBtn, isCorrect) {
   currentQuestion._selectedIndex = [...$('#choices').children].indexOf(selectedBtn);
   stopQuestionTimer(); saveGame(); renderChoiceResult();
 }
+function questionPoints(question, doubleOrNothing) {
+  const basePoints = question._helpUsed ? Math.round(Number(question.points) * game.mcMultiplier) : Number(question.points);
+  return doubleOrNothing ? basePoints * 2 : basePoints;
+}
 function renderChoiceResult() {
   const isCorrect = currentQuestion._choiceCorrect;
   const selectedBtn = $('#choices').children[currentQuestion._selectedIndex];
@@ -315,7 +349,9 @@ function renderChoiceResult() {
   });
   $('#answerBox').classList.add('visible');
   $('#preRevealActions').classList.add('hidden'); $('#judgeActions').classList.add('hidden');
-  const result = $('#mcResult'); result.textContent = isCorrect ? 'Richtig – die Punkte werden beim Weitergehen übernommen.' : 'Falsch – es werden keine Punkte vergeben.';
+  const doubleOrNothing = game.doubleOrNothingTeam === game.activeTeam;
+  const points = questionPoints(currentQuestion, doubleOrNothing);
+  const result = $('#mcResult'); result.textContent = isCorrect ? `Richtig – +${points} Punkte werden beim Weitergehen übernommen.` : doubleOrNothing ? `Falsch – ${points} Punkte werden abgezogen.` : 'Falsch – es werden keine Punkte vergeben.';
   result.className = 'mc-result ' + (isCorrect ? 'correct' : 'wrong');
   $('#mcContinueActions').classList.remove('hidden');
 }
@@ -345,7 +381,11 @@ function judge(correct) {
   if (!currentQuestion || currentQuestion.used) return;
   stopQuestionTimer(); game.currentQuestionId = null;
   const c = game.cells.find(x => x.id === currentQuestion.id); c.used = true; game.answered++;
-  if (correct) {const pts = currentQuestion._helpUsed ? Math.round(Number(c.points) * game.mcMultiplier) : Number(c.points); game.teams[game.activeTeam].score += pts;}
+  const doubleOrNothing = game.doubleOrNothingTeam === game.activeTeam;
+  const pts = questionPoints(c, doubleOrNothing);
+  if (correct) game.teams[game.activeTeam].score += pts;
+  else if (doubleOrNothing) game.teams[game.activeTeam].score -= pts;
+  if (doubleOrNothing) delete game.doubleOrNothingTeam;
   game.activeTeam = (game.activeTeam + 1) % game.teams.length; saveGame(); currentQuestion = null;
   if (game.answered >= game.cells.length) finishGame(); else {renderBoard(); showScreen('boardScreen');}
 }
@@ -399,6 +439,7 @@ function resetToSetup() {document.body.classList.remove('tiebreaker-open'); $('#
 function checkResume() {const g = loadGame(); const box = $('#resumeBox'), btn = $('#resumeBtn'); if (g) {box.textContent = `Gespeichertes Spiel gefunden: ${g.teams.map(t => t.name).join(' · ')} · ${g.answered}/${g.cells.length} Fragen gespielt.`; box.classList.remove('hidden'); btn.classList.remove('hidden');} else {box.classList.add('hidden'); btn.classList.add('hidden');} }
 
 $('#addTeamBtn').onclick = () => addTeam(); $('#startBtn').onclick = startGame; $('#resumeBtn').onclick = resumeGame;
+$('#doubleOrNothingBtn').onclick = activateDoubleOrNothing;
 $('#helpBtn').onclick = () => showChoices(true); $('#revealBtn').onclick = reveal; $('#correctBtn').onclick = () => judge(true); $('#wrongBtn').onclick = () => judge(false);
 $('#backToBoardBtn').onclick = backToBoard; $('#mcContinueBtn').onclick = acceptMcResult;
 $('#newGameBtn').onclick = resetToSetup; $('#resetBtn').onclick = () => $('#confirmDialog').showModal(); $('#cancelResetBtn').onclick = () => $('#confirmDialog').close(); $('#confirmResetBtn').onclick = () => {$('#confirmDialog').close(); resetToSetup();};

@@ -35,6 +35,7 @@ Je nach Einstellung kann gespielt werden mit:
 - **Offenen Fragen** – die eigentliche Quizvariante. Auf Wunsch kann später MC-Hilfe eingeblendet werden.
 - **Multiple Choice** – alle Antwortmöglichkeiten sind direkt sichtbar.
 - **MC-Hilfe mit reduzierten Punkten** – ideal, wenn ein Team bei einer offenen Frage nicht weiterkommt.
+- **Double or Nothing** – jedes Team kann pro Runde vor der Fragenwahl einmal alles auf eine Karte setzen: richtig zählt doppelt, falsch zieht den doppelten Feldwert ab.
 - **Antwort-Timer** – optional mit frei wählbarer Zeit.
 - **Zufälligen Kategorien und Fragen** – mehrere Runden aus demselben Pool bleiben abwechslungsreich.
 - **Tie-Breakern** – bei Gleichstand entscheidet eine Schätzfrage.

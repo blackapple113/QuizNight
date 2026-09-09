@@ -70,6 +70,8 @@
   .team-score .score-hint{grid-area:hint;display:block;margin-top:3px;color:var(--muted);font-size:.7rem;font-weight:700}
   .turnline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}
   .turnline strong{color:var(--accent)}
+  .double-or-nothing{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .double-or-nothing small{color:var(--muted);font-size:.78rem;font-weight:700;max-width:270px}
   .board-wrap{overflow:auto;border-radius:0}
   .board{display:grid;grid-template-columns:repeat(var(--category-count,5),minmax(150px,1fr));gap:8px;min-width:var(--board-min-width,790px)}
   .category{background:#08246c;border:2px solid #d8e2ff;color:#fff;min-height:84px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:clamp(.95rem,1.6vw,1.35rem);font-weight:950;text-transform:uppercase;letter-spacing:.02em;text-shadow:1px 2px 0 rgba(0,0,0,.35)}

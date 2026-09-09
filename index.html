@@ -45,6 +45,10 @@
         <div class="turnline">
           <div>Am Zug: <strong id="turnName"></strong></div>
           <div id="progressText"></div>
+          <div class="double-or-nothing" aria-live="polite">
+            <button type="button" class="btn secondary" id="doubleOrNothingBtn">⚡ Double or Nothing aktivieren</button>
+            <small id="doubleOrNothingStatus"></small>
+          </div>
           <div class="field starting-team hidden" id="startingTeamField">
             <label for="startingTeam">Startendes Team</label>
             <select id="startingTeam" aria-describedby="startingTeamHint"></select>

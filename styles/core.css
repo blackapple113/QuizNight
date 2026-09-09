@@ -58,14 +58,18 @@
   .settings-group:first-child{padding-top:4px;border-top:0}
   .settings-group-heading{margin-bottom:14px}
   .settings-group-heading h3{margin:0 0 4px;font-size:1.12rem}
-  .settings-group-heading p,.setting-hint{margin:0;color:var(--muted);font-size:.88rem;line-height:1.45}
+  .settings-group-heading p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.45}
+  .setting-hint{margin:5px 0 0;color:var(--muted);font-size:.88rem;line-height:1.45}
   .settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
   .board-settings-grid .field:first-child{grid-column:1/-1}
-  .timer-duration{display:flex;align-items:center;gap:10px}
-  .timer-duration input{min-width:0}
-  .timer-toggle{display:flex;align-items:center;gap:8px;color:#e8eeff;font-weight:800}
-  .timer-toggle input{width:18px;height:18px;margin:0;accent-color:var(--accent)}
-  .field input:disabled{opacity:.5}
+  .toggle-settings{padding:12px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(255,255,255,.06)}
+  .toggle-row{display:flex;align-items:center;justify-content:space-between;gap:16px;color:#e8eeff;font-weight:800}
+  .toggle-row input{width:20px;height:20px;flex:0 0 auto;margin:0;accent-color:var(--accent)}
+  .timer-duration{display:flex;align-items:center;gap:10px;margin-top:12px}
+  .timer-duration input{min-width:0;width:100%;padding:12px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#f7f9ff;color:#10225e;outline:none}
+  :is(.field input,.timer-duration input):disabled{opacity:.5}
+  .pool-summary{margin:16px 0 0;padding:11px 12px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(255,255,255,.07);color:var(--muted);font-size:.86rem;line-height:1.45}
+  .pool-summary:empty{display:none}
   .team-row input{min-width:0;width:100%;padding:12px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#f7f9ff;color:#10225e}
   :is(button,input,select):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
   .mode-card input:focus-visible+span{outline:3px solid var(--accent);outline-offset:3px}

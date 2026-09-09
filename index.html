@@ -165,6 +165,7 @@
               </select>
             </div>
           </div>
+          <p class="pool-summary" id="poolInfo" role="status" aria-live="polite"></p>
         </section>
 
         <section class="settings-group" aria-labelledby="answerSettingsTitle">
@@ -187,8 +188,8 @@
                 <option value="0">0 %</option>
               </select>
             </div>
-            <div class="field timer-setting">
-              <label class="timer-toggle" for="timerEnabled"><input id="timerEnabled" type="checkbox"> Antwort-Timer</label>
+            <div class="toggle-settings timer-setting">
+              <label class="toggle-row" for="timerEnabled"><span>Antwort-Timer</span><input id="timerEnabled" type="checkbox"></label>
               <div class="timer-duration"><input id="timerSeconds" type="number" min="5" max="600" step="1" required disabled aria-label="Antwortzeit in Sekunden" aria-describedby="timerHint"><span>Sekunden</span></div>
             </div>
           </div>
@@ -200,19 +201,21 @@
             <h3 id="challengeSettingsTitle">Punkte &amp; Challenge</h3>
             <p>Jedes Team darf die Challenge einmal pro Runde vor der Fragenwahl einsetzen.</p>
           </div>
-          <label class="timer-toggle" for="challengeEnabled"><input id="challengeEnabled" type="checkbox"> Challenge aktivieren</label>
-          <div class="challenge-options" id="challengeOptions">
-            <div class="field">
-              <label for="challengeMultiplier">Multiplikator</label>
-              <select id="challengeMultiplier">
-                <option value="1.25">1,25×</option>
-                <option value="1.5">1,5×</option>
-                <option value="2">2,0×</option>
-                <option value="2.5">2,5×</option>
-                <option value="3">3,0×</option>
-              </select>
+          <div class="toggle-settings">
+            <label class="toggle-row" for="challengeEnabled"><span>Challenge aktivieren</span><input id="challengeEnabled" type="checkbox"></label>
+            <div class="challenge-options" id="challengeOptions">
+              <div class="field">
+                <label for="challengeMultiplier">Multiplikator</label>
+                <select id="challengeMultiplier">
+                  <option value="1.25">1,25×</option>
+                  <option value="1.5">1,5×</option>
+                  <option value="2">2,0×</option>
+                  <option value="2.5">2,5×</option>
+                  <option value="3">3,0×</option>
+                </select>
+              </div>
+              <label class="toggle-row" for="allowNegativeScores"><span>Negative Punktestände erlauben</span><input id="allowNegativeScores" type="checkbox"></label>
             </div>
-            <label class="timer-toggle" for="allowNegativeScores"><input id="allowNegativeScores" type="checkbox"> Negative Punktestände erlauben</label>
           </div>
           <p class="setting-hint">Ohne negative Punktestände endet ein verlorener Einsatz bei 0 Punkten.</p>
         </section>
@@ -234,7 +237,6 @@
           </div>
         </section>
       </fieldset>
-      <p class="note" id="poolInfo" role="status" aria-live="polite"></p>
       <div class="dialog-actions">
         <button class="btn accent" id="closeSettingsBtn">Fertig</button>
       </div>

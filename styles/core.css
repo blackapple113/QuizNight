@@ -75,9 +75,9 @@
   .challenge-btn:not(:disabled):hover{background:rgba(255,213,74,.3)}
   .challenge-btn:disabled{cursor:not-allowed;opacity:.48}
   .challenge-label{display:none;font-size:.78rem;white-space:nowrap}
-  .team-score.challenge-used .team-score-main{background-image:repeating-linear-gradient(135deg,transparent 0 8px,color-mix(in srgb,var(--challenge-color) 40%,transparent) 8px 14px)}
+  .team-score.challenge-used .team-score-main{background-image:repeating-linear-gradient(135deg,transparent 0 8px,color-mix(in srgb,var(--challenge-color) 25%,transparent) 8px 14px)}
   .team-score.challenge-used .challenge-btn{background:color-mix(in srgb,var(--challenge-color) 30%,transparent);border-left-color:var(--challenge-color);color:var(--challenge-color)}
-  .team-score.challenge-used:not(.active){filter:grayscale(.72);opacity:.72}
+  .team-score.challenge-used:not(.active){filter:grayscale(.3);opacity:.9}
   .turnline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}
   .turnline strong{color:var(--accent)}
   .challenge-options{display:grid;grid-template-columns:minmax(150px,1fr) minmax(190px,1fr);gap:12px;align-items:end;padding-top:10px}
@@ -85,7 +85,7 @@
   .challenge-hint{padding-top:0;margin:8px 0 0}
   .board-wrap{overflow:auto;border-radius:0}
   .board{display:grid;grid-template-columns:repeat(var(--category-count,5),minmax(150px,1fr));gap:8px;min-width:var(--board-min-width,790px)}
-  .category{background:#08246c;border:2px solid #d8e2ff;color:#fff;min-height:84px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:clamp(.95rem,1.6vw,1.35rem);font-weight:950;text-transform:uppercase;letter-spacing:.02em;text-shadow:1px 2px 0 rgba(0,0,0,.35)}
+  .category{background:#08246c;border:2px solid #d8e2ff;border-radius:12px;color:#fff;min-height:84px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:clamp(.95rem,1.6vw,1.35rem);font-weight:950;text-transform:uppercase;letter-spacing:.02em;text-shadow:1px 2px 0 rgba(0,0,0,.35)}
   .tile{min-height:98px;border:2px solid #d8e2ff;border-radius:12px;background:#0a2b84;color:var(--accent);font-size:clamp(1.7rem,4vw,3rem);font-weight:950;text-shadow:2px 3px 0 rgba(0,0,0,.38);transition:.15s}
   .tile:hover{background:#1038a4;transform:translateY(-1px)}
   .tile.used{background:#06163f;color:transparent;cursor:default;transform:none;border-color:rgba(255,255,255,.2)}

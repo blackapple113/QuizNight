@@ -1,6 +1,9 @@
 'use strict';
 
 const DEFAULTS = window.QUIZZ_CONFIG;
+const {create: createStorage, readJson} = window.QuizzStorage;
+const {buildBoard, clone, correctChoiceIndex, escapeHtml: esc, formatEstimate, loadPool, parseEstimate, poolStats: getPoolStats, shuffle, validateData} = window.QuizzQuestionBank;
+const {CHALLENGE_MULTIPLIERS, applyJudgement, defaultChallengeMultiplier, hasPendingChallenge, normalizeSavedGame, questionPoints} = window.QuizzScoring;
 
 const LS_GAME = 'jeopardy-game-state-v1';
 const LS_BOARD_SETTINGS = 'jeopardy-board-settings-v1';
@@ -21,18 +24,6 @@ const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const screens = ['setupScreen', 'boardScreen', 'questionScreen', 'endScreen'];
 function showScreen(id) {screens.forEach(x => $('#' + x).classList.toggle('active', x === id)); $('#resetBtn').classList.toggle('hidden', id === 'setupScreen'); $('#settingsBtn').classList.toggle('hidden', id !== 'setupScreen'); $('#settingsFields').disabled = id !== 'setupScreen'; if (id !== 'questionScreen') clearInterval(timerInterval); window.scrollTo({top: 0, behavior: 'auto'});}
-function clone(x) {return JSON.parse(JSON.stringify(x));}
-function shuffle(a) {const out = [...a]; for (let i = out.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1));[out[i], out[j]] = [out[j], out[i]];} return out;}
-function loadData(pool) {
-  return new Promise((resolve, reject) => {
-    window.QUESTIONS_DATA = undefined;
-    const script = document.createElement('script');
-    script.src = pool.src;
-    script.onload = () => {script.remove(); resolve(window.QUESTIONS_DATA);};
-    script.onerror = () => {script.remove(); reject(new Error(`Der Fragenpool „${pool.name}“ konnte nicht geladen werden. Bitte die Datei ${pool.src} prüfen.`));};
-    document.head.appendChild(script);
-  });
-}
 async function selectPool(id) {
   if (settingsLocked()) return;
   const pool = pools.find(p => p.id === id);
@@ -44,8 +35,8 @@ async function selectPool(id) {
   setupNotice('Fragenpool wird geladen …');
   try {
     if (!pool) throw new Error('Kein Fragenpool in pools/index.js eingetragen.');
-    const loaded = await loadData(pool);
-    validateData(loaded, false);
+    const loaded = await loadPool(pool);
+    validateData(loaded, loadBoardSettings(), false);
     data = loaded;
     activePoolId = pool.id;
     $('#poolSelect').value = pool.id;
@@ -59,13 +50,7 @@ async function selectPool(id) {
     $('#poolSelect').disabled = false;
   }
 }
-// Auch bei gesperrtem oder vollem Browserspeicher bleibt das Spiel nutzbar.
-const memoryStorage = new Map();
-const storage = {
-  getItem(key) {if (memoryStorage.has(key)) return memoryStorage.get(key); try {return localStorage.getItem(key);} catch {return null;}},
-  setItem(key, value) {memoryStorage.set(key, value); try {localStorage.setItem(key, value);} catch {showStorageNotice();}},
-  removeItem(key) {memoryStorage.set(key, null); try {localStorage.removeItem(key);} catch {showStorageNotice();}},
-};
+const storage = createStorage(showStorageNotice);
 function showStorageNotice() {document.querySelector('.footer').textContent = 'Der Browserspeicher ist nicht verfügbar. Der Spielstand bleibt nur bis zum Schließen oder Neuladen dieser Seite erhalten.';}
 function normalizeBoardSettings(value = {}) {return {categoriesPerGame: Math.min(6, Math.max(3, Number(value.categoriesPerGame) || DEFAULTS.categoriesPerGame)), questionsPerCategory: Math.min(5, Math.max(2, Number(value.questionsPerCategory) || DEFAULTS.questionsPerCategory))};}
 function loadBoardSettings() {try {return normalizeBoardSettings(JSON.parse(storage.getItem(LS_BOARD_SETTINGS) || '{}'))} catch {return normalizeBoardSettings();} }
@@ -90,8 +75,6 @@ function saveTimerSettings() {
   if (!$('#timerSeconds').checkValidity()) return;
   storage.setItem(LS_TIMER, JSON.stringify({enabled: $('#timerEnabled').checked, seconds: Number($('#timerSeconds').value)}));
 }
-const CHALLENGE_MULTIPLIERS = [1.25, 1.5, 2, 2.5, 3];
-function defaultChallengeMultiplier() {return CHALLENGE_MULTIPLIERS.includes(Number(DEFAULTS.challengeMultiplier)) ? Number(DEFAULTS.challengeMultiplier) : 2;}
 function saveRules() {
   if (settingsLocked()) return;
   storage.setItem(LS_RULES, JSON.stringify({mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), allowNegativeScores: $('#allowNegativeScores').checked}));
@@ -150,50 +133,16 @@ function renderQuestionTimer() {
     if (!currentQuestion._choiceSelected && !currentQuestion._revealed) $('#revealBtn').classList.remove('hidden');
   }
 }
-function selectedPoints() {const settings = loadBoardSettings(); return (data.config?.points || [100, 200, 300, 400, 500]).slice(0, settings.questionsPerCategory);}
 function saveGame() {if (game) storage.setItem(LS_GAME, JSON.stringify(game));}
 function loadGame() {
-  try {
-    const savedGame = JSON.parse(storage.getItem(LS_GAME) || 'null');
-    if (!savedGame) return null;
-    // Spiele aus älteren Versionen bleiben fortsetzbar.
-    savedGame.teams?.forEach(team => {team.doubleOrNothingUsed = !!team.doubleOrNothingUsed;});
-    savedGame.challengeEnabled = typeof savedGame.challengeEnabled === 'boolean' ? savedGame.challengeEnabled : (DEFAULTS.challengeEnabled ?? true);
-    savedGame.challengeMultiplier = CHALLENGE_MULTIPLIERS.includes(Number(savedGame.challengeMultiplier)) ? Number(savedGame.challengeMultiplier) : defaultChallengeMultiplier();
-    savedGame.allowNegativeScores = typeof savedGame.allowNegativeScores === 'boolean' ? savedGame.allowNegativeScores : (DEFAULTS.allowNegativeScores ?? true);
-    if (!Number.isInteger(savedGame.doubleOrNothingTeam) || !savedGame.teams?.[savedGame.doubleOrNothingTeam]) delete savedGame.doubleOrNothingTeam;
-    return savedGame;
-  } catch {return null;}
+  return normalizeSavedGame(readJson(storage, LS_GAME), DEFAULTS);
 }
 function clearGame() {clearInterval(timerInterval); storage.removeItem(LS_GAME); game = null; currentQuestion = null;}
-function esc(s) {return String(s ?? '').replace(/[&<>'"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'}[c]));}
-function validateData(d, checkBoard = true) {
-  if (!d || !Array.isArray(d.questions) || !Array.isArray(d.tiebreakers)) throw new Error('questions und tiebreakers müssen Arrays sein.');
-  const ids = new Set();
-  for (const q of d.questions) {
-    if (!q || !q.id || ids.has(q.id) || !q.category || !q.question || !q.answer || !Number.isFinite(Number(q.points))) throw new Error('Eine Frage hat fehlende Pflichtfelder oder eine doppelte ID.');
-    ids.add(q.id);
-    if (q.choices != null && (!Array.isArray(q.choices) || q.choices.length < 2 || correctChoiceIndex(q) < 0)) throw new Error(`Ungültige Antwortmöglichkeiten bei Frage ${q.id}.`);
-  }
-  for (const q of d.tiebreakers) {
-    if (!q || !q.id || !q.question || !Number.isFinite(parseEstimate(q.numericAnswer ?? q.answer))) throw new Error('Eine Schätzfrage hat fehlende Pflichtfelder oder keine numerische Lösung.');
-  }
-  const points = d.config?.points ?? [100, 200, 300, 400, 500];
-  if (!Array.isArray(points) || !points.length || points.some(p => !Number.isFinite(p) || p <= 0) || new Set(points).size !== points.length) throw new Error('Die Punktstufen müssen eindeutige positive Zahlen sein.');
-  if (!checkBoard) return true;
-  const settings = loadBoardSettings(); const allPoints = d.config?.points || [100, 200, 300, 400, 500]; if (allPoints.length < settings.questionsPerCategory) throw new Error(`Für ${settings.questionsPerCategory} Fragen je Kategorie fehlen Punktstufen im Fragenpool.`); const pts = allPoints.slice(0, settings.questionsPerCategory);
-  const cats = [...new Set(d.questions.map(q => q.category))];
-  const eligible = cats.filter(c => pts.every(p => d.questions.some(q => q.category === c && Number(q.points) === Number(p))));
-  if (eligible.length < settings.categoriesPerGame) throw new Error(`Zu wenige vollständige Kategorien. Benötigt: ${settings.categoriesPerGame}, vorhanden: ${eligible.length}.`);
-  for (const q of d.questions) {if (!q.id || !q.category || !q.question || !q.answer || !Number.isFinite(Number(q.points))) throw new Error('Mindestens eine Frage hat fehlende Pflichtfelder.');}
-  return true;
-}
 function poolStats() {
-  const pts = selectedPoints(); const cats = [...new Set(data.questions.map(q => q.category))];
-  const eligible = cats.filter(c => pts.every(p => data.questions.some(q => q.category === c && Number(q.points) === Number(p))));
-  return {cats: cats.length, eligible: eligible.length, questions: data.questions.length, tiebreakers: data.tiebreakers.length};
+  const stats = getPoolStats(data, loadBoardSettings());
+  return {cats: stats.categories, eligible: stats.eligible, questions: stats.questions, tiebreakers: stats.tiebreakers};
 }
-function renderPoolInfo() {if (!data) return; const s = poolStats(), settings = loadBoardSettings(); $('#poolInfo').textContent = `Board: ${settings.categoriesPerGame} Kategorien × ${settings.questionsPerCategory} Fragen · Fragenpool: ${s.questions} Fragen in ${s.cats} Kategorien · ${s.eligible} Kategorien sind dafür vollständig spielbar · ${s.tiebreakers} Tie-Breaker.`; try {validateData(data); $('#startBtn').disabled = false; setupNotice();} catch (error) {$('#startBtn').disabled = true; $('#poolInfo').textContent += ` ${error.message} Bitte die Board-Einstellungen anpassen.`; setupNotice(error.message + ' Bitte die Einstellungen anpassen.');}}
+function renderPoolInfo() {if (!data) return; const s = poolStats(), settings = loadBoardSettings(); $('#poolInfo').textContent = `Board: ${settings.categoriesPerGame} Kategorien × ${settings.questionsPerCategory} Fragen · Fragenpool: ${s.questions} Fragen in ${s.cats} Kategorien · ${s.eligible} Kategorien sind dafür vollständig spielbar · ${s.tiebreakers} Tie-Breaker.`; try {validateData(data, settings); $('#startBtn').disabled = false; setupNotice();} catch (error) {$('#startBtn').disabled = true; $('#poolInfo').textContent += ` ${error.message} Bitte die Board-Einstellungen anpassen.`; setupNotice(error.message + ' Bitte die Board-Einstellungen anpassen.');}}
 function updateTeamControls() {
   const count = $('#teamList').children.length;
   $('#addTeamBtn').disabled = count >= 5;
@@ -208,27 +157,15 @@ function addTeam(name = '') {
 }
 function getTeamNames() {return [...$('#teamList').querySelectorAll('input')].map(x => x.value.trim()).filter(Boolean);}
 function selectedMode() {return $('input[name="mode"]:checked').value;}
-function eligibleCategories() {const pts = selectedPoints(); return [...new Set(data.questions.map(q => q.category))].filter(c => pts.every(p => data.questions.some(q => q.category === c && Number(q.points) === Number(p))));}
-function buildBoard() {
-  validateData(data);
-  const settings = loadBoardSettings(); const cats = shuffle(eligibleCategories()).slice(0, settings.categoriesPerGame);
-  const pts = selectedPoints();
-  const cells = [];
-  cats.forEach(cat => pts.forEach(p => {
-    const pool = data.questions.filter(q => q.category === cat && Number(q.points) === Number(p));
-    const q = clone(shuffle(pool)[0]); cells.push({...q, used: false});
-  }));
-  return {categories: cats, points: pts, cells};
-}
 function startGame() {
   if (!data) return;
   if (selectedMode() === 'mc' && data.questions.some(q => !q.choices?.length)) {alert('Dieser Pool enthält Fragen ohne Antwortmöglichkeiten. Bitte den Modus „Offene Fragen“ wählen.'); return;}
   if ($('#timerEnabled').checked && !$('#timerSeconds').checkValidity()) {openSettings(); $('#timerSeconds').reportValidity(); return;}
   saveBoardSettings(); saveTimerSettings();
   const names = getTeamNames(); if (names.length < 2) {alert('Bitte mindestens zwei Teams eintragen.'); return;} if (names.length > 5) {alert('Es sind maximal fünf Teams möglich.'); return;}
-  try {const b = buildBoard(); game = {version: 3, theme: document.body.dataset.theme, firstQuestionOpened: false, timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, poolId: activePoolId, tiebreakers: clone(data.tiebreakers), mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), allowNegativeScores: $('#allowNegativeScores').checked, teams: names.map(n => ({name: n, score: 0, doubleOrNothingUsed: false})), activeTeam: 0, categories: b.categories, points: b.points, cells: b.cells, answered: 0, startedAt: Date.now()}; saveGame(); renderBoard(); showScreen('boardScreen');} catch (e) {alert('Spiel kann nicht gestartet werden: ' + e.message);}
+  try {const b = buildBoard(data, loadBoardSettings()); game = {version: 3, theme: document.body.dataset.theme, firstQuestionOpened: false, timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, poolId: activePoolId, tiebreakers: clone(data.tiebreakers), mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), allowNegativeScores: $('#allowNegativeScores').checked, teams: names.map(n => ({name: n, score: 0, doubleOrNothingUsed: false})), activeTeam: 0, categories: b.categories, points: b.points, cells: b.cells, answered: 0, startedAt: Date.now()}; saveGame(); renderBoard(); showScreen('boardScreen');} catch (e) {alert('Spiel kann nicht gestartet werden: ' + e.message);}
 }
-function hasPendingDoubleOrNothing() {return Number.isInteger(game?.doubleOrNothingTeam);}
+function hasPendingDoubleOrNothing() {return hasPendingChallenge(game);}
 function canChooseStartingTeam() {return game && !hasPendingDoubleOrNothing() && !game.firstQuestionOpened && game.answered === 0 && !game.currentQuestionId && !game.cells.some(c => c._timer || c._helpUsed || c._revealed || c._choiceSelected);}
 function changeStartingTeam() {
   if (!canChooseStartingTeam()) return;
@@ -321,14 +258,6 @@ function openQuestion(id) {
   startQuestionTimer();
   saveGame();
 }
-function normalizeChoice(x) {return String(x ?? '').trim().toLocaleLowerCase('de-DE').replace(/[.,:;!?()]/g, '').replace(/\s+/g, ' ');}
-function correctChoiceIndex(q) {
-  const choices = q.choices || [];
-  if (Number.isInteger(q.correctChoiceIndex) && q.correctChoiceIndex >= 0 && q.correctChoiceIndex < choices.length) return q.correctChoiceIndex;
-  if (typeof q.correctChoice === 'string') {const i = choices.findIndex(x => normalizeChoice(x) === normalizeChoice(q.correctChoice)); if (i >= 0) return i;}
-  const exact = choices.findIndex(x => normalizeChoice(x) === normalizeChoice(q.answer));
-  return exact;
-}
 function showChoices(asHelp) {
   const ch = $('#choices');
   const correctIndex = correctChoiceIndex(currentQuestion);
@@ -343,7 +272,7 @@ function showChoices(asHelp) {
   if (asHelp) {
     currentQuestion._helpUsed = true;
     const challengeActive = game.doubleOrNothingTeam === game.activeTeam;
-    const challengeInfo = challengeActive ? ` Challenge: ±${questionPoints(currentQuestion, true)} Punkte.` : '';
+    const challengeInfo = challengeActive ? ` Challenge: ±${questionPoints(currentQuestion, game, true)} Punkte.` : '';
     $('#helpInfo').textContent = `MC-Hilfe aktiv: ${Math.round(game.mcMultiplier * 100)} % der Punkte bei richtiger Antwort.${challengeInfo}`;
     $('#helpInfo').classList.remove('hidden'); $('#helpBtn').classList.add('hidden'); saveGame();
   }
@@ -353,10 +282,6 @@ function selectChoice(selectedBtn, isCorrect) {
   currentQuestion._choiceSelected = true; currentQuestion._choiceCorrect = isCorrect;
   currentQuestion._selectedIndex = [...$('#choices').children].indexOf(selectedBtn);
   stopQuestionTimer(); saveGame(); renderChoiceResult();
-}
-function questionPoints(question, doubleOrNothing) {
-  const basePoints = question._helpUsed ? Math.round(Number(question.points) * game.mcMultiplier) : Number(question.points);
-  return doubleOrNothing ? Math.round(basePoints * game.challengeMultiplier) : basePoints;
 }
 function renderChoiceResult() {
   const isCorrect = currentQuestion._choiceCorrect;
@@ -372,7 +297,7 @@ function renderChoiceResult() {
   $('#answerBox').classList.add('visible');
   $('#preRevealActions').classList.add('hidden'); $('#judgeActions').classList.add('hidden');
   const doubleOrNothing = game.doubleOrNothingTeam === game.activeTeam;
-  const points = questionPoints(currentQuestion, doubleOrNothing);
+  const points = questionPoints(currentQuestion, game, doubleOrNothing);
   const deduction = game.allowNegativeScores ? points : Math.min(game.teams[game.activeTeam].score, points);
   const result = $('#mcResult'); result.textContent = isCorrect ? `Richtig – +${points} Punkte werden beim Weitergehen übernommen.` : doubleOrNothing ? `Falsch – ${deduction} Punkte werden abgezogen.` : 'Falsch – es werden keine Punkte vergeben.';
   result.className = 'mc-result ' + (isCorrect ? 'correct' : 'wrong');
@@ -404,11 +329,7 @@ function judge(correct) {
   if (!currentQuestion || currentQuestion.used) return;
   stopQuestionTimer(); game.currentQuestionId = null;
   const c = game.cells.find(x => x.id === currentQuestion.id); c.used = true; game.answered++;
-  const doubleOrNothing = game.doubleOrNothingTeam === game.activeTeam;
-  const pts = questionPoints(c, doubleOrNothing);
-  if (correct) game.teams[game.activeTeam].score += pts;
-  else if (doubleOrNothing) game.teams[game.activeTeam].score = game.allowNegativeScores ? game.teams[game.activeTeam].score - pts : Math.max(0, game.teams[game.activeTeam].score - pts);
-  if (doubleOrNothing) delete game.doubleOrNothingTeam;
+  applyJudgement(game, c, correct);
   game.activeTeam = (game.activeTeam + 1) % game.teams.length; saveGame(); currentQuestion = null;
   if (game.answered >= game.cells.length) finishGame(); else {renderBoard(); showScreen('boardScreen');}
 }
@@ -432,16 +353,6 @@ function startTiebreaker(tied) {
   $('#evaluateTbBtn').onclick = () => evaluateTiebreaker(q, tied);
   area.querySelector('input')?.focus();
 }
-function parseEstimate(value) {
-  if (typeof value === 'number') return Number.isFinite(value) ? value : NaN;
-  const match = String(value ?? '').trim().match(/[-+]?\d[\d.,\s]*/); if (!match) return NaN;
-  let s = match[0].replace(/\s/g, ''); const dot = s.includes('.'), comma = s.includes(',');
-  if (dot && comma) {if (s.lastIndexOf(',') > s.lastIndexOf('.')) s = s.replace(/\./g, '').replace(',', '.'); else s = s.replace(/,/g, '');}
-  else if (comma) s = s.replace(',', '.');
-  else if (dot && /^[-+]?\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, '');
-  return Number(s);
-}
-function formatEstimate(value) {return new Intl.NumberFormat('de-DE', {maximumFractionDigits: 6}).format(value);}
 function evaluateTiebreaker(q, tied) {
   const answer = parseEstimate(q.numericAnswer ?? q.answer);
   if (!Number.isFinite(answer)) {alert('Die Lösung dieser Tie-Breaker-Frage ist nicht als Zahl auswertbar.'); return;}
@@ -486,7 +397,7 @@ async function initialize() {
   $(`input[name="mode"][value="${DEFAULTS.mode}"]`).checked = true;
   $('#mcPenalty').value = DEFAULTS.mcMultiplier;
   $('#challengeEnabled').checked = DEFAULTS.challengeEnabled ?? true;
-  $('#challengeMultiplier').value = defaultChallengeMultiplier();
+  $('#challengeMultiplier').value = defaultChallengeMultiplier(DEFAULTS);
   $('#allowNegativeScores').checked = DEFAULTS.allowNegativeScores ?? true;
   try {
     const rules = JSON.parse(storage.getItem(LS_RULES) || '{}');

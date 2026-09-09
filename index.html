@@ -209,9 +209,16 @@
                   <option value="3">3,0×</option>
                 </select>
               </div>
+              <div class="field">
+                <label for="challengePenaltyMode">Abzug bei falscher Challenge</label>
+                <select id="challengePenaltyMode">
+                  <option value="base">Einfacher Feldwert</option>
+                  <option value="multiplied">Multiplikator anwenden</option>
+                </select>
+              </div>
               <label class="toggle-row compact" for="allowNegativeScores"><span>Negative Punktestände erlauben</span><input id="allowNegativeScores" type="checkbox"></label>
             </div>
-            <p class="setting-hint">Ohne negative Punktestände endet ein verlorener Einsatz bei 0 Punkten.</p>
+            <p class="setting-hint">Ohne negative Punktestände endet ein verlorener Einsatz bei 0 Punkten. Bei MC-Hilfe wird auch der einfache Abzug entsprechend reduziert.</p>
           </div>
         </section>
 

@@ -16,6 +16,7 @@ window.QUIZZ_CONFIG = {
   // Punkte & Challenge
   challengeEnabled: true,    // Challenge pro Team und Runde aktivieren
   challengeMultiplier: 2,    // 1.25 | 1.5 | 2 | 2.5 | 3
+  challengePenaltyMode: 'base', // base = einfacher Feldwert | multiplied = Multiplikator anwenden
   allowNegativeScores: true, // bei verlorener Challenge unter 0 Punkte erlauben
 
   // Startendes Team

@@ -160,16 +160,16 @@ function poolStats() {
 }
 function renderPoolInfo() {if (!data) return; const s = poolStats(), settings = loadBoardSettings(); $('#poolInfo').textContent = `Board: ${settings.categoriesPerGame} Kategorien × ${settings.questionsPerCategory} Fragen · Fragenpool: ${s.questions} Fragen in ${s.cats} Kategorien · ${s.eligible} Kategorien sind dafür vollständig spielbar · ${s.tiebreakers} Tie-Breaker.`; try {validateData(data, settings); $('#startBtn').disabled = false; setupNotice();} catch (error) {$('#startBtn').disabled = true; $('#poolInfo').textContent += ` ${error.message} Bitte die Board-Einstellungen anpassen.`; setupNotice(error.message + ' Bitte die Board-Einstellungen anpassen.');}}
 function updateTeamControls() {
-  const count = $('#teamList').children.length;
+  const count = $$('#teamList .team-row').length;
   $('#addTeamBtn').disabled = count >= 5;
   $$('#teamList .team-row button').forEach(btn => btn.disabled = count <= 2);
 }
 function addTeam(name = '') {
-  const list = $('#teamList'); if (list.children.length >= 5) return; const idx = list.children.length + 1;
+  const list = $('#teamList'), count = $$('#teamList .team-row').length; if (count >= 5) return; const idx = count + 1;
   const row = document.createElement('div'); row.className = 'team-row';
   row.innerHTML = `<input aria-label="Teamname" value="${esc(name || 'Team ' + idx)}"><button class="btn ghost" title="Team entfernen">×</button>`;
-  row.querySelector('button').onclick = () => {if (list.children.length > 2) {row.remove(); updateTeamControls();} };
-  list.appendChild(row); updateTeamControls();
+  row.querySelector('button').onclick = () => {if ($$('#teamList .team-row').length > 2) {row.remove(); updateTeamControls();} };
+  list.insertBefore(row, $('#addTeamControl')); updateTeamControls();
 }
 function getTeamNames() {return [...$('#teamList').querySelectorAll('input')].map(x => x.value.trim()).filter(Boolean);}
 function selectedMode() {return $('input[name="mode"]:checked').value;}

@@ -78,6 +78,9 @@
   .field input,.field select{width:100%;padding:12px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#f7f9ff;color:#10225e;outline:none}
   .team-list{display:flex;flex-direction:column;gap:8px}
   .team-row{display:grid;grid-template-columns:1fr auto;gap:8px}
+  .team-add-row{display:grid;grid-template-columns:1fr auto}
+  :is(.team-row button,.team-add-row button){width:44px;min-height:44px;padding:0;font-size:1.35rem;line-height:1}
+  .team-add-row button{grid-column:2}
   .mode-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .mode-card{display:block;position:relative}
   .mode-card input{position:absolute;opacity:0;pointer-events:none}

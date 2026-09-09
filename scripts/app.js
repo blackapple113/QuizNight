@@ -372,6 +372,10 @@ function backToBoard() {
   clearInterval(timerInterval);
   if (currentQuestion && !currentQuestion._revealed && !currentQuestion._choiceSelected) {
     delete currentQuestion._timer;
+    if (game.doubleOrNothingTeam === game.activeTeam) {
+      game.teams[game.activeTeam].doubleOrNothingUsed = false;
+      delete game.doubleOrNothingTeam;
+    }
   }
   game.currentQuestionId = null; saveGame();
   currentQuestion = null; renderBoard(); showScreen('boardScreen');

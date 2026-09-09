@@ -8,6 +8,11 @@ body[data-theme="standard"] {
   --danger: #ff8a80;
   --success: #7ee2a8;
   --challenge-color: #ffd54a;
+  --team-card-bg: rgba(4, 16, 54, .8);
+  --team-card-border: rgba(255, 255, 255, .12);
+  --team-card-hover-bg: rgba(8, 31, 92, .8);
+  --team-card-main-hover: rgba(31, 75, 152, .56);
+  --team-card-active-bg: rgba(8, 31, 92, .8);
   --page-bg: radial-gradient(circle at top, #123da5 0, #071a52 48%, #04113a 100%);
   --theme-image: url("background.jpg");
   --custom-overlay-top: rgba(3, 18, 53, .12);

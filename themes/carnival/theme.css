@@ -7,6 +7,12 @@ body[data-theme="carnival"] {
   --danger: #ff6f9f;
   --success: #65e5d1;
   --challenge-color: #ffdb3d;
+  --team-card-bg: rgba(45, 14, 75, .8);
+  --team-card-border: rgba(101, 229, 209, .28);
+  --team-card-hover-bg: rgba(62, 19, 101, .8);
+  --team-card-main-hover: rgba(126, 47, 173, .72);
+  --team-card-active-bg: rgba(82, 25, 118, .8);
+  --team-card-backdrop: blur(4px) saturate(.72);
   --page-bg: radial-gradient(circle at top, #6d2ca0 0%, #351459 50%, #1d0b35 100%);
   --theme-image: url("background.jpg");
   --custom-overlay-top: rgba(41, 10, 69, .22);
@@ -32,10 +38,6 @@ body[data-theme="carnival"] .category { background: linear-gradient(135deg, #d63
 body[data-theme="carnival"] .tile { background: #562285; border-color: #65e5d1; color: var(--accent); }
 body[data-theme="carnival"] .tile:hover { background: #7130a8; }
 body[data-theme="carnival"] .tile.used { background: #28103f; border-color: rgba(101, 229, 209, .28); }
-body[data-theme="carnival"] .team-score { background: rgba(45, 14, 75, .8); border-color: rgba(101, 229, 209, .28); backdrop-filter: blur(4px) saturate(.72); -webkit-backdrop-filter: blur(4px) saturate(.72); }
-body[data-theme="carnival"] .team-score:hover { background: rgba(62, 19, 101, .8); }
-body[data-theme="carnival"] .team-score.active { border-color: var(--accent); background: rgba(82, 25, 118, .8); }
-body[data-theme="carnival"] .team-score-main:hover { background-color: rgba(126, 47, 173, .72); }
 body[data-theme="carnival"] dialog { background: #351459; border: 2px solid #65e5d1; }
 body[data-theme="carnival"] .btn.secondary { background: #dcfff9; }
 body[data-theme="carnival"] .mode-card input:checked + span { background: rgba(214, 62, 140, .3); }

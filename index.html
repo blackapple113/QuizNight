@@ -136,25 +136,70 @@
       <h2>Einstellungen</h2>
       <p class="note">Gilt für die nächste Runde. Während des Spiels bleiben alle Einstellungen gesperrt.</p>
       <fieldset id="settingsFields" aria-label="Optionen für die nächste Runde">
-        <h2>Spielmodus</h2>
-        <div class="mode-cards">
-          <label class="mode-card"><input type="radio" name="mode" value="open"><span>Offene
-              Fragen<small>MC-Hilfe kann eingeblendet werden</small></span></label>
-          <label class="mode-card"><input type="radio" name="mode" value="mc"><span>Multiple
-              Choice<small>Antwortmöglichkeiten sofort sichtbar</small></span></label>
+        <section class="settings-group" aria-labelledby="boardSettingsTitle">
+          <div class="settings-group-heading">
+            <h3 id="boardSettingsTitle">Spielbrett</h3>
+            <p>Lege Fragenpool und Größe des Boards fest.</p>
+          </div>
+          <div class="settings-grid board-settings-grid">
+            <div class="field">
+              <label for="poolSelect">Fragenpool</label>
+              <select id="poolSelect" disabled></select>
+            </div>
+            <div class="field">
+              <label for="categoryCount">Kategorien</label>
+              <select id="categoryCount">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="questionCount">Fragen je Kategorie</label>
+              <select id="questionCount">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </section>
 
-        </div>
-        <div class="field option-field" id="mcPenaltyField">
-          <label for="mcPenalty">Punkte bei MC-Hilfe</label>
-          <select id="mcPenalty">
-            <option value="1">100 %</option>
-            <option value="0.75">75 %</option>
-            <option value="0.5">50 %</option>
-            <option value="0.25">25 %</option>
-            <option value="0">0 %</option>
-          </select>
-        </div>
-        <div class="field option-field">
+        <section class="settings-group" aria-labelledby="answerSettingsTitle">
+          <div class="settings-group-heading">
+            <h3 id="answerSettingsTitle">Fragen &amp; Zeit</h3>
+            <p>Wähle die Antwortform und entscheide, ob ein Timer für jede Frage läuft.</p>
+          </div>
+          <div class="mode-cards">
+            <label class="mode-card"><input type="radio" name="mode" value="open"><span>Offene Fragen<small>MC-Hilfe kann später eingeblendet werden</small></span></label>
+            <label class="mode-card"><input type="radio" name="mode" value="mc"><span>Multiple Choice<small>Antwortmöglichkeiten sind sofort sichtbar</small></span></label>
+          </div>
+          <div class="settings-grid option-field">
+            <div class="field" id="mcPenaltyField">
+              <label for="mcPenalty">Punkte bei MC-Hilfe</label>
+              <select id="mcPenalty">
+                <option value="1">100 %</option>
+                <option value="0.75">75 %</option>
+                <option value="0.5">50 %</option>
+                <option value="0.25">25 %</option>
+                <option value="0">0 %</option>
+              </select>
+            </div>
+            <div class="field timer-setting">
+              <label class="timer-toggle" for="timerEnabled"><input id="timerEnabled" type="checkbox"> Antwort-Timer</label>
+              <div class="timer-duration"><input id="timerSeconds" type="number" min="5" max="600" step="1" required disabled aria-label="Antwortzeit in Sekunden" aria-describedby="timerHint"><span>Sekunden</span></div>
+            </div>
+          </div>
+          <p class="setting-hint" id="timerHint">Optional: 5–600 Sekunden je Frage. Bei Zeitablauf entscheidet die Spielleitung über die Wertung.</p>
+        </section>
+
+        <section class="settings-group" aria-labelledby="challengeSettingsTitle">
+          <div class="settings-group-heading">
+            <h3 id="challengeSettingsTitle">Punkte &amp; Challenge</h3>
+            <p>Jedes Team darf die Challenge einmal pro Runde vor der Fragenwahl einsetzen.</p>
+          </div>
           <label class="timer-toggle" for="challengeEnabled"><input id="challengeEnabled" type="checkbox"> Challenge aktivieren</label>
           <div class="challenge-options" id="challengeOptions">
             <div class="field">
@@ -169,49 +214,25 @@
             </div>
             <label class="timer-toggle" for="allowNegativeScores"><input id="allowNegativeScores" type="checkbox"> Negative Punktestände erlauben</label>
           </div>
-          <p class="note challenge-hint">Jedes Team darf die Challenge einmal pro Runde vor der Fragenwahl einsetzen.</p>
-        </div>
-        <div class="field option-field">
-          <label for="poolSelect">Fragenpool</label>
-          <select id="poolSelect" disabled></select>
-        </div>
+          <p class="setting-hint">Ohne negative Punktestände endet ein verlorener Einsatz bei 0 Punkten.</p>
+        </section>
 
-        <div class="round-options">
-          <div class="field">
-            <label for="categoryCount">Kategorien</label>
-            <select id="categoryCount">
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
+        <section class="settings-group" aria-labelledby="appearanceSettingsTitle">
+          <div class="settings-group-heading">
+            <h3 id="appearanceSettingsTitle">Erscheinungsbild</h3>
+            <p>Das Theme verändert nur die Optik, nicht Fragenpool oder Spielregeln.</p>
           </div>
           <div class="field">
-            <label for="questionCount">Fragen je Kategorie</label>
-            <select id="questionCount">
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+            <label for="themeSelect">Theme</label>
+            <select id="themeSelect">
+              <option value="standard">Standard</option>
+              <option value="oktoberfest">Oktoberfest</option>
+              <option value="christmas">Weihnachten</option>
+              <option value="carnival">Karneval</option>
+              <option value="nerd">Nerd</option>
             </select>
           </div>
-          <div class="field timer-setting">
-            <label class="timer-toggle" for="timerEnabled"><input id="timerEnabled" type="checkbox"> Antwort-Timer</label>
-            <div class="timer-duration"><input id="timerSeconds" type="number" min="5" max="600" step="1" required disabled aria-label="Antwortzeit in Sekunden" aria-describedby="timerHint"><span>Sekunden</span></div>
-          </div>
-        </div>
-        <p class="note timer-hint" id="timerHint">Optional: 5–600 Sekunden je Frage. Bei Zeitablauf entscheidet die Spielleitung über die Wertung.</p>
-
-        <div class="field">
-          <label for="themeSelect">Theme</label>
-          <select id="themeSelect">
-            <option value="standard">Standard</option>
-            <option value="oktoberfest">Oktoberfest</option>
-            <option value="christmas">Weihnachten</option>
-            <option value="carnival">Karneval</option>
-            <option value="nerd">Nerd</option>
-          </select>
-        </div>
+        </section>
       </fieldset>
       <p class="note" id="poolInfo" role="status" aria-live="polite"></p>
       <div class="dialog-actions">

@@ -82,5 +82,5 @@ window.QuizzQuestionBank = (() => {
       document.head.appendChild(script);
     });
   }
-  return {buildBoard, clone, correctChoiceIndex, escapeHtml, formatEstimate, loadPool, parseEstimate, poolStats, selectedPoints, validateData};
+  return {buildBoard, clone, correctChoiceIndex, escapeHtml, formatEstimate, loadPool, parseEstimate, poolStats, selectedPoints, shuffle, validateData};
 })();

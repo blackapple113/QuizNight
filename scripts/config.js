@@ -10,7 +10,7 @@ window.QUIZZ_CONFIG = {
   // Fragen & Zeit
   mode: 'open',              // open = offene Fragen | mc = Multiple Choice
   mcMultiplier: 0.5,         // 1 | 0.75 | 0.5 | 0.25 | 0 (Anteil bei MC-Hilfe)
-  timerEnabled: false,       // true = Timer an | false = Timer aus
+  timerEnabled: true,       // true = Timer an | false = Timer aus
   timerSeconds: 30,          // 5–600 Sekunden je Frage
 
   // Punkte & Challenge
@@ -21,7 +21,7 @@ window.QUIZZ_CONFIG = {
 
   // Startendes Team
   startingTeamSelectionEnabled: true, // vor jeder Runde das Startteam bestimmen
-  startingTeamMode: 'manual', // manual = Auswahl | random = Auslosung
+  startingTeamMode: 'random', // manual = Auswahl | random = Auslosung
 
   // Erscheinungsbild
   theme: 'standard',       // standard | oktoberfest | christmas | carnival | nerd

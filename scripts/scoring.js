@@ -21,7 +21,6 @@ window.QuizzScoring = (() => {
     if (correct) team.score += points;
     else if (challengeActive) team.score = game.allowNegativeScores ? team.score - penalty : Math.max(0, team.score - penalty);
     if (challengeActive) delete game.doubleOrNothingTeam;
-    return {challengeActive, points};
   }
   function normalizeSavedGame(savedGame, defaults) {
     if (!savedGame) return null;

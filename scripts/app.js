@@ -4,6 +4,7 @@ const DEFAULTS = window.QUIZZ_CONFIG;
 const {create: createStorage, readJson} = window.QuizzStorage;
 const {buildBoard, clone, correctChoiceIndex, escapeHtml: esc, formatEstimate, loadPool, parseEstimate, poolStats: getPoolStats, shuffle, validateData} = window.QuizzQuestionBank;
 const {CHALLENGE_MULTIPLIERS, applyJudgement, challengePenaltyPoints, defaultChallengeMultiplier, hasPendingChallenge, normalizeSavedGame, questionPoints} = window.QuizzScoring;
+const {advanceTurn, createGame, findAvailableQuestion, findCell, isComplete, markQuestionUsed} = window.QuizzGameState;
 
 const LS_GAME = 'jeopardy-game-state-v1';
 const LS_BOARD_SETTINGS = 'jeopardy-board-settings-v1';
@@ -13,7 +14,6 @@ const LS_THEME = 'quizz-theme-v1';
 let timerInterval = null;
 const LS_POOL = 'quizz-selected-pool-v1';
 const pools = window.QUESTION_POOLS || [];
-let activePoolId = null;
 let data = null;
 let game = null;
 let currentQuestion = null;
@@ -30,7 +30,6 @@ async function selectPool(id) {
   if (settingsLocked()) return;
   const pool = pools.find(p => p.id === id);
   data = null;
-  activePoolId = null;
   $('#startBtn').disabled = true;
   $('#poolSelect').disabled = true;
   $('#poolInfo').textContent = 'Fragenpool wird geladen …';
@@ -40,7 +39,6 @@ async function selectPool(id) {
     const loaded = await loadPool(pool);
     validateData(loaded, loadBoardSettings(), false);
     data = loaded;
-    activePoolId = pool.id;
     $('#poolSelect').value = pool.id;
     storage.setItem(LS_POOL, pool.id);
     renderPoolInfo();
@@ -55,13 +53,13 @@ async function selectPool(id) {
 const storage = createStorage(showStorageNotice);
 function showStorageNotice() {document.querySelector('.footer').textContent = 'Der Browserspeicher ist nicht verfügbar. Der Spielstand bleibt nur bis zum Schließen oder Neuladen dieser Seite erhalten.';}
 function normalizeBoardSettings(value = {}) {return {categoriesPerGame: Math.min(6, Math.max(3, Number(value.categoriesPerGame) || DEFAULTS.categoriesPerGame)), questionsPerCategory: Math.min(5, Math.max(2, Number(value.questionsPerCategory) || DEFAULTS.questionsPerCategory))};}
-function loadBoardSettings() {try {return normalizeBoardSettings(JSON.parse(storage.getItem(LS_BOARD_SETTINGS) || '{}'))} catch {return normalizeBoardSettings();} }
+function loadBoardSettings() {return normalizeBoardSettings(readJson(storage, LS_BOARD_SETTINGS, {}));}
 function saveBoardSettings() {if (settingsLocked()) return; const settings = normalizeBoardSettings({categoriesPerGame: $('#categoryCount').value, questionsPerCategory: $('#questionCount').value}); storage.setItem(LS_BOARD_SETTINGS, JSON.stringify(settings)); renderPoolInfo();}
 function settingsLocked() {return !$('#setupScreen').classList.contains('active');}
 function setupNotice(message = '') {$('#setupNotice').textContent = message; $('#setupNotice').classList.toggle('hidden', !message);}
 function openSettings() {if (settingsLocked()) return; $('#themeSelect').value = document.body.dataset.theme; $('#settingsDialog').showModal();}
 function openRules() {
-  const rules = game || {mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), challengePenaltyMode: $('#challengePenaltyMode').value, allowNegativeScores: $('#allowNegativeScores').checked};
+  const rules = game || currentGameSettings();
   const mode = rules.mode === 'mc' ? 'Multiple Choice' : `offene Fragen${rules.mcMultiplier < 1 ? ` mit ${Math.round(rules.mcMultiplier * 100)} % bei MC-Hilfe` : ''}`;
   const timer = rules.timerSeconds > 0 ? `Timer: ${rules.timerSeconds} Sekunden.` : 'Timer: aus.';
   const challenge = rules.challengeEnabled ? `Challenge: ${String(rules.challengeMultiplier).replace('.', ',')}×, Abzug ${rules.challengePenaltyMode === 'base' ? 'einfach' : 'multipliziert'}, negative Punkte ${rules.allowNegativeScores ? 'erlaubt' : 'nicht erlaubt'}.` : 'Challenge: aus.';
@@ -74,10 +72,8 @@ function applyTheme(theme) {
   $('#themeSelect').value = theme;
 }
 function loadTimerSettings() {
-  try {
-    const value = JSON.parse(storage.getItem(LS_TIMER) || '{}');
-    return {enabled: typeof value?.enabled === 'boolean' ? value.enabled : DEFAULTS.timerEnabled, seconds: Math.min(600, Math.max(5, Math.round(Number(value?.seconds) || DEFAULTS.timerSeconds)))};
-  } catch {return {enabled: DEFAULTS.timerEnabled, seconds: DEFAULTS.timerSeconds};}
+  const value = readJson(storage, LS_TIMER, {});
+  return {enabled: typeof value?.enabled === 'boolean' ? value.enabled : DEFAULTS.timerEnabled, seconds: Math.min(600, Math.max(5, Math.round(Number(value?.seconds) || DEFAULTS.timerSeconds)))};
 }
 function saveTimerSettings() {
   if (settingsLocked()) return;
@@ -86,9 +82,25 @@ function saveTimerSettings() {
   storage.setItem(LS_TIMER, JSON.stringify({enabled: $('#timerEnabled').checked, seconds: Number($('#timerSeconds').value)}));
 }
 function startingTeamSettings() {return {enabled: $('#startingTeamSelectionEnabled').checked, mode: $('#startingTeamMode').value === 'random' ? 'random' : 'manual'};}
+function currentGameSettings() {
+  const startingTeam = startingTeamSettings();
+  return {
+    theme: document.body.dataset.theme,
+    timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0,
+    mode: selectedMode(),
+    mcMultiplier: Number($('#mcPenalty').value),
+    challengeEnabled: $('#challengeEnabled').checked,
+    challengeMultiplier: Number($('#challengeMultiplier').value),
+    challengePenaltyMode: $('#challengePenaltyMode').value,
+    allowNegativeScores: $('#allowNegativeScores').checked,
+    startingTeamSelectionEnabled: startingTeam.enabled,
+    startingTeamMode: startingTeam.mode,
+  };
+}
 function saveRules() {
   if (settingsLocked()) return;
-  storage.setItem(LS_RULES, JSON.stringify({mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), challengePenaltyMode: $('#challengePenaltyMode').value, allowNegativeScores: $('#allowNegativeScores').checked, startingTeamSelectionEnabled: $('#startingTeamSelectionEnabled').checked, startingTeamMode: $('#startingTeamMode').value}));
+  const {mode, mcMultiplier, challengeEnabled, challengeMultiplier, challengePenaltyMode, allowNegativeScores, startingTeamSelectionEnabled, startingTeamMode} = currentGameSettings();
+  storage.setItem(LS_RULES, JSON.stringify({mode, mcMultiplier, challengeEnabled, challengeMultiplier, challengePenaltyMode, allowNegativeScores, startingTeamSelectionEnabled, startingTeamMode}));
   updateModeOptions(); updateChallengeOptions(); updateStartingTeamOptions();
 }
 function updateModeOptions() {$('#mcPenaltyField').classList.toggle('hidden', selectedMode() !== 'open');}
@@ -180,7 +192,12 @@ function startGame() {
   if ($('#timerEnabled').checked && !$('#timerSeconds').checkValidity()) {openSettings(); $('#timerSeconds').reportValidity(); return;}
   saveBoardSettings(); saveTimerSettings();
   const names = getTeamNames(); if (names.length < 2) {alert('Bitte mindestens zwei Teams eintragen.'); return;} if (names.length > 5) {alert('Es sind maximal fünf Teams möglich.'); return;}
-  try {const b = buildBoard(data, loadBoardSettings()), startSettings = startingTeamSettings(); game = {version: 4, theme: document.body.dataset.theme, firstQuestionOpened: false, timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0, poolId: activePoolId, tiebreakers: clone(data.tiebreakers), mode: selectedMode(), mcMultiplier: Number($('#mcPenalty').value), challengeEnabled: $('#challengeEnabled').checked, challengeMultiplier: Number($('#challengeMultiplier').value), challengePenaltyMode: $('#challengePenaltyMode').value, allowNegativeScores: $('#allowNegativeScores').checked, startingTeamPending: startSettings.enabled, startingTeamMode: startSettings.mode, teams: names.map(n => ({name: n, score: 0, doubleOrNothingUsed: false})), activeTeam: 0, categories: b.categories, points: b.points, cells: b.cells, answered: 0, startedAt: Date.now()}; saveGame(); renderBoard(); showScreen('boardScreen'); if (game.startingTeamPending) openStartingTeamDialog();} catch (e) {alert('Spiel kann nicht gestartet werden: ' + e.message);}
+  try {
+    const board = buildBoard(data, loadBoardSettings());
+    game = createGame({board, teamNames: names, settings: currentGameSettings(), tiebreakers: clone(data.tiebreakers)});
+    saveGame(); renderBoard(); showScreen('boardScreen');
+    if (game.startingTeamPending) openStartingTeamDialog();
+  } catch (error) {alert('Spiel kann nicht gestartet werden: ' + error.message);}
 }
 function hasPendingDoubleOrNothing() {return hasPendingChallenge(game);}
 function clearStartingTeamAnimation() {startingTeamRun++; startingTeamTimers.forEach(clearTimeout); startingTeamTimers = [];}
@@ -279,27 +296,24 @@ function saveScoreCorrection() {
   game.teams[scoreEditTeam].score = Math.round(score); saveGame(); $('#scoreDialog').close();
   if (scoreEditReturn === 'end') finishGame(); else renderScores();
 }
-function cellFor(cat, p) {return game.cells.find(c => c.category === cat && Number(c.points) === Number(p));}
 function renderBoard() {
   renderScores(); const b = $('#board'); b.innerHTML = '';
   const categoryCount = game.categories.length; b.style.setProperty('--category-count', categoryCount); b.style.setProperty('--board-min-width', (categoryCount * 150 + (categoryCount - 1) * 8) + 'px'); b.style.setProperty('--board-mobile-min-width', (categoryCount * 112 + (categoryCount - 1) * 5) + 'px');
   game.categories.forEach(cat => {const el = document.createElement('div'); el.className = 'category'; el.textContent = cat; b.appendChild(el);});
   game.points.forEach(p => game.categories.forEach(cat => {
-    const c = cellFor(cat, p); const btn = document.createElement('button'); btn.className = 'tile' + (c.used ? ' used' : ''); btn.textContent = c.used ? '' : p; btn.disabled = !!c.used; btn.onclick = () => openQuestion(c.id); b.appendChild(btn);
+    const c = findCell(game, cat, p); const btn = document.createElement('button'); btn.className = 'tile' + (c.used ? ' used' : ''); btn.textContent = c.used ? '' : p; btn.disabled = !!c.used; btn.onclick = () => openQuestion(c.id); b.appendChild(btn);
   }));
 }
 function openQuestion(id) {
   if (game?.startingTeamPending) return;
-  currentQuestion = game.cells.find(c => c.id === id && !c.used); if (!currentQuestion) return;
-  game.firstQuestionOpened = true;
+  currentQuestion = findAvailableQuestion(game, id); if (!currentQuestion) return;
   game.currentQuestionId = id;
   const doubleOrNothing = game.doubleOrNothingTeam === game.activeTeam;
   const challengePoints = questionPoints(currentQuestion, game, true), penaltyPoints = challengePenaltyPoints(currentQuestion, game);
   $('#qCategory').textContent = currentQuestion.category; $('#qPoints').textContent = doubleOrNothing ? `${currentQuestion.points} Punkte · Challenge: +${challengePoints} / −${penaltyPoints}` : currentQuestion.points + ' Punkte'; $('#qTeam').textContent = game.teams[game.activeTeam].name;
-  const isJ = game.mode === 'jeopardy';
-  $('#questionText').textContent = isJ ? currentQuestion.answer : currentQuestion.question;
-  $('#answerBox').classList.remove('visible'); $('#answerBox').textContent = isJ ? ('Gesuchte Frage: ' + currentQuestion.question) : ('Antwort: ' + currentQuestion.answer);
-  $('#revealBtn').textContent = isJ ? 'Gesuchte Frage zeigen' : 'Lösung zeigen';
+  $('#questionText').textContent = currentQuestion.question;
+  $('#answerBox').classList.remove('visible'); $('#answerBox').textContent = 'Antwort: ' + currentQuestion.answer;
+  $('#revealBtn').textContent = 'Lösung zeigen';
   $('#judgeActions').classList.add('hidden'); $('#mcContinueActions').classList.add('hidden'); $('#mcResult').classList.add('hidden'); $('#mcResult').textContent = '';
   $('#preRevealActions').classList.remove('hidden'); $('#helpInfo').classList.add('hidden'); $('#helpInfo').textContent = '';
   const choices = $('#choices'); choices.innerHTML = ''; choices.classList.add('hidden');
@@ -386,11 +400,11 @@ function acceptMcResult() {
 }
 function judge(correct) {
   if (!currentQuestion || currentQuestion.used) return;
-  stopQuestionTimer(); game.currentQuestionId = null;
-  const c = game.cells.find(x => x.id === currentQuestion.id); c.used = true; game.answered++;
+  stopQuestionTimer();
+  const c = markQuestionUsed(game, currentQuestion.id); if (!c) return;
   applyJudgement(game, c, correct);
-  game.activeTeam = (game.activeTeam + 1) % game.teams.length; saveGame(); currentQuestion = null;
-  if (game.answered >= game.cells.length) finishGame(); else {renderBoard(); showScreen('boardScreen');}
+  advanceTurn(game); saveGame(); currentQuestion = null;
+  if (isComplete(game)) finishGame(); else {renderBoard(); showScreen('boardScreen');}
 }
 function finishGame() {
   const sorted = game.teams.map((t, i) => ({...t, index: i})).sort((a, b) => b.score - a.score);
@@ -463,17 +477,15 @@ async function initialize() {
   $('#allowNegativeScores').checked = DEFAULTS.allowNegativeScores ?? true;
   $('#startingTeamSelectionEnabled').checked = DEFAULTS.startingTeamSelectionEnabled ?? true;
   $('#startingTeamMode').value = DEFAULTS.startingTeamMode === 'random' ? 'random' : 'manual';
-  try {
-    const rules = JSON.parse(storage.getItem(LS_RULES) || '{}');
-    if (['open', 'mc'].includes(rules.mode)) $(`input[name="mode"][value="${rules.mode}"]`).checked = true;
-    if ([1, 0.75, 0.5, 0.25, 0].includes(rules.mcMultiplier)) $('#mcPenalty').value = rules.mcMultiplier;
-    if (typeof rules.challengeEnabled === 'boolean') $('#challengeEnabled').checked = rules.challengeEnabled;
-    if (CHALLENGE_MULTIPLIERS.includes(Number(rules.challengeMultiplier))) $('#challengeMultiplier').value = rules.challengeMultiplier;
-    if (['base', 'multiplied'].includes(rules.challengePenaltyMode)) $('#challengePenaltyMode').value = rules.challengePenaltyMode;
-    if (typeof rules.allowNegativeScores === 'boolean') $('#allowNegativeScores').checked = rules.allowNegativeScores;
-    if (typeof rules.startingTeamSelectionEnabled === 'boolean') $('#startingTeamSelectionEnabled').checked = rules.startingTeamSelectionEnabled;
-    if (['manual', 'random'].includes(rules.startingTeamMode)) $('#startingTeamMode').value = rules.startingTeamMode;
-  } catch {}
+  const rules = readJson(storage, LS_RULES, {});
+  if (['open', 'mc'].includes(rules.mode)) $(`input[name="mode"][value="${rules.mode}"]`).checked = true;
+  if ([1, 0.75, 0.5, 0.25, 0].includes(rules.mcMultiplier)) $('#mcPenalty').value = rules.mcMultiplier;
+  if (typeof rules.challengeEnabled === 'boolean') $('#challengeEnabled').checked = rules.challengeEnabled;
+  if (CHALLENGE_MULTIPLIERS.includes(Number(rules.challengeMultiplier))) $('#challengeMultiplier').value = rules.challengeMultiplier;
+  if (['base', 'multiplied'].includes(rules.challengePenaltyMode)) $('#challengePenaltyMode').value = rules.challengePenaltyMode;
+  if (typeof rules.allowNegativeScores === 'boolean') $('#allowNegativeScores').checked = rules.allowNegativeScores;
+  if (typeof rules.startingTeamSelectionEnabled === 'boolean') $('#startingTeamSelectionEnabled').checked = rules.startingTeamSelectionEnabled;
+  if (['manual', 'random'].includes(rules.startingTeamMode)) $('#startingTeamMode').value = rules.startingTeamMode;
   const settings = loadBoardSettings();
   $('#categoryCount').value = settings.categoriesPerGame; $('#questionCount').value = settings.questionsPerCategory;
   const timer = loadTimerSettings();

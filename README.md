@@ -97,7 +97,8 @@ Typische Defaults sind:
 | Theme | `standard`, `nerd`, `oktoberfest`, … |
 | Spielmodus | offene Fragen oder Multiple Choice |
 | Kategorien pro Runde | z. B. 5 |
-| Fragen je Kategorie | z. B. 5 |
+| Punktestufen | z. B. `[100, 200, 300, 400, 500]` |
+| Kategorien | mit `categoryChoiceEnabled` aktivieren; z. B. `['Film', 'Musik']`, übrige Plätze werden zufällig gefüllt |
 | Punkte bei MC-Hilfe | z. B. 50 % |
 | Challenge | an/aus, Multiplikator, Abzug bei falscher Antwort und negative Punktestände |
 | Antwort-Timer | an / aus |
@@ -329,6 +330,7 @@ Die wichtigsten Dateien auf einen Blick:
 ├── scripts/
 │   ├── app.js
 │   ├── config.js
+│   ├── game-state.js
 │   ├── question-bank.js
 │   ├── scoring.js
 │   └── storage.js

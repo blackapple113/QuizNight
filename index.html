@@ -152,15 +152,16 @@
                 <option value="6">6</option>
               </select>
             </div>
-            <div class="field">
-              <label for="questionCount">Fragen je Kategorie</label>
-              <select id="questionCount">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
+          </div>
+          <div class="field option-field">
+            <span class="field-label" id="pointValuesLabel">Punktestufen</span>
+            <div class="choice-options" id="pointOptions" aria-labelledby="pointValuesLabel"></div>
+            <p class="setting-hint">Wähle mindestens zwei Punktestufen. Pro gewählter Stufe erscheint ein Feld je Kategorie.</p>
+          </div>
+          <div class="toggle-settings option-field">
+            <label class="toggle-row" for="categoryChoiceEnabled"><span id="categoryOptionsLabel">Kategorien gezielt wählen</span><input id="categoryChoiceEnabled" type="checkbox"></label>
+            <div class="category-selects hidden" id="categorySelects" aria-labelledby="categoryOptionsLabel"></div>
+            <p class="setting-hint">Standardmäßig werden die Kategorien zufällig aus dem Pool gewählt. Bei aktivierter Auswahl können einzelne Plätze weiterhin zufällig bleiben.</p>
           </div>
           <p class="pool-summary" id="poolInfo" role="status" aria-live="polite"></p>
         </section>

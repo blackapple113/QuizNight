@@ -33,7 +33,16 @@ window.QuizzQuestionBank = (() => {
     return Number(normalized);
   }
   function formatEstimate(value) {return new Intl.NumberFormat('de-DE', {maximumFractionDigits: 6}).format(value);}
-  function selectedPoints(data, questionsPerCategory) {return (data.config?.points || [100, 200, 300, 400, 500]).slice(0, questionsPerCategory);}
+  function availablePoints(data) {return data.config?.points || [100, 200, 300, 400, 500];}
+  function selectedPoints(data, settings) {
+    const points = availablePoints(data);
+    if (Array.isArray(settings?.points)) {
+      const selected = new Set(settings.points.map(Number));
+      return points.filter(pointsValue => selected.has(Number(pointsValue)));
+    }
+    const questionsPerCategory = typeof settings === 'number' ? settings : settings?.questionsPerCategory;
+    return points.slice(0, questionsPerCategory);
+  }
   function eligibleCategories(data, points) {
     return [...new Set(data.questions.map(question => question.category))].filter(category => points.every(pointsValue => data.questions.some(question => question.category === category && Number(question.points) === Number(pointsValue))));
   }
@@ -48,23 +57,25 @@ window.QuizzQuestionBank = (() => {
     for (const question of data.tiebreakers) {
       if (!question || !question.id || !question.question || !Number.isFinite(parseEstimate(question.numericAnswer ?? question.answer))) throw new Error('Eine Schätzfrage hat fehlende Pflichtfelder oder keine numerische Lösung.');
     }
-    const allPoints = data.config?.points ?? [100, 200, 300, 400, 500];
+    const allPoints = availablePoints(data);
     if (!Array.isArray(allPoints) || !allPoints.length || allPoints.some(points => !Number.isFinite(points) || points <= 0) || new Set(allPoints).size !== allPoints.length) throw new Error('Die Punktstufen müssen eindeutige positive Zahlen sein.');
     if (!checkBoard) return true;
-    if (allPoints.length < settings.questionsPerCategory) throw new Error(`Für ${settings.questionsPerCategory} Fragen je Kategorie fehlen Punktstufen im Fragenpool.`);
-    const points = selectedPoints(data, settings.questionsPerCategory);
+    const points = selectedPoints(data, settings);
+    if (points.length < 2) throw new Error('Bitte mindestens zwei Punktestufen auswählen.');
     const categories = eligibleCategories(data, points);
     if (categories.length < settings.categoriesPerGame) throw new Error(`Zu wenige vollständige Kategorien. Benötigt: ${settings.categoriesPerGame}, vorhanden: ${categories.length}.`);
     return true;
   }
   function poolStats(data, settings) {
-    const points = selectedPoints(data, settings.questionsPerCategory);
+    const points = selectedPoints(data, settings);
     return {categories: new Set(data.questions.map(question => question.category)).size, eligible: eligibleCategories(data, points).length, questions: data.questions.length, tiebreakers: data.tiebreakers.length};
   }
   function buildBoard(data, settings) {
     validateData(data, settings);
-    const points = selectedPoints(data, settings.questionsPerCategory);
-    const categories = shuffle(eligibleCategories(data, points)).slice(0, settings.categoriesPerGame);
+    const points = selectedPoints(data, settings);
+    const availableCategories = eligibleCategories(data, points);
+    const chosenCategories = settings.categoryChoiceEnabled ? [...new Set(settings.categories || [])].filter(category => availableCategories.includes(category)) : [];
+    const categories = [...chosenCategories, ...shuffle(availableCategories.filter(category => !chosenCategories.includes(category)))].slice(0, settings.categoriesPerGame);
     const cells = [];
     categories.forEach(category => points.forEach(pointsValue => {
       const pool = data.questions.filter(question => question.category === category && Number(question.points) === Number(pointsValue));
@@ -82,5 +93,5 @@ window.QuizzQuestionBank = (() => {
       document.head.appendChild(script);
     });
   }
-  return {buildBoard, clone, correctChoiceIndex, escapeHtml, formatEstimate, loadPool, parseEstimate, poolStats, selectedPoints, shuffle, validateData};
+  return {availablePoints, buildBoard, clone, correctChoiceIndex, eligibleCategories, escapeHtml, formatEstimate, loadPool, parseEstimate, poolStats, selectedPoints, shuffle, validateData};
 })();

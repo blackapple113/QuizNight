@@ -5,7 +5,10 @@ window.QUIZZ_CONFIG = {
   // Spielbrett
   poolId: 'standard',      // ID aus pools/index.js
   categoriesPerGame: 5,    // 3–6; der Pool braucht genügend vollständige Kategorien
-  questionsPerCategory: 5, // 2–5
+  questionsPerCategory: 5, // Rückfall für Pools ohne gespeicherte Punktestufen
+  pointValues: [100, 200, 300, 400, 500], // verwendete Punktestufen aus dem Fragenpool
+  categoryChoiceEnabled: false, // Kategorien in den Einstellungen gezielt wählen
+  categories: [],          // feste Kategorien, Rest wird zufällig gewählt; z. B. ['Film', 'Musik']
 
   // Fragen & Zeit
   mode: 'open',              // open = offene Fragen | mc = Multiple Choice

@@ -74,8 +74,13 @@
   :is(button,input,select):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
   .mode-card input:focus-visible+span{outline:3px solid var(--accent);outline-offset:3px}
   .field{display:flex;flex-direction:column;gap:7px}
-  .field label{font-weight:800;color:#e8eeff}
+  .field :is(label,.field-label){font-weight:800;color:#e8eeff}
   .field input,.field select{width:100%;padding:12px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#f7f9ff;color:#10225e;outline:none}
+  .choice-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+  .choice-option{display:flex;align-items:center;gap:9px;min-height:46px;padding:10px 12px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.06);font-weight:800;cursor:pointer}
+  .choice-option:has(input:checked){border-color:var(--accent);background:rgba(255,213,74,.12)}
+  .choice-option input{width:18px;height:18px;margin:0;accent-color:var(--accent)}
+  .category-selects{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,180px));justify-content:start;gap:10px;margin-top:12px}
   .team-list{display:flex;flex-direction:column;gap:8px}
   .team-row{display:grid;grid-template-columns:1fr auto;gap:8px}
   .team-add-row{display:grid;grid-template-columns:1fr auto}
@@ -166,6 +171,7 @@
   .tb-result{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08)}
   .tb-result.closest{border:1px solid var(--success);background:rgba(126,226,168,.14)}
   dialog{border:0;border-radius:18px;width:min(760px,calc(100% - 28px));padding:0;background:#071a52;color:#fff;box-shadow:0 20px 80px rgba(0,0,0,.5)}
+  #settingsDialog{width:min(1000px,calc(100% - 28px))}
   #startingTeamDialog{width:min(920px,calc(100% - 28px))}
   #settingsDialog,#rulesDialog,#startingTeamDialog{max-height:calc(100dvh - 28px);overflow:auto}
   dialog::backdrop{background:rgba(0,0,0,.65)}
@@ -210,6 +216,10 @@
     .challenge-label{display:inline}
     .tb-guess{grid-template-columns:1fr}
     .btn{padding:10px 12px}
+  }
+  @media(min-width:820px){
+    #pointOptions{grid-template-columns:repeat(5,minmax(0,1fr))}
+    #pointOptions .choice-option{justify-content:center;padding-left:8px;padding-right:8px}
   }
   @media(max-height:700px) and (min-width:761px){
     .tiebreaker-overlay{padding:12px}

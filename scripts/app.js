@@ -2,7 +2,7 @@
 
 const DEFAULTS = window.QUIZZ_CONFIG;
 const {create: createStorage, readJson} = window.QuizzStorage;
-const {buildBoard, clone, correctChoiceIndex, escapeHtml: esc, formatEstimate, loadPool, parseEstimate, poolStats: getPoolStats, shuffle, validateData} = window.QuizzQuestionBank;
+const {availablePoints, buildBoard, clone, correctChoiceIndex, eligibleCategories, escapeHtml: esc, formatEstimate, loadPool, parseEstimate, poolStats: getPoolStats, shuffle, validateData} = window.QuizzQuestionBank;
 const {CHALLENGE_MULTIPLIERS, applyJudgement, challengePenaltyPoints, defaultChallengeMultiplier, hasPendingChallenge, normalizeSavedGame, questionPoints} = window.QuizzScoring;
 const {advanceTurn, createGame, findAvailableQuestion, findCell, isComplete, markQuestionUsed} = window.QuizzGameState;
 
@@ -41,6 +41,7 @@ async function selectPool(id) {
     data = loaded;
     $('#poolSelect').value = pool.id;
     storage.setItem(LS_POOL, pool.id);
+    renderBoardSettingOptions();
     renderPoolInfo();
   } catch (error) {
     console.error(error);
@@ -52,9 +53,85 @@ async function selectPool(id) {
 }
 const storage = createStorage(showStorageNotice);
 function showStorageNotice() {document.querySelector('.footer').textContent = 'Der Browserspeicher ist nicht verfügbar. Der Spielstand bleibt nur bis zum Schließen oder Neuladen dieser Seite erhalten.';}
-function normalizeBoardSettings(value = {}) {return {categoriesPerGame: Math.min(6, Math.max(3, Number(value.categoriesPerGame) || DEFAULTS.categoriesPerGame)), questionsPerCategory: Math.min(5, Math.max(2, Number(value.questionsPerCategory) || DEFAULTS.questionsPerCategory))};}
+function configuredPointValues() {return data ? availablePoints(data) : (DEFAULTS.pointValues || [100, 200, 300, 400, 500]);}
+function normalizeBoardSettings(value = {}) {
+  const available = configuredPointValues();
+  const hasLegacyQuestionCount = Number.isFinite(Number(value.questionsPerCategory)) && Number(value.questionsPerCategory) > 0;
+  const legacyPoints = hasLegacyQuestionCount ? available.slice(0, Math.min(available.length, Math.max(2, Number(value.questionsPerCategory)))) : [];
+  const hasExplicitPointSelection = Array.isArray(value.points);
+  const requestedPoints = hasExplicitPointSelection ? value.points : (legacyPoints.length ? legacyPoints : (Array.isArray(DEFAULTS.pointValues) ? DEFAULTS.pointValues : available.slice(0, Math.min(available.length, Math.max(2, DEFAULTS.questionsPerCategory)))));
+  let points = available.filter(point => requestedPoints.map(Number).includes(Number(point)));
+  if (!hasExplicitPointSelection && points.length < 2) points = available.slice(0, Math.min(available.length, Math.max(2, Number(DEFAULTS.questionsPerCategory) || 2)));
+  const categoriesPerGame = Math.min(6, Math.max(3, Number(value.categoriesPerGame) || DEFAULTS.categoriesPerGame));
+  const requestedCategories = Array.isArray(value.categories) ? value.categories : (Array.isArray(DEFAULTS.categories) ? DEFAULTS.categories : []);
+  const seenCategories = new Set();
+  const categories = requestedCategories.slice(0, categoriesPerGame).map(category => {
+    if (typeof category !== 'string' || !category || seenCategories.has(category)) return '';
+    seenCategories.add(category);
+    return category;
+  });
+  return {
+    categoriesPerGame,
+    points,
+    categories,
+    categoryChoiceEnabled: typeof value.categoryChoiceEnabled === 'boolean' ? value.categoryChoiceEnabled : !!DEFAULTS.categoryChoiceEnabled,
+  };
+}
 function loadBoardSettings() {return normalizeBoardSettings(readJson(storage, LS_BOARD_SETTINGS, {}));}
-function saveBoardSettings() {if (settingsLocked()) return; const settings = normalizeBoardSettings({categoriesPerGame: $('#categoryCount').value, questionsPerCategory: $('#questionCount').value}); storage.setItem(LS_BOARD_SETTINGS, JSON.stringify(settings)); renderPoolInfo();}
+function selectedOptionValues(containerId) {return $$('#' + containerId + ' input:checked').map(input => input.value);}
+function selectedCategories() {return $$('#categorySelects select').map(select => select.value);}
+function saveBoardSettings() {
+  if (settingsLocked()) return;
+  const settings = normalizeBoardSettings({
+    categoriesPerGame: $('#categoryCount').value,
+    points: selectedOptionValues('pointOptions').map(Number),
+    categories: selectedCategories(),
+    categoryChoiceEnabled: $('#categoryChoiceEnabled').checked,
+  });
+  storage.setItem(LS_BOARD_SETTINGS, JSON.stringify(settings));
+  renderBoardSettingOptions();
+  renderPoolInfo();
+}
+function renderChoiceOptions(containerId, values, selectedValues) {
+  const selected = new Set(selectedValues.map(String));
+  const container = $('#' + containerId);
+  container.replaceChildren();
+  values.forEach(value => {
+    const label = document.createElement('label'); label.className = 'choice-option';
+    const input = document.createElement('input'); input.type = 'checkbox'; input.value = value; input.checked = selected.has(String(value));
+    const text = document.createElement('span'); text.textContent = value;
+    label.append(input, text); container.appendChild(label);
+  });
+}
+function renderBoardSettingOptions() {
+  if (!data) return;
+  const settings = loadBoardSettings();
+  renderChoiceOptions('pointOptions', availablePoints(data), settings.points);
+  const categories = eligibleCategories(data, settings.points);
+  renderCategorySelects(categories, settings.categories, settings.categoriesPerGame);
+  $('#categoryChoiceEnabled').checked = settings.categoryChoiceEnabled;
+  $('#categorySelects').classList.toggle('hidden', !settings.categoryChoiceEnabled);
+}
+function renderCategorySelects(categories, selectedCategories, count) {
+  const selected = Array.from({length: count}, (_, index) => categories.includes(selectedCategories[index]) ? selectedCategories[index] : '');
+  const selectedValues = new Set(selected.filter(Boolean));
+  const container = $('#categorySelects');
+  container.replaceChildren();
+  for (let index = 0; index < count; index++) {
+    const field = document.createElement('div'); field.className = 'field';
+    const label = document.createElement('label');
+    const select = document.createElement('select');
+    const selectId = `categorySelect${index + 1}`;
+    label.htmlFor = selectId; label.textContent = `Kategorie ${index + 1}`;
+    select.id = selectId;
+    const randomOption = document.createElement('option'); randomOption.value = ''; randomOption.textContent = 'Zufällig'; select.appendChild(randomOption);
+    categories.filter(category => category === selected[index] || !selectedValues.has(category)).forEach(category => {
+      const option = document.createElement('option'); option.value = category; option.textContent = category; select.appendChild(option);
+    });
+    select.value = selected[index] || '';
+    field.append(label, select); container.appendChild(field);
+  }
+}
 function settingsLocked() {return !$('#setupScreen').classList.contains('active');}
 function setupNotice(message = '') {$('#setupNotice').textContent = message; $('#setupNotice').classList.toggle('hidden', !message);}
 function openSettings() {if (settingsLocked()) return; $('#themeSelect').value = document.body.dataset.theme; $('#settingsDialog').showModal();}
@@ -171,7 +248,7 @@ function poolStats() {
   const stats = getPoolStats(data, loadBoardSettings());
   return {cats: stats.categories, eligible: stats.eligible, questions: stats.questions, tiebreakers: stats.tiebreakers};
 }
-function renderPoolInfo() {if (!data) return; const s = poolStats(), settings = loadBoardSettings(); $('#poolInfo').textContent = `Board: ${settings.categoriesPerGame} Kategorien × ${settings.questionsPerCategory} Fragen · Fragenpool: ${s.questions} Fragen in ${s.cats} Kategorien · ${s.eligible} Kategorien sind dafür vollständig spielbar · ${s.tiebreakers} Tie-Breaker.`; try {validateData(data, settings); $('#startBtn').disabled = false; setupNotice();} catch (error) {$('#startBtn').disabled = true; $('#poolInfo').textContent += ` ${error.message} Bitte die Board-Einstellungen anpassen.`; setupNotice(error.message + ' Bitte die Board-Einstellungen anpassen.');}}
+function renderPoolInfo() {if (!data) return; const s = poolStats(), settings = loadBoardSettings(); $('#poolInfo').textContent = `Board: ${settings.categoriesPerGame} Kategorien × ${settings.points.length} Punktestufen · Fragenpool: ${s.questions} Fragen in ${s.cats} Kategorien · ${s.eligible} Kategorien sind dafür vollständig spielbar · ${s.tiebreakers} Tie-Breaker.`; try {validateData(data, settings); $('#startBtn').disabled = false; setupNotice();} catch (error) {$('#startBtn').disabled = true; $('#poolInfo').textContent += ` ${error.message} Bitte die Board-Einstellungen anpassen.`; setupNotice(error.message + ' Bitte die Board-Einstellungen anpassen.');}}
 function updateTeamControls() {
   const count = $$('#teamList .team-row').length;
   $('#addTeamBtn').disabled = count >= 5;
@@ -192,12 +269,17 @@ function startGame() {
   if ($('#timerEnabled').checked && !$('#timerSeconds').checkValidity()) {openSettings(); $('#timerSeconds').reportValidity(); return;}
   saveBoardSettings(); saveTimerSettings();
   const names = getTeamNames(); if (names.length < 2) {alert('Bitte mindestens zwei Teams eintragen.'); return;} if (names.length > 5) {alert('Es sind maximal fünf Teams möglich.'); return;}
+  const settings = loadBoardSettings();
   try {
-    const board = buildBoard(data, loadBoardSettings());
-    game = createGame({board, teamNames: names, settings: currentGameSettings(), tiebreakers: clone(data.tiebreakers)});
-    saveGame(); renderBoard(); showScreen('boardScreen');
-    if (game.startingTeamPending) openStartingTeamDialog();
+    validateData(data, settings);
+    startPreparedGame(names, settings);
   } catch (error) {alert('Spiel kann nicht gestartet werden: ' + error.message);}
+}
+function startPreparedGame(names, settings) {
+  const board = buildBoard(data, settings);
+  game = createGame({board, teamNames: names, settings: currentGameSettings(), tiebreakers: clone(data.tiebreakers)});
+  saveGame(); renderBoard(); showScreen('boardScreen');
+  if (game.startingTeamPending) openStartingTeamDialog();
 }
 function hasPendingDoubleOrNothing() {return hasPendingChallenge(game);}
 function clearStartingTeamAnimation() {startingTeamRun++; startingTeamTimers.forEach(clearTimeout); startingTeamTimers = [];}
@@ -463,7 +545,9 @@ function closeSettings() {
 $('#closeSettingsBtn').onclick = closeSettings;
 $('#settingsDialog').addEventListener('cancel', event => {event.preventDefault(); closeSettings();});
 $('#themeSelect').onchange = () => {if (settingsLocked()) return; applyTheme($('#themeSelect').value); storage.setItem(LS_THEME, document.body.dataset.theme);};
-$('#categoryCount').onchange = saveBoardSettings; $('#questionCount').onchange = saveBoardSettings;
+$('#categoryCount').onchange = saveBoardSettings;
+$('#categoryChoiceEnabled').onchange = saveBoardSettings;
+$('#pointOptions').onchange = saveBoardSettings; $('#categorySelects').onchange = saveBoardSettings;
 $('#mcPenalty').onchange = saveRules; $('#challengeEnabled').onchange = saveRules; $('#challengeMultiplier').onchange = saveRules; $('#challengePenaltyMode').onchange = saveRules; $('#allowNegativeScores').onchange = saveRules; $('#startingTeamSelectionEnabled').onchange = saveRules; $('#startingTeamMode').onchange = saveRules;
 $('#timerEnabled').onchange = saveTimerSettings; $('#timerSeconds').oninput = saveTimerSettings;
 $$('input[name="mode"]').forEach(input => input.onchange = saveRules);
@@ -487,7 +571,7 @@ async function initialize() {
   if (typeof rules.startingTeamSelectionEnabled === 'boolean') $('#startingTeamSelectionEnabled').checked = rules.startingTeamSelectionEnabled;
   if (['manual', 'random'].includes(rules.startingTeamMode)) $('#startingTeamMode').value = rules.startingTeamMode;
   const settings = loadBoardSettings();
-  $('#categoryCount').value = settings.categoriesPerGame; $('#questionCount').value = settings.questionsPerCategory;
+  $('#categoryCount').value = settings.categoriesPerGame;
   const timer = loadTimerSettings();
   $('#timerEnabled').checked = timer.enabled; $('#timerSeconds').value = timer.seconds; $('#timerSeconds').disabled = !timer.enabled;
   applyTheme(storage.getItem(LS_THEME) || DEFAULTS.theme);

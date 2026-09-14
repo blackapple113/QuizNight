@@ -2,7 +2,7 @@
 
 const DEFAULTS = window.QUIZZ_CONFIG;
 const {create: createStorage, readJson} = window.QuizzStorage;
-const {availablePoints, buildBoard, clone, correctChoiceIndex, eligibleCategories, escapeHtml: esc, formatEstimate, loadPool, parseEstimate, poolStats: getPoolStats, shuffle, validateData} = window.QuizzQuestionBank;
+const {availablePoints, buildBoard, clone, correctChoiceIndex, eligibleCategories, escapeHtml: esc, formatEstimate, loadPool, parseEstimate, poolStats: getPoolStats, questionQueueKey, shuffle, validateData} = window.QuizzQuestionBank;
 const {CHALLENGE_MULTIPLIERS, applyJudgement, challengePenaltyPoints, defaultChallengeMultiplier, hasPendingChallenge, normalizeSavedGame, questionPoints} = window.QuizzScoring;
 const {advanceTurn, createGame, findAvailableQuestion, findCell, isComplete, markQuestionUsed} = window.QuizzGameState;
 
@@ -13,6 +13,7 @@ const LS_RULES = 'quizz-rules-v1';
 const LS_THEME = 'quizz-theme-v1';
 let timerInterval = null;
 const LS_POOL = 'quizz-selected-pool-v1';
+const LS_QUESTION_QUEUES = 'quizz-question-history-v1';
 const pools = window.QUESTION_POOLS || [];
 let data = null;
 let game = null;
@@ -42,6 +43,7 @@ async function selectPool(id) {
     $('#poolSelect').value = pool.id;
     storage.setItem(LS_POOL, pool.id);
     renderBoardSettingOptions();
+    renderQuestionHistoryInfo();
     renderPoolInfo();
   } catch (error) {
     console.error(error);
@@ -53,6 +55,74 @@ async function selectPool(id) {
 }
 const storage = createStorage(showStorageNotice);
 function showStorageNotice() {document.querySelector('.footer').textContent = 'Der Browserspeicher ist nicht verfügbar. Der Spielstand bleibt nur bis zum Schließen oder Neuladen dieser Seite erhalten.';}
+function currentPoolId() {return $('#poolSelect').value;}
+function historyPoolId() {return game?.poolId || currentPoolId();}
+function loadQuestionQueues() {
+  const queues = readJson(storage, LS_QUESTION_QUEUES, {});
+  return queues && typeof queues === 'object' && queues.pools && typeof queues.pools === 'object' ? queues : {version: 2, pools: {}};
+}
+function insertRandomly(queue, questionIds) {
+  const result = [...queue];
+  shuffle(questionIds).forEach(id => result.splice(Math.floor(Math.random() * (result.length + 1)), 0, id));
+  return result;
+}
+function synchronizeQuestionQueues() {
+  if (!data) return {};
+  const store = loadQuestionQueues();
+  const poolId = historyPoolId();
+  const previous = store.pools[poolId];
+  const legacyHistory = Array.isArray(previous) ? previous.filter(id => typeof id === 'string') : null;
+  const existingQueues = previous?.queues && typeof previous.queues === 'object' ? previous.queues : {};
+  const questionsByQueue = new Map();
+  data.questions.forEach(question => {
+    const key = questionQueueKey(question.category, question.points);
+    const questions = questionsByQueue.get(key) || [];
+    questions.push(question); questionsByQueue.set(key, questions);
+  });
+  const queues = {};
+  questionsByQueue.forEach((questions, key) => {
+    const validIds = new Set(questions.map(question => question.id));
+    if (legacyHistory) {
+      const usedIds = legacyHistory.filter(id => validIds.has(id));
+      const unusedIds = questions.map(question => question.id).filter(id => !usedIds.includes(id));
+      queues[key] = [...shuffle(unusedIds), ...usedIds];
+      return;
+    }
+    const seenIds = new Set();
+    const queue = (existingQueues[key] || []).filter(id => validIds.has(id) && !seenIds.has(id) && seenIds.add(id));
+    const missingIds = questions.map(question => question.id).filter(id => !seenIds.has(id));
+    queues[key] = insertRandomly(queue, missingIds);
+  });
+  store.version = 2;
+  store.pools[poolId] = {queues};
+  storage.setItem(LS_QUESTION_QUEUES, JSON.stringify(store));
+  return queues;
+}
+function questionQueuesForCurrentPool() {return synchronizeQuestionQueues();}
+function advanceQuestionQueue(question) {
+  const queues = synchronizeQuestionQueues();
+  const key = questionQueueKey(question.category, question.points);
+  const queue = queues[key] || [];
+  const index = queue.indexOf(question.id);
+  if (index >= 0) queue.splice(index, 1);
+  queue.push(question.id);
+  const store = loadQuestionQueues();
+  store.pools[historyPoolId()] = {queues};
+  storage.setItem(LS_QUESTION_QUEUES, JSON.stringify(store));
+  renderQuestionHistoryInfo();
+}
+function renderQuestionHistoryInfo() {
+  if (!data) return;
+  const count = Object.values(questionQueuesForCurrentPool()).reduce((total, queue) => total + queue.length, 0);
+  $('#questionHistoryInfo').textContent = count ? `Zufällige Reihenfolge für ${count} Fragen dieses Pools gespeichert.` : 'Die Reihenfolge wird beim Start der nächsten Runde erzeugt.';
+}
+function clearQuestionHistory() {
+  if (!data || !confirm('Fragenhistorie dieses Pools löschen? Die Fragenreihenfolge wird für die nächste Runde neu gemischt.')) return;
+  const queues = loadQuestionQueues();
+  delete queues.pools[currentPoolId()];
+  storage.setItem(LS_QUESTION_QUEUES, JSON.stringify(queues));
+  renderQuestionHistoryInfo();
+}
 function configuredPointValues() {return data ? availablePoints(data) : (DEFAULTS.pointValues || [100, 200, 300, 400, 500]);}
 function normalizeBoardSettings(value = {}) {
   const available = configuredPointValues();
@@ -163,6 +233,7 @@ function currentGameSettings() {
   const startingTeam = startingTeamSettings();
   return {
     theme: document.body.dataset.theme,
+    poolId: currentPoolId(),
     timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0,
     mode: selectedMode(),
     mcMultiplier: Number($('#mcPenalty').value),
@@ -276,7 +347,7 @@ function startGame() {
   } catch (error) {alert('Spiel kann nicht gestartet werden: ' + error.message);}
 }
 function startPreparedGame(names, settings) {
-  const board = buildBoard(data, settings);
+  const board = buildBoard(data, settings, questionQueuesForCurrentPool());
   game = createGame({board, teamNames: names, settings: currentGameSettings(), tiebreakers: clone(data.tiebreakers)});
   saveGame(); renderBoard(); showScreen('boardScreen');
   if (game.startingTeamPending) openStartingTeamDialog();
@@ -485,6 +556,7 @@ function judge(correct) {
   stopQuestionTimer();
   const c = markQuestionUsed(game, currentQuestion.id); if (!c) return;
   applyJudgement(game, c, correct);
+  advanceQuestionQueue(c);
   advanceTurn(game); saveGame(); currentQuestion = null;
   if (isComplete(game)) finishGame(); else {renderBoard(); showScreen('boardScreen');}
 }
@@ -535,6 +607,7 @@ $$('[data-score-delta]').forEach(btn => btn.onclick = () => adjustScore(Number(b
 $('#cancelScoreBtn').onclick = () => $('#scoreDialog').close(); $('#saveScoreBtn').onclick = saveScoreCorrection;
 $('#scoreInput').onkeydown = e => {if (e.key === 'Enter') saveScoreCorrection();};
 $('#settingsBtn').onclick = openSettings;
+$('#clearQuestionHistoryBtn').onclick = clearQuestionHistory;
 $('#rulesBtn').onclick = openRules; $('#closeRulesBtn').onclick = () => $('#rulesDialog').close();
 $('#confirmStartingTeamBtn').onclick = () => chooseStartingTeam(Number($('#startingTeamSelect').value));
 $('#startingTeamDialog').addEventListener('cancel', event => event.preventDefault());

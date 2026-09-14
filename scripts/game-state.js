@@ -6,6 +6,7 @@ window.QuizzGameState = (() => {
   function createGame({board, teamNames, settings, tiebreakers}) {
     return {
       theme: settings.theme,
+      poolId: settings.poolId,
       timerSeconds: settings.timerSeconds,
       tiebreakers,
       mode: settings.mode,

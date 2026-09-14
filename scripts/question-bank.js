@@ -70,16 +70,24 @@ window.QuizzQuestionBank = (() => {
     const points = selectedPoints(data, settings);
     return {categories: new Set(data.questions.map(question => question.category)).size, eligible: eligibleCategories(data, points).length, questions: data.questions.length, tiebreakers: data.tiebreakers.length};
   }
-  function buildBoard(data, settings) {
+  function questionQueueKey(category, points) {return JSON.stringify([category, Number(points)]);}
+  function selectBoardQuestion(questions, questionQueues) {
+    const questionById = new Map(questions.map(question => [question.id, question]));
+    const queue = questionQueues?.[questionQueueKey(questions[0].category, questions[0].points)] || [];
+    const nextQuestion = queue.map(id => questionById.get(id)).find(Boolean);
+    return clone(nextQuestion || shuffle(questions)[0]);
+  }
+  function buildBoard(data, settings, questionQueues = {}) {
     validateData(data, settings);
     const points = selectedPoints(data, settings);
     const availableCategories = eligibleCategories(data, points);
     const chosenCategories = settings.categoryChoiceEnabled ? [...new Set(settings.categories || [])].filter(category => availableCategories.includes(category)) : [];
-    const categories = [...chosenCategories, ...shuffle(availableCategories.filter(category => !chosenCategories.includes(category)))].slice(0, settings.categoriesPerGame);
+    const remainingCategories = availableCategories.filter(category => !chosenCategories.includes(category));
+    const categories = [...chosenCategories, ...shuffle(remainingCategories)].slice(0, settings.categoriesPerGame);
     const cells = [];
     categories.forEach(category => points.forEach(pointsValue => {
       const pool = data.questions.filter(question => question.category === category && Number(question.points) === Number(pointsValue));
-      cells.push({...clone(shuffle(pool)[0]), used: false});
+      cells.push({...selectBoardQuestion(pool, questionQueues), used: false});
     }));
     return {categories, points, cells};
   }
@@ -93,5 +101,5 @@ window.QuizzQuestionBank = (() => {
       document.head.appendChild(script);
     });
   }
-  return {availablePoints, buildBoard, clone, correctChoiceIndex, eligibleCategories, escapeHtml, formatEstimate, loadPool, parseEstimate, poolStats, selectedPoints, shuffle, validateData};
+  return {availablePoints, buildBoard, clone, correctChoiceIndex, eligibleCategories, escapeHtml, formatEstimate, loadPool, parseEstimate, poolStats, questionQueueKey, selectedPoints, shuffle, validateData};
 })();

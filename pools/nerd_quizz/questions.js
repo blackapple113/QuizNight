@@ -1,4 +1,7 @@
+'use strict';
+
 window.QUESTIONS_DATA = {
+  "schemaVersion": 1,
   "name": "Nerd Quizz",
   "poolId": "nerd_quizz",
   "config": {
@@ -8,12 +11,11 @@ window.QUESTIONS_DATA = {
       300,
       400,
       500
-    ],
-    "defaultMcHelpMultiplier": 0.5
+    ]
   },
   "questions": [
     {
-      "id": "nerd-geschichte-100-01",
+      "id": "q-000001",
       "category": "Nerdgeschichte",
       "points": 100,
       "question": "Welcher Hersteller brachte den Heimcomputer C64 auf den Markt?",
@@ -27,7 +29,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-100-02",
+      "id": "q-000002",
       "category": "Nerdgeschichte",
       "points": 100,
       "question": "Wer entwickelte das World Wide Web?",
@@ -38,10 +40,10 @@ window.QUESTIONS_DATA = {
         "Bill Gates",
         "Tim Berners-Lee"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-100-03",
+      "id": "q-000003",
       "category": "Nerdgeschichte",
       "points": 100,
       "question": "Welches Duo gründete Microsoft 1975?",
@@ -55,7 +57,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-100-04",
+      "id": "q-000004",
       "category": "Nerdgeschichte",
       "points": 100,
       "question": "In welchem Jahr betraten Menschen zum ersten Mal den Mond?",
@@ -69,7 +71,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-100-05",
+      "id": "q-000005",
       "category": "Nerdgeschichte",
       "points": 100,
       "question": "Mit welchem Produkt begann Nintendo im 19. Jahrhundert?",
@@ -80,10 +82,10 @@ window.QUESTIONS_DATA = {
         "Fotoapparate",
         "Spielzeugautos"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-100-06",
+      "id": "q-000006",
       "category": "Nerdgeschichte",
       "points": 100,
       "question": "Welche 2001 gestartete Online-Enzyklopädie wird gemeinschaftlich von Freiwilligen bearbeitet?",
@@ -97,7 +99,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-100-07",
+      "id": "q-000007",
       "category": "Nerdgeschichte",
       "points": 100,
       "question": "In welchem Jahr stellte Steve Jobs das erste iPhone vor?",
@@ -108,10 +110,10 @@ window.QUESTIONS_DATA = {
         "2010",
         "2001"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-100-08",
+      "id": "q-000008",
       "category": "Nerdgeschichte",
       "points": 100,
       "question": "Wie hieß Apples 1984 eingeführte Computerreihe, deren Werbung einen dystopischen Überwachungsstaat zeigte?",
@@ -122,10 +124,10 @@ window.QUESTIONS_DATA = {
         "iMac",
         "Apple II"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-200-01",
+      "id": "q-000009",
       "category": "Nerdgeschichte",
       "points": 200,
       "question": "Welcher britische Mathematiker arbeitete im Zweiten Weltkrieg in Bletchley Park an der Entschlüsselung deutscher Funksprüche?",
@@ -139,7 +141,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-200-02",
+      "id": "q-000010",
       "category": "Nerdgeschichte",
       "points": 200,
       "question": "An welcher Forschungseinrichtung entstand das World Wide Web?",
@@ -150,10 +152,10 @@ window.QUESTIONS_DATA = {
         "CERN",
         "MIT"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-200-03",
+      "id": "q-000011",
       "category": "Nerdgeschichte",
       "points": 200,
       "question": "Welches ab 1969 aufgebaute Computernetz gilt als wichtiger Vorläufer des Internets?",
@@ -164,10 +166,10 @@ window.QUESTIONS_DATA = {
         "FidoNet",
         "ARPANET"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-200-04",
+      "id": "q-000012",
       "category": "Nerdgeschichte",
       "points": 200,
       "question": "Wie hieß der erste künstliche Satellit der Erde?",
@@ -181,7 +183,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-200-05",
+      "id": "q-000013",
       "category": "Nerdgeschichte",
       "points": 200,
       "question": "Welche Maschine steuerte Joseph-Marie Jacquard mithilfe von Lochkarten?",
@@ -195,7 +197,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-200-06",
+      "id": "q-000014",
       "category": "Nerdgeschichte",
       "points": 200,
       "question": "Welches Unternehmen veröffentlichte 1972 den Spielhallenklassiker Pong?",
@@ -209,7 +211,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-200-07",
+      "id": "q-000015",
       "category": "Nerdgeschichte",
       "points": 200,
       "question": "In welchem Jahrzehnt wurde die ursprüngliche Star-Trek-Fernsehserie erstmals ausgestrahlt?",
@@ -223,7 +225,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-200-08",
+      "id": "q-000016",
       "category": "Nerdgeschichte",
       "points": 200,
       "question": "Welche Größe steht im Mittelpunkt von Moores Gesetz zur Entwicklung integrierter Schaltungen?",
@@ -237,7 +239,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-300-01",
+      "id": "q-000017",
       "category": "Nerdgeschichte",
       "points": 300,
       "question": "Für wessen geplante Analytical Engine beschrieb Ada Lovelace einen Algorithmus?",
@@ -251,7 +253,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-300-02",
+      "id": "q-000018",
       "category": "Nerdgeschichte",
       "points": 300,
       "question": "Welche beiden Autoren schufen die ursprüngliche Fassung von Dungeons & Dragons?",
@@ -262,10 +264,10 @@ window.QUESTIONS_DATA = {
         "Gary Gygax und Dave Arneson",
         "Steve Jackson und Ian Livingstone"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-300-03",
+      "id": "q-000019",
       "category": "Nerdgeschichte",
       "points": 300,
       "question": "In welchem Computerclub präsentierte Steve Wozniak seine frühen Computerentwicklungen?",
@@ -279,7 +281,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-300-04",
+      "id": "q-000020",
       "category": "Nerdgeschichte",
       "points": 300,
       "question": "Welches Forschungslabor entwickelte den Alto, einen frühen Computer mit grafischer Oberfläche und Maus?",
@@ -293,7 +295,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-300-05",
+      "id": "q-000021",
       "category": "Nerdgeschichte",
       "points": 300,
       "question": "In welchem Jahr erfolgte die grundlegende Umstellung des ARPANET auf TCP/IP?",
@@ -304,10 +306,10 @@ window.QUESTIONS_DATA = {
         "1973",
         "1995"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-300-06",
+      "id": "q-000022",
       "category": "Nerdgeschichte",
       "points": 300,
       "question": "Wer entwickelte den 1941 vorgeführten Rechner Z3?",
@@ -321,7 +323,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-300-07",
+      "id": "q-000023",
       "category": "Nerdgeschichte",
       "points": 300,
       "question": "Welcher Onlinedienst führte 1987 das GIF-Bildformat ein?",
@@ -335,7 +337,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-300-08",
+      "id": "q-000024",
       "category": "Nerdgeschichte",
       "points": 300,
       "question": "Wer wählte für frühe netzübergreifende E-Mail-Adressen das @-Zeichen zur Trennung von Nutzer und Rechner?",
@@ -346,10 +348,10 @@ window.QUESTIONS_DATA = {
         "Vint Cerf",
         "Ray Tomlinson"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-400-01",
+      "id": "q-000025",
       "category": "Nerdgeschichte",
       "points": 400,
       "question": "Wer führte 1968 die später als „Mother of All Demos“ bekannte Computerdemonstration vor?",
@@ -360,10 +362,10 @@ window.QUESTIONS_DATA = {
         "Ivan Sutherland",
         "Alan Kay"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-400-02",
+      "id": "q-000026",
       "category": "Nerdgeschichte",
       "points": 400,
       "question": "An welchem Zentrum wurde der Webbrowser Mosaic entwickelt?",
@@ -374,10 +376,10 @@ window.QUESTIONS_DATA = {
         "Xerox PARC",
         "NCSA"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-400-03",
+      "id": "q-000027",
       "category": "Nerdgeschichte",
       "points": 400,
       "question": "Welcher Forscher entwickelte in den 1960er-Jahren das Dialogprogramm ELIZA?",
@@ -388,10 +390,10 @@ window.QUESTIONS_DATA = {
         "Joseph Weizenbaum",
         "Allen Newell"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-400-04",
+      "id": "q-000028",
       "category": "Nerdgeschichte",
       "points": 400,
       "question": "In welchem Jahr verbreitete sich der Morris-Wurm im Internet?",
@@ -405,7 +407,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-400-05",
+      "id": "q-000029",
       "category": "Nerdgeschichte",
       "points": 400,
       "question": "Wie wurde der ENIAC in seiner ursprünglichen Ausführung hauptsächlich auf neue Rechenaufgaben eingestellt?",
@@ -419,7 +421,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-400-06",
+      "id": "q-000030",
       "category": "Nerdgeschichte",
       "points": 400,
       "question": "Welcher Minicomputer war die ursprüngliche Plattform von Spacewar! aus dem Jahr 1962?",
@@ -433,7 +435,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-400-07",
+      "id": "q-000031",
       "category": "Nerdgeschichte",
       "points": 400,
       "question": "Welches Unternehmen stellte den Bausatzcomputer Altair 8800 her?",
@@ -444,10 +446,10 @@ window.QUESTIONS_DATA = {
         "Tandy",
         "IMSAI"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-400-08",
+      "id": "q-000032",
       "category": "Nerdgeschichte",
       "points": 400,
       "question": "Welches Grafikprogramm von Ivan Sutherland demonstrierte 1963 interaktives Zeichnen mit einem Lichtgriffel?",
@@ -461,7 +463,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-500-01",
+      "id": "q-000033",
       "category": "Nerdgeschichte",
       "points": 500,
       "question": "Welche Technik speicherte die fest verdrahteten Programme des Apollo Guidance Computer?",
@@ -472,10 +474,10 @@ window.QUESTIONS_DATA = {
         "Optisch abgetastete Lochscheiben",
         "Core-Rope-Memory mit durch Magnetkerne gefädelten Drähten"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-500-02",
+      "id": "q-000034",
       "category": "Nerdgeschichte",
       "points": 500,
       "question": "Für welchen japanischen Taschenrechnerhersteller entstand das Projekt, aus dem Intels 4004 hervorging?",
@@ -486,10 +488,10 @@ window.QUESTIONS_DATA = {
         "Busicom",
         "Canon"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-500-03",
+      "id": "q-000035",
       "category": "Nerdgeschichte",
       "points": 500,
       "question": "Welche zwei Buchstaben erreichten 1969 beim ersten ARPANET-Verbindungsversuch ihr Ziel, bevor die Übertragung von „LOGIN“ abbrach?",
@@ -500,10 +502,10 @@ window.QUESTIONS_DATA = {
         "LO",
         "ON"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-geschichte-500-04",
+      "id": "q-000036",
       "category": "Nerdgeschichte",
       "points": 500,
       "question": "Auf einem Computer welcher Marke lief der erste Webserver von Tim Berners-Lee?",
@@ -514,10 +516,10 @@ window.QUESTIONS_DATA = {
         "Sun",
         "NeXT"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-geschichte-500-05",
+      "id": "q-000037",
       "category": "Nerdgeschichte",
       "points": 500,
       "question": "Welche deutsche Chiffriermaschine war das Ziel der britischen Colossus-Rechner?",
@@ -528,10 +530,10 @@ window.QUESTIONS_DATA = {
         "Siemens T52",
         "Enigma I"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-500-06",
+      "id": "q-000038",
       "category": "Nerdgeschichte",
       "points": 500,
       "question": "In welcher speziell dafür eingesetzten höheren Programmiersprache wurde ein großer Teil der Flugsoftware des Space Shuttle geschrieben?",
@@ -542,10 +544,10 @@ window.QUESTIONS_DATA = {
         "Ada",
         "PL/I"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-geschichte-500-07",
+      "id": "q-000039",
       "category": "Nerdgeschichte",
       "points": 500,
       "question": "Wie hieß das interaktive System, das Douglas Engelbart 1968 in seiner berühmten Demonstration vorführte?",
@@ -556,10 +558,10 @@ window.QUESTIONS_DATA = {
         "Smalltalk",
         "SAGE"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-geschichte-500-08",
+      "id": "q-000040",
       "category": "Nerdgeschichte",
       "points": 500,
       "question": "Wie wurden die speziellen Paketvermittlungsrechner des frühen ARPANET abgekürzt?",
@@ -570,10 +572,10 @@ window.QUESTIONS_DATA = {
         "DNS",
         "NIC"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-100-01",
+      "id": "q-000041",
       "category": "Filme & Serien für Nerds",
       "points": 100,
       "question": "Wer ist Luke Skywalkers Vater in Star Wars?",
@@ -587,7 +589,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-100-02",
+      "id": "q-000042",
       "category": "Filme & Serien für Nerds",
       "points": 100,
       "question": "Welchem Volk gehört Spocks Vater in Star Trek an?",
@@ -601,7 +603,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-100-03",
+      "id": "q-000043",
       "category": "Filme & Serien für Nerds",
       "points": 100,
       "question": "Welchem Volk gehört Frodo in Der Herr der Ringe an?",
@@ -615,7 +617,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-100-04",
+      "id": "q-000044",
       "category": "Filme & Serien für Nerds",
       "points": 100,
       "question": "Unter welchem Namen wird Thomas Anderson zum Helden der Matrix-Filme?",
@@ -629,7 +631,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-100-05",
+      "id": "q-000045",
       "category": "Filme & Serien für Nerds",
       "points": 100,
       "question": "Wie heißt die meist als blaue Polizeinotrufzelle getarnte Zeitmaschine aus Doctor Who?",
@@ -640,10 +642,10 @@ window.QUESTIONS_DATA = {
         "Serenity",
         "Orville"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-100-06",
+      "id": "q-000046",
       "category": "Filme & Serien für Nerds",
       "points": 100,
       "question": "Welches Automodell baut Doc Brown in Zurück in die Zukunft zur Zeitmaschine um?",
@@ -657,7 +659,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-100-07",
+      "id": "q-000047",
       "category": "Filme & Serien für Nerds",
       "points": 100,
       "question": "Welche fiktive Stadt beschützt Batman hauptsächlich?",
@@ -671,7 +673,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-100-08",
+      "id": "q-000048",
       "category": "Filme & Serien für Nerds",
       "points": 100,
       "question": "Welche Zahl nennt Deep Thought in Per Anhalter durch die Galaxis als Antwort auf die ultimative Frage?",
@@ -685,7 +687,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-200-01",
+      "id": "q-000049",
       "category": "Filme & Serien für Nerds",
       "points": 200,
       "question": "Wie heißt Han Solos berühmtes Raumschiff in Star Wars auf Deutsch?",
@@ -699,7 +701,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-200-02",
+      "id": "q-000050",
       "category": "Filme & Serien für Nerds",
       "points": 200,
       "question": "Wer kommandiert die Enterprise-D in Star Trek: The Next Generation?",
@@ -713,7 +715,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-200-03",
+      "id": "q-000051",
       "category": "Filme & Serien für Nerds",
       "points": 200,
       "question": "Welches grüne Mineral schwächt Superman normalerweise?",
@@ -727,7 +729,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-200-04",
+      "id": "q-000052",
       "category": "Filme & Serien für Nerds",
       "points": 200,
       "question": "Wie heißt das Raumschiff von Malcolm Reynolds in Firefly?",
@@ -741,7 +743,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-200-05",
+      "id": "q-000053",
       "category": "Filme & Serien für Nerds",
       "points": 200,
       "question": "Welche künstliche Intelligenz führt in den ursprünglichen Terminator-Filmen den Krieg gegen die Menschheit?",
@@ -755,7 +757,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-200-06",
+      "id": "q-000054",
       "category": "Filme & Serien für Nerds",
       "points": 200,
       "question": "Auf welchem Kontinent liegen die Sieben Königslande in Game of Thrones?",
@@ -769,7 +771,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-200-07",
+      "id": "q-000055",
       "category": "Filme & Serien für Nerds",
       "points": 200,
       "question": "Wie heißt der Wüstenplanet, der in Dune die zentrale Quelle des Spice ist?",
@@ -783,7 +785,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-200-08",
+      "id": "q-000056",
       "category": "Filme & Serien für Nerds",
       "points": 200,
       "question": "Wie wird die dunkle Parallelwelt in Stranger Things im englischen Original genannt?",
@@ -797,7 +799,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-300-01",
+      "id": "q-000057",
       "category": "Filme & Serien für Nerds",
       "points": 300,
       "question": "Mit welchem Test sollen in Blade Runner von 1982 Menschen von Replikanten unterschieden werden?",
@@ -808,10 +810,10 @@ window.QUESTIONS_DATA = {
         "Kobayashi-Maru-Test",
         "Bechdel-Test"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-300-02",
+      "id": "q-000058",
       "category": "Filme & Serien für Nerds",
       "points": 300,
       "question": "Wie heißt das Frachtschiff im ersten Alien-Film von 1979?",
@@ -825,7 +827,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-300-03",
+      "id": "q-000059",
       "category": "Filme & Serien für Nerds",
       "points": 300,
       "question": "Für welches Unternehmen hat Kevin Flynn zu Beginn von Tron aus dem Jahr 1982 gearbeitet?",
@@ -839,7 +841,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-300-04",
+      "id": "q-000060",
       "category": "Filme & Serien für Nerds",
       "points": 300,
       "question": "Wie heißt der Bordcomputer in 2001: Odyssee im Weltraum?",
@@ -853,7 +855,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-300-05",
+      "id": "q-000061",
       "category": "Filme & Serien für Nerds",
       "points": 300,
       "question": "Wie heißen die künstlich erschaffenen Gegner der Menschen in Battlestar Galactica?",
@@ -867,7 +869,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-300-06",
+      "id": "q-000062",
       "category": "Filme & Serien für Nerds",
       "points": 300,
       "question": "In welcher unterirdischen Zwergenstadt begegnet die Gemeinschaft des Rings einem Balrog?",
@@ -881,7 +883,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-300-07",
+      "id": "q-000063",
       "category": "Filme & Serien für Nerds",
       "points": 300,
       "question": "Über welchem Planeten schwebt die Wolkenstadt, in der Han Solo in Das Imperium schlägt zurück eingefroren wird?",
@@ -895,7 +897,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-300-08",
+      "id": "q-000064",
       "category": "Filme & Serien für Nerds",
       "points": 300,
       "question": "Wie heißen die schlangenähnlichen Parasiten, die in Stargate SG-1 menschliche Wirte übernehmen und sich als Götter ausgeben?",
@@ -909,7 +911,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-400-01",
+      "id": "q-000065",
       "category": "Filme & Serien für Nerds",
       "points": 400,
       "question": "Wie heißt Morpheus' Schiff im ersten Matrix-Film?",
@@ -923,7 +925,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-400-02",
+      "id": "q-000066",
       "category": "Filme & Serien für Nerds",
       "points": 400,
       "question": "Wie heißt in Dune die vergiftete Nadel, die bei Pauls Prüfung an seinen Hals gehalten wird?",
@@ -937,7 +939,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-400-03",
+      "id": "q-000067",
       "category": "Filme & Serien für Nerds",
       "points": 400,
       "question": "Welches defekte System erklärt in Doctor Who, warum die TARDIS ihre äußere Tarnung gewöhnlich nicht mehr anpasst?",
@@ -948,10 +950,10 @@ window.QUESTIONS_DATA = {
         "Das Auge der Harmonie",
         "Der Zeitrotor"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-400-04",
+      "id": "q-000068",
       "category": "Filme & Serien für Nerds",
       "points": 400,
       "question": "Wie heißt die Sternenflotten-Prüfung für eine ausweglose Rettungssituation, deren Regeln James T. Kirk umgeht?",
@@ -965,7 +967,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-400-05",
+      "id": "q-000069",
       "category": "Filme & Serien für Nerds",
       "points": 400,
       "question": "Welches äußerlich niedliche Wesen schubst Fry in Futurama absichtlich in die Kryokapsel?",
@@ -979,7 +981,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-400-06",
+      "id": "q-000070",
       "category": "Filme & Serien für Nerds",
       "points": 400,
       "question": "Wie nennt James Holdens Crew ihr Schiff in The Expanse nach der Flucht von der Donnager?",
@@ -993,7 +995,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-400-07",
+      "id": "q-000071",
       "category": "Filme & Serien für Nerds",
       "points": 400,
       "question": "Mit welchem Crewmitglied ist Zoë in Firefly verheiratet?",
@@ -1007,7 +1009,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-400-08",
+      "id": "q-000072",
       "category": "Filme & Serien für Nerds",
       "points": 400,
       "question": "An welchem Datum landet Marty bei seiner ersten Reise ins Jahr 1955 im ersten Zurück-in-die-Zukunft-Film?",
@@ -1021,7 +1023,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-500-01",
+      "id": "q-000073",
       "category": "Filme & Serien für Nerds",
       "points": 500,
       "question": "Auf welchem eisigen Planeten suchen Jedi-Jünglinge in The Clone Wars bei der „Versammlung“ ihre Lichtschwertkristalle?",
@@ -1032,10 +1034,10 @@ window.QUESTIONS_DATA = {
         "Mygeeto",
         "Rhen Var"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-filme-500-02",
+      "id": "q-000074",
       "category": "Filme & Serien für Nerds",
       "points": 500,
       "question": "Wie heißt der untergegangene Planet, dessen Leben Picard in der TNG-Folge „Das zweite Leben“ als Kamin erfährt?",
@@ -1046,10 +1048,10 @@ window.QUESTIONS_DATA = {
         "Mintaka III",
         "Risa"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-500-03",
+      "id": "q-000075",
       "category": "Filme & Serien für Nerds",
       "points": 500,
       "question": "Wie wird der Militärcomputer in WarGames von 1983 abgekürzt, mit dem David Lightman Kontakt aufnimmt?",
@@ -1063,7 +1065,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-500-04",
+      "id": "q-000076",
       "category": "Filme & Serien für Nerds",
       "points": 500,
       "question": "Welche Nummer trägt der geheime Sonderbefehl, der im ersten Alien-Film die Sicherung des Organismus über das Leben der Besatzung stellt?",
@@ -1074,10 +1076,10 @@ window.QUESTIONS_DATA = {
         "451",
         "937"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-filme-500-05",
+      "id": "q-000077",
       "category": "Filme & Serien für Nerds",
       "points": 500,
       "question": "Welche begrenzte Lebensdauer wurde den Nexus-6-Replikanten in Blade Runner von 1982 absichtlich eingebaut?",
@@ -1088,10 +1090,10 @@ window.QUESTIONS_DATA = {
         "Vier Jahre",
         "Zehn Jahre"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-500-06",
+      "id": "q-000078",
       "category": "Filme & Serien für Nerds",
       "points": 500,
       "question": "Welches astronomische Ereignis verursacht in der Stargate-SG-1-Folge „1969“ die unbeabsichtigte Zeitreise?",
@@ -1102,10 +1104,10 @@ window.QUESTIONS_DATA = {
         "Die Kollision zweier Neutronensterne",
         "Eine Supernova"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-filme-500-07",
+      "id": "q-000079",
       "category": "Filme & Serien für Nerds",
       "points": 500,
       "question": "Welches Regierungsamt hatte Laura Roslin unmittelbar vor ihrer Vereidigung als Präsidentin in der Battlestar-Galactica-Miniserie von 2003?",
@@ -1116,10 +1118,10 @@ window.QUESTIONS_DATA = {
         "Bildungsministerin",
         "Außenministerin"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-filme-500-08",
+      "id": "q-000080",
       "category": "Filme & Serien für Nerds",
       "points": 500,
       "question": "Wie heißt der Kommandant der Raumstation Babylon 5 in der ersten regulären Staffel?",
@@ -1133,7 +1135,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-100-01",
+      "id": "q-000081",
       "category": "Gaming & Retro",
       "points": 100,
       "question": "Wie heißt der meist grün gekleidete Held der klassischen The-Legend-of-Zelda-Spiele?",
@@ -1147,7 +1149,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-100-02",
+      "id": "q-000082",
       "category": "Gaming & Retro",
       "points": 100,
       "question": "Welches Tier stellt Segas Maskottchen Sonic dar?",
@@ -1158,10 +1160,10 @@ window.QUESTIONS_DATA = {
         "Einen Fuchs",
         "Einen Dachs"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-100-03",
+      "id": "q-000083",
       "category": "Gaming & Retro",
       "points": 100,
       "question": "Welcher grüne Minecraft-Gegner ist für sein Zischen und anschließendes Explodieren bekannt?",
@@ -1175,7 +1177,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-100-04",
+      "id": "q-000084",
       "category": "Gaming & Retro",
       "points": 100,
       "question": "Was kann Pac-Man nach dem Fressen einer großen Energiekugel vorübergehend tun?",
@@ -1189,7 +1191,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-100-05",
+      "id": "q-000085",
       "category": "Gaming & Retro",
       "points": 100,
       "question": "Aus wie vielen kleinen Quadraten besteht jeder klassische Tetris-Spielstein?",
@@ -1203,7 +1205,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-100-06",
+      "id": "q-000086",
       "category": "Gaming & Retro",
       "points": 100,
       "question": "Wie heißt Marios Bruder?",
@@ -1217,7 +1219,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-100-07",
+      "id": "q-000087",
       "category": "Gaming & Retro",
       "points": 100,
       "question": "Welchem Pokémon-Typ gehört Pikachu an?",
@@ -1231,7 +1233,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-100-08",
+      "id": "q-000088",
       "category": "Gaming & Retro",
       "points": 100,
       "question": "Für welche Konsole erschien Super Mario 64 ursprünglich?",
@@ -1245,7 +1247,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-200-01",
+      "id": "q-000089",
       "category": "Gaming & Retro",
       "points": 200,
       "question": "Wie heißt die Kopfgeldjägerin in der Metroid-Reihe?",
@@ -1256,10 +1258,10 @@ window.QUESTIONS_DATA = {
         "Samus Aran",
         "Alyx Vance"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-200-02",
+      "id": "q-000090",
       "category": "Gaming & Retro",
       "points": 200,
       "question": "Welches fiktive Unternehmen betreibt die Testkammern in Portal?",
@@ -1273,7 +1275,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-200-03",
+      "id": "q-000091",
       "category": "Gaming & Retro",
       "points": 200,
       "question": "Welcher gepanzerte Supersoldat ist die Hauptfigur der ursprünglichen Halo-Trilogie?",
@@ -1287,7 +1289,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-200-04",
+      "id": "q-000092",
       "category": "Gaming & Retro",
       "points": 200,
       "question": "Aus wie vielen Teilstücken besteht das Triforce in The Legend of Zelda?",
@@ -1301,7 +1303,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-200-05",
+      "id": "q-000093",
       "category": "Gaming & Retro",
       "points": 200,
       "question": "Wie heißt der Möchtegern-Pirat, den man in The Secret of Monkey Island spielt?",
@@ -1315,7 +1317,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-200-06",
+      "id": "q-000094",
       "category": "Gaming & Retro",
       "points": 200,
       "question": "Wie heißt die Welt, auf der ein großer Teil der Warcraft-Handlung spielt?",
@@ -1329,7 +1331,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-200-07",
+      "id": "q-000095",
       "category": "Gaming & Retro",
       "points": 200,
       "question": "Aus welcher Spielereihe stammt die Archäologin Lara Croft?",
@@ -1343,7 +1345,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-200-08",
+      "id": "q-000096",
       "category": "Gaming & Retro",
       "points": 200,
       "question": "Als Modifikation welches Spiels begann Counter-Strike?",
@@ -1357,7 +1359,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-300-01",
+      "id": "q-000097",
       "category": "Gaming & Retro",
       "points": 300,
       "question": "Wie heißt die Unterwasserstadt des ersten BioShock?",
@@ -1371,7 +1373,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-300-02",
+      "id": "q-000098",
       "category": "Gaming & Retro",
       "points": 300,
       "question": "Bei welcher Stadt liegt die Kathedrale mit dem Dungeon im ersten Diablo?",
@@ -1385,7 +1387,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-300-03",
+      "id": "q-000099",
       "category": "Gaming & Retro",
       "points": 300,
       "question": "Wie heißt der am Arm getragene Computer aus der Fallout-Reihe?",
@@ -1399,7 +1401,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-300-04",
+      "id": "q-000100",
       "category": "Gaming & Retro",
       "points": 300,
       "question": "In welcher Forschungseinrichtung beginnt die Katastrophe des ersten Half-Life?",
@@ -1413,7 +1415,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-300-05",
+      "id": "q-000101",
       "category": "Gaming & Retro",
       "points": 300,
       "question": "Welchen wiederauffüllbaren Heilgegenstand nutzt man im ersten Dark Souls?",
@@ -1427,7 +1429,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-300-06",
+      "id": "q-000102",
       "category": "Gaming & Retro",
       "points": 300,
       "question": "Wie heißt das Raumschiff von Commander Shepard im ersten Mass Effect?",
@@ -1441,7 +1443,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-300-07",
+      "id": "q-000103",
       "category": "Gaming & Retro",
       "points": 300,
       "question": "Welches Entwicklerstudio veröffentlichte das ursprüngliche Doom von 1993?",
@@ -1455,7 +1457,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-300-08",
+      "id": "q-000104",
       "category": "Gaming & Retro",
       "points": 300,
       "question": "Was bewirkt der vollständig gelernte Drachenschrei „Fus Ro Dah“ in Skyrim?",
@@ -1469,7 +1471,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-400-01",
+      "id": "q-000105",
       "category": "Gaming & Retro",
       "points": 400,
       "question": "Wen spielt man hauptsächlich in Castlevania: Symphony of the Night?",
@@ -1483,7 +1485,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-400-02",
+      "id": "q-000106",
       "category": "Gaming & Retro",
       "points": 400,
       "question": "Wie heißt der Protagonist von Silent Hill 2 aus dem Jahr 2001?",
@@ -1497,7 +1499,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-400-03",
+      "id": "q-000107",
       "category": "Gaming & Retro",
       "points": 400,
       "question": "Welches außerirdische Wesen steht im Zentrum der drohenden Katastrophe in Chrono Trigger?",
@@ -1508,10 +1510,10 @@ window.QUESTIONS_DATA = {
         "Giygas",
         "Lavos"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-400-04",
+      "id": "q-000108",
       "category": "Gaming & Retro",
       "points": 400,
       "question": "Wie heißt die nach oben gerichtete Sprungattacke von Ryu, die in Street Fighter II besonders gegen Luftangriffe eingesetzt wird?",
@@ -1525,7 +1527,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-400-05",
+      "id": "q-000109",
       "category": "Gaming & Retro",
       "points": 400,
       "question": "Wie heißt das Herrenhaus, das als Hauptschauplatz des ersten Resident Evil dient?",
@@ -1539,7 +1541,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-400-06",
+      "id": "q-000110",
       "category": "Gaming & Retro",
       "points": 400,
       "question": "Unter welcher dreibuchstabigen Abkürzung ist der charakteristische Soundchip des Commodore 64 bekannt?",
@@ -1553,7 +1555,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-400-07",
+      "id": "q-000111",
       "category": "Gaming & Retro",
       "points": 400,
       "question": "Wessen Traum bildet die Insel Cocolint in The Legend of Zelda: Link's Awakening?",
@@ -1567,7 +1569,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-400-08",
+      "id": "q-000112",
       "category": "Gaming & Retro",
       "points": 400,
       "question": "Wie viele Chaos Emeralds kann man im ursprünglichen Sonic the Hedgehog von 1991 für Mega Drive sammeln?",
@@ -1578,10 +1580,10 @@ window.QUESTIONS_DATA = {
         "Fünf",
         "Sechs"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-500-01",
+      "id": "q-000113",
       "category": "Gaming & Retro",
       "points": 500,
       "question": "Welcher Trick mit dem Controller hilft in der ursprünglichen PlayStation-Version von Metal Gear Solid gegen Psycho Mantis' Gedankenlesen?",
@@ -1592,10 +1594,10 @@ window.QUESTIONS_DATA = {
         "Die Speicherkarte in Anschluss 2 stecken",
         "Den Controller in Anschluss 2 stecken"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-500-02",
+      "id": "q-000114",
       "category": "Gaming & Retro",
       "points": 500,
       "question": "An welcher Inselküste begegnet man beim bekannten Old-Man-Glitch in den englischen Pokémon-Editionen Red und Blue häufig MissingNo.?",
@@ -1609,7 +1611,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-500-03",
+      "id": "q-000115",
       "category": "Gaming & Retro",
       "points": 500,
       "question": "Wie heißt die ursprünglich für Maniac Mansion entwickelte Adventure-Skriptsprache samt Laufzeitsystem?",
@@ -1623,7 +1625,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-gaming-500-04",
+      "id": "q-000116",
       "category": "Gaming & Retro",
       "points": 500,
       "question": "Was muss Mario in Welt 1-3 von Super Mario Bros. 3 auf einem weißen Block tun, um hinter die Kulissen zu gelangen?",
@@ -1634,10 +1636,10 @@ window.QUESTIONS_DATA = {
         "Als Waschbär nach oben fliegen",
         "Eine Feuerblume auf dem Block einsammeln"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-gaming-500-05",
+      "id": "q-000117",
       "category": "Gaming & Retro",
       "points": 500,
       "question": "Welcher Angriffstyp trifft reine Psycho-Pokémon in Pokémon Rot und Blau nicht, ist in Gold und Silber aber sehr effektiv? Gemeint sind Attacken mit typabhängigem Schaden.",
@@ -1648,10 +1650,10 @@ window.QUESTIONS_DATA = {
         "Geist",
         "Drache"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-500-06",
+      "id": "q-000118",
       "category": "Gaming & Retro",
       "points": 500,
       "question": "Wie heißt die vierte Episode, die The Ultimate Doom dem ursprünglichen Doom hinzufügte?",
@@ -1665,7 +1667,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-gaming-500-07",
+      "id": "q-000119",
       "category": "Gaming & Retro",
       "points": 500,
       "question": "Wie heißt die letzte reguläre Mission der Zerg-Kampagne in StarCraft: Brood War im englischen Original?",
@@ -1676,10 +1678,10 @@ window.QUESTIONS_DATA = {
         "Omega",
         "The Reckoning"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-gaming-500-08",
+      "id": "q-000120",
       "category": "Gaming & Retro",
       "points": 500,
       "question": "In welchem Inselreich sucht Prinz Alexander in King's Quest VI nach Cassima?",
@@ -1690,10 +1692,10 @@ window.QUESTIONS_DATA = {
         "Llewdor",
         "Kolyma"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-100-01",
+      "id": "q-000121",
       "category": "Science!",
       "points": 100,
       "question": "Welcher Planet unseres Sonnensystems wird wegen seiner Farbe als „Roter Planet“ bezeichnet?",
@@ -1707,7 +1709,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-100-02",
+      "id": "q-000122",
       "category": "Science!",
       "points": 100,
       "question": "Welches Teilchen im Atomkern trägt eine positive elektrische Ladung?",
@@ -1721,7 +1723,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-100-03",
+      "id": "q-000123",
       "category": "Science!",
       "points": 100,
       "question": "Welche chemische Formel hat Wasser?",
@@ -1735,7 +1737,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-100-04",
+      "id": "q-000124",
       "category": "Science!",
       "points": 100,
       "question": "In welcher SI-Einheit misst man Kraft?",
@@ -1749,7 +1751,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-100-05",
+      "id": "q-000125",
       "category": "Science!",
       "points": 100,
       "question": "Welches Gas nehmen Pflanzen bei der Photosynthese zur Bildung von Zucker auf?",
@@ -1763,7 +1765,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-100-06",
+      "id": "q-000126",
       "category": "Science!",
       "points": 100,
       "question": "Wie viele verschiedene Standardbasen enthält DNA?",
@@ -1777,7 +1779,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-100-07",
+      "id": "q-000127",
       "category": "Science!",
       "points": 100,
       "question": "Welcher Stern ist der Erde am nächsten?",
@@ -1791,7 +1793,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-100-08",
+      "id": "q-000128",
       "category": "Science!",
       "points": 100,
       "question": "Welche Art von Größe beschreibt ein Lichtjahr?",
@@ -1805,7 +1807,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-200-01",
+      "id": "q-000129",
       "category": "Science!",
       "points": 200,
       "question": "Welcher Celsius-Temperatur entspricht der absolute Nullpunkt?",
@@ -1816,10 +1818,10 @@ window.QUESTIONS_DATA = {
         "0 °C",
         "−273,15 °C"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-200-02",
+      "id": "q-000130",
       "category": "Science!",
       "points": 200,
       "question": "Welches Gas macht den größten Volumenanteil trockener Luft in der Erdatmosphäre aus?",
@@ -1833,7 +1835,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-200-03",
+      "id": "q-000131",
       "category": "Science!",
       "points": 200,
       "question": "Welchen pH-Wert hat reines Wasser bei 25 °C näherungsweise?",
@@ -1847,7 +1849,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-200-04",
+      "id": "q-000132",
       "category": "Science!",
       "points": 200,
       "question": "Eine Feder und eine Metallkugel werden im Vakuum am selben Ort gleichzeitig aus gleicher Höhe losgelassen. Was geschieht bei vernachlässigbaren Gezeiteneffekten?",
@@ -1861,7 +1863,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-200-05",
+      "id": "q-000133",
       "category": "Science!",
       "points": 200,
       "question": "In welcher Einheit wird elektrischer Widerstand gemessen?",
@@ -1875,7 +1877,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-200-06",
+      "id": "q-000134",
       "category": "Science!",
       "points": 200,
       "question": "Wodurch unterscheiden sich die Atomkerne zweier Isotope desselben Elements?",
@@ -1889,7 +1891,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-200-07",
+      "id": "q-000135",
       "category": "Science!",
       "points": 200,
       "question": "Zu welchem Galaxientyp gehört die Milchstraße?",
@@ -1903,7 +1905,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-200-08",
+      "id": "q-000136",
       "category": "Science!",
       "points": 200,
       "question": "Welches Teilchen ist das Quant des elektromagnetischen Feldes?",
@@ -1917,7 +1919,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-300-01",
+      "id": "q-000137",
       "category": "Science!",
       "points": 300,
       "question": "Wofür steht c in Einsteins Gleichung E = mc²?",
@@ -1931,7 +1933,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-300-02",
+      "id": "q-000138",
       "category": "Science!",
       "points": 300,
       "question": "Welcher Anteil einer radioaktiven Ausgangsmenge ist nach drei Halbwertszeiten noch nicht zerfallen?",
@@ -1942,10 +1944,10 @@ window.QUESTIONS_DATA = {
         "Ein Sechstel",
         "Ein Achtel"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-300-03",
+      "id": "q-000139",
       "category": "Science!",
       "points": 300,
       "question": "Welche Base tritt in RNA an die Stelle von Thymin?",
@@ -1959,7 +1961,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-300-04",
+      "id": "q-000140",
       "category": "Science!",
       "points": 300,
       "question": "Wie verändert sich bei gleichbleibender Temperatur der Druck eines idealen Gases, wenn sein Volumen halbiert wird und die Teilchenzahl gleich bleibt?",
@@ -1973,7 +1975,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-300-05",
+      "id": "q-000141",
       "category": "Science!",
       "points": 300,
       "question": "Wie verändert sich die gehörte Tonhöhe einer Sirene beim Doppler-Effekt, wenn sich die Schallquelle vom ruhenden Beobachter entfernt?",
@@ -1987,7 +1989,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-300-06",
+      "id": "q-000142",
       "category": "Science!",
       "points": 300,
       "question": "Welche Größe ist bei idealen, hintereinander geschalteten Widerständen im stationären Zustand durch alle Widerstände gleich?",
@@ -2001,7 +2003,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-300-07",
+      "id": "q-000143",
       "category": "Science!",
       "points": 300,
       "question": "Welcher Mechanismus liefert den größten Teil der Energie unserer Sonne?",
@@ -2015,7 +2017,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-300-08",
+      "id": "q-000144",
       "category": "Science!",
       "points": 300,
       "question": "Für welche charakteristische Entfernung steht eine Astronomische Einheit ungefähr?",
@@ -2029,7 +2031,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-400-01",
+      "id": "q-000145",
       "category": "Science!",
       "points": 400,
       "question": "Welche fundamentale Wechselwirkung bindet Quarks innerhalb von Protonen und Neutronen?",
@@ -2043,7 +2045,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-400-02",
+      "id": "q-000146",
       "category": "Science!",
       "points": 400,
       "question": "Was besagt das Pauli-Prinzip für identische Fermionen?",
@@ -2057,7 +2059,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-400-03",
+      "id": "q-000147",
       "category": "Science!",
       "points": 400,
       "question": "Welche physikalische Größe wird in Elektronenvolt angegeben?",
@@ -2071,7 +2073,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-400-04",
+      "id": "q-000148",
       "category": "Science!",
       "points": 400,
       "question": "Wie nennt man Moleküle gleicher Konstitution, die sich wie Bild und Spiegelbild verhalten und nicht zur Deckung bringen lassen?",
@@ -2085,7 +2087,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-400-05",
+      "id": "q-000149",
       "category": "Science!",
       "points": 400,
       "question": "Wie heißt die Verdrängung eines schwachen äußeren Magnetfelds aus dem Inneren eines Supraleiters beim Abkühlen unter seine Sprungtemperatur?",
@@ -2099,7 +2101,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-400-06",
+      "id": "q-000150",
       "category": "Science!",
       "points": 400,
       "question": "Welche wesentliche Aufgabe übernimmt das Protein Cas9 beim klassischen CRISPR-Cas9-Verfahren?",
@@ -2110,10 +2112,10 @@ window.QUESTIONS_DATA = {
         "Es erzeugt ATP aus Sonnenlicht",
         "Es übersetzt Boten-RNA in Protein"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-400-07",
+      "id": "q-000151",
       "category": "Science!",
       "points": 400,
       "question": "Welche Erhaltungsgröße folgt nach dem Noether-Theorem aus der zeitlichen Translationssymmetrie eines Systems?",
@@ -2127,7 +2129,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-400-08",
+      "id": "q-000152",
       "category": "Science!",
       "points": 400,
       "question": "Wie verändert sich die Entropie eines abgeschlossenen, isolierten Systems bei einem irreversiblen Vorgang?",
@@ -2138,10 +2140,10 @@ window.QUESTIONS_DATA = {
         "Sie nimmt immer ab",
         "Sie nimmt zu"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-500-01",
+      "id": "q-000153",
       "category": "Science!",
       "points": 500,
       "question": "Welche Valenzquark-Zusammensetzung hat ein Neutron?",
@@ -2155,7 +2157,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-science-500-02",
+      "id": "q-000154",
       "category": "Science!",
       "points": 500,
       "question": "Welches elektrisch neutrale Lepton entsteht beim Beta-minus-Zerfall eines freien Neutrons zusätzlich zu Proton und Elektron?",
@@ -2166,10 +2168,10 @@ window.QUESTIONS_DATA = {
         "Ein Elektron-Antineutrino",
         "Ein Myon-Neutrino"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-500-03",
+      "id": "q-000155",
       "category": "Science!",
       "points": 500,
       "question": "Für welche Sternreste beschreibt die Chandrasekhar-Grenze die maximale Masse eines nichtrotierenden, durch Elektronenentartungsdruck gestützten Modells?",
@@ -2180,10 +2182,10 @@ window.QUESTIONS_DATA = {
         "Neutronensterne",
         "Braune Zwerge"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-500-04",
+      "id": "q-000156",
       "category": "Science!",
       "points": 500,
       "question": "Wie verändert sich die Wellenlänge des Maximums der spektralen Strahlungsleistung pro Wellenlängenintervall eines schwarzen Körpers, wenn seine absolute Temperatur verdoppelt wird?",
@@ -2197,7 +2199,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-500-05",
+      "id": "q-000157",
       "category": "Science!",
       "points": 500,
       "question": "Zu welchem Orbitaltyp gehört die Bahndrehimpulsquantenzahl l = 2?",
@@ -2208,10 +2210,10 @@ window.QUESTIONS_DATA = {
         "s-Orbital",
         "d-Orbital"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-science-500-06",
+      "id": "q-000158",
       "category": "Science!",
       "points": 500,
       "question": "Wie verändert sich der Schwarzschildradius eines ungeladenen, nichtrotierenden schwarzen Lochs, wenn seine Masse verdoppelt wird?",
@@ -2225,7 +2227,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-science-500-07",
+      "id": "q-000159",
       "category": "Science!",
       "points": 500,
       "question": "Welches Ergebnis lieferte das Michelson-Morley-Experiment hinsichtlich des erwarteten Ätherwinds?",
@@ -2236,10 +2238,10 @@ window.QUESTIONS_DATA = {
         "Es fand keine erwartete richtungsabhängige Verschiebung der Interferenzstreifen",
         "Es bestätigte die vollständige Mitführung des Äthers als einzig mögliche Erklärung"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-science-500-08",
+      "id": "q-000160",
       "category": "Science!",
       "points": 500,
       "question": "Wie viele vollständige Quantenzustände einschließlich Spin stehen Elektronen in einer d-Unterschale eines Atoms zur Verfügung?",
@@ -2250,10 +2252,10 @@ window.QUESTIONS_DATA = {
         "Sechs",
         "Vierzehn"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-100-01",
+      "id": "q-000161",
       "category": "Code & Algorithmen",
       "points": 100,
       "question": "Wie nennt man einen benannten Platzhalter für einen Wert, auf den ein Programm zugreifen kann?",
@@ -2267,7 +2269,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-100-02",
+      "id": "q-000162",
       "category": "Code & Algorithmen",
       "points": 100,
       "question": "Welches Schlüsselwort leitet in vielen Programmiersprachen eine bedingte Verzweigung ein?",
@@ -2281,7 +2283,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-100-03",
+      "id": "q-000163",
       "category": "Code & Algorithmen",
       "points": 100,
       "question": "Welches Programmierkonstrukt wiederholt einen Anweisungsblock?",
@@ -2295,7 +2297,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-100-04",
+      "id": "q-000164",
       "category": "Code & Algorithmen",
       "points": 100,
       "question": "Wie heißt der Datentyp mit den beiden Wahrheitswerten wahr und falsch?",
@@ -2309,7 +2311,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-100-05",
+      "id": "q-000165",
       "category": "Code & Algorithmen",
       "points": 100,
       "question": "Welcher Dezimalzahl entspricht die Binärzahl 1010?",
@@ -2323,7 +2325,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-100-06",
+      "id": "q-000166",
       "category": "Code & Algorithmen",
       "points": 100,
       "question": "Welches Werkzeug dient primär der Versionsverwaltung von Quellcode?",
@@ -2337,7 +2339,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-100-07",
+      "id": "q-000167",
       "category": "Code & Algorithmen",
       "points": 100,
       "question": "Mit welchem SQL-Schlüsselwort beginnt eine gewöhnliche Abfrage, die Spalten aus einer Tabelle liest?",
@@ -2351,7 +2353,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-100-08",
+      "id": "q-000168",
       "category": "Code & Algorithmen",
       "points": 100,
       "question": "Welche dieser Sprachen beschreibt primär die Struktur von Webseiten mit Auszeichnungselementen?",
@@ -2365,7 +2367,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-200-01",
+      "id": "q-000169",
       "category": "Code & Algorithmen",
       "points": 200,
       "question": "Welche Datenstruktur gibt das zuletzt eingefügte Element zuerst wieder aus?",
@@ -2376,10 +2378,10 @@ window.QUESTIONS_DATA = {
         "Set",
         "Queue"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-200-02",
+      "id": "q-000170",
       "category": "Code & Algorithmen",
       "points": 200,
       "question": "Nach welchem Prinzip arbeitet eine gewöhnliche Warteschlange ohne Prioritäten?",
@@ -2390,10 +2392,10 @@ window.QUESTIONS_DATA = {
         "Largest Value First",
         "First In, First Out"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-200-03",
+      "id": "q-000171",
       "category": "Code & Algorithmen",
       "points": 200,
       "question": "Wie nennt man es, wenn eine Funktion sich während ihrer Ausführung selbst aufruft?",
@@ -2407,7 +2409,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-200-04",
+      "id": "q-000172",
       "category": "Code & Algorithmen",
       "points": 200,
       "question": "Welchen Wert hat der Ausdruck 17 % 5 in Python 3?",
@@ -2421,7 +2423,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-200-05",
+      "id": "q-000173",
       "category": "Code & Algorithmen",
       "points": 200,
       "question": "Welchen Wert liefert len([10, 20, 30, 40]) in Python 3?",
@@ -2435,7 +2437,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-200-06",
+      "id": "q-000174",
       "category": "Code & Algorithmen",
       "points": 200,
       "question": "Welcher JavaScript-Operator prüft strikte Gleichheit ohne vorherige Typumwandlung?",
@@ -2449,7 +2451,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-200-07",
+      "id": "q-000175",
       "category": "Code & Algorithmen",
       "points": 200,
       "question": "Welche Voraussetzung braucht die klassische binäre Suche in einem Array?",
@@ -2463,7 +2465,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-200-08",
+      "id": "q-000176",
       "category": "Code & Algorithmen",
       "points": 200,
       "question": "Welche Aufgabe erfüllt ein Compiler grundsätzlich?",
@@ -2477,7 +2479,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-300-01",
+      "id": "q-000177",
       "category": "Code & Algorithmen",
       "points": 300,
       "question": "Welche der folgenden oberen Laufzeitschranken ist für binäre Suche in einem sortierten Array der Länge n im Worst Case am engsten?",
@@ -2488,10 +2490,10 @@ window.QUESTIONS_DATA = {
         "O(log n)",
         "O(n²)"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-300-02",
+      "id": "q-000178",
       "category": "Code & Algorithmen",
       "points": 300,
       "question": "Welches Verfahren findet in einem ungewichteten Graphen einen Weg mit möglichst wenigen Kanten von einem Startknoten aus?",
@@ -2502,10 +2504,10 @@ window.QUESTIONS_DATA = {
         "Breitensuche",
         "Tiefensuche ohne weitere Verarbeitung"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-300-03",
+      "id": "q-000179",
       "category": "Code & Algorithmen",
       "points": 300,
       "question": "Welche Zeilen liefert ein SQL-INNER-JOIN zweier Tabellen bezüglich seiner Join-Bedingung?",
@@ -2516,10 +2518,10 @@ window.QUESTIONS_DATA = {
         "Immer sämtliche Zeilen der linken Tabelle",
         "Nur Zeilen, für die kein Partner existiert"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-300-04",
+      "id": "q-000180",
       "category": "Code & Algorithmen",
       "points": 300,
       "question": "Was bezeichnet eine Kollision in einer Hashtabelle?",
@@ -2533,7 +2535,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-300-05",
+      "id": "q-000181",
       "category": "Code & Algorithmen",
       "points": 300,
       "question": "Welcher Sortieralgorithmus zerlegt die Eingabe rekursiv und führt anschließend sortierte Teilfolgen zusammen?",
@@ -2544,10 +2546,10 @@ window.QUESTIONS_DATA = {
         "Bubblesort",
         "Selectionsort"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-300-06",
+      "id": "q-000182",
       "category": "Code & Algorithmen",
       "points": 300,
       "question": "Was ist das typische Ziel eines Unit-Tests?",
@@ -2561,7 +2563,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-300-07",
+      "id": "q-000183",
       "category": "Code & Algorithmen",
       "points": 300,
       "question": "Wann kann beim Zusammenführen zweier Git-Branches ein Merge-Konflikt entstehen?",
@@ -2575,7 +2577,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-300-08",
+      "id": "q-000184",
       "category": "Code & Algorithmen",
       "points": 300,
       "question": "Welche Rolle hat ein Basisfall in einer rekursiven Funktion?",
@@ -2589,7 +2591,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-400-01",
+      "id": "q-000185",
       "category": "Code & Algorithmen",
       "points": 400,
       "question": "Welche Bedingung müssen die Kantengewichte für die übliche Korrektheitsgarantie von Dijkstras Algorithmus erfüllen?",
@@ -2600,10 +2602,10 @@ window.QUESTIONS_DATA = {
         "Sie müssen alle gleich sein",
         "Sie dürfen nicht negativ sein"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-400-02",
+      "id": "q-000186",
       "category": "Code & Algorithmen",
       "points": 400,
       "question": "Welche asymptotisch enge Worst-Case-Laufzeit hat klassisches Quicksort ohne Schutz gegen ungünstige Pivotwahl?",
@@ -2614,10 +2616,10 @@ window.QUESTIONS_DATA = {
         "Θ(log n)",
         "Θ(n)"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-400-03",
+      "id": "q-000187",
       "category": "Code & Algorithmen",
       "points": 400,
       "question": "Was bedeutet es, dass ein Sortieralgorithmus stabil ist?",
@@ -2628,10 +2630,10 @@ window.QUESTIONS_DATA = {
         "Er benötigt unabhängig von der Eingabe konstanten Zusatzspeicher",
         "Er benötigt im besten und schlechtesten Fall gleich viele Vergleiche"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-400-04",
+      "id": "q-000188",
       "category": "Code & Algorithmen",
       "points": 400,
       "question": "Welcher Ansatz nutzt gespeicherte Lösungen überlappender Teilprobleme, um wiederholte Berechnungen zu vermeiden?",
@@ -2645,7 +2647,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-400-05",
+      "id": "q-000189",
       "category": "Code & Algorithmen",
       "points": 400,
       "question": "Was bedeutet Atomarität bei einer Datenbanktransaktion?",
@@ -2656,10 +2658,10 @@ window.QUESTIONS_DATA = {
         "Eine Transaktion überführt gültige Daten in einen erneut gültigen Zustand",
         "Ihre Änderungen werden als Ganzes wirksam oder vollständig verworfen"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-400-06",
+      "id": "q-000190",
       "category": "Code & Algorithmen",
       "points": 400,
       "question": "Was hält eine Closure neben dem Funktionscode zugänglich?",
@@ -2670,10 +2672,10 @@ window.QUESTIONS_DATA = {
         "Nur die lokalen Bindungen der jeweils aufrufenden Funktion",
         "Immer einen vollständigen Schnappschuss sämtlicher Programmvariablen"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-400-07",
+      "id": "q-000191",
       "category": "Code & Algorithmen",
       "points": 400,
       "question": "Wann spricht man bei nebenläufigen Programmen von einer Race Condition?",
@@ -2687,7 +2689,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-400-08",
+      "id": "q-000192",
       "category": "Code & Algorithmen",
       "points": 400,
       "question": "Nach ungefähr wie vielen Versuchen erwartet man bei einer idealen 256-Bit-Hashfunktion durch den Geburtstagseffekt eine beliebige Kollision?",
@@ -2698,10 +2700,10 @@ window.QUESTIONS_DATA = {
         "Nach etwa 2¹²⁸ Versuchen",
         "Nach etwa 256 Versuchen"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-500-01",
+      "id": "q-000193",
       "category": "Code & Algorithmen",
       "points": 500,
       "question": "Welche Aussage über das allgemeine Halteproblem ist korrekt?",
@@ -2712,10 +2714,10 @@ window.QUESTIONS_DATA = {
         "Es ist ausschließlich wegen langsamer heutiger Hardware ungelöst",
         "Es lässt sich für alle Programme mit binärer Suche entscheiden"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-500-02",
+      "id": "q-000194",
       "category": "Code & Algorithmen",
       "points": 500,
       "question": "Welches Problem wurde durch den Satz von Cook und Levin als NP-vollständig nachgewiesen?",
@@ -2726,10 +2728,10 @@ window.QUESTIONS_DATA = {
         "Erfüllbarkeit boolescher Formeln (SAT)",
         "Berechnen des größten gemeinsamen Teilers"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-500-03",
+      "id": "q-000195",
       "category": "Code & Algorithmen",
       "points": 500,
       "question": "Welche amortisierte Laufzeit beschreibt das Anhängen eines Elements an ein dynamisches Array mit Kapazitätsverdopplung asymptotisch am genauesten?",
@@ -2740,10 +2742,10 @@ window.QUESTIONS_DATA = {
         "Θ(log n)",
         "Θ(n²)"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-code-500-04",
+      "id": "q-000196",
       "category": "Code & Algorithmen",
       "points": 500,
       "question": "Für welche gerichteten Graphen existiert eine topologische Sortierung?",
@@ -2754,10 +2756,10 @@ window.QUESTIONS_DATA = {
         "Genau für gerichtete azyklische Graphen",
         "Genau für Graphen mit gleich vielen Knoten und Kanten"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-code-500-05",
+      "id": "q-000197",
       "category": "Code & Algorithmen",
       "points": 500,
       "question": "Welcher Fehler ist bei einem korrekt implementierten klassischen Bloom-Filter ohne Löschoperationen möglich?",
@@ -2768,10 +2770,10 @@ window.QUESTIONS_DATA = {
         "Ein Schlüssel wird immer unverändert im Filter gespeichert",
         "Ein nicht eingefügtes Element wird als möglicherweise vorhanden gemeldet"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-500-06",
+      "id": "q-000198",
       "category": "Code & Algorithmen",
       "points": 500,
       "question": "Welche asymptotisch scharfe untere Schranke gilt im Worst Case für allgemeines vergleichsbasiertes Sortieren von n verschiedenen Schlüsseln?",
@@ -2785,7 +2787,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-code-500-07",
+      "id": "q-000199",
       "category": "Code & Algorithmen",
       "points": 500,
       "question": "Was sagt der ISO-C-Standard über einen arithmetischen Überlauf bei vorzeichenbehafteten int-Werten aus?",
@@ -2796,10 +2798,10 @@ window.QUESTIONS_DATA = {
         "Der Wert wird immer auf INT_MAX begrenzt",
         "Das Verhalten ist undefiniert"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-code-500-08",
+      "id": "q-000200",
       "category": "Code & Algorithmen",
       "points": 500,
       "question": "Welches Verfahren erkennt mit einem langsamen und einem schnellen Zeiger einen Zyklus in einer einfach verketteten Liste?",
@@ -2813,7 +2815,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-100-01",
+      "id": "q-000201",
       "category": "Betriebssysteme",
       "points": 100,
       "question": "Welches Unternehmen entwickelt Windows?",
@@ -2827,7 +2829,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-100-02",
+      "id": "q-000202",
       "category": "Betriebssysteme",
       "points": 100,
       "question": "Welches Tier stellt das Linux-Maskottchen Tux dar?",
@@ -2841,7 +2843,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-100-03",
+      "id": "q-000203",
       "category": "Betriebssysteme",
       "points": 100,
       "question": "Auf welchem Kernel basiert Android?",
@@ -2855,7 +2857,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-100-04",
+      "id": "q-000204",
       "category": "Betriebssysteme",
       "points": 100,
       "question": "Für Computer welches Herstellers wird macOS entwickelt?",
@@ -2869,7 +2871,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-100-05",
+      "id": "q-000205",
       "category": "Betriebssysteme",
       "points": 100,
       "question": "Was bedeutet es, einen Rechner neu zu booten?",
@@ -2883,7 +2885,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-100-06",
+      "id": "q-000206",
       "category": "Betriebssysteme",
       "points": 100,
       "question": "Wie wird Software in einer Kommandozeile hauptsächlich bedient?",
@@ -2897,7 +2899,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-100-07",
+      "id": "q-000207",
       "category": "Betriebssysteme",
       "points": 100,
       "question": "Wie heißt das traditionelle Administratorkonto auf Unix-Systemen?",
@@ -2911,7 +2913,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-100-08",
+      "id": "q-000208",
       "category": "Betriebssysteme",
       "points": 100,
       "question": "Was ermöglicht Multitasking in einem Betriebssystem?",
@@ -2925,7 +2927,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-200-01",
+      "id": "q-000209",
       "category": "Betriebssysteme",
       "points": 200,
       "question": "Welcher Unix-Shell-Befehl zeigt das aktuelle Arbeitsverzeichnis an?",
@@ -2939,7 +2941,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-200-02",
+      "id": "q-000210",
       "category": "Betriebssysteme",
       "points": 200,
       "question": "Welcher Unix-Befehl listet gewöhnlich den Inhalt eines Verzeichnisses auf?",
@@ -2953,7 +2955,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-200-03",
+      "id": "q-000211",
       "category": "Betriebssysteme",
       "points": 200,
       "question": "Was bewirkt cd .. in einer gewöhnlichen Shell?",
@@ -2967,7 +2969,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-200-04",
+      "id": "q-000212",
       "category": "Betriebssysteme",
       "points": 200,
       "question": "Welche Aufgabe hat ein Gerätetreiber?",
@@ -2981,7 +2983,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-200-05",
+      "id": "q-000213",
       "category": "Betriebssysteme",
       "points": 200,
       "question": "Welches Dateisystem wird typischerweise für das Systemlaufwerk einer Windows-11-Installation verwendet?",
@@ -2995,7 +2997,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-200-06",
+      "id": "q-000214",
       "category": "Betriebssysteme",
       "points": 200,
       "question": "Wie heißt der integrierte grafische Dateimanager von macOS?",
@@ -3009,7 +3011,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-200-07",
+      "id": "q-000215",
       "category": "Betriebssysteme",
       "points": 200,
       "question": "Was ist eine Linux-Distribution?",
@@ -3023,7 +3025,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-200-08",
+      "id": "q-000216",
       "category": "Betriebssysteme",
       "points": 200,
       "question": "Wie heißt der zentrale Betriebssystemteil, der unter anderem Prozesse, Speicher und Hardwarezugriffe verwaltet?",
@@ -3037,7 +3039,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-300-01",
+      "id": "q-000217",
       "category": "Betriebssysteme",
       "points": 300,
       "question": "Wozu dient sudo auf entsprechend eingerichteten Unix-Systemen?",
@@ -3051,7 +3053,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-300-02",
+      "id": "q-000218",
       "category": "Betriebssysteme",
       "points": 300,
       "question": "Was speichert ein symbolischer Link im Dateisystem im Wesentlichen?",
@@ -3065,7 +3067,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-300-03",
+      "id": "q-000219",
       "category": "Betriebssysteme",
       "points": 300,
       "question": "Welchem Zweck dient Swap-Speicher?",
@@ -3079,7 +3081,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-300-04",
+      "id": "q-000220",
       "category": "Betriebssysteme",
       "points": 300,
       "question": "Was bedeutet es unter Unix, ein Dateisystem zu mounten?",
@@ -3093,7 +3095,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-300-05",
+      "id": "q-000221",
       "category": "Betriebssysteme",
       "points": 300,
       "question": "Welche Information enthält die Umgebungsvariable PATH üblicherweise?",
@@ -3107,7 +3109,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-300-06",
+      "id": "q-000222",
       "category": "Betriebssysteme",
       "points": 300,
       "question": "Welches Signal sendet der Unix-Befehl kill ohne explizite Signalangabe normalerweise?",
@@ -3118,10 +3120,10 @@ window.QUESTIONS_DATA = {
         "SIGTERM",
         "SIGSTOP"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-300-07",
+      "id": "q-000223",
       "category": "Betriebssysteme",
       "points": 300,
       "question": "Welches Windows-Konzept fordert bei bestimmten administrativen Aktionen eine Zustimmung oder Administratoranmeldung an?",
@@ -3135,7 +3137,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-300-08",
+      "id": "q-000224",
       "category": "Betriebssysteme",
       "points": 300,
       "question": "Wozu dient Journaling in einem Dateisystem hauptsächlich?",
@@ -3149,7 +3151,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-400-01",
+      "id": "q-000225",
       "category": "Betriebssysteme",
       "points": 400,
       "question": "Welchen Rückgabewert sieht der neu erzeugte Kindprozess nach einem erfolgreichen fork() unter Unix?",
@@ -3160,10 +3162,10 @@ window.QUESTIONS_DATA = {
         "−1",
         "0"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-400-02",
+      "id": "q-000226",
       "category": "Betriebssysteme",
       "points": 400,
       "question": "Was bewirkt ein erfolgreicher execve()-Aufruf unter Unix?",
@@ -3174,10 +3176,10 @@ window.QUESTIONS_DATA = {
         "Er beendet alle anderen Prozesse desselben Nutzers",
         "Er setzt die Prozess-ID immer auf 0"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-400-03",
+      "id": "q-000227",
       "category": "Betriebssysteme",
       "points": 400,
       "question": "Welche Prozess-ID hat systemd, wenn es als Init-System des Hosts läuft?",
@@ -3191,7 +3193,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-400-04",
+      "id": "q-000228",
       "category": "Betriebssysteme",
       "points": 400,
       "question": "Was stellt das Linux-Dateisystem /proc hauptsächlich bereit?",
@@ -3205,7 +3207,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-400-05",
+      "id": "q-000229",
       "category": "Betriebssysteme",
       "points": 400,
       "question": "Welche klassischen Zugriffsrechte setzt chmod 640 auf einer regulären Unix-Datei?",
@@ -3216,10 +3218,10 @@ window.QUESTIONS_DATA = {
         "Besitzer: lesen und schreiben; Gruppe: lesen; andere: keine",
         "Besitzer: lesen; Gruppe: lesen und schreiben; andere: keine"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-400-06",
+      "id": "q-000230",
       "category": "Betriebssysteme",
       "points": 400,
       "question": "Welche Ressource teilen Threads desselben Prozesses normalerweise?",
@@ -3233,7 +3235,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-400-07",
+      "id": "q-000231",
       "category": "Betriebssysteme",
       "points": 400,
       "question": "Was haben zwei Hardlinks auf dieselbe reguläre Datei innerhalb eines Unix-Dateisystems gemeinsam?",
@@ -3244,10 +3246,10 @@ window.QUESTIONS_DATA = {
         "Sie müssen denselben Dateinamen haben",
         "Sie verweisen auf denselben Inode"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-400-08",
+      "id": "q-000232",
       "category": "Betriebssysteme",
       "points": 400,
       "question": "Was kennzeichnet präemptives Multitasking?",
@@ -3258,10 +3260,10 @@ window.QUESTIONS_DATA = {
         "Jeder Prozess läuft bis zu seinem Ende ohne Unterbrechung",
         "Ein Prozess muss die CPU immer freiwillig abgeben"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-500-01",
+      "id": "q-000233",
       "category": "Betriebssysteme",
       "points": 500,
       "question": "Welches dieser Unix-Signale kann ein Prozess weder abfangen noch ignorieren?",
@@ -3272,10 +3274,10 @@ window.QUESTIONS_DATA = {
         "SIGHUP",
         "SIGKILL"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-500-02",
+      "id": "q-000234",
       "category": "Betriebssysteme",
       "points": 500,
       "question": "Was geschieht unter Unix mit einer geöffneten regulären Datei, wenn ihr letzter Hardlink per unlink() entfernt wird?",
@@ -3286,10 +3288,10 @@ window.QUESTIONS_DATA = {
         "Der löschende Prozess muss zwingend beendet werden",
         "Der Inhalt bleibt über offene Dateideskriptoren bis zum letzten Schließen zugänglich"
       ],
-      "correctChoiceIndex": 3,
+      "correctChoiceIndex": 3
     },
     {
-      "id": "nerd-os-500-03",
+      "id": "q-000235",
       "category": "Betriebssysteme",
       "points": 500,
       "question": "Was bedeutet ein Page Fault grundsätzlich?",
@@ -3303,7 +3305,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "nerd-os-500-04",
+      "id": "q-000236",
       "category": "Betriebssysteme",
       "points": 500,
       "question": "Welche Idee steckt hinter Copy-on-Write beim Teilen von Speicherseiten?",
@@ -3314,10 +3316,10 @@ window.QUESTIONS_DATA = {
         "Änderungen werden zunächst gemeinsam sichtbar und erst beim Schließen getrennt",
         "Jeder Lesezugriff erzeugt eine private Kopie der gelesenen Seite"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-500-05",
+      "id": "q-000237",
       "category": "Betriebssysteme",
       "points": 500,
       "question": "Welche Technik kann eine Prioritätsinversion abschwächen, wenn ein niedrig priorisierter Thread eine von einem höher priorisierten Thread benötigte Sperre hält?",
@@ -3328,10 +3330,10 @@ window.QUESTIONS_DATA = {
         "Prioritätsvererbung",
         "Eine längere Zeitscheibe nur für Threads mittlerer Priorität"
       ],
-      "correctChoiceIndex": 2,
+      "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-500-06",
+      "id": "q-000238",
       "category": "Betriebssysteme",
       "points": 500,
       "question": "Welche Übersetzungen hält der Translation Lookaside Buffer, kurz TLB, typischerweise zwischen?",
@@ -3345,7 +3347,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "nerd-os-500-07",
+      "id": "q-000239",
       "category": "Betriebssysteme",
       "points": 500,
       "question": "Welchem Zweck dient WoW64 in 64-Bit-Windows?",
@@ -3356,10 +3358,10 @@ window.QUESTIONS_DATA = {
         "Es führt ausschließlich 64-Bit-Linux-Kernelmodule aus",
         "Es wandelt jede Festplatte in ein 64-Bit-Dateisystem um"
       ],
-      "correctChoiceIndex": 0,
+      "correctChoiceIndex": 0
     },
     {
-      "id": "nerd-os-500-08",
+      "id": "q-000240",
       "category": "Betriebssysteme",
       "points": 500,
       "question": "Wie heißt der Kernel der Darwin-Basis von macOS?",
@@ -3370,249 +3372,129 @@ window.QUESTIONS_DATA = {
         "Mach allein",
         "Minix"
       ],
-      "correctChoiceIndex": 1,
+      "correctChoiceIndex": 1
     }
   ],
   "tiebreakers": [
     {
-      "id": "tb1",
+      "id": "tb-0001",
       "question": "Wie viele Transistoren enthielt der 1971 vorgestellte Intel 4004?",
       "answer": "2.300 Transistoren",
-      "numericAnswer": 2300,
-      "choices": [
-        "1.200 Transistoren",
-        "2.300 Transistoren",
-        "4.800 Transistoren",
-        "9.600 Transistoren"
-      ],
+      "numericAnswer": 2300
     },
     {
-      "id": "tb2",
+      "id": "tb-0002",
       "question": "Wie viele Megabyte Daten konnte die IBM-350-Festplatteneinheit von 1956 ungefähr speichern?",
       "answer": "Ca. 5 MB",
-      "numericAnswer": 5,
-      "choices": [
-        "Ca. 1 MB",
-        "Ca. 5 MB",
-        "Ca. 20 MB",
-        "Ca. 50 MB"
-      ],
+      "numericAnswer": 5
     },
     {
-      "id": "tb3",
+      "id": "tb-0003",
       "question": "Wie viele Pixel umfasst die native Bildfläche des klassischen Game Boy insgesamt?",
       "answer": "23.040 Pixel",
-      "numericAnswer": 23040,
-      "choices": [
-        "12.288 Pixel",
-        "18.432 Pixel",
-        "23.040 Pixel",
-        "32.768 Pixel"
-      ],
+      "numericAnswer": 23040
     },
     {
-      "id": "tb4",
+      "id": "tb-0004",
       "question": "Wie viele Stunden Batterielaufzeit gab Nintendo für den klassischen Game Boy ungefähr an?",
       "answer": "Ca. 15 Stunden",
-      "numericAnswer": 15,
-      "choices": [
-        "Ca. 6 Stunden",
-        "Ca. 10 Stunden",
-        "Ca. 15 Stunden",
-        "Ca. 24 Stunden"
-      ],
+      "numericAnswer": 15
     },
     {
-      "id": "tb5",
+      "id": "tb-0005",
       "question": "Wie viele Gramm wiegt der klassische Game Boy inklusive Batterien ungefähr?",
       "answer": "Ca. 300 g",
-      "numericAnswer": 300,
-      "choices": [
-        "Ca. 180 g",
-        "Ca. 300 g",
-        "Ca. 450 g",
-        "Ca. 650 g"
-      ],
+      "numericAnswer": 300
     },
     {
-      "id": "tb6",
+      "id": "tb-0006",
       "question": "Wie viele US-Dollar kostete das ursprüngliche iPhone mit 4 GB Speicher zum US-Marktstart 2007?",
       "answer": "499 US-Dollar",
-      "numericAnswer": 499,
-      "choices": [
-        "299 US-Dollar",
-        "399 US-Dollar",
-        "499 US-Dollar",
-        "699 US-Dollar"
-      ],
+      "numericAnswer": 499
     },
     {
-      "id": "tb7",
+      "id": "tb-0007",
       "question": "Wie viele Teile enthält das LEGO-Star-Wars-Set UCS Millennium Falcon 75192?",
       "answer": "7.541 Teile",
-      "numericAnswer": 7541,
-      "choices": [
-        "4.784 Teile",
-        "6.102 Teile",
-        "7.541 Teile",
-        "9.008 Teile"
-      ],
+      "numericAnswer": 7541
     },
     {
-      "id": "tb8",
+      "id": "tb-0008",
       "question": "Wie viele Meter lang ist der Millennium Falcon laut offizieller Star-Wars-Datenbank?",
       "answer": "34,75 m",
-      "numericAnswer": 34.75,
-      "choices": [
-        "24,50 m",
-        "34,75 m",
-        "46,20 m",
-        "58,10 m"
-      ],
+      "numericAnswer": 34.75
     },
     {
-      "id": "tb9",
+      "id": "tb-0009",
       "question": "Wie viele Punkte beträgt der perfekte Highscore im klassischen Arcade-Spiel Pac-Man?",
       "answer": "3.333.360 Punkte",
-      "numericAnswer": 3333360,
-      "choices": [
-        "1.999.990 Punkte",
-        "2.500.000 Punkte",
-        "3.333.360 Punkte",
-        "4.194.304 Punkte"
-      ],
+      "numericAnswer": 3333360
     },
     {
-      "id": "tb10",
+      "id": "tb-0010",
       "question": "Wie viele Exemplare der ersten PlayStation wurden 1994 in Japan am ersten Verkaufstag ungefähr verkauft?",
       "answer": "Ca. 100.000 Exemplare",
-      "numericAnswer": 100000,
-      "choices": [
-        "Ca. 25.000 Exemplare",
-        "Ca. 50.000 Exemplare",
-        "Ca. 100.000 Exemplare",
-        "Ca. 250.000 Exemplare"
-      ],
+      "numericAnswer": 100000
     },
     {
-      "id": "tb11",
+      "id": "tb-0011",
       "question": "Wie viele Meter Durchmesser hat der Hauptspiegel des James-Webb-Weltraumteleskops ungefähr?",
       "answer": "Ca. 6,5 m",
-      "numericAnswer": 6.5,
-      "choices": [
-        "Ca. 2,4 m",
-        "Ca. 4,0 m",
-        "Ca. 6,5 m",
-        "Ca. 10,2 m"
-      ],
+      "numericAnswer": 6.5
     },
     {
-      "id": "tb12",
+      "id": "tb-0012",
       "question": "Wie viele Meter Durchmesser hat der Hauptspiegel des Hubble-Weltraumteleskops?",
       "answer": "2,4 m",
-      "numericAnswer": 2.4,
-      "choices": [
-        "1,2 m",
-        "2,4 m",
-        "4,1 m",
-        "6,5 m"
-      ],
+      "numericAnswer": 2.4
     },
     {
-      "id": "tb13",
+      "id": "tb-0013",
       "question": "Wie viele Kilometer pro Stunde schnell bewegt sich die Internationale Raumstation ISS ungefähr um die Erde?",
       "answer": "Ca. 28.000 km/h",
-      "numericAnswer": 28000,
-      "choices": [
-        "Ca. 8.000 km/h",
-        "Ca. 18.000 km/h",
-        "Ca. 28.000 km/h",
-        "Ca. 48.000 km/h"
-      ],
+      "numericAnswer": 28000
     },
     {
-      "id": "tb14",
+      "id": "tb-0014",
       "question": "Wie viele Meter hoch war die Saturn-V-Rakete der Apollo-Mondmissionen?",
       "answer": "111 m",
-      "numericAnswer": 111,
-      "choices": [
-        "72 m",
-        "93 m",
-        "111 m",
-        "148 m"
-      ],
+      "numericAnswer": 111
     },
     {
-      "id": "tb15",
+      "id": "tb-0015",
       "question": "Wie viele Kilogramm wog eine voll betankte Saturn-V-Rakete beim Start ungefähr?",
       "answer": "Ca. 2.800.000 kg",
-      "numericAnswer": 2800000,
-      "choices": [
-        "Ca. 900.000 kg",
-        "Ca. 1.700.000 kg",
-        "Ca. 2.800.000 kg",
-        "Ca. 4.500.000 kg"
-      ],
+      "numericAnswer": 2800000
     },
     {
-      "id": "tb16",
+      "id": "tb-0016",
       "question": "Wie viele Meter Umfang hat der Ring des Large Hadron Collider am CERN?",
       "answer": "26.659 m",
-      "numericAnswer": 26659,
-      "choices": [
-        "12.400 m",
-        "18.750 m",
-        "26.659 m",
-        "41.300 m"
-      ],
+      "numericAnswer": 26659
     },
     {
-      "id": "tb17",
+      "id": "tb-0017",
       "question": "Wie viele Umläufe pro Sekunde absolvieren Protonen im Large Hadron Collider ungefähr?",
       "answer": "11.245 Umläufe pro Sekunde",
-      "numericAnswer": 11245,
-      "choices": [
-        "2.800 Umläufe pro Sekunde",
-        "6.700 Umläufe pro Sekunde",
-        "11.245 Umläufe pro Sekunde",
-        "24.000 Umläufe pro Sekunde"
-      ],
+      "numericAnswer": 11245
     },
     {
-      "id": "tb18",
+      "id": "tb-0018",
       "question": "Wie viele Speicherwörter umfasste der beschreibbare Erasable Memory des Apollo Guidance Computer?",
       "answer": "2.048 Speicherwörter",
-      "numericAnswer": 2048,
-      "choices": [
-        "512 Speicherwörter",
-        "1.024 Speicherwörter",
-        "2.048 Speicherwörter",
-        "8.192 Speicherwörter"
-      ],
+      "numericAnswer": 2048
     },
     {
-      "id": "tb19",
+      "id": "tb-0019",
       "question": "Wie viele IPv4-Adressen umfasst der vollständige 32-Bit-Adressraum theoretisch?",
       "answer": "4.294.967.296 IPv4-Adressen",
-      "numericAnswer": 4294967296,
-      "choices": [
-        "16.777.216 IPv4-Adressen",
-        "2.147.483.648 IPv4-Adressen",
-        "4.294.967.296 IPv4-Adressen",
-        "8.589.934.592 IPv4-Adressen"
-      ],
+      "numericAnswer": 4294967296
     },
     {
-      "id": "tb20",
+      "id": "tb-0020",
       "question": "Wie viele Codepunkte umfasst der gesamte Unicode-Codespace?",
       "answer": "1.114.112 Codepunkte",
-      "numericAnswer": 1114112,
-      "choices": [
-        "65.536 Codepunkte",
-        "524.288 Codepunkte",
-        "1.114.112 Codepunkte",
-        "2.097.152 Codepunkte"
-      ],
+      "numericAnswer": 1114112
     }
   ]
 };

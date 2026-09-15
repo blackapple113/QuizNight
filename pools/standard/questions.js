@@ -1,5 +1,8 @@
+'use strict';
+
 window.QUESTIONS_DATA = {
-  "name": "Standard Quiz",
+  "schemaVersion": 1,
+  "name": "Standard",
   "poolId": "standard",
   "config": {
     "points": [
@@ -8,12 +11,11 @@ window.QUESTIONS_DATA = {
       300,
       400,
       500
-    ],
-    "defaultMcHelpMultiplier": 0.5
+    ]
   },
   "questions": [
     {
-      "id": "std-deutschland-100-01",
+      "id": "q-000001",
       "category": "Deutschland",
       "points": 100,
       "question": "Wie heißt die Hauptstadt der Bundesrepublik Deutschland?",
@@ -27,7 +29,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-100-02",
+      "id": "q-000002",
       "category": "Deutschland",
       "points": 100,
       "question": "Wie viele Bundesländer hat Deutschland?",
@@ -41,7 +43,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-100-03",
+      "id": "q-000003",
       "category": "Deutschland",
       "points": 100,
       "question": "Welcher Berg ist der höchste Deutschlands?",
@@ -55,7 +57,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-100-04",
+      "id": "q-000004",
       "category": "Deutschland",
       "points": 100,
       "question": "Welches Bundesland ist flächenmäßig das größte?",
@@ -69,7 +71,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-100-05",
+      "id": "q-000005",
       "category": "Deutschland",
       "points": 100,
       "question": "An welchem Datum wird der Tag der Deutschen Einheit gefeiert?",
@@ -83,7 +85,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-100-06",
+      "id": "q-000006",
       "category": "Deutschland",
       "points": 100,
       "question": "In welcher Stadt hat das Bundesverfassungsgericht seinen Sitz?",
@@ -97,7 +99,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-100-07",
+      "id": "q-000007",
       "category": "Deutschland",
       "points": 100,
       "question": "Welches Verfassungsorgan wählt den Bundeskanzler oder die Bundeskanzlerin?",
@@ -111,7 +113,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-100-08",
+      "id": "q-000008",
       "category": "Deutschland",
       "points": 100,
       "question": "Wie heißt die Verfassung der Bundesrepublik Deutschland?",
@@ -125,7 +127,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-200-01",
+      "id": "q-000009",
       "category": "Deutschland",
       "points": 200,
       "question": "Wie heißt die Landeshauptstadt von Hessen?",
@@ -139,7 +141,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-200-02",
+      "id": "q-000010",
       "category": "Deutschland",
       "points": 200,
       "question": "Wie heißt die Landeshauptstadt von Nordrhein-Westfalen?",
@@ -153,7 +155,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-200-03",
+      "id": "q-000011",
       "category": "Deutschland",
       "points": 200,
       "question": "Welches Bundesland hat Erfurt als Landeshauptstadt?",
@@ -167,7 +169,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-200-04",
+      "id": "q-000012",
       "category": "Deutschland",
       "points": 200,
       "question": "Welches Bundesland hat Schwerin als Landeshauptstadt?",
@@ -181,7 +183,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-200-05",
+      "id": "q-000013",
       "category": "Deutschland",
       "points": 200,
       "question": "Welcher große Fluss fließt durch Köln?",
@@ -195,7 +197,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-200-06",
+      "id": "q-000014",
       "category": "Deutschland",
       "points": 200,
       "question": "Welche zwei Meere grenzen an Deutschland?",
@@ -209,7 +211,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-200-07",
+      "id": "q-000015",
       "category": "Deutschland",
       "points": 200,
       "question": "Welches Bundesland ist flächenmäßig das kleinste?",
@@ -223,7 +225,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-200-08",
+      "id": "q-000016",
       "category": "Deutschland",
       "points": 200,
       "question": "In welchem Jahr wurde Deutschland wiedervereinigt?",
@@ -237,7 +239,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-300-01",
+      "id": "q-000017",
       "category": "Deutschland",
       "points": 300,
       "question": "An welchem Datum wurde das Grundgesetz 1949 verkündet?",
@@ -248,11 +250,10 @@ window.QUESTIONS_DATA = {
         "23. Mai 1949",
         "7. September 1949"
       ],
-      "correctChoiceIndex": 2,
-      "sourceUrl": "https://www.bundestag.de/parlament/aufgaben/rechtsgrundlagen/grundgesetz"
+      "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-300-02",
+      "id": "q-000018",
       "category": "Deutschland",
       "points": 300,
       "question": "Welches Verfassungsorgan vertritt die deutschen Bundesländer auf Bundesebene?",
@@ -263,11 +264,10 @@ window.QUESTIONS_DATA = {
         "Bundesversammlung",
         "Bundespräsidialamt"
       ],
-      "correctChoiceIndex": 1,
-      "sourceUrl": "https://www.bundestag.de/services/glossar/glossar/B/bundesrat-245356"
+      "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-300-03",
+      "id": "q-000019",
       "category": "Deutschland",
       "points": 300,
       "question": "Welches Organ wählt den Bundespräsidenten oder die Bundespräsidentin?",
@@ -281,7 +281,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-300-04",
+      "id": "q-000020",
       "category": "Deutschland",
       "points": 300,
       "question": "Welche Stadt war von 1949 bis 1990 Regierungssitz der Bundesrepublik Deutschland?",
@@ -295,7 +295,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-300-05",
+      "id": "q-000021",
       "category": "Deutschland",
       "points": 300,
       "question": "Wie heißt Deutschlands längster vollständig innerhalb des Landes verlaufender Fluss?",
@@ -309,7 +309,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-300-06",
+      "id": "q-000022",
       "category": "Deutschland",
       "points": 300,
       "question": "Welches Mittelgebirge enthält den Brocken?",
@@ -323,7 +323,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-300-07",
+      "id": "q-000023",
       "category": "Deutschland",
       "points": 300,
       "question": "Welches Bundesland grenzt sowohl an Polen als auch an Tschechien?",
@@ -337,7 +337,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-300-08",
+      "id": "q-000024",
       "category": "Deutschland",
       "points": 300,
       "question": "Welcher deutsche See ist flächenmäßig der größte, wenn nur Seen vollständig innerhalb Deutschlands betrachtet werden?",
@@ -351,7 +351,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-400-01",
+      "id": "q-000025",
       "category": "Deutschland",
       "points": 400,
       "question": "Wie viele Stimmen hat jedes Bundesland im Bundesrat mindestens?",
@@ -362,11 +362,10 @@ window.QUESTIONS_DATA = {
         "5",
         "3"
       ],
-      "correctChoiceIndex": 3,
-      "sourceUrl": "https://www.bundestag.de/parlament/aufgaben/rechtsgrundlagen/grundgesetz"
+      "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-400-02",
+      "id": "q-000026",
       "category": "Deutschland",
       "points": 400,
       "question": "Wie viele Stimmen kann ein Bundesland im Bundesrat höchstens haben?",
@@ -377,11 +376,10 @@ window.QUESTIONS_DATA = {
         "6",
         "8"
       ],
-      "correctChoiceIndex": 2,
-      "sourceUrl": "https://www.bundestag.de/parlament/aufgaben/rechtsgrundlagen/grundgesetz"
+      "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-400-03",
+      "id": "q-000027",
       "category": "Deutschland",
       "points": 400,
       "question": "Welche beiden Artikel des Grundgesetzes schützen zentrale Staatsprinzipien besonders durch die sogenannte Ewigkeitsklausel?",
@@ -392,11 +390,10 @@ window.QUESTIONS_DATA = {
         "Artikel 5 und 8",
         "Artikel 10 und 11"
       ],
-      "correctChoiceIndex": 1,
-      "sourceUrl": "https://www.bundestag.de/parlament/aufgaben/rechtsgrundlagen/grundgesetz"
+      "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-400-04",
+      "id": "q-000028",
       "category": "Deutschland",
       "points": 400,
       "question": "Welches Bundesland ist nach Bayern flächenmäßig das zweitgrößte?",
@@ -410,7 +407,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-400-05",
+      "id": "q-000029",
       "category": "Deutschland",
       "points": 400,
       "question": "Welche deutsche Großstadt liegt am Zusammenfluss von Rhein und Neckar?",
@@ -424,7 +421,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-400-06",
+      "id": "q-000030",
       "category": "Deutschland",
       "points": 400,
       "question": "Welche Stadt wird wegen ihrer Lage an drei Flüssen auch als Dreiflüssestadt bezeichnet?",
@@ -438,7 +435,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-400-07",
+      "id": "q-000031",
       "category": "Deutschland",
       "points": 400,
       "question": "Wie heißt der Nationalpark, der den höchsten Berg des Harzes einschließt?",
@@ -452,7 +449,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-400-08",
+      "id": "q-000032",
       "category": "Deutschland",
       "points": 400,
       "question": "Welcher deutsche Reformator übersetzte das Neue Testament auf der Wartburg ins Deutsche?",
@@ -466,7 +463,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-500-01",
+      "id": "q-000033",
       "category": "Deutschland",
       "points": 500,
       "question": "Welche Mehrheit ist in Bundestag und Bundesrat jeweils für eine Änderung des Grundgesetzes erforderlich?",
@@ -477,11 +474,10 @@ window.QUESTIONS_DATA = {
         "Eine Dreifünftelmehrheit",
         "Einstimmigkeit"
       ],
-      "correctChoiceIndex": 0,
-      "sourceUrl": "https://www.bundestag.de/parlament/aufgaben/rechtsgrundlagen/grundgesetz"
+      "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-500-02",
+      "id": "q-000034",
       "category": "Deutschland",
       "points": 500,
       "question": "Wie viele Richterinnen und Richter gehören dem Bundesverfassungsgericht insgesamt an?",
@@ -495,7 +491,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-500-03",
+      "id": "q-000035",
       "category": "Deutschland",
       "points": 500,
       "question": "Aus wie vielen Senaten besteht das Bundesverfassungsgericht?",
@@ -509,7 +505,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-500-04",
+      "id": "q-000036",
       "category": "Deutschland",
       "points": 500,
       "question": "Wie heißt der höchste Punkt des Bundeslandes Hessen?",
@@ -523,7 +519,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-deutschland-500-05",
+      "id": "q-000037",
       "category": "Deutschland",
       "points": 500,
       "question": "Welcher Fluss bildet auf einem längeren Abschnitt die Grenze zwischen Deutschland und Polen?",
@@ -537,7 +533,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-deutschland-500-06",
+      "id": "q-000038",
       "category": "Deutschland",
       "points": 500,
       "question": "Wie hieß die Verfassung der Weimarer Republik von 1919?",
@@ -551,7 +547,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-deutschland-500-07",
+      "id": "q-000039",
       "category": "Deutschland",
       "points": 500,
       "question": "In welcher Stadt trat 1848 die deutsche Nationalversammlung zusammen?",
@@ -565,7 +561,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-deutschland-500-08",
+      "id": "q-000040",
       "category": "Deutschland",
       "points": 500,
       "question": "Welcher Friedensschluss von 1648 wurde unter anderem in Münster und Osnabrück ausgehandelt?",
@@ -579,7 +575,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-100-01",
+      "id": "q-000041",
       "category": "Rund um die Welt",
       "points": 100,
       "question": "Wie heißt die Hauptstadt Frankreichs?",
@@ -593,7 +589,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-100-02",
+      "id": "q-000042",
       "category": "Rund um die Welt",
       "points": 100,
       "question": "Auf welchem Kontinent liegt Brasilien?",
@@ -607,7 +603,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-100-03",
+      "id": "q-000043",
       "category": "Rund um die Welt",
       "points": 100,
       "question": "Welcher Ozean liegt zwischen Europa und Nordamerika?",
@@ -621,7 +617,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-100-04",
+      "id": "q-000044",
       "category": "Rund um die Welt",
       "points": 100,
       "question": "Wie heißt die Hauptstadt Italiens?",
@@ -635,7 +631,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-100-05",
+      "id": "q-000045",
       "category": "Rund um die Welt",
       "points": 100,
       "question": "Welches Land hat die Form eines Stiefels?",
@@ -649,7 +645,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-100-06",
+      "id": "q-000046",
       "category": "Rund um die Welt",
       "points": 100,
       "question": "Welcher Kontinent ist flächenmäßig der größte?",
@@ -663,7 +659,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-100-07",
+      "id": "q-000047",
       "category": "Rund um die Welt",
       "points": 100,
       "question": "In welchem Land stehen die Pyramiden von Gizeh?",
@@ -677,7 +673,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-100-08",
+      "id": "q-000048",
       "category": "Rund um die Welt",
       "points": 100,
       "question": "Wie heißt die Hauptstadt des Vereinigten Königreichs?",
@@ -691,7 +687,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-200-01",
+      "id": "q-000049",
       "category": "Rund um die Welt",
       "points": 200,
       "question": "Wie heißt die Hauptstadt Kanadas?",
@@ -705,7 +701,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-200-02",
+      "id": "q-000050",
       "category": "Rund um die Welt",
       "points": 200,
       "question": "Welcher Fluss fließt durch London?",
@@ -719,7 +715,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-200-03",
+      "id": "q-000051",
       "category": "Rund um die Welt",
       "points": 200,
       "question": "Welches Land hat Lissabon als Hauptstadt?",
@@ -733,7 +729,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-200-04",
+      "id": "q-000052",
       "category": "Rund um die Welt",
       "points": 200,
       "question": "Wie heißt der höchste Berg der Erde über dem Meeresspiegel?",
@@ -747,7 +743,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-200-05",
+      "id": "q-000053",
       "category": "Rund um die Welt",
       "points": 200,
       "question": "Welcher Staat ist flächenmäßig der größte der Erde?",
@@ -761,7 +757,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-200-06",
+      "id": "q-000054",
       "category": "Rund um die Welt",
       "points": 200,
       "question": "Wie heißt die Hauptstadt Australiens?",
@@ -775,7 +771,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-200-07",
+      "id": "q-000055",
       "category": "Rund um die Welt",
       "points": 200,
       "question": "Welches Meer trennt Europa von Afrika?",
@@ -789,7 +785,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-200-08",
+      "id": "q-000056",
       "category": "Rund um die Welt",
       "points": 200,
       "question": "Welches Land hat Tokio als Hauptstadt?",
@@ -803,7 +799,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-300-01",
+      "id": "q-000057",
       "category": "Rund um die Welt",
       "points": 300,
       "question": "Wie heißt die Hauptstadt Neuseelands?",
@@ -817,7 +813,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-300-02",
+      "id": "q-000058",
       "category": "Rund um die Welt",
       "points": 300,
       "question": "Welcher Fluss fließt durch Budapest?",
@@ -831,7 +827,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-300-03",
+      "id": "q-000059",
       "category": "Rund um die Welt",
       "points": 300,
       "question": "Welche Wüste erstreckt sich über große Teile Nordafrikas?",
@@ -845,7 +841,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-300-04",
+      "id": "q-000060",
       "category": "Rund um die Welt",
       "points": 300,
       "question": "Welches Land umschließt Lesotho vollständig?",
@@ -859,7 +855,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-300-05",
+      "id": "q-000061",
       "category": "Rund um die Welt",
       "points": 300,
       "question": "Wie heißt die Meerenge zwischen Spanien und Marokko?",
@@ -873,7 +869,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-300-06",
+      "id": "q-000062",
       "category": "Rund um die Welt",
       "points": 300,
       "question": "Welche Hauptstadt liegt am Fluss Moldau?",
@@ -887,7 +883,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-300-07",
+      "id": "q-000063",
       "category": "Rund um die Welt",
       "points": 300,
       "question": "Welcher See ist der tiefste der Erde?",
@@ -901,7 +897,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-300-08",
+      "id": "q-000064",
       "category": "Rund um die Welt",
       "points": 300,
       "question": "Welches Land besitzt die Osterinsel als Staatsgebiet?",
@@ -915,7 +911,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-400-01",
+      "id": "q-000065",
       "category": "Rund um die Welt",
       "points": 400,
       "question": "Wie heißt die Hauptstadt von Bhutan?",
@@ -929,7 +925,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-400-02",
+      "id": "q-000066",
       "category": "Rund um die Welt",
       "points": 400,
       "question": "Welcher afrikanische Staat hat Addis Abeba als Hauptstadt?",
@@ -943,7 +939,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-400-03",
+      "id": "q-000067",
       "category": "Rund um die Welt",
       "points": 400,
       "question": "Wie heißt die größte Insel der Erde, wenn Kontinente nicht als Inseln gezählt werden?",
@@ -957,7 +953,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-400-04",
+      "id": "q-000068",
       "category": "Rund um die Welt",
       "points": 400,
       "question": "Welcher Fluss bildet große Teile der Grenze zwischen den USA und Mexiko?",
@@ -971,7 +967,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-400-05",
+      "id": "q-000069",
       "category": "Rund um die Welt",
       "points": 400,
       "question": "Welches Land besitzt die Exklave Kaliningrad?",
@@ -985,7 +981,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-400-06",
+      "id": "q-000070",
       "category": "Rund um die Welt",
       "points": 400,
       "question": "Wie heißt die Hauptstadt der Mongolei?",
@@ -999,7 +995,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-400-07",
+      "id": "q-000071",
       "category": "Rund um die Welt",
       "points": 400,
       "question": "Welches Gebirge trennt auf vielen Karten Europa und Asien?",
@@ -1013,7 +1009,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-400-08",
+      "id": "q-000072",
       "category": "Rund um die Welt",
       "points": 400,
       "question": "Welche Stadt liegt an der Mündung des Río de la Plata und ist Hauptstadt Uruguays?",
@@ -1027,7 +1023,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-500-01",
+      "id": "q-000073",
       "category": "Rund um die Welt",
       "points": 500,
       "question": "Wie heißt die Hauptstadt von Burkina Faso?",
@@ -1041,7 +1037,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-welt-500-02",
+      "id": "q-000074",
       "category": "Rund um die Welt",
       "points": 500,
       "question": "Welche Großstadt liegt am Zusammenfluss des Weißen und Blauen Nils?",
@@ -1055,7 +1051,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-500-03",
+      "id": "q-000075",
       "category": "Rund um die Welt",
       "points": 500,
       "question": "Welches Land besitzt die autonome Inselgruppe Åland?",
@@ -1069,7 +1065,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-500-04",
+      "id": "q-000076",
       "category": "Rund um die Welt",
       "points": 500,
       "question": "Wie heißt der höchste Berg Südamerikas?",
@@ -1083,7 +1079,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-welt-500-05",
+      "id": "q-000077",
       "category": "Rund um die Welt",
       "points": 500,
       "question": "Welcher Inselstaat hat Ngerulmud als Regierungssitz?",
@@ -1097,7 +1093,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-500-06",
+      "id": "q-000078",
       "category": "Rund um die Welt",
       "points": 500,
       "question": "Wie heißt die Hauptstadt von Kirgisistan?",
@@ -1111,7 +1107,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-welt-500-07",
+      "id": "q-000079",
       "category": "Rund um die Welt",
       "points": 500,
       "question": "Welcher Fluss durchfließt die Hauptstadt Laos, Vientiane?",
@@ -1125,7 +1121,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-welt-500-08",
+      "id": "q-000080",
       "category": "Rund um die Welt",
       "points": 500,
       "question": "Welche Insel teilen sich Indonesien, Malaysia und Brunei?",
@@ -1139,7 +1135,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-100-01",
+      "id": "q-000081",
       "category": "Geschichte",
       "points": 100,
       "question": "Welche antike Stadt wurde beim Ausbruch des Vesuvs im Jahr 79 verschüttet?",
@@ -1153,7 +1149,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-100-02",
+      "id": "q-000082",
       "category": "Geschichte",
       "points": 100,
       "question": "Wer war der erste römische Kaiser?",
@@ -1167,7 +1163,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-100-03",
+      "id": "q-000083",
       "category": "Geschichte",
       "points": 100,
       "question": "Welcher französische Kaiser wurde 1815 bei Waterloo endgültig besiegt?",
@@ -1181,7 +1177,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-100-04",
+      "id": "q-000084",
       "category": "Geschichte",
       "points": 100,
       "question": "In welchem Jahr endete der Zweite Weltkrieg in Europa?",
@@ -1195,7 +1191,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-100-05",
+      "id": "q-000085",
       "category": "Geschichte",
       "points": 100,
       "question": "Welche Mauer fiel am 9. November 1989?",
@@ -1209,7 +1205,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-100-06",
+      "id": "q-000086",
       "category": "Geschichte",
       "points": 100,
       "question": "Welcher Seefahrer erreichte 1492 für die spanische Krone Amerika?",
@@ -1223,7 +1219,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-100-07",
+      "id": "q-000087",
       "category": "Geschichte",
       "points": 100,
       "question": "Welche antike Hochkultur errichtete die Pyramiden von Gizeh?",
@@ -1237,7 +1233,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-100-08",
+      "id": "q-000088",
       "category": "Geschichte",
       "points": 100,
       "question": "Welche Revolution begann 1789 mit dem Sturm auf die Bastille?",
@@ -1251,7 +1247,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-200-01",
+      "id": "q-000089",
       "category": "Geschichte",
       "points": 200,
       "question": "Welcher Reformator veröffentlichte 1517 seine 95 Thesen?",
@@ -1265,7 +1261,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-200-02",
+      "id": "q-000090",
       "category": "Geschichte",
       "points": 200,
       "question": "Welches Reich wurde von Dschingis Khan begründet?",
@@ -1279,7 +1275,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-200-03",
+      "id": "q-000091",
       "category": "Geschichte",
       "points": 200,
       "question": "Wer war der erste Präsident der Vereinigten Staaten?",
@@ -1293,7 +1289,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-200-04",
+      "id": "q-000092",
       "category": "Geschichte",
       "points": 200,
       "question": "Welche Stadt war Zentrum der attischen Demokratie im antiken Griechenland?",
@@ -1307,7 +1303,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-200-05",
+      "id": "q-000093",
       "category": "Geschichte",
       "points": 200,
       "question": "Wie hieß das Passagierschiff, das 1912 auf seiner Jungfernfahrt sank?",
@@ -1321,7 +1317,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-200-06",
+      "id": "q-000094",
       "category": "Geschichte",
       "points": 200,
       "question": "Welche Dynastie regierte Frankreich bis zur Französischen Revolution?",
@@ -1335,7 +1331,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-200-07",
+      "id": "q-000095",
       "category": "Geschichte",
       "points": 200,
       "question": "Welcher Krieg dauerte von 1914 bis 1918?",
@@ -1349,7 +1345,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-200-08",
+      "id": "q-000096",
       "category": "Geschichte",
       "points": 200,
       "question": "Wie hieß die Handelsroute, die Europa über Zentralasien mit China verband?",
@@ -1363,7 +1359,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-300-01",
+      "id": "q-000097",
       "category": "Geschichte",
       "points": 300,
       "question": "Welcher Friede beendete 1648 den Dreißigjährigen Krieg?",
@@ -1377,7 +1373,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-300-02",
+      "id": "q-000098",
       "category": "Geschichte",
       "points": 300,
       "question": "Welches Ereignis löste 1914 unmittelbar den Ersten Weltkrieg aus?",
@@ -1391,7 +1387,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-300-03",
+      "id": "q-000099",
       "category": "Geschichte",
       "points": 300,
       "question": "Wie hieß der letzte Zar Russlands?",
@@ -1405,7 +1401,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-300-04",
+      "id": "q-000100",
       "category": "Geschichte",
       "points": 300,
       "question": "Welche Stadt wurde 1453 von den Osmanen erobert und beendete damit das Byzantinische Reich?",
@@ -1419,7 +1415,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-300-05",
+      "id": "q-000101",
       "category": "Geschichte",
       "points": 300,
       "question": "Welche Versammlung ordnete Europa nach Napoleons Niederlage 1814/15 neu?",
@@ -1433,7 +1429,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-300-06",
+      "id": "q-000102",
       "category": "Geschichte",
       "points": 300,
       "question": "Welcher karthagische Feldherr überquerte im Zweiten Punischen Krieg die Alpen?",
@@ -1447,7 +1443,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-300-07",
+      "id": "q-000103",
       "category": "Geschichte",
       "points": 300,
       "question": "Wie hieß der englische König, unter dem 1215 die Magna Carta besiegelt wurde?",
@@ -1461,7 +1457,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-300-08",
+      "id": "q-000104",
       "category": "Geschichte",
       "points": 300,
       "question": "Welche Seuche dezimierte im 14. Jahrhundert große Teile der europäischen Bevölkerung?",
@@ -1475,7 +1471,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-400-01",
+      "id": "q-000105",
       "category": "Geschichte",
       "points": 400,
       "question": "Welche Schlacht im Jahr 1066 führte zur normannischen Eroberung Englands?",
@@ -1489,7 +1485,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-400-02",
+      "id": "q-000106",
       "category": "Geschichte",
       "points": 400,
       "question": "Welcher Vertrag von 1494 teilte außereuropäische Einflussgebiete zwischen Spanien und Portugal?",
@@ -1503,7 +1499,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-400-03",
+      "id": "q-000107",
       "category": "Geschichte",
       "points": 400,
       "question": "Welcher persische Großkönig ließ im 5. Jahrhundert v. Chr. Griechenland angreifen und kämpfte bei Thermopylen?",
@@ -1517,7 +1513,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-400-04",
+      "id": "q-000108",
       "category": "Geschichte",
       "points": 400,
       "question": "Wie hieß die politische und militärische Rivalität zwischen Athen und Sparta im 5. Jahrhundert v. Chr.?",
@@ -1531,7 +1527,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-400-05",
+      "id": "q-000109",
       "category": "Geschichte",
       "points": 400,
       "question": "Welcher Aufstand begann 1857 gegen die britische Herrschaft in Indien?",
@@ -1545,7 +1541,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-400-06",
+      "id": "q-000110",
       "category": "Geschichte",
       "points": 400,
       "question": "Wie hieß die Bewegung zur politischen und kulturellen Erneuerung Europas ab dem 14. Jahrhundert?",
@@ -1559,7 +1555,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-400-07",
+      "id": "q-000111",
       "category": "Geschichte",
       "points": 400,
       "question": "Welcher König von Frankreich wurde als Sonnenkönig bekannt?",
@@ -1573,7 +1569,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-400-08",
+      "id": "q-000112",
       "category": "Geschichte",
       "points": 400,
       "question": "Welche Schlacht von 1805 gilt als einer der größten Siege Napoleons?",
@@ -1587,7 +1583,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-500-01",
+      "id": "q-000113",
       "category": "Geschichte",
       "points": 500,
       "question": "Welcher Vertrag von 843 teilte das Frankenreich unter den Enkeln Karls des Großen?",
@@ -1601,7 +1597,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-500-02",
+      "id": "q-000114",
       "category": "Geschichte",
       "points": 500,
       "question": "Wie hieß der oströmische Kaiser, der im 6. Jahrhundert eine umfangreiche Gesetzessammlung veranlasste?",
@@ -1615,7 +1611,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-500-03",
+      "id": "q-000115",
       "category": "Geschichte",
       "points": 500,
       "question": "Welche chinesische Dynastie ließ im 15. Jahrhundert die berühmten Schatzflotten unter Zheng He aussenden?",
@@ -1629,7 +1625,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-500-04",
+      "id": "q-000116",
       "category": "Geschichte",
       "points": 500,
       "question": "Welcher Friede von 1713 war ein zentraler Bestandteil des Endes des Spanischen Erbfolgekriegs?",
@@ -1643,7 +1639,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-geschichte-500-05",
+      "id": "q-000117",
       "category": "Geschichte",
       "points": 500,
       "question": "Welchen Inkaherrscher ließ Francisco Pizarro 1533 hinrichten?",
@@ -1657,7 +1653,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-geschichte-500-06",
+      "id": "q-000118",
       "category": "Geschichte",
       "points": 500,
       "question": "Welche Schlacht von 732 stoppte den Vormarsch muslimischer Truppen tief ins Frankenreich?",
@@ -1671,7 +1667,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-geschichte-500-07",
+      "id": "q-000119",
       "category": "Geschichte",
       "points": 500,
       "question": "Wie hieß der byzantinische Kaiser, der 1071 in der Schlacht bei Manzikert besiegt wurde?",
@@ -1685,7 +1681,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-geschichte-500-08",
+      "id": "q-000120",
       "category": "Geschichte",
       "points": 500,
       "question": "Welche Konferenz von 1884/85 regelte unter europäischen Mächten wesentliche Fragen der kolonialen Aufteilung Afrikas?",
@@ -1699,7 +1695,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-100-01",
+      "id": "q-000121",
       "category": "Natur & Tiere",
       "points": 100,
       "question": "Welches Tier ist das größte heute lebende Landtier?",
@@ -1713,7 +1709,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-100-02",
+      "id": "q-000122",
       "category": "Natur & Tiere",
       "points": 100,
       "question": "Welches Säugetier kann aktiv fliegen?",
@@ -1727,7 +1723,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-100-03",
+      "id": "q-000123",
       "category": "Natur & Tiere",
       "points": 100,
       "question": "Wie viele Beine hat eine Spinne?",
@@ -1741,7 +1737,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-100-04",
+      "id": "q-000124",
       "category": "Natur & Tiere",
       "points": 100,
       "question": "Welches Tier ist für seinen schwarz-weißen Streifenkörper bekannt?",
@@ -1755,7 +1751,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-100-05",
+      "id": "q-000125",
       "category": "Natur & Tiere",
       "points": 100,
       "question": "Welche Baumart trägt Eicheln?",
@@ -1769,7 +1765,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-100-06",
+      "id": "q-000126",
       "category": "Natur & Tiere",
       "points": 100,
       "question": "Welches Tier entwickelt sich aus einer Kaulquappe?",
@@ -1783,7 +1779,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-100-07",
+      "id": "q-000127",
       "category": "Natur & Tiere",
       "points": 100,
       "question": "Welcher Vogel kann nicht fliegen und lebt natürlicherweise in der Antarktis?",
@@ -1797,7 +1793,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-100-08",
+      "id": "q-000128",
       "category": "Natur & Tiere",
       "points": 100,
       "question": "Wie nennt man Tiere, die ausschließlich Pflanzen fressen?",
@@ -1811,7 +1807,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-200-01",
+      "id": "q-000129",
       "category": "Natur & Tiere",
       "points": 200,
       "question": "Welches Tier ist das schnellste Landtier?",
@@ -1825,7 +1821,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-200-02",
+      "id": "q-000130",
       "category": "Natur & Tiere",
       "points": 200,
       "question": "Wie nennt man den jahreszeitlichen Ortswechsel vieler Vogelarten?",
@@ -1839,7 +1835,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-200-03",
+      "id": "q-000131",
       "category": "Natur & Tiere",
       "points": 200,
       "question": "Welches Organ nutzen Fische hauptsächlich zur Atmung?",
@@ -1853,7 +1849,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-200-04",
+      "id": "q-000132",
       "category": "Natur & Tiere",
       "points": 200,
       "question": "Welche Pflanzenfamilie umfasst Weizen, Gerste und Roggen?",
@@ -1867,7 +1863,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-200-05",
+      "id": "q-000133",
       "category": "Natur & Tiere",
       "points": 200,
       "question": "Welcher Nadelbaum wirft im Herbst seine Nadeln ab?",
@@ -1881,7 +1877,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-200-06",
+      "id": "q-000134",
       "category": "Natur & Tiere",
       "points": 200,
       "question": "Wie heißt die Verwandlung von der Raupe zum Schmetterling?",
@@ -1895,7 +1891,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-200-07",
+      "id": "q-000135",
       "category": "Natur & Tiere",
       "points": 200,
       "question": "Welches Meeressäugetier ist das größte Tier der Erde?",
@@ -1909,7 +1905,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-200-08",
+      "id": "q-000136",
       "category": "Natur & Tiere",
       "points": 200,
       "question": "Wie heißt der Lebensraum, in dem Organismen und unbelebte Umwelt zusammenwirken?",
@@ -1923,7 +1919,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-300-01",
+      "id": "q-000137",
       "category": "Natur & Tiere",
       "points": 300,
       "question": "Welcher Vogel legt seine Eier häufig in die Nester anderer Vogelarten?",
@@ -1937,7 +1933,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-300-02",
+      "id": "q-000138",
       "category": "Natur & Tiere",
       "points": 300,
       "question": "Wie heißt das grüne Pigment, das Pflanzen für die Photosynthese nutzen?",
@@ -1951,7 +1947,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-300-03",
+      "id": "q-000139",
       "category": "Natur & Tiere",
       "points": 300,
       "question": "Welche Tierklasse umfasst Frösche, Kröten und Salamander?",
@@ -1965,7 +1961,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-300-04",
+      "id": "q-000140",
       "category": "Natur & Tiere",
       "points": 300,
       "question": "Wie nennt man die Symbiose zwischen Pilzen und Pflanzenwurzeln?",
@@ -1979,7 +1975,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-300-05",
+      "id": "q-000141",
       "category": "Natur & Tiere",
       "points": 300,
       "question": "Welcher Teil einer Blüte produziert typischerweise den Pollen?",
@@ -1993,7 +1989,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-300-06",
+      "id": "q-000142",
       "category": "Natur & Tiere",
       "points": 300,
       "question": "Wie nennt man die Gesamtheit aller Individuen einer Art in einem abgegrenzten Gebiet?",
@@ -2007,7 +2003,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-300-07",
+      "id": "q-000143",
       "category": "Natur & Tiere",
       "points": 300,
       "question": "Welches Organ nutzen Insekten hauptsächlich für den Gasaustausch?",
@@ -2021,7 +2017,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-300-08",
+      "id": "q-000144",
       "category": "Natur & Tiere",
       "points": 300,
       "question": "Welche Anpassung erlaubt Kamelen, lange Zeit mit wenig Wasser auszukommen, ohne dass ihre Höcker Wasser speichern?",
@@ -2035,7 +2031,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-400-01",
+      "id": "q-000145",
       "category": "Natur & Tiere",
       "points": 400,
       "question": "Wie heißt die Zellschicht auf Blättern, deren Spaltöffnungen den Gasaustausch regulieren?",
@@ -2049,7 +2045,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-400-02",
+      "id": "q-000146",
       "category": "Natur & Tiere",
       "points": 400,
       "question": "Welches Tier gehört zu den Kloakentieren und legt trotz Säugetierstatus Eier?",
@@ -2063,7 +2059,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-400-03",
+      "id": "q-000147",
       "category": "Natur & Tiere",
       "points": 400,
       "question": "Wie nennt man das Ruhephänomen mancher Tiere mit stark abgesenktem Stoffwechsel im Winter?",
@@ -2077,7 +2073,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-400-04",
+      "id": "q-000148",
       "category": "Natur & Tiere",
       "points": 400,
       "question": "Welcher Prozess beschreibt die Umwandlung von atmosphärischem Stickstoff in für Organismen nutzbare Verbindungen?",
@@ -2091,7 +2087,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-400-05",
+      "id": "q-000149",
       "category": "Natur & Tiere",
       "points": 400,
       "question": "Welches Organ reguliert bei vielen Fischen den Auftrieb im Wasser?",
@@ -2105,7 +2101,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-400-06",
+      "id": "q-000150",
       "category": "Natur & Tiere",
       "points": 400,
       "question": "Wie heißt der Zusammenschluss aus Pilz und photosynthetisch aktivem Partner, etwa einer Alge?",
@@ -2119,7 +2115,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-400-07",
+      "id": "q-000151",
       "category": "Natur & Tiere",
       "points": 400,
       "question": "Welcher Begriff bezeichnet eine Art, die nur in einem räumlich begrenzten Gebiet vorkommt?",
@@ -2133,7 +2129,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-400-08",
+      "id": "q-000152",
       "category": "Natur & Tiere",
       "points": 400,
       "question": "Wie nennt man die jahreszeitliche Ruhephase von Pflanzenknospen und Samen?",
@@ -2147,7 +2143,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-500-01",
+      "id": "q-000153",
       "category": "Natur & Tiere",
       "points": 500,
       "question": "Welches Protein transportiert Sauerstoff im Blut vieler Wirbeltiere?",
@@ -2161,7 +2157,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-500-02",
+      "id": "q-000154",
       "category": "Natur & Tiere",
       "points": 500,
       "question": "Wie heißt der Prozess, bei dem Pflanzen Wasser über ihre Blätter an die Atmosphäre abgeben?",
@@ -2175,7 +2171,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-500-03",
+      "id": "q-000155",
       "category": "Natur & Tiere",
       "points": 500,
       "question": "Welche Organismengruppe bildet mit Korallen die für viele riffbildende Arten wichtige Symbiose?",
@@ -2189,7 +2185,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-500-04",
+      "id": "q-000156",
       "category": "Natur & Tiere",
       "points": 500,
       "question": "Wie nennt man das Phänomen, dass nicht verwandte Arten aufgrund ähnlicher Umweltbedingungen ähnliche Merkmale entwickeln?",
@@ -2203,7 +2199,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-natur-500-05",
+      "id": "q-000157",
       "category": "Natur & Tiere",
       "points": 500,
       "question": "Welches Sinnesorgan ermöglicht Haien die Wahrnehmung schwacher elektrischer Felder?",
@@ -2217,7 +2213,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-natur-500-06",
+      "id": "q-000158",
       "category": "Natur & Tiere",
       "points": 500,
       "question": "Wie heißt die Ernährungsweise von Organismen, die organisches Material abgestorbener Lebewesen zersetzen?",
@@ -2231,7 +2227,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-natur-500-07",
+      "id": "q-000159",
       "category": "Natur & Tiere",
       "points": 500,
       "question": "Welche Pflanzengewebeschicht transportiert vor allem Zucker und andere Assimilate?",
@@ -2245,7 +2241,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-natur-500-08",
+      "id": "q-000160",
       "category": "Natur & Tiere",
       "points": 500,
       "question": "Wie nennt man den ersten Besiedlungsprozess auf zuvor vegetationsfreiem Untergrund, etwa nach einem Vulkanausbruch?",
@@ -2259,7 +2255,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-100-01",
+      "id": "q-000161",
       "category": "Wissenschaft",
       "points": 100,
       "question": "Welcher Planet ist der Sonne am nächsten?",
@@ -2273,7 +2269,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-100-02",
+      "id": "q-000162",
       "category": "Wissenschaft",
       "points": 100,
       "question": "Welches chemische Symbol hat Sauerstoff?",
@@ -2287,7 +2283,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-100-03",
+      "id": "q-000163",
       "category": "Wissenschaft",
       "points": 100,
       "question": "Wie viele Planeten hat unser Sonnensystem?",
@@ -2301,7 +2297,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-100-04",
+      "id": "q-000164",
       "category": "Wissenschaft",
       "points": 100,
       "question": "Wie heißt die kleinste Einheit eines chemischen Elements, die dessen Eigenschaften trägt?",
@@ -2315,7 +2311,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-100-05",
+      "id": "q-000165",
       "category": "Wissenschaft",
       "points": 100,
       "question": "Welche Kraft zieht Gegenstände zur Erde?",
@@ -2329,7 +2325,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-100-06",
+      "id": "q-000166",
       "category": "Wissenschaft",
       "points": 100,
       "question": "Bei wie viel Grad Celsius gefriert reines Wasser unter Normaldruck?",
@@ -2343,7 +2339,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-100-07",
+      "id": "q-000167",
       "category": "Wissenschaft",
       "points": 100,
       "question": "Welches Organ pumpt Blut durch den menschlichen Körper?",
@@ -2357,7 +2353,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-100-08",
+      "id": "q-000168",
       "category": "Wissenschaft",
       "points": 100,
       "question": "Welche Einheit wird für elektrische Spannung verwendet?",
@@ -2371,7 +2367,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-200-01",
+      "id": "q-000169",
       "category": "Wissenschaft",
       "points": 200,
       "question": "Welches chemische Symbol hat Gold?",
@@ -2385,7 +2381,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-200-02",
+      "id": "q-000170",
       "category": "Wissenschaft",
       "points": 200,
       "question": "Wie heißt der Prozess, bei dem Pflanzen Lichtenergie in chemische Energie umwandeln?",
@@ -2399,7 +2395,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-200-03",
+      "id": "q-000171",
       "category": "Wissenschaft",
       "points": 200,
       "question": "Welcher Planet ist für sein auffälliges Ringsystem bekannt?",
@@ -2413,7 +2409,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-200-04",
+      "id": "q-000172",
       "category": "Wissenschaft",
       "points": 200,
       "question": "Welche Einheit wird für elektrische Stromstärke verwendet?",
@@ -2427,7 +2423,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-200-05",
+      "id": "q-000173",
       "category": "Wissenschaft",
       "points": 200,
       "question": "Wie heißt die Zellteilung, bei der zwei genetisch weitgehend identische Tochterzellen entstehen?",
@@ -2441,7 +2437,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-200-06",
+      "id": "q-000174",
       "category": "Wissenschaft",
       "points": 200,
       "question": "Welches Gas macht den größten Anteil der Erdatmosphäre aus?",
@@ -2455,7 +2451,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-200-07",
+      "id": "q-000175",
       "category": "Wissenschaft",
       "points": 200,
       "question": "Wie heißt die Einheit der Frequenz?",
@@ -2469,7 +2465,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-200-08",
+      "id": "q-000176",
       "category": "Wissenschaft",
       "points": 200,
       "question": "Welche Blutgruppe gilt bei roten Blutkörperchen im AB0-System als Universalspender, wenn der Rhesusfaktor außer Acht gelassen wird?",
@@ -2483,7 +2479,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-300-01",
+      "id": "q-000177",
       "category": "Wissenschaft",
       "points": 300,
       "question": "Welches Teilchen trägt eine negative elektrische Elementarladung?",
@@ -2497,7 +2493,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-300-02",
+      "id": "q-000178",
       "category": "Wissenschaft",
       "points": 300,
       "question": "Wie lautet der Oberbegriff für Protonen und Neutronen im Atomkern?",
@@ -2511,7 +2507,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-300-03",
+      "id": "q-000179",
       "category": "Wissenschaft",
       "points": 300,
       "question": "Welche SI-Einheit misst den elektrischen Widerstand?",
@@ -2525,7 +2521,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-300-04",
+      "id": "q-000180",
       "category": "Wissenschaft",
       "points": 300,
       "question": "Wie nennt man den Übergang eines Stoffes direkt vom festen in den gasförmigen Zustand?",
@@ -2539,7 +2535,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-300-05",
+      "id": "q-000181",
       "category": "Wissenschaft",
       "points": 300,
       "question": "Welcher Planet besitzt den Großen Roten Fleck?",
@@ -2553,7 +2549,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-300-06",
+      "id": "q-000182",
       "category": "Wissenschaft",
       "points": 300,
       "question": "Wie heißt das Molekül, das in Zellen als universeller kurzfristiger Energieträger dient?",
@@ -2567,7 +2563,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-300-07",
+      "id": "q-000183",
       "category": "Wissenschaft",
       "points": 300,
       "question": "Welches physikalische Gesetz verknüpft Spannung, Stromstärke und Widerstand?",
@@ -2581,7 +2577,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-300-08",
+      "id": "q-000184",
       "category": "Wissenschaft",
       "points": 300,
       "question": "Wie heißt der Bereich des elektromagnetischen Spektrums mit kürzeren Wellenlängen als sichtbares Violett?",
@@ -2595,7 +2591,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-400-01",
+      "id": "q-000185",
       "category": "Wissenschaft",
       "points": 400,
       "question": "Welche SI-Einheit misst die magnetische Flussdichte?",
@@ -2609,7 +2605,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-400-02",
+      "id": "q-000186",
       "category": "Wissenschaft",
       "points": 400,
       "question": "Wie heißt die Energie, die nötig ist, um einem neutralen Atom ein Elektron zu entziehen?",
@@ -2623,7 +2619,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-400-03",
+      "id": "q-000187",
       "category": "Wissenschaft",
       "points": 400,
       "question": "Welcher Effekt beschreibt die Ablenkung bewegter Teilchen auf einer rotierenden Erde?",
@@ -2637,7 +2633,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-400-04",
+      "id": "q-000188",
       "category": "Wissenschaft",
       "points": 400,
       "question": "Wie heißt die Grenze um ein Schwarzes Loch, jenseits derer kein Licht entkommen kann?",
@@ -2651,7 +2647,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-400-05",
+      "id": "q-000189",
       "category": "Wissenschaft",
       "points": 400,
       "question": "Welches Enzym trennt bei der DNA-Replikation die beiden Stränge der Doppelhelix?",
@@ -2665,7 +2661,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-400-06",
+      "id": "q-000190",
       "category": "Wissenschaft",
       "points": 400,
       "question": "Wie nennt man Atome desselben Elements mit unterschiedlicher Neutronenzahl?",
@@ -2679,7 +2675,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-400-07",
+      "id": "q-000191",
       "category": "Wissenschaft",
       "points": 400,
       "question": "Welche Größe bleibt in einem abgeschlossenen System nach dem ersten Hauptsatz der Thermodynamik erhalten?",
@@ -2693,7 +2689,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-400-08",
+      "id": "q-000192",
       "category": "Wissenschaft",
       "points": 400,
       "question": "Wie heißt die Wechselwirkung, die Protonen und Neutronen im Atomkern bindet?",
@@ -2707,7 +2703,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-500-01",
+      "id": "q-000193",
       "category": "Wissenschaft",
       "points": 500,
       "question": "Welche Quantenzahl beschreibt den Eigendrehimpuls eines Elektrons?",
@@ -2721,7 +2717,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-500-02",
+      "id": "q-000194",
       "category": "Wissenschaft",
       "points": 500,
       "question": "Wie nennt man die Temperatur, unterhalb der ein Supraleiter in den supraleitenden Zustand übergeht?",
@@ -2732,11 +2728,10 @@ window.QUESTIONS_DATA = {
         "Siedepunkt",
         "Sprungtemperatur"
       ],
-      "correctChoiceIndex": 3,
-      "sourceUrl": "https://www.spektrum.de/lexikon/physik/sprungtemperatur/13701"
+      "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-500-03",
+      "id": "q-000195",
       "category": "Wissenschaft",
       "points": 500,
       "question": "Welcher biochemische Zyklus fixiert in Pflanzen Kohlendioxid zu organischen Molekülen?",
@@ -2750,7 +2745,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-500-04",
+      "id": "q-000196",
       "category": "Wissenschaft",
       "points": 500,
       "question": "Welche Gleichung beschreibt die Beziehung zwischen Energie und Masse in der speziellen Relativitätstheorie?",
@@ -2764,7 +2759,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-wissenschaft-500-05",
+      "id": "q-000197",
       "category": "Wissenschaft",
       "points": 500,
       "question": "Wie heißt die Grenze im Sonnensystem, an der der Sonnenwind stark abgebremst wird, bevor die Heliopause erreicht wird?",
@@ -2778,7 +2773,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-wissenschaft-500-06",
+      "id": "q-000198",
       "category": "Wissenschaft",
       "points": 500,
       "question": "Welches Teilchen vermittelt in der Quantenfeldtheorie die elektromagnetische Wechselwirkung?",
@@ -2792,7 +2787,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-wissenschaft-500-07",
+      "id": "q-000199",
       "category": "Wissenschaft",
       "points": 500,
       "question": "Wie heißt das Prinzip, nach dem zwei identische Fermionen nicht denselben Quantenzustand besetzen können?",
@@ -2806,7 +2801,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-wissenschaft-500-08",
+      "id": "q-000200",
       "category": "Wissenschaft",
       "points": 500,
       "question": "Welcher Wert der Avogadro-Konstante wird näherungsweise verwendet?",
@@ -2820,7 +2815,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-100-01",
+      "id": "q-000201",
       "category": "Technik & Erfindungen",
       "points": 100,
       "question": "Wer erfand den Buchdruck mit beweglichen Metalllettern in Europa?",
@@ -2834,7 +2829,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-100-02",
+      "id": "q-000202",
       "category": "Technik & Erfindungen",
       "points": 100,
       "question": "Welches Gerät wandelt Schall in elektrische Signale um?",
@@ -2848,7 +2843,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-100-03",
+      "id": "q-000203",
       "category": "Technik & Erfindungen",
       "points": 100,
       "question": "Welche Erfindung wird Alexander Graham Bell besonders zugeschrieben?",
@@ -2862,7 +2857,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-100-04",
+      "id": "q-000204",
       "category": "Technik & Erfindungen",
       "points": 100,
       "question": "Welches Verkehrsmittel erfanden die Brüder Wright in motorisierter Form erfolgreich mit?",
@@ -2876,7 +2871,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-100-05",
+      "id": "q-000205",
       "category": "Technik & Erfindungen",
       "points": 100,
       "question": "Wie heißt das Gerät, das elektrische Energie chemisch speichert und wieder abgeben kann?",
@@ -2890,7 +2885,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-100-06",
+      "id": "q-000206",
       "category": "Technik & Erfindungen",
       "points": 100,
       "question": "Welche Erfindung machte Thomas Edison mit einer praxistauglichen Version besonders bekannt?",
@@ -2904,7 +2899,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-100-07",
+      "id": "q-000207",
       "category": "Technik & Erfindungen",
       "points": 100,
       "question": "Welche Energieform wandelt ein Solarmodul direkt in elektrische Energie um?",
@@ -2918,7 +2913,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-100-08",
+      "id": "q-000208",
       "category": "Technik & Erfindungen",
       "points": 100,
       "question": "Wie nennt man ein Fahrzeug, das sowohl einen Verbrennungs- als auch einen Elektromotor nutzt?",
@@ -2932,7 +2927,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-200-01",
+      "id": "q-000209",
       "category": "Technik & Erfindungen",
       "points": 200,
       "question": "Wer verbesserte die Dampfmaschine im 18. Jahrhundert entscheidend?",
@@ -2946,7 +2941,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-200-02",
+      "id": "q-000210",
       "category": "Technik & Erfindungen",
       "points": 200,
       "question": "Welcher Erfinder entwickelte ein nach ihm benanntes Telegrafiealphabet?",
@@ -2960,7 +2955,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-200-03",
+      "id": "q-000211",
       "category": "Technik & Erfindungen",
       "points": 200,
       "question": "Welche Komponente speichert elektrische Ladung in einem Stromkreis?",
@@ -2974,7 +2969,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-200-04",
+      "id": "q-000212",
       "category": "Technik & Erfindungen",
       "points": 200,
       "question": "Wie heißt das Bauteil, das Wechselspannung mithilfe elektromagnetischer Induktion auf ein anderes Spannungsniveau bringen kann?",
@@ -2988,7 +2983,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-200-05",
+      "id": "q-000213",
       "category": "Technik & Erfindungen",
       "points": 200,
       "question": "Welche Technik nutzt GPS zur Positionsbestimmung?",
@@ -3002,7 +2997,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-200-06",
+      "id": "q-000214",
       "category": "Technik & Erfindungen",
       "points": 200,
       "question": "Welcher deutsche Ingenieur entwickelte einen frühen praxistauglichen Viertaktmotor?",
@@ -3016,7 +3011,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-200-07",
+      "id": "q-000215",
       "category": "Technik & Erfindungen",
       "points": 200,
       "question": "Welche Erfindung machte Carl Benz berühmt?",
@@ -3030,7 +3025,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-200-08",
+      "id": "q-000216",
       "category": "Technik & Erfindungen",
       "points": 200,
       "question": "Welcher Motor zündet das Kraftstoff-Luft-Gemisch typischerweise durch starke Verdichtung statt mit Zündkerze?",
@@ -3044,7 +3039,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-300-01",
+      "id": "q-000217",
       "category": "Technik & Erfindungen",
       "points": 300,
       "question": "Wie heißt das Bauteil, das Strom bevorzugt nur in eine Richtung fließen lässt?",
@@ -3058,7 +3053,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-300-02",
+      "id": "q-000218",
       "category": "Technik & Erfindungen",
       "points": 300,
       "question": "Welches Halbleiterbauelement kann als elektronischer Schalter oder Verstärker dienen?",
@@ -3072,7 +3067,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-300-03",
+      "id": "q-000219",
       "category": "Technik & Erfindungen",
       "points": 300,
       "question": "Welcher deutsche Erfinder entwickelte das nach ihm benannte Druckverfahren der Lithografie?",
@@ -3086,7 +3081,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-300-04",
+      "id": "q-000220",
       "category": "Technik & Erfindungen",
       "points": 300,
       "question": "Wie heißt das Verfahren, bei dem ein Werkstück Schicht für Schicht aus einem digitalen Modell aufgebaut wird?",
@@ -3100,7 +3095,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-300-05",
+      "id": "q-000221",
       "category": "Technik & Erfindungen",
       "points": 300,
       "question": "Welche Bauform eines Elektromotors kommt ohne mechanischen Kommutator mit Bürsten aus?",
@@ -3114,7 +3109,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-300-06",
+      "id": "q-000222",
       "category": "Technik & Erfindungen",
       "points": 300,
       "question": "Welches Messgerät zeigt elektrische Spannung an?",
@@ -3128,7 +3123,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-300-07",
+      "id": "q-000223",
       "category": "Technik & Erfindungen",
       "points": 300,
       "question": "Wie heißt das System, das beim Auto ein Blockieren der Räder beim Bremsen verhindern soll?",
@@ -3142,7 +3137,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-300-08",
+      "id": "q-000224",
       "category": "Technik & Erfindungen",
       "points": 300,
       "question": "Welche Maschine wandelt mechanische Energie durch elektromagnetische Induktion in elektrische Energie um?",
@@ -3156,7 +3151,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-400-01",
+      "id": "q-000225",
       "category": "Technik & Erfindungen",
       "points": 400,
       "question": "Welcher Ingenieur patentierte 1892 ein Motorprinzip, das durch Selbstzündung arbeitet?",
@@ -3170,7 +3165,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-400-02",
+      "id": "q-000226",
       "category": "Technik & Erfindungen",
       "points": 400,
       "question": "Wie heißt die Schaltung, die Wechselstrom in Gleichstrom umwandelt?",
@@ -3184,7 +3179,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-400-03",
+      "id": "q-000227",
       "category": "Technik & Erfindungen",
       "points": 400,
       "question": "Welches elektronische Bauteil speichert Energie in einem Magnetfeld?",
@@ -3198,7 +3193,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-400-04",
+      "id": "q-000228",
       "category": "Technik & Erfindungen",
       "points": 400,
       "question": "Wie heißt die Technik, bei der Lichtimpulse Daten durch Glasfasern übertragen?",
@@ -3212,7 +3207,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-400-05",
+      "id": "q-000229",
       "category": "Technik & Erfindungen",
       "points": 400,
       "question": "Welcher Effekt ermöglicht Thermoelementen die Erzeugung einer Spannung aus einer Temperaturdifferenz?",
@@ -3226,7 +3221,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-400-06",
+      "id": "q-000230",
       "category": "Technik & Erfindungen",
       "points": 400,
       "question": "Wie heißt ein Gerät, das Gleichstrom in Wechselstrom umwandelt?",
@@ -3240,7 +3235,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-400-07",
+      "id": "q-000231",
       "category": "Technik & Erfindungen",
       "points": 400,
       "question": "Welche technische Größe gibt bei einem Zahnradpaar das Verhältnis der Drehzahlen an?",
@@ -3254,7 +3249,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-400-08",
+      "id": "q-000232",
       "category": "Technik & Erfindungen",
       "points": 400,
       "question": "Wie heißt das Lager, das Wellen mit rollenden Kugeln oder Rollen statt primär durch Gleiten stützt?",
@@ -3268,7 +3263,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-500-01",
+      "id": "q-000233",
       "category": "Technik & Erfindungen",
       "points": 500,
       "question": "Welcher Erfinder entwickelte die nach ihm benannte elektromagnetische Spule für hohe Spannungen und Frequenzen?",
@@ -3282,7 +3277,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-500-02",
+      "id": "q-000234",
       "category": "Technik & Erfindungen",
       "points": 500,
       "question": "Wie heißt das Fertigungsverfahren, bei dem Material durch elektrische Funken zwischen Elektrode und Werkstück abgetragen wird?",
@@ -3296,7 +3291,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-500-03",
+      "id": "q-000235",
       "category": "Technik & Erfindungen",
       "points": 500,
       "question": "Welches Prinzip nutzt ein Hall-Sensor zur Messung magnetischer Felder?",
@@ -3310,7 +3305,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-500-04",
+      "id": "q-000236",
       "category": "Technik & Erfindungen",
       "points": 500,
       "question": "Wie heißt die Vorrichtung, die Drehbewegung in eine hin- und hergehende lineare Bewegung umwandeln kann und in Kolbenmaschinen typisch ist?",
@@ -3324,7 +3319,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-technik-500-05",
+      "id": "q-000237",
       "category": "Technik & Erfindungen",
       "points": 500,
       "question": "Welches Maschinenelement überträgt Drehmoment über formschlüssig ineinandergreifende Zähne?",
@@ -3338,7 +3333,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-technik-500-06",
+      "id": "q-000238",
       "category": "Technik & Erfindungen",
       "points": 500,
       "question": "Wie heißt die Eigenschaft eines Werkstoffs, nach elastischer Verformung in seine Ausgangsform zurückzukehren?",
@@ -3352,7 +3347,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-technik-500-07",
+      "id": "q-000239",
       "category": "Technik & Erfindungen",
       "points": 500,
       "question": "Welcher mechanische Regler wurde historisch eingesetzt, um die Drehzahl von Dampfmaschinen automatisch zu stabilisieren?",
@@ -3366,7 +3361,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-technik-500-08",
+      "id": "q-000240",
       "category": "Technik & Erfindungen",
       "points": 500,
       "question": "Mit welchem griechischen Buchstaben wird der Wirkungsgrad in technischen Formeln häufig bezeichnet?",
@@ -3380,7 +3375,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-100-01",
+      "id": "q-000241",
       "category": "Essen & Trinken",
       "points": 100,
       "question": "Aus welchem Land stammt Pizza in ihrer heute bekannten Form?",
@@ -3394,7 +3389,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-100-02",
+      "id": "q-000242",
       "category": "Essen & Trinken",
       "points": 100,
       "question": "Welche Hülsenfrucht ist die Hauptzutat von klassischem Hummus?",
@@ -3408,7 +3403,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-100-03",
+      "id": "q-000243",
       "category": "Essen & Trinken",
       "points": 100,
       "question": "Welcher Käse gehört traditionell auf eine Pizza Margherita?",
@@ -3422,7 +3417,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-100-04",
+      "id": "q-000244",
       "category": "Essen & Trinken",
       "points": 100,
       "question": "Welche Frucht ist die Hauptzutat von Guacamole?",
@@ -3436,7 +3431,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-100-05",
+      "id": "q-000245",
       "category": "Essen & Trinken",
       "points": 100,
       "question": "Aus welchem Getreide wird klassischer Couscous meist hergestellt?",
@@ -3450,7 +3445,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-100-06",
+      "id": "q-000246",
       "category": "Essen & Trinken",
       "points": 100,
       "question": "Welche Spirituose ist die Basis eines klassischen Mojito?",
@@ -3464,7 +3459,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-100-07",
+      "id": "q-000247",
       "category": "Essen & Trinken",
       "points": 100,
       "question": "Welches Gewürz wird aus den getrockneten Narben einer Krokusart gewonnen?",
@@ -3478,7 +3473,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-100-08",
+      "id": "q-000248",
       "category": "Essen & Trinken",
       "points": 100,
       "question": "Wie heißt die italienische Nachspeise aus Mascarpone, Kaffee und Löffelbiskuits?",
@@ -3492,7 +3487,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-200-01",
+      "id": "q-000249",
       "category": "Essen & Trinken",
       "points": 200,
       "question": "Aus welchem Land stammt Sushi?",
@@ -3506,7 +3501,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-200-02",
+      "id": "q-000250",
       "category": "Essen & Trinken",
       "points": 200,
       "question": "Welche Nuss ist die Grundlage von klassischem Marzipan?",
@@ -3520,7 +3515,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-200-03",
+      "id": "q-000251",
       "category": "Essen & Trinken",
       "points": 200,
       "question": "Welche Mikroorganismen erzeugen bei der Herstellung von Sauerkraut hauptsächlich die Milchsäure?",
@@ -3534,7 +3529,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-200-04",
+      "id": "q-000252",
       "category": "Essen & Trinken",
       "points": 200,
       "question": "Wie heißt die französische Sauce aus Eigelb, Butter und Zitronensaft, die über einem Wasserbad aufgeschlagen wird?",
@@ -3548,7 +3543,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-200-05",
+      "id": "q-000253",
       "category": "Essen & Trinken",
       "points": 200,
       "question": "Welche Frucht wird für traditionellen Cider hauptsächlich vergoren?",
@@ -3562,7 +3557,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-200-06",
+      "id": "q-000254",
       "category": "Essen & Trinken",
       "points": 200,
       "question": "Welches Getreide bildet die Grundlage für Polenta?",
@@ -3576,7 +3571,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-200-07",
+      "id": "q-000255",
       "category": "Essen & Trinken",
       "points": 200,
       "question": "Welcher Käse wird traditionell für griechischen Salat verwendet?",
@@ -3590,7 +3585,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-200-08",
+      "id": "q-000256",
       "category": "Essen & Trinken",
       "points": 200,
       "question": "Welche Bohne liefert die Grundlage für Tofu?",
@@ -3604,7 +3599,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-300-01",
+      "id": "q-000257",
       "category": "Essen & Trinken",
       "points": 300,
       "question": "Wie heißt das japanische Würzmittel aus fermentierten Sojabohnen, oft zusammen mit Reis oder Gerste?",
@@ -3618,7 +3613,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-300-02",
+      "id": "q-000258",
       "category": "Essen & Trinken",
       "points": 300,
       "question": "Welche Spirituose wird traditionell aus Agaven hergestellt?",
@@ -3632,7 +3627,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-300-03",
+      "id": "q-000259",
       "category": "Essen & Trinken",
       "points": 300,
       "question": "Wie heißt die indische Gewürzmischung, deren Name sinngemäß „heißes Gewürz“ bedeutet?",
@@ -3646,7 +3641,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-300-04",
+      "id": "q-000260",
       "category": "Essen & Trinken",
       "points": 300,
       "question": "Welches Enzym ist der wichtigste gerinnungsaktive Bestandteil von traditionellem Lab zur Käseherstellung?",
@@ -3660,7 +3655,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-300-05",
+      "id": "q-000261",
       "category": "Essen & Trinken",
       "points": 300,
       "question": "Wie heißt die französische Garmethode, bei der Lebensmittel vakuumiert bei niedriger, exakt kontrollierter Temperatur gegart werden?",
@@ -3674,7 +3669,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-300-06",
+      "id": "q-000262",
       "category": "Essen & Trinken",
       "points": 300,
       "question": "Welche Reaktion sorgt beim scharfen Anbraten vieler Lebensmittel für braune Farbe und Röstaromen?",
@@ -3688,7 +3683,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-300-07",
+      "id": "q-000263",
       "category": "Essen & Trinken",
       "points": 300,
       "question": "Welche italienische Reissorte wird häufig für Risotto verwendet?",
@@ -3702,7 +3697,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-300-08",
+      "id": "q-000264",
       "category": "Essen & Trinken",
       "points": 300,
       "question": "Welches alkoholische Getränk wird traditionell durch Vergärung von Honig und Wasser hergestellt?",
@@ -3716,7 +3711,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-400-01",
+      "id": "q-000265",
       "category": "Essen & Trinken",
       "points": 400,
       "question": "Wie heißt die spanische Wurst aus Schweinefleisch, die typischerweise mit Paprika gewürzt wird?",
@@ -3730,7 +3725,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-400-02",
+      "id": "q-000266",
       "category": "Essen & Trinken",
       "points": 400,
       "question": "Welcher Pilz ist für die traditionelle Herstellung von Sojasauce und Miso besonders wichtig?",
@@ -3744,7 +3739,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-400-03",
+      "id": "q-000267",
       "category": "Essen & Trinken",
       "points": 400,
       "question": "Welche Säure ist hauptverantwortlich für den sauren Geschmack von Joghurt?",
@@ -3758,7 +3753,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-400-04",
+      "id": "q-000268",
       "category": "Essen & Trinken",
       "points": 400,
       "question": "Wie heißt die französische Spezialität aus besonders fettreicher Enten- oder Gänseleber?",
@@ -3772,7 +3767,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-400-05",
+      "id": "q-000269",
       "category": "Essen & Trinken",
       "points": 400,
       "question": "Welches Land ist die Heimat des Käses Manchego?",
@@ -3786,7 +3781,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-400-06",
+      "id": "q-000270",
       "category": "Essen & Trinken",
       "points": 400,
       "question": "Welche Rebsorte ist die wichtigste Grundlage vieler Rotweine aus dem Burgund?",
@@ -3800,7 +3795,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-400-07",
+      "id": "q-000271",
       "category": "Essen & Trinken",
       "points": 400,
       "question": "Wie heißt die beim Backen durch Erhitzen von Zucker entstehende Bräunungsreaktion ohne Beteiligung von Aminosäuren?",
@@ -3814,7 +3809,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-400-08",
+      "id": "q-000272",
       "category": "Essen & Trinken",
       "points": 400,
       "question": "Welche Garmethode beschreibt das langsame Garen in Fett bei relativ niedriger Temperatur?",
@@ -3828,7 +3823,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-500-01",
+      "id": "q-000273",
       "category": "Essen & Trinken",
       "points": 500,
       "question": "Wie heißt das japanische Schimmelstarter-Produkt, mit dem unter anderem Sake, Miso und Sojasauce hergestellt werden?",
@@ -3842,7 +3837,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-500-02",
+      "id": "q-000274",
       "category": "Essen & Trinken",
       "points": 500,
       "question": "Welche Verbindung verursacht hauptsächlich die typische Schärfe von Chilischoten?",
@@ -3856,7 +3851,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-500-03",
+      "id": "q-000275",
       "category": "Essen & Trinken",
       "points": 500,
       "question": "Wie heißt das Alkaloid, das für die Schärfe von schwarzem Pfeffer verantwortlich ist?",
@@ -3870,7 +3865,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-500-04",
+      "id": "q-000276",
       "category": "Essen & Trinken",
       "points": 500,
       "question": "Welches Protein bildet beim Kneten von Weizenteig gemeinsam mit Gliadin das Klebergerüst Gluten?",
@@ -3884,7 +3879,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-essen-500-05",
+      "id": "q-000277",
       "category": "Essen & Trinken",
       "points": 500,
       "question": "Wie heißt das Verfahren, bei dem Kakaobohnen nach der Ernte vor dem Trocknen mikrobiell umgesetzt werden und Aromavorstufen entstehen?",
@@ -3898,7 +3893,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-essen-500-06",
+      "id": "q-000278",
       "category": "Essen & Trinken",
       "points": 500,
       "question": "Welche Säure ist die charakteristische Hauptsäure in Essig?",
@@ -3912,7 +3907,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-essen-500-07",
+      "id": "q-000279",
       "category": "Essen & Trinken",
       "points": 500,
       "question": "Welches Enzym spaltet Stärke beim Maischen von Bier unter anderem zu vergärbaren Zuckern?",
@@ -3926,7 +3921,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-essen-500-08",
+      "id": "q-000280",
       "category": "Essen & Trinken",
       "points": 500,
       "question": "Wie heißt der Prozess, bei dem Schokolade kontrolliert erwärmt und abgekühlt wird, um stabile Kakaobutterkristalle zu erzeugen?",
@@ -3940,7 +3935,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-100-01",
+      "id": "q-000281",
       "category": "Film & Fernsehen",
       "points": 100,
       "question": "Wie heißt der Zauberschüler, der die Hauptfigur der gleichnamigen Filmreihe ist?",
@@ -3954,7 +3949,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-100-02",
+      "id": "q-000282",
       "category": "Film & Fernsehen",
       "points": 100,
       "question": "Welcher Film erzählt von einem Vergnügungspark mit geklonten Dinosauriern?",
@@ -3968,7 +3963,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-100-03",
+      "id": "q-000283",
       "category": "Film & Fernsehen",
       "points": 100,
       "question": "Wie heißt der Schneemann aus Disneys Die Eiskönigin?",
@@ -3982,7 +3977,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-100-04",
+      "id": "q-000284",
       "category": "Film & Fernsehen",
       "points": 100,
       "question": "Welcher Superheld ist als Bruce Wayne bekannt?",
@@ -3996,7 +3991,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-100-05",
+      "id": "q-000285",
       "category": "Film & Fernsehen",
       "points": 100,
       "question": "Wie heißt das Schiff im Film Titanic?",
@@ -4010,7 +4005,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-100-06",
+      "id": "q-000286",
       "category": "Film & Fernsehen",
       "points": 100,
       "question": "Welche gelbe Zeichentrickfamilie lebt in Springfield?",
@@ -4024,7 +4019,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-100-07",
+      "id": "q-000287",
       "category": "Film & Fernsehen",
       "points": 100,
       "question": "Wie heißt der Cowboy aus Toy Story?",
@@ -4038,7 +4033,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-100-08",
+      "id": "q-000288",
       "category": "Film & Fernsehen",
       "points": 100,
       "question": "Welcher Filmheld trägt häufig Hut und Peitsche und ist Archäologe?",
@@ -4052,7 +4047,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-200-01",
+      "id": "q-000289",
       "category": "Film & Fernsehen",
       "points": 200,
       "question": "Wer spielte Jack Dawson im Film Titanic?",
@@ -4066,7 +4061,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-200-02",
+      "id": "q-000290",
       "category": "Film & Fernsehen",
       "points": 200,
       "question": "Wie heißt die fiktive afrikanische Nation in Black Panther?",
@@ -4080,7 +4075,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-200-03",
+      "id": "q-000291",
       "category": "Film & Fernsehen",
       "points": 200,
       "question": "Welche Serie spielt größtenteils im fiktiven Ort Hawkins, Indiana?",
@@ -4094,7 +4089,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-200-04",
+      "id": "q-000292",
       "category": "Film & Fernsehen",
       "points": 200,
       "question": "Wie heißt der grüne Oger aus der gleichnamigen Animationsfilmreihe?",
@@ -4108,7 +4103,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-200-05",
+      "id": "q-000293",
       "category": "Film & Fernsehen",
       "points": 200,
       "question": "Welcher Regisseur drehte Jaws, E.T. und Jurassic Park?",
@@ -4122,7 +4117,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-200-06",
+      "id": "q-000294",
       "category": "Film & Fernsehen",
       "points": 200,
       "question": "Wie heißt die Kaffeehauskette, in der sich die Figuren aus Friends häufig treffen?",
@@ -4136,7 +4131,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-200-07",
+      "id": "q-000295",
       "category": "Film & Fernsehen",
       "points": 200,
       "question": "Welche Filmreihe dreht sich um den Boxer Rocky Balboa?",
@@ -4150,7 +4145,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-200-08",
+      "id": "q-000296",
       "category": "Film & Fernsehen",
       "points": 200,
       "question": "Wie heißt die Schule für Hexerei und Zauberei in Harry Potter?",
@@ -4164,7 +4159,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-300-01",
+      "id": "q-000297",
       "category": "Film & Fernsehen",
       "points": 300,
       "question": "Wie heißt der Bordcomputer in 2001: Odyssee im Weltraum?",
@@ -4178,7 +4173,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-300-02",
+      "id": "q-000298",
       "category": "Film & Fernsehen",
       "points": 300,
       "question": "Welcher Regisseur schuf die Filmtrilogie Der Herr der Ringe ab 2001?",
@@ -4192,7 +4187,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-300-03",
+      "id": "q-000299",
       "category": "Film & Fernsehen",
       "points": 300,
       "question": "Wie heißt das fiktive Hotel in Stanley Kubricks The Shining?",
@@ -4206,7 +4201,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-300-04",
+      "id": "q-000300",
       "category": "Film & Fernsehen",
       "points": 300,
       "question": "Welche Schauspielerin spielte Ellen Ripley in Alien?",
@@ -4220,7 +4215,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-300-05",
+      "id": "q-000301",
       "category": "Film & Fernsehen",
       "points": 300,
       "question": "Wie heißt der Anwalt und spätere Titelfigur der Serie Better Call Saul mit bürgerlichem Namen?",
@@ -4234,7 +4229,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-300-06",
+      "id": "q-000302",
       "category": "Film & Fernsehen",
       "points": 300,
       "question": "Welcher Film von Christopher Nolan handelt von professionellen Eindringlingen in Träume?",
@@ -4248,7 +4243,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-300-07",
+      "id": "q-000303",
       "category": "Film & Fernsehen",
       "points": 300,
       "question": "Wie heißt die fiktive Papierfirma in der US-Serie The Office?",
@@ -4262,7 +4257,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-300-08",
+      "id": "q-000304",
       "category": "Film & Fernsehen",
       "points": 300,
       "question": "Welche Serie erzählt vom Chemielehrer Walter White, der Methamphetamin produziert?",
@@ -4276,7 +4271,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-400-01",
+      "id": "q-000305",
       "category": "Film & Fernsehen",
       "points": 400,
       "question": "Wie heißt das Raumschiff im ersten Alien-Film von 1979?",
@@ -4290,7 +4285,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-400-02",
+      "id": "q-000306",
       "category": "Film & Fernsehen",
       "points": 400,
       "question": "Welcher Regisseur drehte den Film Mulholland Drive?",
@@ -4304,7 +4299,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-400-03",
+      "id": "q-000307",
       "category": "Film & Fernsehen",
       "points": 400,
       "question": "Wie heißt die Figur, die Anthony Hopkins in Das Schweigen der Lämmer spielt?",
@@ -4318,7 +4313,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-400-04",
+      "id": "q-000308",
       "category": "Film & Fernsehen",
       "points": 400,
       "question": "Welcher Film gewann 2020 als erster nicht englischsprachiger Film den Oscar für den besten Film?",
@@ -4332,7 +4327,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-400-05",
+      "id": "q-000309",
       "category": "Film & Fernsehen",
       "points": 400,
       "question": "Wie heißt die Raumstation in der Science-Fiction-Serie Babylon 5?",
@@ -4346,7 +4341,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-400-06",
+      "id": "q-000310",
       "category": "Film & Fernsehen",
       "points": 400,
       "question": "Welche britische Serie begleitet den Zeitreisenden, der meist nur als The Doctor bekannt ist?",
@@ -4360,7 +4355,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-400-07",
+      "id": "q-000311",
       "category": "Film & Fernsehen",
       "points": 400,
       "question": "Wie heißt der fiktive Werbekonzern, bei dem Don Draper zu Beginn von Mad Men arbeitet?",
@@ -4374,7 +4369,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-400-08",
+      "id": "q-000312",
       "category": "Film & Fernsehen",
       "points": 400,
       "question": "Welcher japanische Regisseur drehte Die sieben Samurai?",
@@ -4388,7 +4383,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-500-01",
+      "id": "q-000313",
       "category": "Film & Fernsehen",
       "points": 500,
       "question": "Wie heißt der Zeitungsunternehmer, dessen Leben im Film Citizen Kane erzählt wird?",
@@ -4402,7 +4397,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-500-02",
+      "id": "q-000314",
       "category": "Film & Fernsehen",
       "points": 500,
       "question": "Welcher deutsche expressionistische Stummfilm von 1920 erzählt von Dr. Caligari und dem Schlafwandler Cesare?",
@@ -4416,7 +4411,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-500-03",
+      "id": "q-000315",
       "category": "Film & Fernsehen",
       "points": 500,
       "question": "Wie heißt der Protagonist von Federico Fellinis 8½?",
@@ -4430,7 +4425,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-500-04",
+      "id": "q-000316",
       "category": "Film & Fernsehen",
       "points": 500,
       "question": "Welcher Regisseur drehte Stalker und Solaris?",
@@ -4444,7 +4439,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-film-500-05",
+      "id": "q-000317",
       "category": "Film & Fernsehen",
       "points": 500,
       "question": "Wie heißt der Detektiv, den Kyle MacLachlan in Twin Peaks spielt?",
@@ -4458,7 +4453,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-film-500-06",
+      "id": "q-000318",
       "category": "Film & Fernsehen",
       "points": 500,
       "question": "Welche US-Serie spielt um den Bestatterbetrieb Fisher & Sons?",
@@ -4472,7 +4467,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-film-500-07",
+      "id": "q-000319",
       "category": "Film & Fernsehen",
       "points": 500,
       "question": "Wie heißt das fiktive Unternehmen, das in der Serie Severance das Trennungsverfahren bei Mitarbeitern einsetzt?",
@@ -4486,7 +4481,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-film-500-08",
+      "id": "q-000320",
       "category": "Film & Fernsehen",
       "points": 500,
       "question": "Welcher Regisseur schuf den französischen Film Außer Atem von 1960?",
@@ -4500,7 +4495,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-100-01",
+      "id": "q-000321",
       "category": "Musik",
       "points": 100,
       "question": "Welche Band veröffentlichte den Song Bohemian Rhapsody?",
@@ -4514,7 +4509,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-100-02",
+      "id": "q-000322",
       "category": "Musik",
       "points": 100,
       "question": "Welches Instrument hat typischerweise 88 Tasten?",
@@ -4528,7 +4523,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-100-03",
+      "id": "q-000323",
       "category": "Musik",
       "points": 100,
       "question": "Wer komponierte Für Elise?",
@@ -4542,7 +4537,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-100-04",
+      "id": "q-000324",
       "category": "Musik",
       "points": 100,
       "question": "Welche schwedische Popgruppe sang Dancing Queen?",
@@ -4556,7 +4551,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-100-05",
+      "id": "q-000325",
       "category": "Musik",
       "points": 100,
       "question": "Wie heißt der Sänger, der als King of Pop bekannt wurde?",
@@ -4570,7 +4565,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-100-06",
+      "id": "q-000326",
       "category": "Musik",
       "points": 100,
       "question": "Welches Streichinstrument ist kleiner als ein Violoncello und wird unter dem Kinn gespielt?",
@@ -4584,7 +4579,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-100-07",
+      "id": "q-000327",
       "category": "Musik",
       "points": 100,
       "question": "Welche britische Band veröffentlichte Hey Jude?",
@@ -4598,7 +4593,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-100-08",
+      "id": "q-000328",
       "category": "Musik",
       "points": 100,
       "question": "Wie heißt das tiefste reguläre Streichinstrument im klassischen Orchester?",
@@ -4612,7 +4607,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-200-01",
+      "id": "q-000329",
       "category": "Musik",
       "points": 200,
       "question": "Wer komponierte Die Zauberflöte?",
@@ -4626,7 +4621,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-200-02",
+      "id": "q-000330",
       "category": "Musik",
       "points": 200,
       "question": "Welche Band veröffentlichte Smells Like Teen Spirit?",
@@ -4640,7 +4635,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-200-03",
+      "id": "q-000331",
       "category": "Musik",
       "points": 200,
       "question": "Welches Blasinstrument besitzt ein Doppelrohrblatt und gehört zum Holzbläsersatz?",
@@ -4654,7 +4649,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-200-04",
+      "id": "q-000332",
       "category": "Musik",
       "points": 200,
       "question": "Wer sang den Song Purple Rain?",
@@ -4668,7 +4663,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-200-05",
+      "id": "q-000333",
       "category": "Musik",
       "points": 200,
       "question": "Welche Band veröffentlichte Hotel California?",
@@ -4682,7 +4677,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-200-06",
+      "id": "q-000334",
       "category": "Musik",
       "points": 200,
       "question": "Wie heißt der italienische Begriff für sehr leises Musizieren?",
@@ -4696,7 +4691,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-200-07",
+      "id": "q-000335",
       "category": "Musik",
       "points": 200,
       "question": "Welche Sängerin veröffentlichte Rolling in the Deep?",
@@ -4710,7 +4705,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-200-08",
+      "id": "q-000336",
       "category": "Musik",
       "points": 200,
       "question": "Welches Tasteninstrument erzeugt den Ton klassisch durch angerissene Saiten statt durch Hämmer?",
@@ -4724,7 +4719,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-300-01",
+      "id": "q-000337",
       "category": "Musik",
       "points": 300,
       "question": "Wer komponierte die Oper Der Ring des Nibelungen?",
@@ -4738,7 +4733,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-300-02",
+      "id": "q-000338",
       "category": "Musik",
       "points": 300,
       "question": "Welche Band veröffentlichte das Album The Dark Side of the Moon?",
@@ -4752,7 +4747,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-300-03",
+      "id": "q-000339",
       "category": "Musik",
       "points": 300,
       "question": "Wie heißt der Sänger von U2?",
@@ -4766,7 +4761,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-300-04",
+      "id": "q-000340",
       "category": "Musik",
       "points": 300,
       "question": "Welcher Jazzmusiker veröffentlichte das Album Kind of Blue?",
@@ -4780,7 +4775,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-300-05",
+      "id": "q-000341",
       "category": "Musik",
       "points": 300,
       "question": "Welche Tonart hat keine Vorzeichen in ihrer natürlichen Dur-Tonleiter?",
@@ -4794,7 +4789,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-300-06",
+      "id": "q-000342",
       "category": "Musik",
       "points": 300,
       "question": "Wer komponierte die Vier Jahreszeiten?",
@@ -4808,7 +4803,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-300-07",
+      "id": "q-000343",
       "category": "Musik",
       "points": 300,
       "question": "Welche britische Band veröffentlichte das Album OK Computer?",
@@ -4822,7 +4817,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-300-08",
+      "id": "q-000344",
       "category": "Musik",
       "points": 300,
       "question": "Wie nennt man das allmähliche Lauterwerden in der Musik?",
@@ -4836,7 +4831,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-400-01",
+      "id": "q-000345",
       "category": "Musik",
       "points": 400,
       "question": "Welcher Komponist schrieb die sinfonische Dichtung Also sprach Zarathustra?",
@@ -4850,7 +4845,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-400-02",
+      "id": "q-000346",
       "category": "Musik",
       "points": 400,
       "question": "Wie heißt das berühmte Jazzstück von Dave Brubeck im ungewöhnlichen 5/4-Takt?",
@@ -4864,7 +4859,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-400-03",
+      "id": "q-000347",
       "category": "Musik",
       "points": 400,
       "question": "Welche Sängerin nahm das Album Blue von 1971 auf?",
@@ -4878,7 +4873,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-400-04",
+      "id": "q-000348",
       "category": "Musik",
       "points": 400,
       "question": "Welcher Komponist schrieb die Oper Wozzeck?",
@@ -4892,7 +4887,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-400-05",
+      "id": "q-000349",
       "category": "Musik",
       "points": 400,
       "question": "Welche Band veröffentlichte 1977 das Album Rumours?",
@@ -4906,7 +4901,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-400-06",
+      "id": "q-000350",
       "category": "Musik",
       "points": 400,
       "question": "Wie heißt der musikalische Abstand zwischen zwei Tönen mit dem Frequenzverhältnis 2:1?",
@@ -4920,7 +4915,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-400-07",
+      "id": "q-000351",
       "category": "Musik",
       "points": 400,
       "question": "Welcher Komponist schrieb die Boléro genannte Orchesterkomposition?",
@@ -4934,7 +4929,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-400-08",
+      "id": "q-000352",
       "category": "Musik",
       "points": 400,
       "question": "Welche Hip-Hop-Gruppe veröffentlichte 1988 das Album Straight Outta Compton?",
@@ -4948,7 +4943,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-500-01",
+      "id": "q-000353",
       "category": "Musik",
       "points": 500,
       "question": "Welcher Komponist schrieb das Orchesterwerk Le Sacre du printemps?",
@@ -4962,7 +4957,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-500-02",
+      "id": "q-000354",
       "category": "Musik",
       "points": 500,
       "question": "Wie heißt der erste Satz von Miles Davis' Album Bitches Brew?",
@@ -4976,7 +4971,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-500-03",
+      "id": "q-000355",
       "category": "Musik",
       "points": 500,
       "question": "Welcher Komponist entwickelte maßgeblich die Zwölftontechnik?",
@@ -4990,7 +4985,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-500-04",
+      "id": "q-000356",
       "category": "Musik",
       "points": 500,
       "question": "Welche Band veröffentlichte das Album In the Court of the Crimson King?",
@@ -5004,7 +4999,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-musik-500-05",
+      "id": "q-000357",
       "category": "Musik",
       "points": 500,
       "question": "Wer komponierte das Streichquartett Der Tod und das Mädchen?",
@@ -5018,7 +5013,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-musik-500-06",
+      "id": "q-000358",
       "category": "Musik",
       "points": 500,
       "question": "Welche Sängerin veröffentlichte 1998 das Album The Miseducation of Lauryn Hill?",
@@ -5032,7 +5027,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-musik-500-07",
+      "id": "q-000359",
       "category": "Musik",
       "points": 500,
       "question": "Welcher Komponist schrieb die Turangalîla-Sinfonie?",
@@ -5046,7 +5041,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-musik-500-08",
+      "id": "q-000360",
       "category": "Musik",
       "points": 500,
       "question": "Welche US-Band veröffentlichte 1991 das Album Spiderland?",
@@ -5060,7 +5055,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-100-01",
+      "id": "q-000361",
       "category": "Literatur & Sprache",
       "points": 100,
       "question": "Wer schrieb den Roman 1984?",
@@ -5074,7 +5069,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-100-02",
+      "id": "q-000362",
       "category": "Literatur & Sprache",
       "points": 100,
       "question": "Wer schrieb die Harry-Potter-Romane?",
@@ -5088,7 +5083,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-100-03",
+      "id": "q-000363",
       "category": "Literatur & Sprache",
       "points": 100,
       "question": "Wie heißt die Mehrzahl von Buch?",
@@ -5102,7 +5097,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-100-04",
+      "id": "q-000364",
       "category": "Literatur & Sprache",
       "points": 100,
       "question": "Wer schrieb Faust?",
@@ -5116,7 +5111,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-100-05",
+      "id": "q-000365",
       "category": "Literatur & Sprache",
       "points": 100,
       "question": "Wie nennt man ein Wort mit gleicher oder sehr ähnlicher Bedeutung wie ein anderes?",
@@ -5130,7 +5125,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-100-06",
+      "id": "q-000366",
       "category": "Literatur & Sprache",
       "points": 100,
       "question": "Welche Sprache wird hauptsächlich in Brasilien gesprochen?",
@@ -5144,7 +5139,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-100-07",
+      "id": "q-000367",
       "category": "Literatur & Sprache",
       "points": 100,
       "question": "Wie heißt die Hauptfigur in Astrid Lindgrens Pippi-Langstrumpf-Büchern?",
@@ -5158,7 +5153,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-100-08",
+      "id": "q-000368",
       "category": "Literatur & Sprache",
       "points": 100,
       "question": "Wer schrieb Der Herr der Ringe?",
@@ -5172,7 +5167,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-200-01",
+      "id": "q-000369",
       "category": "Literatur & Sprache",
       "points": 200,
       "question": "Wer schrieb Die Verwandlung?",
@@ -5186,7 +5181,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-200-02",
+      "id": "q-000370",
       "category": "Literatur & Sprache",
       "points": 200,
       "question": "Wie nennt man ein Wort mit entgegengesetzter Bedeutung zu einem anderen?",
@@ -5200,7 +5195,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-200-03",
+      "id": "q-000371",
       "category": "Literatur & Sprache",
       "points": 200,
       "question": "Welche Romanfigur kämpft gegen Windmühlen?",
@@ -5214,7 +5209,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-200-04",
+      "id": "q-000372",
       "category": "Literatur & Sprache",
       "points": 200,
       "question": "Wer schrieb Stolz und Vorurteil?",
@@ -5228,7 +5223,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-200-05",
+      "id": "q-000373",
       "category": "Literatur & Sprache",
       "points": 200,
       "question": "Wie nennt man ein Wort, das vorwärts und rückwärts gleich gelesen werden kann?",
@@ -5242,7 +5237,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-200-06",
+      "id": "q-000374",
       "category": "Literatur & Sprache",
       "points": 200,
       "question": "Welcher Autor schuf Sherlock Holmes?",
@@ -5256,7 +5251,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-200-07",
+      "id": "q-000375",
       "category": "Literatur & Sprache",
       "points": 200,
       "question": "Wer schrieb Der kleine Prinz?",
@@ -5270,7 +5265,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-200-08",
+      "id": "q-000376",
       "category": "Literatur & Sprache",
       "points": 200,
       "question": "Wie heißt das Versmaß aus fünf jambischen Versfüßen, das im Englischen besonders mit Shakespeare verbunden ist?",
@@ -5284,7 +5279,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-300-01",
+      "id": "q-000377",
       "category": "Literatur & Sprache",
       "points": 300,
       "question": "Wer schrieb den Roman Der Prozess?",
@@ -5298,7 +5293,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-300-02",
+      "id": "q-000378",
       "category": "Literatur & Sprache",
       "points": 300,
       "question": "Welche literarische Figur ist der Erzfeind von Professor Moriarty?",
@@ -5312,7 +5307,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-300-03",
+      "id": "q-000379",
       "category": "Literatur & Sprache",
       "points": 300,
       "question": "Wie heißt das sprachliche Stilmittel, bei dem ein Begriff durch eine bildhafte Übertragung ersetzt wird?",
@@ -5326,7 +5321,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-300-04",
+      "id": "q-000380",
       "category": "Literatur & Sprache",
       "points": 300,
       "question": "Welcher Autor schrieb Hundert Jahre Einsamkeit?",
@@ -5340,7 +5335,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-300-05",
+      "id": "q-000381",
       "category": "Literatur & Sprache",
       "points": 300,
       "question": "Wie nennt man die Wiederholung gleicher Anfangslaute benachbarter Wörter?",
@@ -5354,7 +5349,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-300-06",
+      "id": "q-000382",
       "category": "Literatur & Sprache",
       "points": 300,
       "question": "Welche Figur erzählt als Ich-Erzähler den Roman Moby-Dick?",
@@ -5368,7 +5363,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-300-07",
+      "id": "q-000383",
       "category": "Literatur & Sprache",
       "points": 300,
       "question": "Wer schrieb den Roman Der Name der Rose?",
@@ -5382,7 +5377,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-300-08",
+      "id": "q-000384",
       "category": "Literatur & Sprache",
       "points": 300,
       "question": "Wie heißt die Wissenschaft von Herkunft und Geschichte von Wörtern?",
@@ -5396,7 +5391,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-400-01",
+      "id": "q-000385",
       "category": "Literatur & Sprache",
       "points": 400,
       "question": "Wer schrieb den Roman Ulysses?",
@@ -5410,7 +5405,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-400-02",
+      "id": "q-000386",
       "category": "Literatur & Sprache",
       "points": 400,
       "question": "Wie nennt man eine rhetorische Übertreibung wie „Ich habe dir das tausendmal gesagt“?",
@@ -5424,7 +5419,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-400-03",
+      "id": "q-000387",
       "category": "Literatur & Sprache",
       "points": 400,
       "question": "Welcher russische Autor schrieb Die Brüder Karamasow?",
@@ -5438,7 +5433,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-400-04",
+      "id": "q-000388",
       "category": "Literatur & Sprache",
       "points": 400,
       "question": "Wie heißt die Hauptfigur in Albert Camus' Der Fremde?",
@@ -5452,7 +5447,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-400-05",
+      "id": "q-000389",
       "category": "Literatur & Sprache",
       "points": 400,
       "question": "Welcher Autor schrieb den Roman Der Zauberberg?",
@@ -5466,7 +5461,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-400-06",
+      "id": "q-000390",
       "category": "Literatur & Sprache",
       "points": 400,
       "question": "Wie nennt man die Auslassung von Satzteilen, die aus dem Kontext ergänzt werden können?",
@@ -5480,7 +5475,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-400-07",
+      "id": "q-000391",
       "category": "Literatur & Sprache",
       "points": 400,
       "question": "Welche Autorin schrieb den Roman Beloved?",
@@ -5494,7 +5489,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-400-08",
+      "id": "q-000392",
       "category": "Literatur & Sprache",
       "points": 400,
       "question": "Wie heißt die mittelalterliche deutsche Heldendichtung um Siegfried und Kriemhild?",
@@ -5508,7 +5503,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-500-01",
+      "id": "q-000393",
       "category": "Literatur & Sprache",
       "points": 500,
       "question": "Wer schrieb den Roman Die Schlafwandler?",
@@ -5522,7 +5517,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-500-02",
+      "id": "q-000394",
       "category": "Literatur & Sprache",
       "points": 500,
       "question": "Wie nennt man die kreuzweise Stellung entsprechender Satzglieder nach dem Schema ABBA?",
@@ -5536,7 +5531,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-500-03",
+      "id": "q-000395",
       "category": "Literatur & Sprache",
       "points": 500,
       "question": "Welcher Autor schrieb Wenn ein Reisender in einer Winternacht?",
@@ -5550,7 +5545,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-500-04",
+      "id": "q-000396",
       "category": "Literatur & Sprache",
       "points": 500,
       "question": "Wie heißt die fiktive Grafschaft, in der viele Werke William Faulkners spielen?",
@@ -5564,7 +5559,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-literatur-500-05",
+      "id": "q-000397",
       "category": "Literatur & Sprache",
       "points": 500,
       "question": "Wer schrieb den Roman Der Mann ohne Eigenschaften?",
@@ -5578,7 +5573,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-literatur-500-06",
+      "id": "q-000398",
       "category": "Literatur & Sprache",
       "points": 500,
       "question": "Wie heißt die Versform der antiken Epen Ilias und Odyssee?",
@@ -5592,7 +5587,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-literatur-500-07",
+      "id": "q-000399",
       "category": "Literatur & Sprache",
       "points": 500,
       "question": "Welche Autorin veröffentlichte den Roman Die Glasglocke unter dem Pseudonym Victoria Lucas?",
@@ -5606,7 +5601,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-literatur-500-08",
+      "id": "q-000400",
       "category": "Literatur & Sprache",
       "points": 500,
       "question": "Wie nennt man in der Linguistik die kleinste bedeutungstragende Einheit einer Sprache?",
@@ -5620,7 +5615,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-100-01",
+      "id": "q-000401",
       "category": "Sport",
       "points": 100,
       "question": "Wie viele Spieler stehen beim Fußball pro Mannschaft zu Spielbeginn regulär auf dem Feld?",
@@ -5634,7 +5629,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-100-02",
+      "id": "q-000402",
       "category": "Sport",
       "points": 100,
       "question": "Welche Sportart wird in Wimbledon gespielt?",
@@ -5648,7 +5643,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-100-03",
+      "id": "q-000403",
       "category": "Sport",
       "points": 100,
       "question": "Wie viele Ringe zeigt das olympische Symbol?",
@@ -5662,7 +5657,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-100-04",
+      "id": "q-000404",
       "category": "Sport",
       "points": 100,
       "question": "In welcher Sportart wirft man einen Ball auf einen Korb in 3,05 Metern Höhe?",
@@ -5676,7 +5671,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-100-05",
+      "id": "q-000405",
       "category": "Sport",
       "points": 100,
       "question": "Welche Farbe trägt der Führende der Gesamtwertung bei der Tour de France?",
@@ -5690,7 +5685,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-100-06",
+      "id": "q-000406",
       "category": "Sport",
       "points": 100,
       "question": "Wie heißt das wichtigste Turnier im internationalen Männer-Fußball für Nationalmannschaften?",
@@ -5704,7 +5699,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-100-07",
+      "id": "q-000407",
       "category": "Sport",
       "points": 100,
       "question": "Welche Sportart betreibt man auf einem Surfbrett mit Segel?",
@@ -5718,7 +5713,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-100-08",
+      "id": "q-000408",
       "category": "Sport",
       "points": 100,
       "question": "Wie viele Punkte zählt ein Touchdown im American Football ohne Zusatzversuch?",
@@ -5732,7 +5727,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-200-01",
+      "id": "q-000409",
       "category": "Sport",
       "points": 200,
       "question": "Wie viele Sätze muss ein Spieler im Herren-Einzel bei Grand-Slam-Turnieren gewinnen, um ein Match zu gewinnen?",
@@ -5746,7 +5741,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-200-02",
+      "id": "q-000410",
       "category": "Sport",
       "points": 200,
       "question": "Welche Distanz hat ein Marathon offiziell?",
@@ -5760,7 +5755,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-200-03",
+      "id": "q-000411",
       "category": "Sport",
       "points": 200,
       "question": "Wie heißt die Position im Fußball, die den Ball im eigenen Strafraum mit den Händen spielen darf?",
@@ -5774,7 +5769,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-200-04",
+      "id": "q-000412",
       "category": "Sport",
       "points": 200,
       "question": "In welcher Sportart gibt es die Disziplinen Slalom und Riesenslalom?",
@@ -5788,7 +5783,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-200-05",
+      "id": "q-000413",
       "category": "Sport",
       "points": 200,
       "question": "Wie viele Spieler stehen beim Volleyball pro Mannschaft gleichzeitig auf dem Feld?",
@@ -5802,7 +5797,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-200-06",
+      "id": "q-000414",
       "category": "Sport",
       "points": 200,
       "question": "Wie heißt im Tennis ein Spielgewinn direkt mit dem Aufschlag, ohne dass der Gegner den Ball berührt?",
@@ -5816,7 +5811,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-200-07",
+      "id": "q-000415",
       "category": "Sport",
       "points": 200,
       "question": "Welche Sportart kombiniert Skilanglauf und Gewehrschießen?",
@@ -5830,7 +5825,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-200-08",
+      "id": "q-000416",
       "category": "Sport",
       "points": 200,
       "question": "Wie viele Löcher hat eine reguläre Golfrunde normalerweise?",
@@ -5844,7 +5839,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-300-01",
+      "id": "q-000417",
       "category": "Sport",
       "points": 300,
       "question": "Wie viele Minuten dauert ein reguläres Handballspiel der Erwachsenen ohne Verlängerung?",
@@ -5858,7 +5853,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-300-02",
+      "id": "q-000418",
       "category": "Sport",
       "points": 300,
       "question": "Wie heißt im Fußball ein Treffer, bei dem ein Spieler drei Tore in einem Spiel erzielt?",
@@ -5872,7 +5867,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-300-03",
+      "id": "q-000419",
       "category": "Sport",
       "points": 300,
       "question": "Welche Schachfigur darf als einzige über andere Figuren springen?",
@@ -5886,7 +5881,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-300-04",
+      "id": "q-000420",
       "category": "Sport",
       "points": 300,
       "question": "Wie hoch hängt die Oberkante eines Basketballkorbs über dem Boden?",
@@ -5900,7 +5895,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-300-05",
+      "id": "q-000421",
       "category": "Sport",
       "points": 300,
       "question": "Wie nennt man im Baseball einen Schlag, bei dem der Batter alle Bases umrunden kann und punktet?",
@@ -5914,7 +5909,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-300-06",
+      "id": "q-000422",
       "category": "Sport",
       "points": 300,
       "question": "Welcher Schwimmstil ist Teil der Lagenstaffel und wird mit symmetrischer Armbewegung über Wasser geschwommen?",
@@ -5928,7 +5923,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-300-07",
+      "id": "q-000423",
       "category": "Sport",
       "points": 300,
       "question": "Wie viele Punkte erhält ein Rugby-Union-Team für einen Versuch?",
@@ -5942,7 +5937,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-300-08",
+      "id": "q-000424",
       "category": "Sport",
       "points": 300,
       "question": "Welche Leichtathletikdisziplin kombiniert zehn Einzelwettbewerbe der Männer?",
@@ -5956,7 +5951,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-400-01",
+      "id": "q-000425",
       "category": "Sport",
       "points": 400,
       "question": "Wie lang ist eine Runde auf einer standardisierten Leichtathletikbahn auf der Innenbahn?",
@@ -5970,7 +5965,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-400-02",
+      "id": "q-000426",
       "category": "Sport",
       "points": 400,
       "question": "Wie viele rote Kugeln liegen zu Beginn eines regulären Snooker-Frames auf dem Tisch?",
@@ -5984,7 +5979,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-400-03",
+      "id": "q-000427",
       "category": "Sport",
       "points": 400,
       "question": "Welche Sportart verwendet Begriffe wie Ippon und Waza-ari?",
@@ -5998,7 +5993,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-400-04",
+      "id": "q-000428",
       "category": "Sport",
       "points": 400,
       "question": "Wie heißt die Linie im Eishockey, deren Überschreitung durch den Puck vor einem angreifenden Spieler zu Abseits führen kann?",
@@ -6012,7 +6007,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-400-05",
+      "id": "q-000429",
       "category": "Sport",
       "points": 400,
       "question": "Wie viele Spieler bilden im Rugby Union eine Mannschaft auf dem Feld?",
@@ -6026,7 +6021,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-400-06",
+      "id": "q-000430",
       "category": "Sport",
       "points": 400,
       "question": "Welche Schachregel erlaubt König und Turm als einzigen Zug zwei Figuren gleichzeitig zu bewegen?",
@@ -6040,7 +6035,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-400-07",
+      "id": "q-000431",
       "category": "Sport",
       "points": 400,
       "question": "Wie heißt die Disziplin im Bahnradsport, bei der zwei Fahrerteams über längere Distanz mit Ablösungen gegeneinander antreten?",
@@ -6054,7 +6049,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-400-08",
+      "id": "q-000432",
       "category": "Sport",
       "points": 400,
       "question": "Welche Fechtwaffe erlaubt Treffer ausschließlich mit der Spitze und auf den gesamten Körper?",
@@ -6068,7 +6063,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-500-01",
+      "id": "q-000433",
       "category": "Sport",
       "points": 500,
       "question": "Wie viele Punkte ist die schwarze Kugel im Snooker wert?",
@@ -6082,7 +6077,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-500-02",
+      "id": "q-000434",
       "category": "Sport",
       "points": 500,
       "question": "Wie heißt im Baseball die statistische Leistung, wenn ein Pitcher ein vollständiges Spiel ohne gegnerischen Basehit beendet?",
@@ -6096,7 +6091,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-500-03",
+      "id": "q-000435",
       "category": "Sport",
       "points": 500,
       "question": "Wie viele Spieler eines Wasserballteams befinden sich regulär gleichzeitig im Wasser, einschließlich Torwart?",
@@ -6107,11 +6102,10 @@ window.QUESTIONS_DATA = {
         "8",
         "9"
       ],
-      "correctChoiceIndex": 1,
-      "sourceUrl": "https://www.worldaquatics.com/"
+      "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-500-04",
+      "id": "q-000436",
       "category": "Sport",
       "points": 500,
       "question": "Wie nennt man im Segeln das Manöver, bei dem der Bug des Bootes durch den Wind dreht?",
@@ -6125,7 +6119,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-sport-500-05",
+      "id": "q-000437",
       "category": "Sport",
       "points": 500,
       "question": "Welche Punktzahl benötigt man im Darts bei einem Neun-Darter insgesamt herunterzuspielen?",
@@ -6139,7 +6133,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-sport-500-06",
+      "id": "q-000438",
       "category": "Sport",
       "points": 500,
       "question": "Wie heißt im Tennis die Situation bei 40:40?",
@@ -6153,7 +6147,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-sport-500-07",
+      "id": "q-000439",
       "category": "Sport",
       "points": 500,
       "question": "Welche Schwimmstrecke bildet in einem olympischen Triathlon den ersten Abschnitt?",
@@ -6167,7 +6161,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-sport-500-08",
+      "id": "q-000440",
       "category": "Sport",
       "points": 500,
       "question": "Wie nennt man im Gewichtheben die Disziplin, bei der die Hantel in einer einzigen Bewegung vom Boden über den Kopf gebracht wird?",
@@ -6181,7 +6175,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-100-01",
+      "id": "q-000441",
       "category": "Kunst & Kultur",
       "points": 100,
       "question": "Wer malte die Mona Lisa?",
@@ -6195,7 +6189,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-100-02",
+      "id": "q-000442",
       "category": "Kunst & Kultur",
       "points": 100,
       "question": "In welcher Stadt steht der Eiffelturm?",
@@ -6209,7 +6203,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-100-03",
+      "id": "q-000443",
       "category": "Kunst & Kultur",
       "points": 100,
       "question": "Wer malte Das letzte Abendmahl im Kloster Santa Maria delle Grazie in Mailand?",
@@ -6223,7 +6217,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-100-04",
+      "id": "q-000444",
       "category": "Kunst & Kultur",
       "points": 100,
       "question": "Wie heißt das berühmte Gemälde von Edvard Munch mit einer Figur, die sich die Hände an den Kopf hält?",
@@ -6237,7 +6231,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-100-05",
+      "id": "q-000445",
       "category": "Kunst & Kultur",
       "points": 100,
       "question": "Welcher Baustil ist für Spitzbögen und große Kirchenfenster typisch?",
@@ -6251,7 +6245,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-100-06",
+      "id": "q-000446",
       "category": "Kunst & Kultur",
       "points": 100,
       "question": "Wie heißt das Museum in Paris, in dem die Mona Lisa ausgestellt ist?",
@@ -6265,7 +6259,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-100-07",
+      "id": "q-000447",
       "category": "Kunst & Kultur",
       "points": 100,
       "question": "Welche Kunstform nutzt kleine farbige Stein- oder Glasstücke zu Bildern?",
@@ -6279,7 +6273,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-100-08",
+      "id": "q-000448",
       "category": "Kunst & Kultur",
       "points": 100,
       "question": "Wie heißt die japanische Kunst des Papierfaltens?",
@@ -6293,7 +6287,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-200-01",
+      "id": "q-000449",
       "category": "Kunst & Kultur",
       "points": 200,
       "question": "Wer malte Die Sternennacht?",
@@ -6307,7 +6301,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-200-02",
+      "id": "q-000450",
       "category": "Kunst & Kultur",
       "points": 200,
       "question": "Wie heißt die Kunstrichtung, die mit Claude Monet und der Darstellung flüchtiger Lichtstimmungen verbunden ist?",
@@ -6321,7 +6315,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-200-03",
+      "id": "q-000451",
       "category": "Kunst & Kultur",
       "points": 200,
       "question": "Welcher Künstler schuf die Skulptur David in Florenz aus Marmor?",
@@ -6335,7 +6329,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-200-04",
+      "id": "q-000452",
       "category": "Kunst & Kultur",
       "points": 200,
       "question": "In welcher Stadt befindet sich die Sagrada Família?",
@@ -6349,7 +6343,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-200-05",
+      "id": "q-000453",
       "category": "Kunst & Kultur",
       "points": 200,
       "question": "Wer entwarf die Glaskuppel des Berliner Reichstagsgebäudes beim Umbau in den 1990er-Jahren?",
@@ -6363,7 +6357,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-200-06",
+      "id": "q-000454",
       "category": "Kunst & Kultur",
       "points": 200,
       "question": "Wie heißt die traditionelle japanische Blumensteckkunst?",
@@ -6377,7 +6371,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-200-07",
+      "id": "q-000455",
       "category": "Kunst & Kultur",
       "points": 200,
       "question": "Welcher Maler ist besonders für seine Seerosen-Bilder bekannt?",
@@ -6391,7 +6385,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-200-08",
+      "id": "q-000456",
       "category": "Kunst & Kultur",
       "points": 200,
       "question": "Wie heißt das große Opernhaus mit markanten weißen Dachschalen in Sydney?",
@@ -6405,7 +6399,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-300-01",
+      "id": "q-000457",
       "category": "Kunst & Kultur",
       "points": 300,
       "question": "Wer malte Guernica?",
@@ -6419,7 +6413,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-300-02",
+      "id": "q-000458",
       "category": "Kunst & Kultur",
       "points": 300,
       "question": "Welche Kunstrichtung zerlegt Gegenstände häufig in geometrische Formen und zeigt mehrere Perspektiven gleichzeitig?",
@@ -6433,7 +6427,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-300-03",
+      "id": "q-000459",
       "category": "Kunst & Kultur",
       "points": 300,
       "question": "Welcher Architekt entwarf das Bauhaus-Gebäude in Dessau?",
@@ -6447,7 +6441,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-300-04",
+      "id": "q-000460",
       "category": "Kunst & Kultur",
       "points": 300,
       "question": "Wie heißt die Maltechnik auf frischem, feuchtem Kalkputz?",
@@ -6461,7 +6455,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-300-05",
+      "id": "q-000461",
       "category": "Kunst & Kultur",
       "points": 300,
       "question": "Welcher Bildhauer schuf Der Denker?",
@@ -6475,7 +6469,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-300-06",
+      "id": "q-000462",
       "category": "Kunst & Kultur",
       "points": 300,
       "question": "Wie heißt die Theaterform, bei der Handlung und Dialoge vollständig gesungen werden?",
@@ -6489,7 +6483,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-300-07",
+      "id": "q-000463",
       "category": "Kunst & Kultur",
       "points": 300,
       "question": "Welche Kunstrichtung ist eng mit Salvador Dalí und Traumwelten verbunden?",
@@ -6503,7 +6497,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-300-08",
+      "id": "q-000464",
       "category": "Kunst & Kultur",
       "points": 300,
       "question": "Wie heißt die antike griechische Säulenordnung mit schneckenförmigen Voluten am Kapitell?",
@@ -6517,7 +6511,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-400-01",
+      "id": "q-000465",
       "category": "Kunst & Kultur",
       "points": 400,
       "question": "Welcher niederländische Maler schuf Die Nachtwache?",
@@ -6531,7 +6525,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-400-02",
+      "id": "q-000466",
       "category": "Kunst & Kultur",
       "points": 400,
       "question": "Wie heißt die Technik, zerbrochene Keramik in Japan mit goldfarbenem Lack sichtbar zu reparieren?",
@@ -6545,7 +6539,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-400-03",
+      "id": "q-000467",
       "category": "Kunst & Kultur",
       "points": 400,
       "question": "Welcher Architekt entwarf die Villa Savoye bei Paris?",
@@ -6559,7 +6553,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-400-04",
+      "id": "q-000468",
       "category": "Kunst & Kultur",
       "points": 400,
       "question": "Wie heißt die Kunstbewegung um Piet Mondrian und Theo van Doesburg?",
@@ -6573,7 +6567,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-400-05",
+      "id": "q-000469",
       "category": "Kunst & Kultur",
       "points": 400,
       "question": "Welcher Künstler schuf die Campbell's-Soup-Cans-Serie?",
@@ -6587,7 +6581,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-400-06",
+      "id": "q-000470",
       "category": "Kunst & Kultur",
       "points": 400,
       "question": "Welcher Künstler malte die barocke Deckenmalerei im römischen Palazzo Barberini mit dem Triumph der göttlichen Vorsehung?",
@@ -6598,11 +6592,10 @@ window.QUESTIONS_DATA = {
         "Pietro da Cortona",
         "Annibale Carracci"
       ],
-      "correctChoiceIndex": 2,
-      "sourceUrl": "https://barberinicorsini.org/"
+      "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-400-07",
+      "id": "q-000471",
       "category": "Kunst & Kultur",
       "points": 400,
       "question": "Welcher spanische Architekt entwarf unter anderem Casa Batlló und Park Güell?",
@@ -6616,7 +6609,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-400-08",
+      "id": "q-000472",
       "category": "Kunst & Kultur",
       "points": 400,
       "question": "Wie heißt das druckgrafische Verfahren, bei dem Linien in einen Schutzgrund geritzt und anschließend mit Säure in eine Metallplatte geätzt werden?",
@@ -6630,7 +6623,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-500-01",
+      "id": "q-000473",
       "category": "Kunst & Kultur",
       "points": 500,
       "question": "Welcher Künstler schuf das Gemälde Las Meninas?",
@@ -6644,7 +6637,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-500-02",
+      "id": "q-000474",
       "category": "Kunst & Kultur",
       "points": 500,
       "question": "Wie heißt die Kunsttechnik, bei der Wachs als Bindemittel für Farbpigmente verwendet wird?",
@@ -6658,7 +6651,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-500-03",
+      "id": "q-000475",
       "category": "Kunst & Kultur",
       "points": 500,
       "question": "Welcher russische Künstler veröffentlichte 1910/1911 die Schrift Über das Geistige in der Kunst?",
@@ -6672,7 +6665,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-500-04",
+      "id": "q-000476",
       "category": "Kunst & Kultur",
       "points": 500,
       "question": "Wie heißt die Bauform einer Kirche mit einem langen Hauptschiff und niedrigeren Seitenschiffen, deren Mittelschiff über Obergaden belichtet wird?",
@@ -6686,7 +6679,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 1
     },
     {
-      "id": "std-kunst-500-05",
+      "id": "q-000477",
       "category": "Kunst & Kultur",
       "points": 500,
       "question": "Welcher Bildhauer schuf die Bronzeskulptur Der Bürger von Calais?",
@@ -6700,7 +6693,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 0
     },
     {
-      "id": "std-kunst-500-06",
+      "id": "q-000478",
       "category": "Kunst & Kultur",
       "points": 500,
       "question": "Wie heißt die avantgardistische Kunstschule, die 1919 in Weimar gegründet wurde?",
@@ -6714,7 +6707,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     },
     {
-      "id": "std-kunst-500-07",
+      "id": "q-000479",
       "category": "Kunst & Kultur",
       "points": 500,
       "question": "Welcher italienische Künstler schuf die Rauminstallationen mit aufgeschlitzten Leinwänden der Serie Concetto spaziale?",
@@ -6728,7 +6721,7 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 2
     },
     {
-      "id": "std-kunst-500-08",
+      "id": "q-000480",
       "category": "Kunst & Kultur",
       "points": 500,
       "question": "Wie heißt die Maltechnik, bei der kleine reine Farbpunkte optisch im Auge des Betrachters gemischt werden?",
@@ -6744,264 +6737,124 @@ window.QUESTIONS_DATA = {
   ],
   "tiebreakers": [
     {
-      "id": "tb1",
+      "id": "tb-0001",
       "question": "Wie viele Quadratmeter Glas sind ungefähr in der Kuppel des Reichstagsgebäudes verbaut?",
       "answer": "Ca. 3.000 m²",
-      "numericAnswer": 3000,
-      "choices": [
-        "Ca. 1.200 m²",
-        "Ca. 3.000 m²",
-        "Ca. 5.500 m²",
-        "Ca. 8.000 m²"
-      ],
-      "sourceUrl": "https://www.bundestag.de/besuche/architektur/reichstag/kuppel"
+      "numericAnswer": 3000
     },
     {
-      "id": "tb2",
+      "id": "tb-0002",
       "question": "Wie viele Nieten wurden beim Bau des Eiffelturms ungefähr verarbeitet?",
       "answer": "Ca. 2.500.000 Nieten",
-      "numericAnswer": 2500000,
-      "choices": [
-        "Ca. 500.000 Nieten",
-        "Ca. 1.200.000 Nieten",
-        "Ca. 2.500.000 Nieten",
-        "Ca. 5.000.000 Nieten"
-      ],
-      "sourceUrl": "https://www.toureiffel.paris/de/monument/zahlen"
+      "numericAnswer": 2500000
     },
     {
-      "id": "tb3",
+      "id": "tb-0003",
       "question": "Wie viele Tonnen wiegt die Stahlkonstruktion des Eiffelturms ungefähr?",
       "answer": "Ca. 7.300 Tonnen",
-      "numericAnswer": 7300,
-      "choices": [
-        "Ca. 3.200 Tonnen",
-        "Ca. 7.300 Tonnen",
-        "Ca. 12.500 Tonnen",
-        "Ca. 18.000 Tonnen"
-      ],
-      "sourceUrl": "https://www.toureiffel.paris/de/monument/zahlen"
+      "numericAnswer": 7300
     },
     {
-      "id": "tb4",
+      "id": "tb-0004",
       "question": "Wie viele Meter hoch ist der Südturm des Kölner Doms?",
       "answer": "157,22 m",
-      "numericAnswer": 157.22,
-      "choices": [
-        "142,80 m",
-        "157,22 m",
-        "169,40 m",
-        "181,10 m"
-      ],
-      "sourceUrl": "https://www.koelner-dom.de/erleben/der-dom-in-zahlen"
+      "numericAnswer": 157.22
     },
     {
-      "id": "tb5",
+      "id": "tb-0005",
       "question": "Wie viele Fialen mit mehr als drei Metern Größe besitzt der Kölner Dom?",
       "answer": "1.125 Fialen",
-      "numericAnswer": 1125,
-      "choices": [
-        "420 Fialen",
-        "780 Fialen",
-        "1.125 Fialen",
-        "1.640 Fialen"
-      ],
-      "sourceUrl": "https://www.koelner-dom.de/erleben/der-dom-in-zahlen"
+      "numericAnswer": 1125
     },
     {
-      "id": "tb6",
+      "id": "tb-0006",
       "question": "Wie viele Stufen führen beim Ulmer Münster bis zur obersten Plattform?",
       "answer": "768 Stufen",
-      "numericAnswer": 768,
-      "choices": [
-        "512 Stufen",
-        "640 Stufen",
-        "768 Stufen",
-        "920 Stufen"
-      ],
-      "sourceUrl": "https://www.ulm.de/tourismus/ulmer-muenster"
+      "numericAnswer": 768
     },
     {
-      "id": "tb7",
+      "id": "tb-0007",
       "question": "Wie viele Jahre dauerte beim Ulmer Münster die Zeit von der Grundsteinlegung bis zur Vollendung des Turms?",
       "answer": "513 Jahre",
-      "numericAnswer": 513,
-      "choices": [
-        "312 Jahre",
-        "413 Jahre",
-        "513 Jahre",
-        "613 Jahre"
-      ],
-      "sourceUrl": "https://www.ulm.de/tourismus/ulmer-muenster"
+      "numericAnswer": 513
     },
     {
-      "id": "tb8",
+      "id": "tb-0008",
       "question": "Wie viele Meter hoch ist der Berliner Fernsehturm insgesamt?",
       "answer": "368 m",
-      "numericAnswer": 368,
-      "choices": [
-        "298 m",
-        "328 m",
-        "368 m",
-        "418 m"
-      ],
-      "sourceUrl": "https://www.berlin.de/ost-west-ost-kulturbahnhoefe/history-walk/artikel.1558558.php"
+      "numericAnswer": 368
     },
     {
-      "id": "tb9",
+      "id": "tb-0009",
       "question": "Wie viele Kilometer beträgt der Erdumfang am Äquator ungefähr?",
       "answer": "Ca. 40.030 km",
-      "numericAnswer": 40030.2,
-      "choices": [
-        "Ca. 28.500 km",
-        "Ca. 34.700 km",
-        "Ca. 40.030 km",
-        "Ca. 48.200 km"
-      ],
-      "sourceUrl": "https://science.nasa.gov/moon/by-the-numbers/"
+      "numericAnswer": 40030.2
     },
     {
-      "id": "tb10",
+      "id": "tb-0010",
       "question": "Wie viele Kilometer beträgt die durchschnittliche Entfernung zwischen Erde und Mond ungefähr?",
       "answer": "Ca. 384.400 km",
-      "numericAnswer": 384400,
-      "choices": [
-        "Ca. 184.400 km",
-        "Ca. 284.400 km",
-        "Ca. 384.400 km",
-        "Ca. 584.400 km"
-      ],
-      "sourceUrl": "https://science.nasa.gov/moon/facts/"
+      "numericAnswer": 384400
     },
     {
-      "id": "tb11",
+      "id": "tb-0011",
       "question": "Wie viele Quadratkilometer beträgt die Oberfläche der Erde ungefähr?",
       "answer": "Ca. 510 Mio. km²",
-      "numericAnswer": 510064472,
-      "choices": [
-        "Ca. 310 Mio. km²",
-        "Ca. 410 Mio. km²",
-        "Ca. 510 Mio. km²",
-        "Ca. 710 Mio. km²"
-      ],
-      "sourceUrl": "https://science.nasa.gov/moon/by-the-numbers/"
+      "numericAnswer": 510064472
     },
     {
-      "id": "tb12",
+      "id": "tb-0012",
       "question": "Wie viele Knochen besitzt das Skelett eines erwachsenen Menschen normalerweise?",
       "answer": "206 Knochen",
-      "numericAnswer": 206,
-      "choices": [
-        "186 Knochen",
-        "206 Knochen",
-        "226 Knochen",
-        "246 Knochen"
-      ],
-      "sourceUrl": "https://www.ncbi.nlm.nih.gov/books/NBK441968/"
+      "numericAnswer": 206
     },
     {
-      "id": "tb13",
+      "id": "tb-0013",
       "question": "Wie viele Kilometer beträgt die offizielle Marathon-Distanz?",
       "answer": "42,195 km",
-      "numericAnswer": 42.195,
-      "choices": [
-        "40,000 km",
-        "41,250 km",
-        "42,195 km",
-        "43,500 km"
-      ],
-      "sourceUrl": "https://worldathletics.org/news/news/ultrarunning-introduction"
+      "numericAnswer": 42.195
     },
     {
-      "id": "tb14",
+      "id": "tb-0014",
       "question": "Wie viele Meter beträgt beim Fußball der Innenabstand zwischen den beiden Torpfosten?",
       "answer": "7,32 m",
-      "numericAnswer": 7.32,
-      "choices": [
-        "6,80 m",
-        "7,00 m",
-        "7,32 m",
-        "7,80 m"
-      ],
-      "sourceUrl": "https://football-technology.fifa.com/innovation/standards/football-goals/football-goal-testing-process"
+      "numericAnswer": 7.32
     },
     {
-      "id": "tb15",
+      "id": "tb-0015",
       "question": "Wie viele Meter beträgt die Spannweite zwischen den beiden Haupttürmen der Golden Gate Bridge?",
       "answer": "1.280 m",
-      "numericAnswer": 1280,
-      "choices": [
-        "860 m",
-        "1.080 m",
-        "1.280 m",
-        "1.680 m"
-      ],
-      "sourceUrl": "https://www.goldengate.org/bridge/history-research/statistics-data/design-construction-stats/"
+      "numericAnswer": 1280
     },
     {
-      "id": "tb16",
+      "id": "tb-0016",
       "question": "Wie viele Meter hoch ist die Freiheitsstatue vom Boden bis zur Spitze der Fackel ungefähr?",
       "answer": "92,99 m",
-      "numericAnswer": 92.99,
-      "choices": [
-        "72,40 m",
-        "82,60 m",
-        "92,99 m",
-        "112,30 m"
-      ],
-      "sourceUrl": "https://home.nps.gov/stli/learn/statue-of-liberty-facts.htm"
+      "numericAnswer": 92.99
     },
     {
-      "id": "tb17",
+      "id": "tb-0017",
       "question": "Wie viele Meter lang ist die Nase der Freiheitsstatue ungefähr?",
       "answer": "1,37 m",
-      "numericAnswer": 1.37,
-      "choices": [
-        "0,74 m",
-        "1,05 m",
-        "1,37 m",
-        "1,92 m"
-      ],
-      "sourceUrl": "https://home.nps.gov/stli/learn/historyculture/statue-statistics.htm"
+      "numericAnswer": 1.37
     },
     {
-      "id": "tb18",
+      "id": "tb-0018",
       "question": "Wie viele Zentimeter hoch ist Leonardo da Vincis Mona Lisa?",
       "answer": "77 cm",
-      "numericAnswer": 77,
-      "choices": [
-        "61 cm",
-        "77 cm",
-        "94 cm",
-        "112 cm"
-      ],
-      "sourceUrl": "https://boutique.louvre.fr/en/product/11619-clear-file-vinci-collection-mona-lisa-cyma.html"
+      "numericAnswer": 77
     },
     {
-      "id": "tb19",
+      "id": "tb-0019",
       "question": "Wie viele Zentimeter hoch ist Velázquez' Gemälde Las Meninas?",
       "answer": "320,3 cm",
-      "numericAnswer": 320.3,
-      "choices": [
-        "220,3 cm",
-        "270,8 cm",
-        "320,3 cm",
-        "385,5 cm"
-      ],
-      "sourceUrl": "https://www.museodelprado.es/coleccion/obra-de-arte/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f"
+      "numericAnswer": 320.3
     },
     {
-      "id": "tb20",
+      "id": "tb-0020",
       "question": "Wie viele Exponate umfasst die Sammlung des Deutschen Museums ungefähr?",
       "answer": "Ca. 125.000 Exponate",
-      "numericAnswer": 125000,
-      "choices": [
-        "Ca. 45.000 Exponate",
-        "Ca. 80.000 Exponate",
-        "Ca. 125.000 Exponate",
-        "Ca. 210.000 Exponate"
-      ],
-      "sourceUrl": "https://www.deutsches-museum.de/museumsinsel/besuch"
+      "numericAnswer": 125000
     }
   ]
 };

@@ -1,6 +1,7 @@
 'use strict';
 
 window.QuizzQuestionBank = (() => {
+  const poolSchema = window.QuizzPoolSchema;
   function clone(value) {return JSON.parse(JSON.stringify(value));}
   function shuffle(items) {
     const result = [...items];
@@ -47,18 +48,7 @@ window.QuizzQuestionBank = (() => {
     return [...new Set(data.questions.map(question => question.category))].filter(category => points.every(pointsValue => data.questions.some(question => question.category === category && Number(question.points) === Number(pointsValue))));
   }
   function validateData(data, settings, checkBoard = true) {
-    if (!data || !Array.isArray(data.questions) || !Array.isArray(data.tiebreakers)) throw new Error('questions und tiebreakers müssen Arrays sein.');
-    const ids = new Set();
-    for (const question of data.questions) {
-      if (!question || !question.id || ids.has(question.id) || !question.category || !question.question || !question.answer || !Number.isFinite(Number(question.points))) throw new Error('Eine Frage hat fehlende Pflichtfelder oder eine doppelte ID.');
-      ids.add(question.id);
-      if (question.choices != null && (!Array.isArray(question.choices) || question.choices.length < 2 || correctChoiceIndex(question) < 0)) throw new Error(`Ungültige Antwortmöglichkeiten bei Frage ${question.id}.`);
-    }
-    for (const question of data.tiebreakers) {
-      if (!question || !question.id || !question.question || !Number.isFinite(parseEstimate(question.numericAnswer ?? question.answer))) throw new Error('Eine Schätzfrage hat fehlende Pflichtfelder oder keine numerische Lösung.');
-    }
-    const allPoints = availablePoints(data);
-    if (!Array.isArray(allPoints) || !allPoints.length || allPoints.some(points => !Number.isFinite(points) || points <= 0) || new Set(allPoints).size !== allPoints.length) throw new Error('Die Punktstufen müssen eindeutige positive Zahlen sein.');
+    poolSchema.assertValid(data);
     if (!checkBoard) return true;
     const points = selectedPoints(data, settings);
     if (points.length < 2) throw new Error('Bitte mindestens zwei Punktestufen auswählen.');
@@ -96,7 +86,13 @@ window.QuizzQuestionBank = (() => {
       window.QUESTIONS_DATA = undefined;
       const script = document.createElement('script');
       script.src = pool.src;
-      script.onload = () => {script.remove(); resolve(window.QUESTIONS_DATA);};
+      script.onload = () => {
+        script.remove();
+        try {
+          poolSchema.assertValid(window.QUESTIONS_DATA, {expectedPool: pool});
+          resolve(window.QUESTIONS_DATA);
+        } catch (error) {reject(error);}
+      };
       script.onerror = () => {script.remove(); reject(new Error(`Der Fragenpool „${pool.name}“ konnte nicht geladen werden. Bitte die Datei ${pool.src} prüfen.`));};
       document.head.appendChild(script);
     });

@@ -239,8 +239,7 @@
   padding: 13px 0;
 }
 
-.pool-settings summary,
-.extra-fields summary {
+.pool-settings summary {
   color: #e8eeff;
   font-weight: 900;
   cursor: pointer;
@@ -248,7 +247,7 @@
 
 .pool-settings-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   padding-top: 14px;
 }
@@ -551,8 +550,7 @@
 }
 
 .entry-form .field textarea,
-.entry-form .field input,
-.extra-fields textarea {
+.entry-form .field input {
   width: 100%;
   padding: 11px 12px;
   border: 1px solid rgba(255, 255, 255, .18);
@@ -602,8 +600,7 @@
   font-weight: 900;
 }
 
-.choices-heading p,
-.extra-fields p {
+.choices-heading p {
   margin: 3px 0 0;
   color: var(--muted);
   font-size: .8rem;
@@ -664,23 +661,6 @@
 
 .choice-row-actions button:hover {
   background: rgba(255, 255, 255, .17);
-}
-
-.extra-fields {
-  padding-top: 3px;
-}
-
-.extra-fields textarea {
-  min-height: 130px;
-  margin-top: 9px;
-  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-  font-size: .84rem;
-}
-
-.field-error {
-  margin: 7px 0 0 !important;
-  color: var(--danger) !important;
-  font-weight: 800;
 }
 
 .current-issues {

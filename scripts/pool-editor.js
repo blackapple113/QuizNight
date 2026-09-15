@@ -8,6 +8,7 @@
   const pools = window.QUESTION_POOLS || [];
   const bank = window.QuizzQuestionBank;
   const poolFormat = window.QuizzPoolFormat;
+  const poolSchema = window.QuizzPoolSchema;
   const elements = Object.fromEntries([...document.querySelectorAll('[id]')].map(element => [element.id, element]));
   const storage = window.QuizzStorage.create(() => showMessage('Lokale Entwürfe sind in diesem Browser nicht verfügbar. Exporte funktionieren weiterhin.'));
 
@@ -26,7 +27,6 @@
     validation: emptyValidation(),
     pendingHistoryTimer: 0,
     pendingDraftTimer: 0,
-    extraFieldsValid: true,
     renderingForm: false,
   };
 
@@ -54,12 +54,6 @@
 
   function slug(value) {
     return normalize(value).replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss').replace(/\s+/g, '-').replace(/^-|-$/g, '') || 'pool';
-  }
-
-  function parseNumber(value) {
-    const normalized = String(value ?? '').trim().replace(/\s/g, '').replace(',', '.');
-    if (!normalized) return NaN;
-    return Number(normalized);
   }
 
   function parsePointLevels(value) {
@@ -112,23 +106,12 @@
     return !isDirty() || window.confirm('Der aktuelle Pool enthält Änderungen. Möchtest du ihn wirklich schließen? Der lokale Entwurf bleibt erhalten.');
   }
 
-  function normalizePool(rawData, fallbackName = 'Eigener Pool') {
-    if (!rawData || typeof rawData !== 'object' || Array.isArray(rawData)) throw new Error('Die Datei enthält kein gültiges Pool-Objekt.');
-    const data = clone(rawData);
-    if (!Array.isArray(data.questions)) throw new Error('Im Pool fehlt das Array „questions“.');
-    if (!Array.isArray(data.tiebreakers)) data.tiebreakers = [];
-    if (!data.config || typeof data.config !== 'object' || Array.isArray(data.config)) data.config = {};
-    if (!Array.isArray(data.config.points)) {
-      data.config.points = [...new Set(data.questions.map(question => Number(question.points)).filter(Number.isFinite))].sort((a, b) => a - b);
-    }
-    if (!Number.isFinite(Number(data.config.defaultMcHelpMultiplier))) data.config.defaultMcHelpMultiplier = 0.5;
-    data.name = String(data.name || fallbackName);
-    data.poolId = String(data.poolId || slug(data.name));
-    return data;
-  }
-
   function loadPoolData(rawData, options = {}) {
-    const data = normalizePool(rawData, options.fallbackName);
+    const migrationNeeded = !poolSchema.validate(rawData).valid;
+    const data = poolSchema.migrate(rawData, {
+      name: rawData?.name || options.fallbackName,
+      poolId: rawData?.poolId || options.fallbackPoolId,
+    });
     state.data = data;
     state.sourceLabel = options.sourceLabel || data.name;
     state.fileHandle = options.fileHandle || null;
@@ -136,10 +119,9 @@
     state.entryType = 'questions';
     state.selectedIndex = data.questions.length ? 0 : null;
     state.selection.clear();
-    state.extraFieldsValid = true;
     state.history = [serializeData(data)];
     state.historyIndex = 0;
-    state.cleanSnapshot = serializeData(data);
+    state.cleanSnapshot = migrationNeeded ? '' : serializeData(data);
     resetFilters();
     elements.editorWorkspace.classList.remove('hidden');
     renderAll();
@@ -147,6 +129,7 @@
     if (draft && serializeData(draft.data) !== state.cleanSnapshot) {
       showMessage(`Für diesen Pool gibt es einen lokalen Entwurf vom ${formatDate(draft.savedAt)}. Du kannst ihn oben unter „Lokale Entwürfe“ laden.`);
     }
+    return migrationNeeded;
   }
 
   function resetFilters() {
@@ -202,7 +185,6 @@
     state.selection.clear();
     const entries = currentEntries();
     if (state.selectedIndex != null && state.selectedIndex >= entries.length) state.selectedIndex = entries.length ? entries.length - 1 : null;
-    state.extraFieldsValid = true;
     renderAll();
     scheduleDraftSave();
   }
@@ -272,10 +254,9 @@
     elements.poolNameInput.value = state.data.name || '';
     elements.poolIdInput.value = state.data.poolId || '';
     elements.pointLevelsInput.value = (state.data.config?.points || []).join(', ');
-    elements.mcMultiplierInput.value = state.data.config?.defaultMcHelpMultiplier ?? 0.5;
     elements.sourceDescription.textContent = state.fileHandle
-      ? `Direkt geöffnet: ${state.fileHandle.name}`
-      : `Quelle: ${state.sourceLabel}`;
+      ? `Pool-Standard V${state.data.schemaVersion} · Direkt geöffnet: ${state.fileHandle.name}`
+      : `Pool-Standard V${state.data.schemaVersion} · Quelle: ${state.sourceLabel}`;
   }
 
   function updateMetadata() {
@@ -283,8 +264,6 @@
     state.data.name = elements.poolNameInput.value.trim();
     state.data.poolId = elements.poolIdInput.value.trim();
     state.data.config.points = parsePointLevels(elements.pointLevelsInput.value);
-    const multiplier = parseNumber(elements.mcMultiplierInput.value);
-    state.data.config.defaultMcHelpMultiplier = Number.isFinite(multiplier) ? multiplier : elements.mcMultiplierInput.value;
     state.draftId = slug(state.data.poolId || state.data.name);
     scheduleHistory();
   }
@@ -419,16 +398,8 @@
     if (!updateSelectedFromForm()) return;
     flushPendingHistory();
     state.selectedIndex = index;
-    state.extraFieldsValid = true;
     renderList();
     renderForm();
-  }
-
-  function extraFields(entry) {
-    const known = state.entryType === 'questions'
-      ? new Set(['id', 'category', 'points', 'question', 'answer', 'choices', 'correctChoiceIndex', 'sourceUrl'])
-      : new Set(['id', 'question', 'answer', 'numericAnswer', 'choices', 'sourceUrl']);
-    return Object.fromEntries(Object.entries(entry).filter(([key]) => !known.has(key)));
   }
 
   function renderForm() {
@@ -448,10 +419,6 @@
     elements.entryQuestionInput.value = entry.question || '';
     elements.entryAnswerInput.value = entry.answer || '';
     elements.numericAnswerInput.value = entry.numericAnswer ?? '';
-    elements.sourceUrlInput.value = entry.sourceUrl || '';
-    elements.extraFieldsInput.value = JSON.stringify(extraFields(entry), null, 2);
-    elements.extraFieldsError.classList.add('hidden');
-    state.extraFieldsValid = true;
     renderChoices(entry);
     renderCurrentIssues();
     state.renderingForm = false;
@@ -460,9 +427,9 @@
   function renderChoices(entry) {
     const choices = Array.isArray(entry.choices) ? entry.choices : [];
     const correctIndex = Number.isInteger(entry.correctChoiceIndex) ? entry.correctChoiceIndex : bank.correctChoiceIndex(entry);
-    const question = state.entryType === 'questions';
+    elements.addChoiceBtn.disabled = choices.length >= 4;
     elements.choiceEditorList.innerHTML = choices.map((choice, index) => `<div class="choice-editor-row" data-choice-row="${index}">
-      ${question ? `<input type="radio" name="correctChoice" value="${index}" ${correctIndex === index ? 'checked' : ''} aria-label="Antwort ${index + 1} ist richtig" />` : '<span></span>'}
+      <input type="radio" name="correctChoice" value="${index}" ${correctIndex === index ? 'checked' : ''} aria-label="Antwort ${index + 1} ist richtig" />
       <span class="choice-editor-index">${String.fromCharCode(65 + index)}</span>
       <input type="text" value="${escapeHtml(choice)}" data-choice-input="${index}" aria-label="Antwortmöglichkeit ${index + 1}" />
       <span class="choice-row-actions">
@@ -475,33 +442,16 @@
 
   function updateSelectedFromForm() {
     if (state.renderingForm || !currentEntry()) return true;
-    let extras;
-    try {
-      extras = JSON.parse(elements.extraFieldsInput.value || '{}');
-      if (!extras || typeof extras !== 'object' || Array.isArray(extras)) throw new Error('Erwartet wird ein JSON-Objekt in geschweiften Klammern.');
-      state.extraFieldsValid = true;
-      elements.extraFieldsError.classList.add('hidden');
-    } catch (error) {
-      state.extraFieldsValid = false;
-      elements.extraFieldsError.textContent = `Zusatzfelder konnten nicht übernommen werden: ${error.message}`;
-      elements.extraFieldsError.classList.remove('hidden');
-      renderSaveState();
-      return false;
-    }
-    const choices = [...elements.choiceEditorList.querySelectorAll('[data-choice-input]')].map(input => input.value.trim());
     const updated = {
-      ...extras,
       id: elements.entryIdInput.value.trim(),
       question: elements.entryQuestionInput.value.trim(),
       answer: elements.entryAnswerInput.value.trim(),
-      choices,
     };
-    const sourceUrl = elements.sourceUrlInput.value.trim();
-    if (sourceUrl) updated.sourceUrl = sourceUrl;
     if (state.entryType === 'questions') {
       updated.category = elements.entryCategoryInput.value.trim();
       const points = Number(elements.entryPointsInput.value);
       updated.points = Number.isFinite(points) && elements.entryPointsInput.value !== '' ? points : elements.entryPointsInput.value;
+      updated.choices = [...elements.choiceEditorList.querySelectorAll('[data-choice-input]')].map(input => input.value.trim());
       const selectedChoice = elements.choiceEditorList.querySelector('input[name="correctChoice"]:checked');
       updated.correctChoiceIndex = selectedChoice ? Number(selectedChoice.value) : -1;
     } else {
@@ -539,14 +489,10 @@
     });
   }
 
-  function generateId(type, category = '', points = '') {
-    const prefix = slug(state.data.poolId || state.data.name);
-    const middle = type === 'questions' ? `${slug(category)}-${points || 'frage'}` : 'tb';
-    const existing = new Set([...state.data.questions, ...state.data.tiebreakers].map(entry => entry.id));
-    let sequence = 1;
-    let id;
-    do {id = `${prefix}-${middle}-${String(sequence++).padStart(3, '0')}`;} while (existing.has(id));
-    return id;
+  function generateId(type) {
+    return type === 'questions'
+      ? poolSchema.nextQuestionId(state.data.questions)
+      : poolSchema.nextTiebreakerId(state.data.tiebreakers);
   }
 
   function addEntry() {
@@ -557,7 +503,7 @@
         const category = elements.categoryFilter.value || getCategories()[0] || 'Neue Kategorie';
         const points = Number(elements.pointsFilter.value) || getPointLevels()[0] || 100;
         state.data.questions.push({
-          id: generateId('questions', category, points),
+          id: generateId('questions'),
           category,
           points,
           question: '',
@@ -566,7 +512,7 @@
           correctChoiceIndex: 0,
         });
       } else {
-        state.data.tiebreakers.push({id: generateId('tiebreakers'), question: '', answer: '', numericAnswer: 0, choices: []});
+        state.data.tiebreakers.push({id: generateId('tiebreakers'), question: '', answer: '', numericAnswer: 0});
       }
       state.selectedIndex = state.data[type].length - 1;
       state.selection.clear();
@@ -582,7 +528,7 @@
     commitMutation(() => {
       const original = currentEntries()[originalIndex];
       const copy = clone(original);
-      copy.id = generateId(state.entryType, copy.category, copy.points);
+      copy.id = generateId(state.entryType);
       currentEntries().splice(originalIndex + 1, 0, copy);
       state.selectedIndex = originalIndex + 1;
       state.selection.clear();
@@ -648,14 +594,6 @@
     if (issue.code === 'duplicate') result.duplicates++;
   }
 
-  function validateUrl(value) {
-    if (!value) return true;
-    try {
-      const url = new URL(value);
-      return url.protocol === 'http:' || url.protocol === 'https:';
-    } catch {return false;}
-  }
-
   function wordSet(value) {
     return new Set(normalize(value).split(' ').filter(word => word.length > 2));
   }
@@ -670,69 +608,26 @@
   function validatePool(data) {
     const result = emptyValidation();
     const pointLevels = Array.isArray(data.config?.points) ? data.config.points : [];
-    if (!String(data.name || '').trim()) addIssue(result, {level: 'error', code: 'metadata', message: 'Der Pool benötigt einen Namen.', label: 'Pool-Einstellungen'});
-    if (!String(data.poolId || '').trim()) addIssue(result, {level: 'error', code: 'metadata', message: 'Der Pool benötigt eine Pool-ID.', label: 'Pool-Einstellungen'});
-    if (!pointLevels.length || pointLevels.some(value => !Number.isFinite(Number(value)) || Number(value) <= 0) || new Set(pointLevels.map(Number)).size !== pointLevels.length) {
-      addIssue(result, {level: 'error', code: 'metadata', message: 'Die Punktestufen müssen eindeutige positive Zahlen sein.', label: 'Pool-Einstellungen'});
-    }
-    const multiplier = Number(data.config?.defaultMcHelpMultiplier);
-    if (!Number.isFinite(multiplier) || multiplier < 0 || multiplier > 1) {
-      addIssue(result, {level: 'error', code: 'metadata', message: 'Der Standardfaktor für die MC-Hilfe muss zwischen 0 und 1 liegen.', label: 'Pool-Einstellungen'});
-    }
-
     const allEntries = [
       ...data.questions.map((entry, index) => ({entry, type: 'questions', index})),
       ...data.tiebreakers.map((entry, index) => ({entry, type: 'tiebreakers', index})),
     ];
-    const idGroups = new Map();
-    allEntries.forEach(reference => {
-      const id = String(reference.entry.id || '').trim();
-      if (!id) {
-        addIssue(result, {...reference, level: 'error', code: 'required', message: 'Die ID fehlt.', label: reference.entry.question || 'Eintrag ohne ID'});
-        return;
-      }
-      if (!idGroups.has(id)) idGroups.set(id, []);
-      idGroups.get(id).push(reference);
+    poolSchema.validate(data).errors.forEach(error => {
+      addIssue(result, {
+        level: 'error',
+        code: error.code || 'schema',
+        message: `${error.path}: ${error.message}`,
+        label: error.label || 'Pool-Standard V1',
+        type: error.type,
+        index: error.index,
+      });
     });
-    idGroups.forEach((references, id) => {
-      if (references.length < 2) return;
-      references.forEach(reference => addIssue(result, {...reference, level: 'error', code: 'duplicate', message: `Die ID „${id}“ wird mehrfach verwendet.`, label: reference.entry.question || id}));
-    });
-
     data.questions.forEach((question, index) => {
-      const reference = {type: 'questions', index, label: question.question || question.id || `Frage ${index + 1}`};
-      if (!String(question.category || '').trim()) addIssue(result, {...reference, level: 'error', code: 'required', message: 'Die Kategorie fehlt.'});
-      if (!Number.isFinite(Number(question.points)) || Number(question.points) <= 0) addIssue(result, {...reference, level: 'error', code: 'required', message: 'Die Punktzahl muss eine positive Zahl sein.'});
-      else if (pointLevels.length && !pointLevels.map(Number).includes(Number(question.points))) addIssue(result, {...reference, level: 'warning', code: 'points', message: `Die Punktestufe ${question.points} ist nicht in den Pool-Einstellungen aufgeführt.`});
-      if (!String(question.question || '').trim()) addIssue(result, {...reference, level: 'error', code: 'required', message: 'Der Fragetext fehlt.'});
-      if (!String(question.answer || '').trim()) addIssue(result, {...reference, level: 'error', code: 'required', message: 'Die Antwort fehlt.'});
-      if (question.sourceUrl && !validateUrl(question.sourceUrl)) addIssue(result, {...reference, level: 'warning', code: 'source', message: 'Die Quellen-URL ist ungültig.'});
-      if (!Array.isArray(question.choices) || !question.choices.length) {
-        addIssue(result, {...reference, level: 'warning', code: 'choices', message: 'Es sind keine Antwortmöglichkeiten für Multiple Choice hinterlegt.'});
-      } else {
-        if (question.choices.length < 2) addIssue(result, {...reference, level: 'error', code: 'choices', message: 'Multiple Choice benötigt mindestens zwei Antwortmöglichkeiten.'});
-        if (question.choices.some(choice => !String(choice || '').trim())) addIssue(result, {...reference, level: 'error', code: 'choices', message: 'Mindestens eine Antwortmöglichkeit ist leer.'});
-        const normalizedChoices = question.choices.map(normalize);
-        if (new Set(normalizedChoices).size !== normalizedChoices.length) addIssue(result, {...reference, level: 'error', code: 'duplicate', message: 'Antwortmöglichkeiten kommen mehrfach vor.'});
-        const correctIndex = Number(question.correctChoiceIndex);
-        if (!Number.isInteger(correctIndex) || correctIndex < 0 || correctIndex >= question.choices.length) {
-          addIssue(result, {...reference, level: 'error', code: 'choices', message: 'Die richtige Antwortmöglichkeit ist nicht gültig markiert.'});
-        } else {
-          const correctChoice = normalize(question.choices[correctIndex]);
-          const answer = normalize(question.answer);
-          if (answer && correctChoice && answer !== correctChoice && !answer.includes(correctChoice) && !correctChoice.includes(answer)) {
-            addIssue(result, {...reference, level: 'warning', code: 'answer', message: 'Die markierte MC-Antwort weicht von der offenen Lösung ab.'});
-          }
-        }
+      const correctChoice = normalize(question.choices?.[question.correctChoiceIndex]);
+      const answer = normalize(question.answer);
+      if (answer && correctChoice && answer !== correctChoice && !answer.includes(correctChoice) && !correctChoice.includes(answer)) {
+        addIssue(result, {type: 'questions', index, level: 'warning', code: 'answer', message: 'Die markierte MC-Antwort weicht von der offenen Lösung ab.', label: question.question || question.id});
       }
-    });
-
-    data.tiebreakers.forEach((question, index) => {
-      const reference = {type: 'tiebreakers', index, label: question.question || question.id || `Tie-Breaker ${index + 1}`};
-      if (!String(question.question || '').trim()) addIssue(result, {...reference, level: 'error', code: 'required', message: 'Der Fragetext fehlt.'});
-      if (!String(question.answer || '').trim()) addIssue(result, {...reference, level: 'error', code: 'required', message: 'Die angezeigte Antwort fehlt.'});
-      if (!Number.isFinite(bank.parseEstimate(question.numericAnswer))) addIssue(result, {...reference, level: 'error', code: 'required', message: 'Die numerische Lösung fehlt oder ist ungültig.'});
-      if (question.sourceUrl && !validateUrl(question.sourceUrl)) addIssue(result, {...reference, level: 'warning', code: 'source', message: 'Die Quellen-URL ist ungültig.'});
     });
 
     const exactQuestions = new Map();
@@ -876,7 +771,7 @@
   function loadSelectedDraft() {
     const draft = readDraft(elements.draftSelect.value);
     if (!draft || !confirmReplace()) return;
-    loadPoolData(draft.data, {sourceLabel: `Lokaler Entwurf vom ${formatDate(draft.savedAt)}`, fallbackName: draft.name});
+    loadPoolData(draft.data, {sourceLabel: `Lokaler Entwurf vom ${formatDate(draft.savedAt)}`, fallbackName: draft.name, fallbackPoolId: draft.poolId});
     state.draftId = draft.id;
     state.cleanSnapshot = '';
     renderSaveState();
@@ -901,7 +796,7 @@
     try {
       const data = await bank.loadPool(pool);
       if (!data) throw new Error('Die Pool-Datei hat keine Daten bereitgestellt.');
-      loadPoolData(data, {sourceLabel: pool.src, fallbackName: pool.name});
+      loadPoolData(data, {sourceLabel: pool.src, fallbackName: pool.name, fallbackPoolId: pool.id});
     } catch (error) {
       showMessage(error.message);
     } finally {
@@ -913,8 +808,8 @@
     if (!file || !confirmReplace()) return;
     try {
       const data = poolFormat.parse(await file.text());
-      loadPoolData(data, {sourceLabel: file.name, fileHandle, fallbackName: file.name.replace(/\.(json|js)$/i, '')});
-      showMessage(`„${file.name}“ wurde geladen.`, true);
+      const migrated = loadPoolData(data, {sourceLabel: file.name, fileHandle, fallbackName: file.name.replace(/\.(json|js)$/i, '')});
+      showMessage(migrated ? `„${file.name}“ wurde geladen und auf Pool-Standard V1 normalisiert.` : `„${file.name}“ wurde geladen.`, true);
     } catch (error) {
       showMessage(`Die Datei konnte nicht importiert werden: ${error.message}`);
     }
@@ -935,9 +830,10 @@
   function newPool() {
     if (!confirmReplace()) return;
     loadPoolData({
+      schemaVersion: 1,
       name: 'Neuer Fragenpool',
       poolId: 'neuer-pool',
-      config: {points: [100, 200, 300, 400, 500], defaultMcHelpMultiplier: 0.5},
+      config: {points: [100, 200, 300, 400, 500]},
       questions: [],
       tiebreakers: [],
     }, {sourceLabel: 'Neuer Pool'});
@@ -946,14 +842,12 @@
 
   function prepareSave() {
     if (!state.data) return false;
-    if (!updateSelectedFromForm() || !state.extraFieldsValid) {
-      showMessage('Die zusätzlichen Felder enthalten ungültiges JSON. Bitte korrigiere sie vor dem Speichern.');
-      return false;
-    }
+    updateSelectedFromForm();
     flushPendingHistory();
     state.validation = validatePool(state.data);
     refreshDerivedViews();
-    if (state.validation.errors && !window.confirm(`Der Pool enthält noch ${state.validation.errors} Fehler. Trotzdem speichern bzw. exportieren?`)) {
+    if (state.validation.errors) {
+      showMessage(`Der Pool enthält ${state.validation.errors} Fehler und kann erst nach der Korrektur exportiert werden.`);
       elements.validationDialog.showModal();
       return false;
     }
@@ -1059,7 +953,7 @@
     elements.saveFileBtn.addEventListener('click', saveDirectly);
     elements.saveAsBtn.addEventListener('click', saveAs);
 
-    [elements.poolNameInput, elements.poolIdInput, elements.pointLevelsInput, elements.mcMultiplierInput].forEach(input => input.addEventListener('input', updateMetadata));
+    [elements.poolNameInput, elements.poolIdInput, elements.pointLevelsInput].forEach(input => input.addEventListener('input', updateMetadata));
     document.querySelectorAll('.entry-tab').forEach(tab => tab.addEventListener('click', () => setEntryType(tab.dataset.entryType)));
     elements.searchInput.addEventListener('input', renderList);
     [elements.categoryFilter, elements.pointsFilter, elements.issueFilter, elements.sortSelect].forEach(filter => filter.addEventListener('change', renderList));

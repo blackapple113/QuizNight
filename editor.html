@@ -91,10 +91,6 @@
                 <label for="pointLevelsInput">Punktestufen</label>
                 <input id="pointLevelsInput" placeholder="100, 200, 300, 400, 500" autocomplete="off" />
               </div>
-              <div class="field">
-                <label for="mcMultiplierInput">Standardfaktor für MC-Hilfe</label>
-                <input id="mcMultiplierInput" type="number" min="0" max="1" step="0.05" />
-              </div>
             </div>
           </details>
 
@@ -218,29 +214,16 @@
                 </div>
               </div>
 
-              <fieldset class="choices-editor">
+              <fieldset class="choices-editor question-only">
                 <div class="choices-heading">
                   <div>
                     <legend>Antwortmöglichkeiten</legend>
-                    <p class="question-only">Markiere die richtige Antwort. Im offenen Modus werden diese als MC-Hilfe verwendet.</p>
-                    <p class="tiebreaker-only hidden">Optional; sie bleiben für kompatible Pool-Daten erhalten.</p>
+                    <p>Markiere die richtige Antwort. Im offenen Modus werden diese als MC-Hilfe verwendet.</p>
                   </div>
                   <button class="btn secondary compact" id="addChoiceBtn" type="button">+ Antwort</button>
                 </div>
                 <div class="choice-editor-list" id="choiceEditorList"></div>
               </fieldset>
-
-              <div class="field">
-                <label for="sourceUrlInput">Quellen-URL <span>(optional)</span></label>
-                <input id="sourceUrlInput" type="url" autocomplete="off" placeholder="https://…" />
-              </div>
-
-              <details class="extra-fields">
-                <summary>Zusätzliche Felder</summary>
-                <p>Unbekannte Pool-Felder bleiben erhalten. Hier können sie als JSON-Objekt bearbeitet werden.</p>
-                <textarea id="extraFieldsInput" rows="7" spellcheck="false">{}</textarea>
-                <p class="field-error hidden" id="extraFieldsError" role="alert"></p>
-              </details>
 
               <div class="current-issues hidden" id="currentIssues" aria-live="polite"></div>
             </form>
@@ -298,8 +281,9 @@
 
   <script src="pools/index.js"></script>
   <script src="scripts/storage.js"></script>
-  <script src="scripts/question-bank.js"></script>
   <script src="scripts/pool-format.js"></script>
+  <script src="scripts/pool-schema.js"></script>
+  <script src="scripts/question-bank.js"></script>
   <script src="scripts/pool-editor.js"></script>
 </body>
 

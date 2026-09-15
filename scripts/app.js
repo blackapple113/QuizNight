@@ -26,7 +26,7 @@ let startingTeamRun = 0;
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const screens = ['setupScreen', 'boardScreen', 'questionScreen', 'endScreen'];
-function showScreen(id) {screens.forEach(x => $('#' + x).classList.toggle('active', x === id)); $('#resetBtn').classList.toggle('hidden', id === 'setupScreen'); $('#settingsBtn').classList.toggle('hidden', id !== 'setupScreen'); $('#settingsFields').disabled = id !== 'setupScreen'; if (id !== 'questionScreen') clearInterval(timerInterval); window.scrollTo({top: 0, behavior: 'auto'});}
+function showScreen(id) {screens.forEach(x => $('#' + x).classList.toggle('active', x === id)); $('#resetBtn').classList.toggle('hidden', id === 'setupScreen'); $('#settingsBtn').classList.toggle('hidden', id !== 'setupScreen'); $('#editorLink').classList.toggle('hidden', id !== 'setupScreen'); $('#settingsFields').disabled = id !== 'setupScreen'; if (id !== 'questionScreen') clearInterval(timerInterval); window.scrollTo({top: 0, behavior: 'auto'});}
 async function selectPool(id) {
   if (settingsLocked()) return;
   const pool = pools.find(p => p.id === id);

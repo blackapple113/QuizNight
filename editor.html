@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Quizz – Pool-Editor</title>
+  <link rel="stylesheet" href="styles/core.css" />
+  <link rel="stylesheet" href="themes/standard/theme.css" />
+  <link rel="stylesheet" href="styles/editor.css" />
+</head>
+
+<body class="pool-editor-page" data-theme="standard">
+  <div class="editor-app">
+    <header class="editor-topbar">
+      <a class="editor-brand" href="index.html" aria-label="Zurück zum Spiel">
+        <span>Quizz</span><small>Pool-Editor</small>
+      </a>
+      <div class="editor-top-actions">
+        <button class="btn ghost compact" id="undoBtn" type="button" disabled title="Rückgängig (Strg+Z)">↶ Rückgängig</button>
+        <button class="btn ghost compact" id="redoBtn" type="button" disabled title="Wiederholen (Strg+Umschalt+Z)">↷ Wiederholen</button>
+        <a class="btn ghost compact" href="index.html">Zum Spiel</a>
+      </div>
+    </header>
+
+    <main class="editor-main">
+      <section class="panel source-panel" aria-labelledby="sourceTitle">
+        <div class="section-heading">
+          <div>
+            <h1 id="sourceTitle">Fragenpool bearbeiten</h1>
+            <p>Öffne einen mitgelieferten Pool oder importiere eine JSON- bzw. <code>questions.js</code>-Datei.</p>
+          </div>
+          <span class="save-state" id="saveState" role="status" aria-live="polite">Kein Pool geladen</span>
+        </div>
+
+        <div class="source-controls">
+          <div class="field source-select-field">
+            <label for="registeredPoolSelect">Mitgelieferter Pool</label>
+            <div class="joined-control">
+              <select id="registeredPoolSelect"></select>
+              <button class="btn secondary" id="loadRegisteredBtn" type="button">Öffnen</button>
+            </div>
+          </div>
+          <div class="source-buttons">
+            <input class="sr-only" id="fileInput" type="file" accept=".json,.js,application/json,text/javascript,application/javascript" />
+            <button class="btn secondary" id="importBtn" type="button">Datei importieren</button>
+            <button class="btn secondary hidden" id="openFileBtn" type="button">Datei direkt öffnen</button>
+            <button class="btn ghost" id="newPoolBtn" type="button">Neuer Pool</button>
+          </div>
+          <div class="field draft-field">
+            <label for="draftSelect">Lokale Entwürfe</label>
+            <div class="joined-control joined-control-wide">
+              <select id="draftSelect"><option value="">Keine Entwürfe</option></select>
+              <button class="btn secondary" id="loadDraftBtn" type="button" disabled>Laden</button>
+              <button class="btn danger" id="deleteDraftBtn" type="button" disabled>Löschen</button>
+            </div>
+          </div>
+        </div>
+        <p class="editor-message hidden" id="editorMessage" role="alert"></p>
+      </section>
+
+      <div class="editor-workspace hidden" id="editorWorkspace">
+        <section class="panel pool-overview" aria-labelledby="overviewTitle">
+          <div class="section-heading compact-heading">
+            <div>
+              <h2 id="overviewTitle">Pool-Übersicht</h2>
+              <p id="sourceDescription"></p>
+            </div>
+            <div class="export-actions">
+              <button class="btn success hidden" id="saveFileBtn" type="button">Direkt speichern</button>
+              <button class="btn secondary hidden" id="saveAsBtn" type="button">Speichern unter</button>
+              <button class="btn accent" id="exportJsBtn" type="button">questions.js exportieren</button>
+              <button class="btn secondary" id="exportJsonBtn" type="button">JSON exportieren</button>
+            </div>
+          </div>
+
+          <div class="stats-grid" id="statsGrid"></div>
+
+          <details class="pool-settings" open>
+            <summary>Pool-Einstellungen</summary>
+            <div class="pool-settings-grid">
+              <div class="field">
+                <label for="poolNameInput">Name</label>
+                <input id="poolNameInput" autocomplete="off" />
+              </div>
+              <div class="field">
+                <label for="poolIdInput">Pool-ID</label>
+                <input id="poolIdInput" autocomplete="off" />
+              </div>
+              <div class="field">
+                <label for="pointLevelsInput">Punktestufen</label>
+                <input id="pointLevelsInput" placeholder="100, 200, 300, 400, 500" autocomplete="off" />
+              </div>
+              <div class="field">
+                <label for="mcMultiplierInput">Standardfaktor für MC-Hilfe</label>
+                <input id="mcMultiplierInput" type="number" min="0" max="1" step="0.05" />
+              </div>
+            </div>
+          </details>
+
+          <div class="overview-actions">
+            <button class="btn secondary compact" id="renameCategoryBtn" type="button">Kategorie umbenennen</button>
+            <button class="btn secondary compact" id="showValidationBtn" type="button">Prüfbericht öffnen</button>
+          </div>
+        </section>
+
+        <section class="editor-grid">
+          <aside class="panel browser-panel" aria-labelledby="browserTitle">
+            <div class="browser-header">
+              <h2 id="browserTitle">Einträge</h2>
+              <div class="entry-tabs" role="tablist" aria-label="Eintragstyp">
+                <button class="entry-tab active" id="questionsTab" type="button" role="tab" aria-selected="true" data-entry-type="questions">Fragen <span id="questionCount"></span></button>
+                <button class="entry-tab" id="tiebreakersTab" type="button" role="tab" aria-selected="false" data-entry-type="tiebreakers">Tie-Breaker <span id="tiebreakerCount"></span></button>
+              </div>
+            </div>
+
+            <div class="browser-filters">
+              <div class="field search-field">
+                <label class="sr-only" for="searchInput">Fragen durchsuchen</label>
+                <input id="searchInput" type="search" placeholder="Frage, Antwort oder ID suchen …" autocomplete="off" />
+              </div>
+              <div class="filter-grid">
+                <div class="field" id="categoryFilterField">
+                  <label for="categoryFilter">Kategorie</label>
+                  <select id="categoryFilter"><option value="">Alle Kategorien</option></select>
+                </div>
+                <div class="field" id="pointsFilterField">
+                  <label for="pointsFilter">Punkte</label>
+                  <select id="pointsFilter"><option value="">Alle Stufen</option></select>
+                </div>
+                <div class="field">
+                  <label for="issueFilter">Prüfung</label>
+                  <select id="issueFilter">
+                    <option value="">Alle Einträge</option>
+                    <option value="problem">Mit Hinweisen</option>
+                    <option value="error">Mit Fehlern</option>
+                    <option value="duplicate">Mögliche Duplikate</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="sortSelect">Sortierung</label>
+                  <select id="sortSelect">
+                    <option value="category-points">Kategorie, Punkte</option>
+                    <option value="points-category">Punkte, Kategorie</option>
+                    <option value="question">Fragetext</option>
+                    <option value="id">ID</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="list-actions">
+              <label class="select-visible"><input id="selectVisibleCheckbox" type="checkbox" /> Sichtbare auswählen</label>
+              <button class="btn accent compact" id="addEntryBtn" type="button">+ Frage</button>
+            </div>
+
+            <div class="bulk-panel hidden" id="bulkPanel">
+              <strong id="bulkCount">0 ausgewählt</strong>
+              <div class="bulk-fields" id="questionBulkFields">
+                <input id="bulkCategoryInput" list="categorySuggestions" placeholder="Kategorie setzen" aria-label="Kategorie für Auswahl setzen" />
+                <input id="bulkPointsInput" type="number" min="1" step="1" placeholder="Punkte setzen" aria-label="Punkte für Auswahl setzen" />
+                <button class="btn secondary compact" id="applyBulkBtn" type="button">Anwenden</button>
+              </div>
+              <button class="btn danger compact" id="deleteBulkBtn" type="button">Auswahl löschen</button>
+            </div>
+
+            <div class="entry-list" id="entryList" role="listbox" aria-label="Fragenliste"></div>
+            <p class="empty-list hidden" id="emptyList">Keine passenden Einträge gefunden.</p>
+          </aside>
+
+          <section class="panel form-panel" aria-labelledby="formTitle">
+            <div class="form-placeholder" id="formPlaceholder">
+              <span>✎</span>
+              <h2>Eintrag auswählen</h2>
+              <p>Wähle links eine Frage aus oder lege einen neuen Eintrag an.</p>
+            </div>
+
+            <form class="entry-form hidden" id="entryForm" novalidate>
+              <div class="form-heading">
+                <div>
+                  <span class="eyebrow" id="formEyebrow">Frage</span>
+                  <h2 id="formTitle">Eintrag bearbeiten</h2>
+                </div>
+                <div class="form-actions">
+                  <button class="btn secondary compact" id="duplicateEntryBtn" type="button">Duplizieren</button>
+                  <button class="btn danger compact" id="deleteEntryBtn" type="button">Löschen</button>
+                </div>
+              </div>
+
+              <div class="entry-fields-grid">
+                <div class="field id-field">
+                  <label for="entryIdInput">ID</label>
+                  <input id="entryIdInput" autocomplete="off" />
+                </div>
+                <div class="field question-only">
+                  <label for="entryCategoryInput">Kategorie</label>
+                  <input id="entryCategoryInput" list="categorySuggestions" autocomplete="off" />
+                </div>
+                <div class="field question-only points-field">
+                  <label for="entryPointsInput">Punkte</label>
+                  <input id="entryPointsInput" type="number" min="1" step="1" list="pointSuggestions" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="entryQuestionInput">Frage</label>
+                <textarea id="entryQuestionInput" rows="5"></textarea>
+              </div>
+              <div class="answer-grid">
+                <div class="field">
+                  <label for="entryAnswerInput">Antwort</label>
+                  <textarea id="entryAnswerInput" rows="3"></textarea>
+                </div>
+                <div class="field tiebreaker-only hidden">
+                  <label for="numericAnswerInput">Numerische Lösung</label>
+                  <input id="numericAnswerInput" inputmode="decimal" autocomplete="off" />
+                  <small>Nur die Zahl, zum Beispiel 125000 oder 12,5.</small>
+                </div>
+              </div>
+
+              <fieldset class="choices-editor">
+                <div class="choices-heading">
+                  <div>
+                    <legend>Antwortmöglichkeiten</legend>
+                    <p class="question-only">Markiere die richtige Antwort. Im offenen Modus werden diese als MC-Hilfe verwendet.</p>
+                    <p class="tiebreaker-only hidden">Optional; sie bleiben für kompatible Pool-Daten erhalten.</p>
+                  </div>
+                  <button class="btn secondary compact" id="addChoiceBtn" type="button">+ Antwort</button>
+                </div>
+                <div class="choice-editor-list" id="choiceEditorList"></div>
+              </fieldset>
+
+              <div class="field">
+                <label for="sourceUrlInput">Quellen-URL <span>(optional)</span></label>
+                <input id="sourceUrlInput" type="url" autocomplete="off" placeholder="https://…" />
+              </div>
+
+              <details class="extra-fields">
+                <summary>Zusätzliche Felder</summary>
+                <p>Unbekannte Pool-Felder bleiben erhalten. Hier können sie als JSON-Objekt bearbeitet werden.</p>
+                <textarea id="extraFieldsInput" rows="7" spellcheck="false">{}</textarea>
+                <p class="field-error hidden" id="extraFieldsError" role="alert"></p>
+              </details>
+
+              <div class="current-issues hidden" id="currentIssues" aria-live="polite"></div>
+            </form>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <footer class="editor-footer">Alle Änderungen bleiben lokal in diesem Browser. Für das Spiel den Pool als <code>questions.js</code> exportieren.</footer>
+  </div>
+
+  <dialog id="validationDialog" class="editor-dialog">
+    <div class="dialog-body">
+      <div class="dialog-heading">
+        <div>
+          <h2>Prüfbericht</h2>
+          <p id="validationSummary"></p>
+        </div>
+        <button class="btn ghost compact" data-close-dialog="validationDialog" type="button">Schließen</button>
+      </div>
+      <div class="validation-layout">
+        <section>
+          <h3>Hinweise</h3>
+          <div class="issue-list" id="issueList"></div>
+        </section>
+        <section>
+          <h3>Abdeckung</h3>
+          <div class="coverage-wrap" id="coverageTable"></div>
+        </section>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="renameCategoryDialog" class="editor-dialog small-dialog">
+    <form class="dialog-body" id="renameCategoryForm" method="dialog">
+      <h2>Kategorie umbenennen</h2>
+      <div class="field">
+        <label for="oldCategorySelect">Bisheriger Name</label>
+        <select id="oldCategorySelect"></select>
+      </div>
+      <div class="field">
+        <label for="newCategoryInput">Neuer Name</label>
+        <input id="newCategoryInput" autocomplete="off" required />
+      </div>
+      <p class="setting-hint">Die IDs der Fragen werden nicht automatisch verändert.</p>
+      <div class="dialog-actions">
+        <button class="btn ghost" data-close-dialog="renameCategoryDialog" type="button">Abbrechen</button>
+        <button class="btn accent" type="submit">Umbenennen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <datalist id="categorySuggestions"></datalist>
+  <datalist id="pointSuggestions"></datalist>
+
+  <script src="pools/index.js"></script>
+  <script src="scripts/storage.js"></script>
+  <script src="scripts/question-bank.js"></script>
+  <script src="scripts/pool-format.js"></script>
+  <script src="scripts/pool-editor.js"></script>
+</body>
+
+</html>

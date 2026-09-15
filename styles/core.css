@@ -35,7 +35,7 @@
   .brand{font-weight:900;letter-spacing:.04em;font-size:clamp(1.25rem,3vw,2rem);text-transform:uppercase}
   .top-actions{display:flex;gap:8px;flex-wrap:wrap}
   .top-actions #rulesBtn{width:42px;padding-left:0;padding-right:0;font-size:1.15rem}
-  .btn{border:0;border-radius:12px;padding:11px 14px;background:#fff;color:#0b1d53;font-weight:800;box-shadow:0 4px 12px rgba(0,0,0,.16)}
+  .btn{border:0;border-radius:12px;padding:11px 14px;background:#fff;color:#0b1d53;font-weight:800;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.16)}
   .btn:hover{filter:brightness(.97)}
   .btn.secondary{background:#dce6ff}
   .btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2);box-shadow:none}

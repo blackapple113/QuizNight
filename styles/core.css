@@ -34,6 +34,7 @@
   .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .brand{font-weight:900;letter-spacing:.04em;font-size:clamp(1.25rem,3vw,2rem);text-transform:uppercase}
   .top-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .top-actions .btn{display:inline-flex;align-items:center;justify-content:center;line-height:1.2}
   .top-actions #rulesBtn{width:42px;padding-left:0;padding-right:0;font-size:1.15rem}
   .btn{border:0;border-radius:12px;padding:11px 14px;background:#fff;color:#0b1d53;font-weight:800;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.16)}
   .btn:hover{filter:brightness(.97)}

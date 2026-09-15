@@ -16,10 +16,10 @@ window.QUESTIONS_DATA = {
   "questions": [
     {
       "id": "q-000001",
+      "question": "In welcher Stadt steht das Brandenburger Tor?",
+      "answer": "Berlin",
       "category": "Deutschland",
       "points": 100,
-      "question": "Wie heißt die Hauptstadt der Bundesrepublik Deutschland?",
-      "answer": "Berlin",
       "choices": [
         "Berlin",
         "Bonn",

@@ -16,10 +16,10 @@ window.QUESTIONS_DATA = {
   "questions": [
     {
       "id": "q-000001",
-      "category": "München & Theresienwiese",
-      "points": 100,
       "question": "In welcher Stadt findet das Oktoberfest statt?",
       "answer": "München",
+      "category": "München & Theresienwiese",
+      "points": 100,
       "choices": [
         "München",
         "Nürnberg",
@@ -1136,10 +1136,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000081",
-      "category": "Bier & Braukunst",
-      "points": 100,
       "question": "Wie viel Bier fasst eine korrekt gefüllte Maß?",
       "answer": "Einen Liter",
+      "category": "Bier & Braukunst",
+      "points": 100,
       "choices": [
         "Einen Liter",
         "Einen halben Liter",
@@ -1150,10 +1150,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000082",
-      "category": "Bier & Braukunst",
-      "points": 100,
       "question": "Welche vier Grundzutaten werden heute für klassisches Bier verwendet?",
       "answer": "Wasser, Malz, Hopfen und Hefe",
+      "category": "Bier & Braukunst",
+      "points": 100,
       "choices": [
         "Wasser, Reis, Zucker und Hefe",
         "Wasser, Malz, Hopfen und Hefe",
@@ -1164,10 +1164,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000083",
-      "category": "Bier & Braukunst",
-      "points": 100,
       "question": "Welche Zutat sorgt vor allem für die typische Bittere im Bier?",
       "answer": "Hopfen",
+      "category": "Bier & Braukunst",
+      "points": 100,
       "choices": [
         "Hefe",
         "Wasser",
@@ -1178,10 +1178,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000084",
-      "category": "Bier & Braukunst",
-      "points": 100,
       "question": "Welche Zutat vergärt Zucker zu Alkohol und Kohlensäure?",
       "answer": "Hefe",
+      "category": "Bier & Braukunst",
+      "points": 100,
       "choices": [
         "Hopfen",
         "Gerste",
@@ -1192,10 +1192,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000085",
-      "category": "Bier & Braukunst",
-      "points": 100,
       "question": "Wie heißt das Bier, das die Münchner Brauereien eigens für die Wiesn brauen?",
       "answer": "Oktoberfestbier",
+      "category": "Bier & Braukunst",
+      "points": 100,
       "choices": [
         "Oktoberfestbier",
         "Altbier",
@@ -1206,10 +1206,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000086",
-      "category": "Bier & Braukunst",
-      "points": 100,
       "question": "Aus welchem Getreide wird das Malz für Wiesnbier überwiegend hergestellt?",
       "answer": "Gerste",
+      "category": "Bier & Braukunst",
+      "points": 100,
       "choices": [
         "Roggen",
         "Gerste",
@@ -1220,10 +1220,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000087",
-      "category": "Bier & Braukunst",
-      "points": 100,
       "question": "Wie nennt man Bier gemischt mit Zitronenlimonade in Bayern?",
       "answer": "Radler",
+      "category": "Bier & Braukunst",
+      "points": 100,
       "choices": [
         "Russ",
         "Spezi",
@@ -1234,10 +1234,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000088",
-      "category": "Bier & Braukunst",
-      "points": 100,
       "question": "Welches Gefäß wird auf der Wiesn typischerweise für Bier verwendet?",
       "answer": "Maßkrug",
+      "category": "Bier & Braukunst",
+      "points": 100,
       "choices": [
         "Weinglas",
         "Tonbecher",
@@ -1248,10 +1248,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000089",
-      "category": "Bier & Braukunst",
-      "points": 200,
       "question": "Wie viele Münchner Brauereien dürfen traditionell Oktoberfestbier ausschenken?",
       "answer": "Sechs",
+      "category": "Bier & Braukunst",
+      "points": 200,
       "choices": [
         "Sechs",
         "Vier",
@@ -1262,10 +1262,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000090",
-      "category": "Bier & Braukunst",
-      "points": 200,
       "question": "Welche Gärungsart ist für modernes helles Wiesnbier typisch?",
       "answer": "Untergärung",
+      "category": "Bier & Braukunst",
+      "points": 200,
       "choices": [
         "Obergärung",
         "Untergärung",
@@ -1276,10 +1276,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000091",
-      "category": "Bier & Braukunst",
-      "points": 200,
       "question": "Wie heißt der Schritt, bei dem geschrotetes Malz mit warmem Wasser vermischt wird?",
       "answer": "Maischen",
+      "category": "Bier & Braukunst",
+      "points": 200,
       "choices": [
         "Läutern",
         "Pichen",
@@ -1290,10 +1290,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000092",
-      "category": "Bier & Braukunst",
-      "points": 200,
       "question": "Wie nennt man die zuckerhaltige Flüssigkeit, die beim Brauen vor der Gärung entsteht?",
       "answer": "Würze",
+      "category": "Bier & Braukunst",
+      "points": 200,
       "choices": [
         "Maische",
         "Treber",
@@ -1304,10 +1304,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000093",
-      "category": "Bier & Braukunst",
-      "points": 200,
       "question": "Welcher Brauschritt trennt die Würze von den festen Malzresten?",
       "answer": "Läutern",
+      "category": "Bier & Braukunst",
+      "points": 200,
       "choices": [
         "Läutern",
         "Mälzen",
@@ -1318,10 +1318,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000094",
-      "category": "Bier & Braukunst",
-      "points": 200,
       "question": "Warum wurde Märzenbier historisch im März stärker eingebraut?",
       "answer": "Damit es den Sommer über lagerfähig blieb",
+      "category": "Bier & Braukunst",
+      "points": 200,
       "choices": [
         "Damit es schneller gefror",
         "Damit es den Sommer über lagerfähig blieb",
@@ -1332,10 +1332,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000095",
-      "category": "Bier & Braukunst",
-      "points": 200,
       "question": "Wie heißt der feste Rückstand des Malzes nach dem Läutern?",
       "answer": "Treber",
+      "category": "Bier & Braukunst",
+      "points": 200,
       "choices": [
         "Trub",
         "Geläger",
@@ -1346,10 +1346,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000096",
-      "category": "Bier & Braukunst",
-      "points": 200,
       "question": "Welche historische Vorschrift von 1516 wird oft mit bayerischem Bier verbunden?",
       "answer": "Reinheitsgebot",
+      "category": "Bier & Braukunst",
+      "points": 200,
       "choices": [
         "Brauereisteuerordnung",
         "Münchner Schankrecht",
@@ -1360,10 +1360,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000097",
-      "category": "Bier & Braukunst",
-      "points": 300,
       "question": "Welche sechs Brauereien schenken traditionell Wiesnbier aus?",
       "answer": "Augustiner, Hacker-Pschorr, Hofbräu, Löwenbräu, Paulaner und Spaten",
+      "category": "Bier & Braukunst",
+      "points": 300,
       "choices": [
         "Augustiner, Hacker-Pschorr, Hofbräu, Löwenbräu, Paulaner und Spaten",
         "Ayinger, Erdinger, Tegernseer, Andechser, Giesinger und Weihenstephan",
@@ -1374,10 +1374,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000098",
-      "category": "Bier & Braukunst",
-      "points": 300,
       "question": "Wie heißen die traditionellen 200-Liter-Holzfässer in der Augustiner-Festhalle?",
       "answer": "Hirschen",
+      "category": "Bier & Braukunst",
+      "points": 300,
       "choices": [
         "Böcke",
         "Hirschen",
@@ -1388,24 +1388,24 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000099",
-      "category": "Bier & Braukunst",
-      "points": 300,
       "question": "Welche Einheit beschreibt die Stammwürze eines Bieres?",
       "answer": "Grad Plato",
+      "category": "Bier & Braukunst",
+      "points": 300,
       "choices": [
         "Grad Celsius",
-        "Promille",
+        "Grad Aristoteles",
         "Grad Plato",
-        "Hektopascal"
+        "Grad Sokrates"
       ],
       "correctChoiceIndex": 2
     },
     {
       "id": "q-000100",
-      "category": "Bier & Braukunst",
-      "points": 300,
       "question": "Was misst die Stammwürze?",
       "answer": "Den Anteil gelöster Stoffe vor der Gärung",
+      "category": "Bier & Braukunst",
+      "points": 300,
       "choices": [
         "Den Alkoholgehalt nach dem Ausschank",
         "Die Bitterkeit des Hopfens",
@@ -1416,10 +1416,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000101",
-      "category": "Bier & Braukunst",
-      "points": 300,
       "question": "Warum vergärt untergärige Hefe bei vergleichsweise niedrigen Temperaturen?",
       "answer": "Sie ist an kühle Gärung angepasst",
+      "category": "Bier & Braukunst",
+      "points": 300,
       "choices": [
         "Sie ist an kühle Gärung angepasst",
         "Sie enthält keinen Zucker",
@@ -1430,10 +1430,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000102",
-      "category": "Bier & Braukunst",
-      "points": 300,
       "question": "Welche Aufgabe hat das Darren beim Mälzen?",
       "answer": "Das gekeimte Getreide zu trocknen",
+      "category": "Bier & Braukunst",
+      "points": 300,
       "choices": [
         "Den Hopfen zu kochen",
         "Das gekeimte Getreide zu trocknen",
@@ -1444,10 +1444,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000103",
-      "category": "Bier & Braukunst",
-      "points": 300,
       "question": "Was bewirkt längeres oder stärkeres Darren beim Malz?",
       "answer": "Dunklere Farbe und kräftigere Röstaromen",
+      "category": "Bier & Braukunst",
+      "points": 300,
       "choices": [
         "Weniger Wasserhärte",
         "Mehr Kohlensäure",
@@ -1458,10 +1458,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000104",
-      "category": "Bier & Braukunst",
-      "points": 300,
       "question": "Welche Stoffgruppe aus dem Hopfen trägt wesentlich zur Bierbittere bei?",
       "answer": "Alphasäuren",
+      "category": "Bier & Braukunst",
+      "points": 300,
       "choices": [
         "Milchsäuren",
         "Aminozucker",
@@ -1472,10 +1472,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000105",
-      "category": "Bier & Braukunst",
-      "points": 400,
       "question": "Warum muss echtes Oktoberfestbier für die Wiesn aus München stammen?",
       "answer": "Die Bezeichnung ist als geografische Angabe geschützt",
+      "category": "Bier & Braukunst",
+      "points": 400,
       "choices": [
         "Die Bezeichnung ist als geografische Angabe geschützt",
         "Das Grundwasser außerhalb Münchens ist verboten",
@@ -1486,10 +1486,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000106",
-      "category": "Bier & Braukunst",
-      "points": 400,
       "question": "Welcher chemische Prozess bildet bei der alkoholischen Gärung Ethanol und Kohlendioxid?",
       "answer": "Umwandlung von Zucker durch Hefe",
+      "category": "Bier & Braukunst",
+      "points": 400,
       "choices": [
         "Oxidation von Hopfenöl",
         "Umwandlung von Zucker durch Hefe",
@@ -1500,10 +1500,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000107",
-      "category": "Bier & Braukunst",
-      "points": 400,
       "question": "Warum beeinflusst die Maischetemperatur den späteren Vergärungsgrad?",
       "answer": "Verschiedene Enzyme arbeiten in unterschiedlichen Temperaturbereichen",
+      "category": "Bier & Braukunst",
+      "points": 400,
       "choices": [
         "Hopfen löst sich nur unter 20 Grad",
         "Hefe wird bereits beim Maischen zugesetzt",
@@ -1514,10 +1514,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000108",
-      "category": "Bier & Braukunst",
-      "points": 400,
       "question": "Welche Enzyme bauen beim Maischen Stärke hauptsächlich zu vergärbaren Zuckern ab?",
       "answer": "Amylasen",
+      "category": "Bier & Braukunst",
+      "points": 400,
       "choices": [
         "Lipasen",
         "Proteasen allein",
@@ -1528,10 +1528,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000109",
-      "category": "Bier & Braukunst",
-      "points": 400,
       "question": "Wie heißt das gezielte Einstellen des Kohlensäuredrucks während der Reifung?",
       "answer": "Spunden",
+      "category": "Bier & Braukunst",
+      "points": 400,
       "choices": [
         "Spunden",
         "Schroten",
@@ -1542,10 +1542,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000110",
-      "category": "Bier & Braukunst",
-      "points": 400,
       "question": "Warum wurde untergäriges Bier früher bevorzugt in Kellern gelagert?",
       "answer": "Dort blieben die Temperaturen niedrig und stabil",
+      "category": "Bier & Braukunst",
+      "points": 400,
       "choices": [
         "Dort war mehr Sonnenlicht",
         "Dort blieben die Temperaturen niedrig und stabil",
@@ -1556,10 +1556,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000111",
-      "category": "Bier & Braukunst",
-      "points": 400,
       "question": "Welche sensorische Wirkung hat Malz im Wiesnbier vor allem?",
       "answer": "Körper, Farbe und süßlich-brotige Aromen",
+      "category": "Bier & Braukunst",
+      "points": 400,
       "choices": [
         "Nur Kohlensäure",
         "Ausschließlich Bitterkeit",
@@ -1570,10 +1570,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000112",
-      "category": "Bier & Braukunst",
-      "points": 400,
       "question": "Wodurch entsteht der stabile Schaum eines Bieres unter anderem?",
       "answer": "Durch Proteine und Kohlendioxid",
+      "category": "Bier & Braukunst",
+      "points": 400,
       "choices": [
         "Durch Kochsalz und Fett",
         "Durch reinen Alkohol",
@@ -1584,10 +1584,10 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000113",
-      "category": "Bier & Braukunst",
-      "points": 500,
       "question": "Wie wird der scheinbare Vergärungsgrad aus Stammwürze und Restextrakt berechnet?",
       "answer": "(Stammwürze minus Restextrakt) geteilt durch Stammwürze mal 100",
+      "category": "Bier & Braukunst",
+      "points": 500,
       "choices": [
         "(Stammwürze minus Restextrakt) geteilt durch Stammwürze mal 100",
         "Stammwürze plus Restextrakt mal 100",

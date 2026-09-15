@@ -4495,5 +4495,126 @@ window.QUESTIONS_DATA = {
       "correctChoiceIndex": 3
     }
   ],
-  "tiebreakers": []
+  "tiebreakers": [
+    {
+      "id": "tb-0001",
+      "question": "Wie viele Brathendl wurden laut Geschäftsbilanz auf dem Oktoberfest 2025 gemeldet?",
+      "answer": "351.461 Brathendl",
+      "numericAnswer": 351461
+    },
+    {
+      "id": "tb-0002",
+      "question": "Wie viele Schweinshaxen wurden laut Geschäftsbilanz auf dem Oktoberfest 2025 gemeldet?",
+      "answer": "71.829 Schweinshaxen",
+      "numericAnswer": 71829
+    },
+    {
+      "id": "tb-0003",
+      "question": "Wie viele Kilogramm Fisch wurden laut Geschäftsbilanz auf dem Oktoberfest 2025 verzehrt?",
+      "answer": "21.986 Kilogramm Fisch",
+      "numericAnswer": 21986
+    },
+    {
+      "id": "tb-0004",
+      "question": "Wie viele Ochsen wurden laut Geschäftsbilanz auf dem Oktoberfest 2025 verzehrt?",
+      "answer": "130 Ochsen",
+      "numericAnswer": 130
+    },
+    {
+      "id": "tb-0005",
+      "question": "Wie viele Kilogramm gebrannte Mandeln wurden laut Geschäftsbilanz auf dem Oktoberfest 2025 gemeldet?",
+      "answer": "45.750 Kilogramm gebrannte Mandeln",
+      "numericAnswer": 45750
+    },
+    {
+      "id": "tb-0006",
+      "question": "Wie viele vegetarische Gerichte wurden laut Geschäftsbilanz auf dem Oktoberfest 2025 gemeldet?",
+      "answer": "152.569 vegetarische Gerichte",
+      "numericAnswer": 152569
+    },
+    {
+      "id": "tb-0007",
+      "question": "Wie viele vegane Gerichte wurden laut Geschäftsbilanz auf dem Oktoberfest 2025 gemeldet?",
+      "answer": "51.184 vegane Gerichte",
+      "numericAnswer": 51184
+    },
+    {
+      "id": "tb-0008",
+      "question": "Wie viele Liter Wein wurden laut Geschäftsbilanz auf dem Oktoberfest 2025 ausgeschenkt?",
+      "answer": "149.984 Liter Wein",
+      "numericAnswer": 149984
+    },
+    {
+      "id": "tb-0009",
+      "question": "Wie viele Millionen Kilowattstunden Strom verbrauchte das Oktoberfest 2025 ungefähr?",
+      "answer": "Rund 2,8 Millionen Kilowattstunden",
+      "numericAnswer": 2.8
+    },
+    {
+      "id": "tb-0010",
+      "question": "Wie viele Kubikmeter Wasser wurden auf dem Oktoberfest 2025 insgesamt verbraucht?",
+      "answer": "110.027 Kubikmeter Wasser",
+      "numericAnswer": 110027
+    },
+    {
+      "id": "tb-0011",
+      "question": "Wie viele Tonnen Abfall weist der endgültige Wiesn-Schlussbericht für 2025 insgesamt aus?",
+      "answer": "1.828,22 Tonnen Abfall",
+      "numericAnswer": 1828.22
+    },
+    {
+      "id": "tb-0012",
+      "question": "Wie viele Fundsachen landeten nach der endgültigen Statistik 2025 im Wiesn-Fundbüro?",
+      "answer": "5.656 Fundsachen",
+      "numericAnswer": 5656
+    },
+    {
+      "id": "tb-0013",
+      "question": "Wie viele Maßkrüge, die Gäste vom Gelände mitnehmen wollten, fing das Ordnerpersonal laut Wiesn-Bilanz 2025 ungefähr ab?",
+      "answer": "Rund 116.000 Maßkrüge",
+      "numericAnswer": 116000
+    },
+    {
+      "id": "tb-0014",
+      "question": "Wie viele Meter hoch ist der Löwe über dem Eingang des Löwenbräu-Festzelts?",
+      "answer": "4,5 Meter",
+      "numericAnswer": 4.5
+    },
+    {
+      "id": "tb-0015",
+      "question": "Wie viele Meter hoch ist der Löwenturm des Löwenbräu-Festzelts?",
+      "answer": "37 Meter",
+      "numericAnswer": 37
+    },
+    {
+      "id": "tb-0016",
+      "question": "Wie viele Meter lang ist die offene Grillstraße der Fischer-Vroni ungefähr?",
+      "answer": "Rund 15 Meter",
+      "numericAnswer": 15
+    },
+    {
+      "id": "tb-0017",
+      "question": "Wie viele Meter führt das Förderband des Toboggan ungefähr nach oben?",
+      "answer": "8 Meter",
+      "numericAnswer": 8
+    },
+    {
+      "id": "tb-0018",
+      "question": "Wie viele Sofa-Gondeln besitzt die historische Krinoline auf dem Oktoberfest?",
+      "answer": "16 Sofa-Gondeln",
+      "numericAnswer": 16
+    },
+    {
+      "id": "tb-0019",
+      "question": "Über wie viele Kilometer erstreckt sich der Trachten- und Schützenzug durch München ungefähr?",
+      "answer": "Fast 7 Kilometer",
+      "numericAnswer": 7
+    },
+    {
+      "id": "tb-0020",
+      "question": "Wie viele Kilometer Kabel wurden laut Aufbau-Bericht 2023 pro Großzelt ungefähr verlegt?",
+      "answer": "Rund 13,5 Kilometer Kabel",
+      "numericAnswer": 13.5
+    }
+  ]
 };

@@ -1,4 +1,4 @@
-# 🎲 Quizz
+# 🎲 QuizNight
 
 Ein kleines browserbasiertes Quizspiel für **Spieleabende, Partys und gemütliche Runden mit Freunden**.
 

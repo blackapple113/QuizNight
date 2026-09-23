@@ -29,6 +29,9 @@ window.QuizScoring = (() => {
     savedGame.challengeMultiplier = CHALLENGE_MULTIPLIERS.includes(Number(savedGame.challengeMultiplier)) ? Number(savedGame.challengeMultiplier) : defaultChallengeMultiplier(defaults);
     savedGame.challengePenaltyMode = ['base', 'multiplied'].includes(savedGame.challengePenaltyMode) ? savedGame.challengePenaltyMode : 'multiplied';
     savedGame.allowNegativeScores = typeof savedGame.allowNegativeScores === 'boolean' ? savedGame.allowNegativeScores : (defaults.allowNegativeScores ?? true);
+    const timerSeconds = Math.max(0, Math.round(Number(savedGame.timerSeconds) || 0));
+    const defaultMcHelpTimeBonus = Math.max(0, Math.round(Number(defaults.mcHelpTimeBonus) || 0));
+    savedGame.mcHelpTimeBonus = Math.min(timerSeconds, Math.max(0, Math.round(Number(savedGame.mcHelpTimeBonus ?? defaultMcHelpTimeBonus) || 0)));
     if (!Number.isInteger(savedGame.doubleOrNothingTeam) || !savedGame.teams?.[savedGame.doubleOrNothingTeam]) delete savedGame.doubleOrNothingTeam;
     return savedGame;
   }

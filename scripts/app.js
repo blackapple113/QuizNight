@@ -208,7 +208,8 @@ function openSettings() {if (settingsLocked()) return; $('#themeSelect').value =
 function openRules() {
   const rules = game || currentGameSettings();
   const mode = rules.mode === 'mc' ? 'Multiple Choice' : `offene Fragen${rules.mcMultiplier < 1 ? ` mit ${Math.round(rules.mcMultiplier * 100)} % bei MC-Hilfe` : ''}`;
-  const timer = rules.timerSeconds > 0 ? `Timer: ${rules.timerSeconds} Sekunden.` : 'Timer: aus.';
+  const timerBonus = rules.mode === 'open' && rules.timerSeconds > 0 && rules.mcHelpTimeBonus > 0 ? ` MC-Hilfe: bis zu +${rules.mcHelpTimeBonus} Sekunden.` : '';
+  const timer = rules.timerSeconds > 0 ? `Timer: ${rules.timerSeconds} Sekunden.${timerBonus}` : 'Timer: aus.';
   const challenge = rules.challengeEnabled ? `Challenge: ${String(rules.challengeMultiplier).replace('.', ',')}×, Abzug ${rules.challengePenaltyMode === 'base' ? 'einfach' : 'multipliziert'}, negative Punkte ${rules.allowNegativeScores ? 'erlaubt' : 'nicht erlaubt'}.` : 'Challenge: aus.';
   $('#rulesSummary').textContent = `Aktuelle Regeln: ${mode} · ${timer} · ${challenge}`;
   $('#rulesDialog').showModal();
@@ -220,21 +221,49 @@ function applyTheme(theme) {
 }
 function loadTimerSettings() {
   const value = readJson(storage, LS_TIMER, {});
-  return {enabled: typeof value?.enabled === 'boolean' ? value.enabled : DEFAULTS.timerEnabled, seconds: Math.min(600, Math.max(5, Math.round(Number(value?.seconds) || DEFAULTS.timerSeconds)))};
+  const seconds = Math.min(600, Math.max(5, Math.round(Number(value?.seconds) || DEFAULTS.timerSeconds)));
+  const configuredBonus = value?.mcHelpTimeBonus ?? DEFAULTS.mcHelpTimeBonus;
+  const mcHelpTimeBonus = Math.min(seconds, Math.max(0, Math.round(Number(configuredBonus) || 0)));
+  return {enabled: typeof value?.enabled === 'boolean' ? value.enabled : DEFAULTS.timerEnabled, seconds, mcHelpTimeBonus};
+}
+function updateMcHelpTimeBonusOption() {
+  const timerEnabled = $('#timerEnabled').checked;
+  const timerSeconds = Number($('#timerSeconds').value);
+  const available = selectedMode() === 'open' && timerEnabled && $('#timerSeconds').checkValidity();
+  const field = $('#mcHelpTimeBonusField'), input = $('#mcHelpTimeBonus');
+  field.classList.toggle('hidden', !available);
+  input.disabled = !available;
+  if (!available) return;
+  const maximum = Math.round(timerSeconds);
+  input.max = String(maximum);
+  const requested = Number(input.value);
+  if (Number.isFinite(requested)) input.value = String(Math.min(maximum, Math.max(0, Math.round(requested))));
+}
+function timerSettingsAreValid(report = false) {
+  if (!$('#timerEnabled').checked) return true;
+  const controls = [$('#timerSeconds'), ...($('#mcHelpTimeBonus').disabled ? [] : [$('#mcHelpTimeBonus')])];
+  const invalid = controls.find(control => !control.checkValidity());
+  if (invalid && report) invalid.reportValidity();
+  return !invalid;
 }
 function saveTimerSettings() {
   if (settingsLocked()) return;
   $('#timerSeconds').disabled = !$('#timerEnabled').checked;
-  if (!$('#timerSeconds').checkValidity()) return;
-  storage.setItem(LS_TIMER, JSON.stringify({enabled: $('#timerEnabled').checked, seconds: Number($('#timerSeconds').value)}));
+  updateMcHelpTimeBonusOption();
+  if (!timerSettingsAreValid()) return;
+  const seconds = Number($('#timerSeconds').value);
+  const mcHelpTimeBonus = Math.min(seconds, Math.max(0, Math.round(Number($('#mcHelpTimeBonus').value) || 0)));
+  storage.setItem(LS_TIMER, JSON.stringify({enabled: $('#timerEnabled').checked, seconds, mcHelpTimeBonus}));
 }
 function startingTeamSettings() {return {enabled: $('#startingTeamSelectionEnabled').checked, mode: $('#startingTeamMode').value === 'random' ? 'random' : 'manual'};}
 function currentGameSettings() {
   const startingTeam = startingTeamSettings();
+  const timerSeconds = $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0;
   return {
     theme: document.body.dataset.theme,
     poolId: currentPoolId(),
-    timerSeconds: $('#timerEnabled').checked ? Number($('#timerSeconds').value) : 0,
+    timerSeconds,
+    mcHelpTimeBonus: selectedMode() === 'open' ? Math.min(timerSeconds, Math.max(0, Math.round(Number($('#mcHelpTimeBonus').value) || 0))) : 0,
     mode: selectedMode(),
     mcMultiplier: Number($('#mcPenalty').value),
     challengeEnabled: $('#challengeEnabled').checked,
@@ -251,7 +280,7 @@ function saveRules() {
   storage.setItem(LS_RULES, JSON.stringify({mode, mcMultiplier, challengeEnabled, challengeMultiplier, challengePenaltyMode, allowNegativeScores, startingTeamSelectionEnabled, startingTeamMode}));
   updateModeOptions(); updateChallengeOptions(); updateStartingTeamOptions();
 }
-function updateModeOptions() {$('#mcPenaltyField').classList.toggle('hidden', selectedMode() !== 'open');}
+function updateModeOptions() {$('#mcPenaltyField').classList.toggle('hidden', selectedMode() !== 'open'); updateMcHelpTimeBonusOption();}
 function updateChallengeOptions() {
   const enabled = $('#challengeEnabled').checked;
   $('#challengeMultiplier').disabled = !enabled;
@@ -268,6 +297,21 @@ function updateStartingTeamOptions() {
 function timerRemaining(question) {
   if (!question?._timer) return 0;
   return Math.max(0, question._timer.remainingMs ?? (question._timer.deadline - Date.now()));
+}
+function applyMcHelpTimeBonus() {
+  const timer = currentQuestion?._timer;
+  const bonusSeconds = Math.min(game?.timerSeconds || 0, Math.max(0, Math.round(Number(game?.mcHelpTimeBonus) || 0)));
+  if (!timer || !bonusSeconds) return false;
+  const remainingMs = timerRemaining(currentQuestion);
+  const maximumMs = game.timerSeconds * 1000;
+  const boostedMs = Math.min(maximumMs, remainingMs + bonusSeconds * 1000);
+  if (boostedMs <= remainingMs) return false;
+  timer.deadline = Date.now() + boostedMs;
+  delete timer.remainingMs;
+  clearInterval(timerInterval);
+  renderQuestionTimer();
+  if (timerRemaining(currentQuestion) > 0) timerInterval = setInterval(renderQuestionTimer, 50);
+  return true;
 }
 function startQuestionTimer() {
   clearInterval(timerInterval);
@@ -337,7 +381,7 @@ function selectedMode() {return $('input[name="mode"]:checked').value;}
 function startGame() {
   if (!data) return;
   if (selectedMode() === 'mc' && data.questions.some(q => !q.choices?.length)) {alert('Dieser Pool enthält Fragen ohne Antwortmöglichkeiten. Bitte den Modus „Offene Fragen“ wählen.'); return;}
-  if ($('#timerEnabled').checked && !$('#timerSeconds').checkValidity()) {openSettings(); $('#timerSeconds').reportValidity(); return;}
+  if (!timerSettingsAreValid(true)) {openSettings(); return;}
   saveBoardSettings(); saveTimerSettings();
   const names = getTeamNames(); if (names.length < 2) {alert('Bitte mindestens zwei Teams eintragen.'); return;} if (names.length > 5) {alert('Es sind maximal fünf Teams möglich.'); return;}
   const settings = loadBoardSettings();
@@ -492,10 +536,13 @@ function showChoices(asHelp) {
   });
   ch.classList.remove('hidden');
   if (asHelp) {
+    const activatingHelp = !currentQuestion._helpUsed;
     currentQuestion._helpUsed = true;
+    const timerBonusApplied = activatingHelp && applyMcHelpTimeBonus();
     const challengeActive = game.doubleOrNothingTeam === game.activeTeam;
     const challengeInfo = challengeActive ? ` Challenge: +${questionPoints(currentQuestion, game, true)} / −${challengePenaltyPoints(currentQuestion, game)} Punkte.` : '';
-    $('#helpInfo').textContent = `MC-Hilfe aktiv: ${Math.round(game.mcMultiplier * 100)} % der Punkte bei richtiger Antwort.${challengeInfo}`;
+    const timerInfo = game.mcHelpTimeBonus > 0 && game.timerSeconds > 0 ? ` Zeitbonus: bis zu +${game.mcHelpTimeBonus} Sekunden, höchstens ${game.timerSeconds} Sekunden insgesamt.${activatingHelp && !timerBonusApplied ? ' Der Timer war bereits voll.' : ''}` : '';
+    $('#helpInfo').textContent = `MC-Hilfe aktiv: ${Math.round(game.mcMultiplier * 100)} % der Punkte bei richtiger Antwort.${timerInfo}${challengeInfo}`;
     $('#helpInfo').classList.remove('hidden'); $('#helpBtn').classList.add('hidden'); saveGame();
   }
 }
@@ -612,7 +659,7 @@ $('#rulesBtn').onclick = openRules; $('#closeRulesBtn').onclick = () => $('#rule
 $('#confirmStartingTeamBtn').onclick = () => chooseStartingTeam(Number($('#startingTeamSelect').value));
 $('#startingTeamDialog').addEventListener('cancel', event => event.preventDefault());
 function closeSettings() {
-  if ($('#timerEnabled').checked && !$('#timerSeconds').reportValidity()) return;
+  if (!timerSettingsAreValid(true)) return;
   saveBoardSettings(); saveTimerSettings(); saveRules(); $('#settingsDialog').close();
 }
 $('#closeSettingsBtn').onclick = closeSettings;
@@ -622,7 +669,7 @@ $('#categoryCount').onchange = saveBoardSettings;
 $('#categoryChoiceEnabled').onchange = saveBoardSettings;
 $('#pointOptions').onchange = saveBoardSettings; $('#categorySelects').onchange = saveBoardSettings;
 $('#mcPenalty').onchange = saveRules; $('#challengeEnabled').onchange = saveRules; $('#challengeMultiplier').onchange = saveRules; $('#challengePenaltyMode').onchange = saveRules; $('#allowNegativeScores').onchange = saveRules; $('#startingTeamSelectionEnabled').onchange = saveRules; $('#startingTeamMode').onchange = saveRules;
-$('#timerEnabled').onchange = saveTimerSettings; $('#timerSeconds').oninput = saveTimerSettings;
+$('#timerEnabled').onchange = saveTimerSettings; $('#timerSeconds').oninput = saveTimerSettings; $('#mcHelpTimeBonus').oninput = saveTimerSettings;
 $$('input[name="mode"]').forEach(input => input.onchange = saveRules);
 
 async function initialize() {
@@ -646,7 +693,7 @@ async function initialize() {
   const settings = loadBoardSettings();
   $('#categoryCount').value = settings.categoriesPerGame;
   const timer = loadTimerSettings();
-  $('#timerEnabled').checked = timer.enabled; $('#timerSeconds').value = timer.seconds; $('#timerSeconds').disabled = !timer.enabled;
+  $('#timerEnabled').checked = timer.enabled; $('#timerSeconds').value = timer.seconds; $('#timerSeconds').disabled = !timer.enabled; $('#mcHelpTimeBonus').value = timer.mcHelpTimeBonus;
   applyTheme(storage.getItem(LS_THEME) || DEFAULTS.theme);
   updateModeOptions(); updateChallengeOptions(); updateStartingTeamOptions();
   addTeam('Team 1'); addTeam('Team 2');

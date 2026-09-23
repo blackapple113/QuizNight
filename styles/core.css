@@ -70,6 +70,7 @@
   .toggle-row.compact{justify-content:flex-end;gap:8px;text-align:right}
   .timer-duration{display:flex;align-items:center;gap:10px;margin-top:12px}
   .timer-duration input{min-width:0;width:100%;padding:12px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#f7f9ff;color:#10225e;outline:none}
+  .mc-help-time-bonus{margin-top:16px}
   :is(.field input,.timer-duration input):disabled{opacity:.5}
   .pool-summary{margin:16px 0 0;padding:11px 12px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(255,255,255,.07);color:var(--muted);font-size:.86rem;line-height:1.45}
   .pool-summary:empty{display:none}

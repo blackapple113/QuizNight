@@ -197,6 +197,11 @@
             <label class="toggle-row" for="timerEnabled"><span>Antwort-Timer</span><input id="timerEnabled" type="checkbox"></label>
             <div class="timer-duration"><input id="timerSeconds" type="number" min="5" max="600" step="1" required disabled aria-label="Antwortzeit in Sekunden" aria-describedby="timerHint"><span>Sekunden</span></div>
             <p class="setting-hint" id="timerHint">Optional: 5–600 Sekunden je Frage. Bei Zeitablauf entscheidet die Spielleitung über die Wertung.</p>
+            <div class="field mc-help-time-bonus hidden" id="mcHelpTimeBonusField">
+              <label for="mcHelpTimeBonus">Zeitbonus bei MC-Hilfe</label>
+              <div class="timer-duration"><input id="mcHelpTimeBonus" type="number" min="0" max="600" step="1" required disabled aria-describedby="mcHelpTimeBonusHint"><span>Sekunden</span></div>
+              <p class="setting-hint" id="mcHelpTimeBonusHint">Beim Klick auf MC-Hilfe wird der Countdown um diesen Wert erhöht, aber nie über die eingestellte Antwortzeit hinaus.</p>
+            </div>
           </div>
         </section>
 

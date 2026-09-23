@@ -8,6 +8,7 @@ window.QuizGameState = (() => {
       theme: settings.theme,
       poolId: settings.poolId,
       timerSeconds: settings.timerSeconds,
+      mcHelpTimeBonus: settings.mcHelpTimeBonus,
       tiebreakers,
       mode: settings.mode,
       mcMultiplier: settings.mcMultiplier,

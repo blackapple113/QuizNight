@@ -15,6 +15,7 @@ window.QUIZ_CONFIG = {
   mcMultiplier: 0.5,         // 1 | 0.75 | 0.5 | 0.25 | 0 (Anteil bei MC-Hilfe)
   timerEnabled: true,       // true = Timer an | false = Timer aus
   timerSeconds: 30,          // 5–600 Sekunden je Frage
+  mcHelpTimeBonus: 0,        // 0–timerSeconds; zusätzliche Zeit beim Einblenden der MC-Hilfe
 
   // Punkte & Challenge
   challengeEnabled: true,    // Challenge pro Team und Runde aktivieren

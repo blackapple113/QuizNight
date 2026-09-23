@@ -63,7 +63,7 @@ body[data-theme="nerd"] .brand::before {
 }
 
 body[data-theme="nerd"] .brand::after {
-  content: " · Nerd Quizz";
+  content: " · Nerd Quiz";
   color: var(--nerd-violet);
   font-size: .62em;
   letter-spacing: .08em;

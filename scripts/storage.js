@@ -1,7 +1,7 @@
 'use strict';
 
 // Der Adapter fällt auf Speicher im Arbeitsspeicher zurück, falls localStorage gesperrt ist.
-window.QuizzStorage = (() => {
+window.QuizStorage = (() => {
   function create(onUnavailable) {
     const memory = new Map();
     return {

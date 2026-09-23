@@ -5,7 +5,7 @@ Ein kleines browserbasiertes Quizspiel für **Spieleabende, Partys und gemütlic
 Keine Installation, kein Account, kein Server: Ordner herunterladen, `index.html` doppelklicken und losspielen.  
 Die Fragen werden zufällig aus verschiedenen Kategorien und Schwierigkeitsstufen zusammengestellt – dadurch sieht nicht jede Runde gleich aus.
 
-> **Einfach ausprobieren:** Eine Online-Demo kann z. B. über [raw.githack](https://raw.githack.com/blackapple113/quizz/main/index.html) bereitgestellt werden.  
+> **Einfach ausprobieren:** Eine Online-Demo kann z. B. über [raw.githack](https://raw.githack.com/blackapple113/QuizNight/main/index.html) bereitgestellt werden.  
 > Den fertigen Demo-Link kannst du hier später direkt verlinken.
 
 ---
@@ -93,7 +93,7 @@ Typische Defaults sind:
 
 | Einstellung | Beispiel |
 |---|---|
-| Fragenpool | `standard` oder `nerd_quizz` |
+| Fragenpool | `standard` oder `nerd_quiz` |
 | Theme | `standard`, `nerd`, `oktoberfest`, … |
 | Spielmodus | offene Fragen oder Multiple Choice |
 | Kategorien pro Runde | z. B. 5 |
@@ -395,7 +395,7 @@ https://raw.githack.com/<GitHub-User>/<Repository>/<Branch>/index.html
 Beispiel:
 
 ```text
-https://raw.githack.com/example/quizz/main/index.html
+https://raw.githack.com/example/QuizNight/main/index.html
 ```
 
 > Sobald der endgültige Repository-Link feststeht, lohnt es sich, ganz oben in dieser README einen großen **„🎮 Jetzt ausprobieren“**-Link auf die Demo zu setzen.

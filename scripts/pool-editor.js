@@ -1,16 +1,16 @@
 'use strict';
 
 (() => {
-  const DRAFT_INDEX_KEY = 'quizz.poolEditor.drafts';
-  const DRAFT_KEY_PREFIX = 'quizz.poolEditor.draft.';
+  const DRAFT_INDEX_KEY = 'quiz.poolEditor.drafts';
+  const DRAFT_KEY_PREFIX = 'quiz.poolEditor.draft.';
   const HISTORY_LIMIT = 80;
   const collator = new Intl.Collator('de', {numeric: true, sensitivity: 'base'});
   const pools = window.QUESTION_POOLS || [];
-  const bank = window.QuizzQuestionBank;
-  const poolFormat = window.QuizzPoolFormat;
-  const poolSchema = window.QuizzPoolSchema;
+  const bank = window.QuizQuestionBank;
+  const poolFormat = window.QuizPoolFormat;
+  const poolSchema = window.QuizPoolSchema;
   const elements = Object.fromEntries([...document.querySelectorAll('[id]')].map(element => [element.id, element]));
-  const storage = window.QuizzStorage.create(() => showMessage('Lokale Entwürfe sind in diesem Browser nicht verfügbar. Exporte funktionieren weiterhin.'));
+  const storage = window.QuizStorage.create(() => showMessage('Lokale Entwürfe sind in diesem Browser nicht verfügbar. Exporte funktionieren weiterhin.'));
 
   const state = {
     data: null,
@@ -718,7 +718,7 @@
   }
 
   function draftIndex() {
-    const value = window.QuizzStorage.readJson(storage, DRAFT_INDEX_KEY, []);
+    const value = window.QuizStorage.readJson(storage, DRAFT_INDEX_KEY, []);
     return Array.isArray(value) ? value : [];
   }
 
@@ -728,7 +728,7 @@
 
   function readDraft(id) {
     if (!id) return null;
-    return window.QuizzStorage.readJson(storage, draftStorageKey(id), null);
+    return window.QuizStorage.readJson(storage, draftStorageKey(id), null);
   }
 
   function refreshDrafts() {
@@ -819,7 +819,7 @@
     try {
       const [handle] = await window.showOpenFilePicker({
         multiple: false,
-        types: [{description: 'Quizz-Fragenpool', accept: {'application/json': ['.json'], 'text/javascript': ['.js']}}],
+        types: [{description: 'Quiz-Fragenpool', accept: {'application/json': ['.json'], 'text/javascript': ['.js']}}],
       });
       await loadFile(await handle.getFile(), handle);
     } catch (error) {
@@ -899,7 +899,7 @@
     try {
       const handle = await window.showSaveFilePicker({
         suggestedName: 'questions.js',
-        types: [{description: 'Quizz-Pool für das Spiel', accept: {'text/javascript': ['.js']}}],
+        types: [{description: 'Quiz-Pool für das Spiel', accept: {'text/javascript': ['.js']}}],
       });
       await writeToHandle(handle);
     } catch (error) {

@@ -1,6 +1,6 @@
 'use strict';
 
-window.QuizzPoolSchema = (() => {
+window.QuizPoolSchema = (() => {
   const VERSION = 1;
   const POOL_KEYS = ['schemaVersion', 'name', 'poolId', 'config', 'questions', 'tiebreakers'];
   const CONFIG_KEYS = ['points'];

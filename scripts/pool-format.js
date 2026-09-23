@@ -1,6 +1,6 @@
 'use strict';
 
-window.QuizzPoolFormat = (() => {
+window.QuizPoolFormat = (() => {
   function stripTrailingCommas(text) {
     let result = '';
     let inString = false;

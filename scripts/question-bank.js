@@ -1,7 +1,7 @@
 'use strict';
 
-window.QuizzQuestionBank = (() => {
-  const poolSchema = window.QuizzPoolSchema;
+window.QuizQuestionBank = (() => {
+  const poolSchema = window.QuizPoolSchema;
   function clone(value) {return JSON.parse(JSON.stringify(value));}
   function shuffle(items) {
     const result = [...items];

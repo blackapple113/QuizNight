@@ -2,8 +2,8 @@
 
 window.QUESTIONS_DATA = {
   "schemaVersion": 1,
-  "name": "Nerd Quizz",
-  "poolId": "nerd_quizz",
+  "name": "Nerd Quiz",
+  "poolId": "nerd_quiz",
   "config": {
     "points": [
       100,

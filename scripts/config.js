@@ -1,7 +1,7 @@
 // Vorgaben für den ersten Start – vor dem Weitergeben der ZIP hier anpassen.
 // Alle Optionen aus „Einstellungen“ sind hier abgebildet. Später im
 // Einstellungsmenü gespeicherte Werte haben Vorrang.
-window.QUIZZ_CONFIG = {
+window.QUIZ_CONFIG = {
   // Spielbrett
   poolId: 'standard',      // ID aus pools/index.js
   categoriesPerGame: 5,    // 3–6; der Pool braucht genügend vollständige Kategorien

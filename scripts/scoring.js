@@ -1,6 +1,6 @@
 'use strict';
 
-window.QuizzScoring = (() => {
+window.QuizScoring = (() => {
   const CHALLENGE_MULTIPLIERS = [1.25, 1.5, 2, 2.5, 3];
   function defaultChallengeMultiplier(defaults) {return CHALLENGE_MULTIPLIERS.includes(Number(defaults.challengeMultiplier)) ? Number(defaults.challengeMultiplier) : 2;}
   function hasPendingChallenge(game) {return Number.isInteger(game?.doubleOrNothingTeam);}

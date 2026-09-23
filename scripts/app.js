@@ -1,19 +1,19 @@
 'use strict';
 
-const DEFAULTS = window.QUIZZ_CONFIG;
-const {create: createStorage, readJson} = window.QuizzStorage;
-const {availablePoints, buildBoard, clone, correctChoiceIndex, eligibleCategories, escapeHtml: esc, formatEstimate, loadPool, parseEstimate, poolStats: getPoolStats, questionQueueKey, shuffle, validateData} = window.QuizzQuestionBank;
-const {CHALLENGE_MULTIPLIERS, applyJudgement, challengePenaltyPoints, defaultChallengeMultiplier, hasPendingChallenge, normalizeSavedGame, questionPoints} = window.QuizzScoring;
-const {advanceTurn, createGame, findAvailableQuestion, findCell, isComplete, markQuestionUsed} = window.QuizzGameState;
+const DEFAULTS = window.QUIZ_CONFIG;
+const {create: createStorage, readJson} = window.QuizStorage;
+const {availablePoints, buildBoard, clone, correctChoiceIndex, eligibleCategories, escapeHtml: esc, formatEstimate, loadPool, parseEstimate, poolStats: getPoolStats, questionQueueKey, shuffle, validateData} = window.QuizQuestionBank;
+const {CHALLENGE_MULTIPLIERS, applyJudgement, challengePenaltyPoints, defaultChallengeMultiplier, hasPendingChallenge, normalizeSavedGame, questionPoints} = window.QuizScoring;
+const {advanceTurn, createGame, findAvailableQuestion, findCell, isComplete, markQuestionUsed} = window.QuizGameState;
 
 const LS_GAME = 'jeopardy-game-state-v1';
 const LS_BOARD_SETTINGS = 'jeopardy-board-settings-v1';
-const LS_TIMER = 'quizz-timer-settings-v1';
-const LS_RULES = 'quizz-rules-v1';
-const LS_THEME = 'quizz-theme-v1';
+const LS_TIMER = 'quiz-timer-settings-v1';
+const LS_RULES = 'quiz-rules-v1';
+const LS_THEME = 'quiz-theme-v1';
 let timerInterval = null;
-const LS_POOL = 'quizz-selected-pool-v1';
-const LS_QUESTION_QUEUES = 'quizz-question-history-v1';
+const LS_POOL = 'quiz-selected-pool-v1';
+const LS_QUESTION_QUEUES = 'quiz-question-history-v1';
 const pools = window.QUESTION_POOLS || [];
 let data = null;
 let game = null;

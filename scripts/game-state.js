@@ -2,7 +2,7 @@
 
 // Pure game-state operations. Keeping them separate from rendering makes the
 // turn flow reusable and straightforward to verify without a browser.
-window.QuizzGameState = (() => {
+window.QuizGameState = (() => {
   function createGame({board, teamNames, settings, tiebreakers}) {
     return {
       theme: settings.theme,

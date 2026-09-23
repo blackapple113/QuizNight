@@ -29,7 +29,7 @@
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0 auto;
-  padding: 16px;
+  padding: 12px;
 }
 
 .editor-topbar {
@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .editor-brand {
@@ -72,7 +72,8 @@
 }
 
 .editor-main {
-  display: block;
+  display: grid;
+  gap: 12px;
 }
 
 .editor-main > * {
@@ -81,6 +82,37 @@
 
 .editor-main .panel {
   background: var(--editor-surface);
+}
+
+.editor-utility-grid .panel {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .16);
+}
+
+.editor-utility-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.editor-utility-grid.has-pool {
+  grid-template-columns: minmax(410px, .78fr) minmax(600px, 1.22fr);
+  align-items: start;
+}
+
+.source-panel,
+.pool-overview {
+  padding: 14px 16px;
+}
+
+.source-panel .section-heading,
+.pool-overview .section-heading {
+  align-items: center;
+  gap: 12px;
+}
+
+.source-panel .section-heading > div,
+.pool-overview .section-heading > div {
+  min-width: 0;
 }
 
 .section-heading,
@@ -103,6 +135,24 @@
   font-size: clamp(1.7rem, 3vw, 2.65rem);
 }
 
+.source-panel .section-heading h1 {
+  margin-bottom: 2px;
+  font-size: 1.12rem;
+}
+
+.pool-overview .section-heading h2 {
+  margin-bottom: 2px;
+  font-size: 1.05rem;
+}
+
+.source-panel .section-heading p,
+.pool-overview .section-heading p {
+  overflow: hidden;
+  font-size: .75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .section-heading p,
 .dialog-heading p,
 .form-placeholder p,
@@ -119,15 +169,18 @@
 
 .save-state {
   flex: 0 0 auto;
-  max-width: 360px;
-  padding: 7px 11px;
+  max-width: 230px;
+  overflow: hidden;
+  padding: 5px 8px;
   border: 1px solid var(--editor-line);
   border-radius: 999px;
   background: var(--editor-soft);
   color: var(--muted);
-  font-size: .84rem;
+  font-size: .72rem;
   font-weight: 800;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .save-state.dirty {
@@ -142,14 +195,51 @@
 
 .source-controls {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) auto minmax(300px, 1fr);
-  gap: 16px;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 8px;
   align-items: end;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.editor-utility-grid:not(.has-pool) .source-controls {
+  grid-template-columns: minmax(260px, 1fr) auto minmax(300px, 1fr);
+}
+
+.draft-field {
+  grid-column: 1 / -1;
+}
+
+.editor-utility-grid:not(.has-pool) .draft-field {
+  grid-column: auto;
 }
 
 .source-buttons {
   align-self: end;
+}
+
+.source-panel .field,
+.pool-overview .field {
+  gap: 4px;
+}
+
+.source-panel .field label,
+.pool-overview .field label {
+  font-size: .72rem;
+}
+
+.source-panel .field :is(input, select),
+.pool-overview .field :is(input, select) {
+  padding: 8px 9px;
+  border-radius: 9px;
+  font-size: .82rem;
+}
+
+.source-panel .btn,
+.pool-overview .btn {
+  min-height: 35px;
+  padding: 7px 10px;
+  border-radius: 9px;
+  font-size: .77rem;
 }
 
 .joined-control {
@@ -163,13 +253,14 @@
 }
 
 .editor-message {
-  margin: 15px 0 0;
-  padding: 10px 12px;
+  margin: 8px 0 0;
+  padding: 8px 10px;
   border: 1px solid color-mix(in srgb, var(--danger) 60%, transparent);
   border-radius: 12px;
   background: color-mix(in srgb, var(--danger) 14%, transparent);
   color: #fff;
-  line-height: 1.45;
+  font-size: .78rem;
+  line-height: 1.35;
 }
 
 .editor-message.success {
@@ -178,9 +269,7 @@
 }
 
 .editor-workspace {
-  display: grid;
-  gap: 16px;
-  margin-top: 16px;
+  display: block;
 }
 
 .compact-heading {
@@ -194,20 +283,21 @@
 
 .export-actions {
   justify-content: flex-end;
+  gap: 6px;
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(110px, 1fr));
-  gap: 10px;
-  margin: 18px 0;
+  grid-template-columns: repeat(5, minmax(72px, 1fr));
+  gap: 6px;
+  margin: 9px 0;
 }
 
 .stat-card {
   min-width: 0;
-  padding: 12px;
+  padding: 7px 8px;
   border: 1px solid var(--editor-line);
-  border-radius: 13px;
+  border-radius: 9px;
   background: var(--editor-soft);
 }
 
@@ -215,13 +305,14 @@
   display: block;
   overflow: hidden;
   color: var(--accent);
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-size: 1.05rem;
+  line-height: 1.05;
   text-overflow: ellipsis;
 }
 
 .stat-card span {
   color: var(--muted);
-  font-size: .82rem;
+  font-size: .68rem;
   font-weight: 750;
 }
 
@@ -236,11 +327,12 @@
 .pool-settings {
   border-top: 1px solid var(--editor-line);
   border-bottom: 1px solid var(--editor-line);
-  padding: 13px 0;
+  padding: 7px 0;
 }
 
 .pool-settings summary {
   color: #e8eeff;
+  font-size: .78rem;
   font-weight: 900;
   cursor: pointer;
 }
@@ -248,20 +340,26 @@
 .pool-settings-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  padding-top: 14px;
+  gap: 8px;
+  padding-top: 8px;
 }
 
 .overview-actions {
-  margin-top: 14px;
+  justify-content: flex-end;
+  margin-top: 8px;
 }
 
 .editor-grid {
   display: grid;
-  grid-template-columns: minmax(360px, 43%) minmax(470px, 1fr);
-  gap: 16px;
-  min-height: 740px;
+  grid-template-columns: minmax(340px, 36%) minmax(540px, 1fr);
+  gap: 12px;
+  min-height: 720px;
   align-items: start;
+}
+
+.editor-grid > .panel {
+  border-color: rgba(255, 255, 255, .22);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .26);
 }
 
 .browser-panel,
@@ -271,12 +369,13 @@
 
 .browser-panel {
   display: flex;
-  min-height: min(820px, calc(100dvh - 32px));
-  max-height: calc(100dvh - 32px);
+  min-height: min(840px, calc(100dvh - 24px));
+  max-height: calc(100dvh - 24px);
   flex-direction: column;
   position: sticky;
-  top: 16px;
+  top: 12px;
   overflow: hidden;
+  padding: 17px;
 }
 
 .browser-header {
@@ -284,7 +383,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-bottom: 13px;
+  margin-bottom: 9px;
 }
 
 .browser-header h2 {
@@ -320,10 +419,11 @@
 
 .browser-filters {
   display: grid;
-  gap: 10px;
+  gap: 7px;
 }
 
 .search-field input {
+  padding: 9px 10px;
   font-weight: 750;
 }
 
@@ -351,7 +451,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin: 12px 0 9px;
+  margin: 9px 0 7px;
 }
 
 .select-visible {
@@ -498,7 +598,12 @@
 }
 
 .form-panel {
-  position: relative;
+  position: sticky;
+  top: 12px;
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+  padding: clamp(18px, 2vw, 24px);
+  scrollbar-color: rgba(255, 255, 255, .32) transparent;
 }
 
 .form-placeholder {
@@ -522,7 +627,7 @@
 
 .entry-form {
   display: grid;
-  gap: 17px;
+  gap: 14px;
 }
 
 .form-heading {
@@ -823,20 +928,24 @@ button.issue-item:hover {
 }
 
 @media (max-width: 1180px) {
-  .source-controls {
-    grid-template-columns: minmax(260px, 1fr) auto;
+  .editor-utility-grid.has-pool {
+    grid-template-columns: minmax(350px, .72fr) minmax(0, 1.28fr);
   }
 
-  .draft-field {
-    grid-column: 1 / -1;
+  .editor-utility-grid.has-pool .source-controls {
+    grid-template-columns: 1fr;
   }
 
-  .pool-settings-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .editor-utility-grid.has-pool .draft-field {
+    grid-column: auto;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(3, minmax(110px, 1fr));
+  .source-panel .section-heading p {
+    display: none;
+  }
+
+  .source-panel .save-state {
+    max-width: 100px;
   }
 
   .bulk-panel {
@@ -850,6 +959,20 @@ button.issue-item:hover {
 }
 
 @media (max-width: 920px) {
+  .editor-utility-grid.has-pool {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-utility-grid.has-pool .source-controls,
+  .editor-utility-grid:not(.has-pool) .source-controls {
+    grid-template-columns: minmax(260px, 1fr) auto;
+  }
+
+  .editor-utility-grid.has-pool .draft-field,
+  .editor-utility-grid:not(.has-pool) .draft-field {
+    grid-column: 1 / -1;
+  }
+
   .editor-grid {
     grid-template-columns: 1fr;
   }
@@ -858,6 +981,12 @@ button.issue-item:hover {
     position: static;
     min-height: 580px;
     max-height: 720px;
+  }
+
+  .form-panel {
+    position: static;
+    max-height: none;
+    overflow: visible;
   }
 
   .validation-layout {
@@ -887,12 +1016,15 @@ button.issue-item:hover {
     align-self: flex-start;
   }
 
-  .source-controls {
+  .editor-utility-grid.has-pool .source-controls,
+  .editor-utility-grid:not(.has-pool) .source-controls {
     grid-template-columns: 1fr;
   }
 
-  .source-buttons,
-  .draft-field {
+  .editor-utility-grid.has-pool .source-buttons,
+  .editor-utility-grid:not(.has-pool) .source-buttons,
+  .editor-utility-grid.has-pool .draft-field,
+  .editor-utility-grid:not(.has-pool) .draft-field {
     grid-column: auto;
   }
 

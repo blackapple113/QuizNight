@@ -123,6 +123,8 @@
     state.historyIndex = 0;
     state.cleanSnapshot = migrationNeeded ? '' : serializeData(data);
     resetFilters();
+    elements.poolOverview.classList.remove('hidden');
+    elements.editorUtilityGrid.classList.add('has-pool');
     elements.editorWorkspace.classList.remove('hidden');
     renderAll();
     const draft = readDraft(state.draftId);

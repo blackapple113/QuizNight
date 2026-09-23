@@ -24,43 +24,43 @@
     </header>
 
     <main class="editor-main">
-      <section class="panel source-panel" aria-labelledby="sourceTitle">
-        <div class="section-heading">
-          <div>
-            <h1 id="sourceTitle">Fragenpool bearbeiten</h1>
-            <p>Öffne einen mitgelieferten Pool oder importiere eine JSON- bzw. <code>questions.js</code>-Datei.</p>
+      <div class="editor-utility-grid" id="editorUtilityGrid">
+        <section class="panel source-panel" aria-labelledby="sourceTitle">
+          <div class="section-heading">
+            <div>
+              <h1 id="sourceTitle">Fragenpool bearbeiten</h1>
+              <p>Öffne einen mitgelieferten Pool oder importiere eine JSON- bzw. <code>questions.js</code>-Datei.</p>
+            </div>
+            <span class="save-state" id="saveState" role="status" aria-live="polite">Kein Pool geladen</span>
           </div>
-          <span class="save-state" id="saveState" role="status" aria-live="polite">Kein Pool geladen</span>
-        </div>
 
-        <div class="source-controls">
-          <div class="field source-select-field">
-            <label for="registeredPoolSelect">Mitgelieferter Pool</label>
-            <div class="joined-control">
-              <select id="registeredPoolSelect"></select>
-              <button class="btn secondary" id="loadRegisteredBtn" type="button">Öffnen</button>
+          <div class="source-controls">
+            <div class="field source-select-field">
+              <label for="registeredPoolSelect">Mitgelieferter Pool</label>
+              <div class="joined-control">
+                <select id="registeredPoolSelect"></select>
+                <button class="btn secondary" id="loadRegisteredBtn" type="button">Öffnen</button>
+              </div>
+            </div>
+            <div class="source-buttons">
+              <input class="sr-only" id="fileInput" type="file" accept=".json,.js,application/json,text/javascript,application/javascript" />
+              <button class="btn secondary" id="importBtn" type="button">Datei importieren</button>
+              <button class="btn secondary hidden" id="openFileBtn" type="button">Datei direkt öffnen</button>
+              <button class="btn ghost" id="newPoolBtn" type="button">Neuer Pool</button>
+            </div>
+            <div class="field draft-field">
+              <label for="draftSelect">Lokale Entwürfe</label>
+              <div class="joined-control joined-control-wide">
+                <select id="draftSelect"><option value="">Keine Entwürfe</option></select>
+                <button class="btn secondary" id="loadDraftBtn" type="button" disabled>Laden</button>
+                <button class="btn danger" id="deleteDraftBtn" type="button" disabled>Löschen</button>
+              </div>
             </div>
           </div>
-          <div class="source-buttons">
-            <input class="sr-only" id="fileInput" type="file" accept=".json,.js,application/json,text/javascript,application/javascript" />
-            <button class="btn secondary" id="importBtn" type="button">Datei importieren</button>
-            <button class="btn secondary hidden" id="openFileBtn" type="button">Datei direkt öffnen</button>
-            <button class="btn ghost" id="newPoolBtn" type="button">Neuer Pool</button>
-          </div>
-          <div class="field draft-field">
-            <label for="draftSelect">Lokale Entwürfe</label>
-            <div class="joined-control joined-control-wide">
-              <select id="draftSelect"><option value="">Keine Entwürfe</option></select>
-              <button class="btn secondary" id="loadDraftBtn" type="button" disabled>Laden</button>
-              <button class="btn danger" id="deleteDraftBtn" type="button" disabled>Löschen</button>
-            </div>
-          </div>
-        </div>
-        <p class="editor-message hidden" id="editorMessage" role="alert"></p>
-      </section>
+          <p class="editor-message hidden" id="editorMessage" role="alert"></p>
+        </section>
 
-      <div class="editor-workspace hidden" id="editorWorkspace">
-        <section class="panel pool-overview" aria-labelledby="overviewTitle">
+        <section class="panel pool-overview hidden" id="poolOverview" aria-labelledby="overviewTitle">
           <div class="section-heading compact-heading">
             <div>
               <h2 id="overviewTitle">Pool-Übersicht</h2>
@@ -76,7 +76,7 @@
 
           <div class="stats-grid" id="statsGrid"></div>
 
-          <details class="pool-settings" open>
+          <details class="pool-settings">
             <summary>Pool-Einstellungen</summary>
             <div class="pool-settings-grid">
               <div class="field">
@@ -99,7 +99,9 @@
             <button class="btn secondary compact" id="showValidationBtn" type="button">Prüfbericht öffnen</button>
           </div>
         </section>
+      </div>
 
+      <div class="editor-workspace hidden" id="editorWorkspace">
         <section class="editor-grid">
           <aside class="panel browser-panel" aria-labelledby="browserTitle">
             <div class="browser-header">

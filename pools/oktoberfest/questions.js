@@ -3936,561 +3936,561 @@ window.QUESTIONS_DATA = {
     },
     {
       "id": "q-000281",
-      "category": "Organisation & Wiesn-Zahlen",
+      "category": "Wiesn-Alltag & Hintergründe",
       "points": 100,
       "question": "Welche Notrufnummer gilt auch auf dem Oktoberfest für Feuerwehr und Rettungsdienst?",
       "answer": "112",
       "choices": [
         "112",
-        "1100",
-        "118",
-        "9999"
+        "110",
+        "115",
+        "116 117"
       ],
       "correctChoiceIndex": 0
-    },
-    {
-      "id": "q-000282",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 100,
-      "question": "Welche Einheit entspricht 100 Litern und wird oft für große Biermengen verwendet?",
-      "answer": "Hektoliter",
-      "choices": [
-        "Deziliter",
-        "Hektoliter",
-        "Kilogramm",
-        "Kilowatt"
-      ],
-      "correctChoiceIndex": 1
     },
     {
       "id": "q-000283",
-      "category": "Organisation & Wiesn-Zahlen",
+      "category": "Wiesn-Alltag & Hintergründe",
       "points": 100,
-      "question": "Kostet der Zugang zum allgemeinen Festgelände der Wiesn Eintritt?",
-      "answer": "Nein, der Zugang ist kostenlos",
+      "question": "Wie viel Eintritt kostet der Zugang zum allgemeinen Oktoberfestgelände, außerhalb der Oidn Wiesn?",
+      "answer": "Keinen Eintritt",
       "choices": [
-        "Ja, immer pro Tag",
-        "Nur nach 18 Uhr",
-        "Nein, der Zugang ist kostenlos",
-        "Nur für Münchner"
+        "5 Euro pro Tag",
+        "Keinen Eintritt",
+        "10 Euro pro Tag",
+        "Ein Eintrittsgeld je nach Uhrzeit"
       ],
-      "correctChoiceIndex": 2
-    },
-    {
-      "id": "q-000284",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 100,
-      "question": "Wie heißt der zentrale Anlaufpunkt auf der Theresienwiese für Behörden und Hilfsdienste?",
-      "answer": "Servicezentrum Theresienwiese",
-      "choices": [
-        "Ruhmeshalle",
-        "Festzeltbüro",
-        "Brauereizentrale",
-        "Servicezentrum Theresienwiese"
-      ],
-      "correctChoiceIndex": 3
+      "correctChoiceIndex": 1
     },
     {
       "id": "q-000285",
-      "category": "Organisation & Wiesn-Zahlen",
+      "category": "Wiesn-Alltag & Hintergründe",
       "points": 100,
-      "question": "Wo werden gefundene Gegenstände nach dem Fest typischerweise gesammelt?",
-      "answer": "Im Fundbüro",
+      "question": "An welche Stelle auf der Wiesn wendet man sich, wenn man einen verlorenen Schlüssel oder Geldbeutel sucht?",
+      "answer": "An das Fundbüro",
       "choices": [
-        "Im Fundbüro",
-        "In der Brauerei",
-        "Im Rathauskeller",
-        "Im Riesenrad"
-      ],
-      "correctChoiceIndex": 0
-    },
-    {
-      "id": "q-000286",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 100,
-      "question": "Welches Verkehrsmittel vermeidet bei der Wiesn-Anreise die Parkplatzsuche?",
-      "answer": "Öffentlicher Nahverkehr",
-      "choices": [
-        "Eigenes Auto bis zum Zelteingang",
-        "Öffentlicher Nahverkehr",
-        "Lastwagen",
-        "Motorboot"
-      ],
-      "correctChoiceIndex": 1
-    },
-    {
-      "id": "q-000287",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 100,
-      "question": "Welche Aufgabe hat Sicherheitspersonal an den Zelteingängen?",
-      "answer": "Zutritt und Sicherheit kontrollieren",
-      "choices": [
-        "Bier brauen",
-        "Fahrgeschäfte konstruieren",
-        "Zutritt und Sicherheit kontrollieren",
-        "U-Bahn-Tickets verkaufen"
+        "An die Festzeltreservierung",
+        "An die Gepäckaufbewahrung",
+        "An das Fundbüro",
+        "An die Touristeninformation im Rathaus"
       ],
       "correctChoiceIndex": 2
     },
     {
-      "id": "q-000288",
-      "category": "Organisation & Wiesn-Zahlen",
+      "id": "q-000321",
+      "category": "Wiesn-Alltag & Hintergründe",
       "points": 100,
-      "question": "Warum sind deutlich markierte Fluchtwege in Festzelten wichtig?",
-      "answer": "Damit Gäste im Notfall schnell ins Freie gelangen",
+      "question": "Wie nennt man den freiwilligen zusätzlichen Geldbetrag, den Gäste einer Wiesn-Bedienung als Dank für den Service geben?",
+      "answer": "Trinkgeld",
       "choices": [
-        "Damit Bedienungen schneller kassieren",
-        "Damit Musik lauter klingt",
-        "Damit Tische reserviert bleiben",
-        "Damit Gäste im Notfall schnell ins Freie gelangen"
+        "Pfand",
+        "Eintrittsgeld",
+        "Reservierungsgebühr",
+        "Trinkgeld"
       ],
       "correctChoiceIndex": 3
     },
     {
-      "id": "q-000289",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 200,
-      "question": "Ein Tisch bietet zehn Plätze. Wie viele Gäste sitzen an acht voll besetzten Tischen?",
-      "answer": "80",
+      "id": "q-000322",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 100,
+      "question": "Welches Zahlungsmittel sollte man für Wiesn-Stände dabeihaben, die keine Karten oder Smartphone-Zahlungen akzeptieren?",
+      "answer": "Bargeld",
       "choices": [
-        "80",
-        "18",
-        "40",
-        "800"
+        "Bargeld",
+        "Reiseschecks",
+        "Bahngutscheine",
+        "Eine Kreditkarte"
       ],
       "correctChoiceIndex": 0
     },
     {
-      "id": "q-000290",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 200,
-      "question": "Eine Bedienung trägt acht Maß. Wie viele Liter Bier sind das?",
-      "answer": "8 Liter",
+      "id": "q-000323",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 100,
+      "question": "Wie nennt man das auf der Wiesn vorgeschriebene Geschirr, das nach dem Spülen erneut benutzt wird?",
+      "answer": "Mehrweggeschirr",
       "choices": [
-        "4 Liter",
+        "Einweggeschirr",
+        "Mehrweggeschirr",
+        "Wegwerfgeschirr",
+        "Essbares Geschirr"
+      ],
+      "correctChoiceIndex": 1
+    },
+    {
+      "id": "q-000324",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 100,
+      "question": "Wem gehört ein im Festzelt zum Getränk ausgegebener Maßkrug, wenn man ihn nicht ausdrücklich als Souvenir gekauft hat?",
+      "answer": "Dem Festwirt",
+      "choices": [
+        "Dem Gast nach dem Bezahlen des Bieres",
+        "Der Stadt München",
+        "Dem Festwirt",
+        "Dem Bedienpersonal persönlich"
+      ],
+      "correctChoiceIndex": 2
+    },
+    {
+      "id": "q-000325",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 100,
+      "question": "Worüber informiert das offizielle Wiesn-Besucherbarometer für verschiedene Tage und Tageszeiten?",
+      "answer": "Über den erwarteten Besucherandrang",
+      "choices": [
+        "Über die zu erwartenden Bierpreise",
+        "Über die Wettervorhersage",
+        "Über die Zahl freier Hotelzimmer",
+        "Über den erwarteten Besucherandrang"
+      ],
+      "correctChoiceIndex": 3
+    },
+    {
+      "id": "q-000326",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 200,
+      "question": "An welchem Wochentag gibt es auf der Wiesn traditionell den Familientag mit ermäßigten Preisen?",
+      "answer": "Am Dienstag",
+      "choices": [
+        "Am Dienstag",
+        "Am Montag",
+        "Am Donnerstag",
+        "Am Sonntag"
+      ],
+      "correctChoiceIndex": 0
+    },
+    {
+      "id": "q-000327",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 200,
+      "question": "Wofür gelten die Verzehrgutscheine, die man bei einer Tischreservierung im Wiesnzelt häufig vorab bezahlt?",
+      "answer": "Für Speisen und Getränke",
+      "choices": [
+        "Für den Eintritt auf das Festgelände",
+        "Für Speisen und Getränke",
+        "Für Fahrten mit den Fahrgeschäften",
+        "Für die Anreise mit der U-Bahn"
+      ],
+      "correctChoiceIndex": 1
+    },
+    {
+      "id": "q-000328",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 200,
+      "question": "Wer legt die Bierpreise in den einzelnen Wiesnzelten fest?",
+      "answer": "Die jeweiligen Festwirte",
+      "choices": [
+        "Der Münchner Stadtrat einheitlich für alle Zelte",
+        "Der bayerische Ministerpräsident",
+        "Die jeweiligen Festwirte",
+        "Die Münchner Brauereien gemeinsam für alle Zelte"
+      ],
+      "correctChoiceIndex": 2
+    },
+    {
+      "id": "q-000329",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 200,
+      "question": "An wen wendet man sich für eine direkte Tischreservierung in einem bestimmten Wiesnzelt?",
+      "answer": "An den Betreiber des jeweiligen Festzelts",
+      "choices": [
+        "An die zentrale Tischvergabe im Rathaus",
+        "An die Festleitung für alle Zelte",
+        "An die Münchner Verkehrsgesellschaft",
+        "An den Betreiber des jeweiligen Festzelts"
+      ],
+      "correctChoiceIndex": 3
+    },
+    {
+      "id": "q-000330",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 200,
+      "question": "Welcher deutsche Feiertag kann dazu führen, dass das Oktoberfest über den ersten Sonntag im Oktober hinaus verlängert wird?",
+      "answer": "Der Tag der Deutschen Einheit",
+      "choices": [
+        "Der Tag der Deutschen Einheit",
+        "Allerheiligen",
+        "Der Tag der Arbeit",
+        "Christi Himmelfahrt"
+      ],
+      "correctChoiceIndex": 0
+    },
+    {
+      "id": "q-000331",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 200,
+      "question": "Was bedeutet „Schankschluss“ im Wiesnzelt für die Bestellung von Getränken?",
+      "answer": "Es werden keine Getränke mehr ausgeschenkt",
+      "choices": [
+        "Es dürfen keine neuen Gäste mehr hinein",
+        "Es werden keine Getränke mehr ausgeschenkt",
+        "Die Küche nimmt keine Essensbestellungen mehr an",
+        "Die Musikkapelle beginnt ihre letzte Zugabe"
+      ],
+      "correctChoiceIndex": 1
+    },
+    {
+      "id": "q-000332",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 200,
+      "question": "Wie heißt die Polizeidienststelle direkt auf dem Oktoberfestgelände?",
+      "answer": "Wiesnwache",
+      "choices": [
+        "Festzeltwache",
+        "Bavariawache",
+        "Wiesnwache",
+        "Theresieninspektion"
+      ],
+      "correctChoiceIndex": 2
+    },
+    {
+      "id": "q-000333",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 200,
+      "question": "Aus welchem Material dürfen mitgebrachte Getränkeflaschen auf dem Oktoberfestgelände aus Sicherheitsgründen nicht bestehen?",
+      "answer": "Aus Glas",
+      "choices": [
+        "Aus Kunststoff",
+        "Aus Aluminium",
+        "Aus Edelstahl",
+        "Aus Glas"
+      ],
+      "correctChoiceIndex": 3
+    },
+    {
+      "id": "q-000334",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 300,
+      "question": "Bis zu welcher Uhrzeit sieht das Konzept der „ruhigen Wiesn“ in den großen Festzelten tagsüber Blasmusik statt Partymusik vor?",
+      "answer": "Bis 18 Uhr",
+      "choices": [
+        "Bis 18 Uhr",
+        "Bis 16 Uhr",
+        "Bis 17 Uhr",
+        "Bis 20 Uhr"
+      ],
+      "correctChoiceIndex": 0
+    },
+    {
+      "id": "q-000335",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 300,
+      "question": "Wie heißen die kostenlosen Bändchen für Kinder, auf denen Eltern für den Fall einer Trennung im Wiesn-Gedränge ihre Telefonnummer notieren können?",
+      "answer": "Kinderfinder-Armbänder",
+      "choices": [
+        "Wiesn-Diplome",
+        "Kinderfinder-Armbänder",
+        "Familienpässe",
+        "Reservierungsbändchen"
+      ],
+      "correctChoiceIndex": 1
+    },
+    {
+      "id": "q-000336",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 300,
+      "question": "Welche Wohnsitzvoraussetzung muss man für die besonderen Tischreservierungen aus dem „München-Kontingent“ erfüllen?",
+      "answer": "Den Hauptwohnsitz in München haben",
+      "choices": [
+        "Irgendwo in Bayern wohnen",
+        "In München geboren sein",
+        "Den Hauptwohnsitz in München haben",
+        "Im Landkreis München wohnen"
+      ],
+      "correctChoiceIndex": 2
+    },
+    {
+      "id": "q-000337",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 300,
+      "question": "Warum müssen große Wiesnzelte einen Teil ihrer Innenplätze von der regulären Reservierung ausnehmen?",
+      "answer": "Damit auch Gäste ohne Reservierung Plätze finden können",
+      "choices": [
+        "Damit die Plätze für das Personal frei bleiben",
+        "Damit dort die Musikkapellen auftreten können",
+        "Damit dort ausschließlich Reisegruppen sitzen können",
+        "Damit auch Gäste ohne Reservierung Plätze finden können"
+      ],
+      "correctChoiceIndex": 3
+    },
+    {
+      "id": "q-000338",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 300,
+      "question": "Wen bezeichnet die Wiesn-Organisation als „Beschicker“?",
+      "answer": "Die Betreiber der teilnehmenden Stände und Geschäfte",
+      "choices": [
+        "Die Betreiber der teilnehmenden Stände und Geschäfte",
+        "Die Gäste mit einer Tischreservierung",
+        "Die Lieferfahrer der Brauereien",
+        "Die Musiker beim Trachten- und Schützenzug"
+      ],
+      "correctChoiceIndex": 0
+    },
+    {
+      "id": "q-000339",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 300,
+      "question": "Wie heißt der eigene Familienbereich in der Straße 3 Ost mit Kinderfahrgeschäften, Sitzplätzen und Wickelmöglichkeit?",
+      "answer": "Familienplatzl",
+      "choices": [
+        "Kinderanger",
+        "Familienplatzl",
+        "Bavariagarten",
+        "Wiesn-Kinderhof"
+      ],
+      "correctChoiceIndex": 1
+    },
+    {
+      "id": "q-000340",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 300,
+      "question": "Wie viele Tage dauert ein reguläres Oktoberfest ohne Verlängerung durch die Feiertagsregelung?",
+      "answer": "16 Tage",
+      "choices": [
+        "14 Tage",
+        "17 Tage",
+        "16 Tage",
+        "21 Tage"
+      ],
+      "correctChoiceIndex": 2
+    },
+    {
+      "id": "q-000341",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 300,
+      "question": "Welches kommunale Unternehmen versorgt das Oktoberfest mit Strom, Gas und Wasser?",
+      "answer": "Die Stadtwerke München (SWM)",
+      "choices": [
+        "Die Münchner Verkehrsgesellschaft (MVG)",
+        "Die Messe München",
+        "Der Abfallwirtschaftsbetrieb München (AWM)",
+        "Die Stadtwerke München (SWM)"
+      ],
+      "correctChoiceIndex": 3
+    },
+    {
+      "id": "q-000284",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 400,
+      "question": "Wie heißt das zentrale Gebäude auf der Theresienwiese, in dem unter anderem Festleitung, Polizei und Sanitätsdienst untergebracht sind?",
+      "answer": "Servicezentrum Theresienwiese",
+      "choices": [
+        "Servicezentrum Theresienwiese",
+        "Veranstaltungszentrum Bavaria",
+        "Festhaus München",
+        "Behördenzentrum Schottenhamel"
+      ],
+      "correctChoiceIndex": 0
+    },
+    {
+      "id": "q-000342",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 400,
+      "question": "Wie viele Liter Volumen dürfen gewöhnliche Taschen oder Rucksäcke nach den Wiesn-Zutrittsregeln höchstens haben?",
+      "answer": "3 Liter",
+      "choices": [
+        "5 Liter",
+        "3 Liter",
         "8 Liter",
-        "16 Liter",
-        "80 Liter"
+        "10 Liter"
       ],
       "correctChoiceIndex": 1
     },
     {
-      "id": "q-000291",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 200,
-      "question": "Ein Zelt hat 6.000 Innen- und 2.000 Außenplätze. Wie viele Plätze sind es zusammen?",
-      "answer": "8.000",
+      "id": "q-000343",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 400,
+      "question": "Wofür wird in einigen Wiesnzelten das Nachspülwasser der Bierkrugspülmaschinen ein zweites Mal genutzt?",
+      "answer": "Für die Toilettenspülung",
       "choices": [
-        "4.000",
-        "6.200",
-        "8.000",
-        "12.000"
+        "Zum Kochen von Kartoffeln",
+        "Zum Nachfüllen der Trinkwasserbrunnen",
+        "Für die Toilettenspülung",
+        "Zum Reinigen der Zapfleitungen"
       ],
       "correctChoiceIndex": 2
     },
     {
-      "id": "q-000292",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 200,
-      "question": "Fünfzig Tabletts tragen jeweils acht Maß. Wie viele Maß werden insgesamt transportiert?",
-      "answer": "400",
+      "id": "q-000344",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 400,
+      "question": "Wie heißt die betreute Anlaufstelle der Aktion „Sichere Wiesn“ für Mädchen und Frauen, die auf dem Fest Unterstützung brauchen?",
+      "answer": "Safe Space",
       "choices": [
-        "58",
-        "200",
-        "4.000",
-        "400"
+        "Welcome Point",
+        "Wiesn-Lounge",
+        "Care Corner",
+        "Safe Space"
       ],
       "correctChoiceIndex": 3
     },
     {
-      "id": "q-000293",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 200,
-      "question": "Zwölf Böllerschüsse folgen im Abstand von fünf Sekunden. Wie lange liegen zwischen erstem und letztem Schuss?",
-      "answer": "55 Sekunden",
+      "id": "q-000345",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 400,
+      "question": "Für welche andere Veranstaltung auf der Theresienwiese pausierte die Oide Wiesn im Jahr 2016?",
+      "answer": "Für das Bayerische Zentral-Landwirtschaftsfest",
       "choices": [
-        "55 Sekunden",
-        "60 Sekunden",
-        "50 Sekunden",
-        "12 Sekunden"
+        "Für das Bayerische Zentral-Landwirtschaftsfest",
+        "Für die Bundesgartenschau",
+        "Für die Internationale Handwerksmesse",
+        "Für das Münchner Frühlingsfest"
       ],
       "correctChoiceIndex": 0
     },
     {
-      "id": "q-000294",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 200,
-      "question": "Eine Schicht dauert von 10 bis 18 Uhr. Wie viele Stunden sind das?",
-      "answer": "8 Stunden",
+      "id": "q-000346",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 400,
+      "question": "Welches Metall prägt die Fassade des flachen Servicezentrums auf der Theresienwiese?",
+      "answer": "Kupfer",
       "choices": [
-        "6 Stunden",
-        "8 Stunden",
-        "10 Stunden",
-        "12 Stunden"
+        "Aluminium",
+        "Kupfer",
+        "Edelstahl",
+        "Zink"
       ],
       "correctChoiceIndex": 1
     },
     {
-      "id": "q-000295",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 200,
-      "question": "Eine Gruppe teilt eine Rechnung von 120 Euro gleichmäßig durch acht Personen. Wie viel zahlt jede?",
-      "answer": "15 Euro",
+      "id": "q-000347",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 400,
+      "question": "Bei welcher Entscheidung der Wiesn-Organisation können Betriebe durch umweltfreundliche Maßnahmen zusätzliche „Öko-Punkte“ sammeln?",
+      "answer": "Bei der Zulassung ihres Betriebs zum Oktoberfest",
       "choices": [
-        "12 Euro",
-        "18 Euro",
-        "15 Euro",
-        "20 Euro"
+        "Bei der Wahl des jährlichen Wiesn-Hits",
+        "Bei der Vergabe von Tischreservierungen an Gäste",
+        "Bei der Zulassung ihres Betriebs zum Oktoberfest",
+        "Bei der Abstimmung über das offizielle Plakatmotiv"
       ],
       "correctChoiceIndex": 2
     },
     {
-      "id": "q-000296",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 200,
-      "question": "Eine Fläche von 10.000 Quadratmetern entspricht welcher Fläche?",
-      "answer": "1 Hektar",
+      "id": "q-000348",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 400,
+      "question": "Wer traf beim Oktoberfest-Motivwettbewerb 2026 nach der Vorauswahl durch das Publikum die endgültige Entscheidung über das Siegermotiv?",
+      "answer": "Eine Fachjury",
       "choices": [
-        "10 Hektar",
-        "100 Hektar",
-        "0,01 Hektar",
-        "1 Hektar"
+        "Alle Festwirte per Mehrheitsabstimmung",
+        "Der Oberbürgermeister allein",
+        "Die Gestalter der bisherigen Siegerplakate",
+        "Eine Fachjury"
       ],
       "correctChoiceIndex": 3
     },
     {
-      "id": "q-000297",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 300,
-      "question": "Ein Zelt füllt 15 Maß pro Minute. Wie viele sind das in einer Stunde bei konstantem Tempo?",
-      "answer": "900",
+      "id": "q-000349",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 500,
+      "question": "In welchem Jahr wurden auf der Wiesn die als Bierrekord dokumentierten 79.225 Hektoliter ausgeschenkt?",
+      "answer": "2011",
       "choices": [
-        "900",
-        "225",
-        "600",
-        "1.500"
+        "2011",
+        "1985",
+        "2000",
+        "2023"
       ],
       "correctChoiceIndex": 0
     },
     {
-      "id": "q-000298",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 300,
-      "question": "Von 8.000 Sitzplätzen sind 75 Prozent belegt. Wie viele Gäste sitzen dort?",
-      "answer": "6.000",
+      "id": "q-000350",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 500,
+      "question": "In welchem Jahr kamen bei einer 18-tägigen Wiesn rund 7,2 Millionen Gäste und übertrafen damit den alten Besucherrekord von 1985?",
+      "answer": "2023",
       "choices": [
-        "2.000",
-        "6.000",
-        "4.000",
-        "7.500"
+        "2005",
+        "2023",
+        "2010",
+        "2019"
       ],
       "correctChoiceIndex": 1
     },
     {
-      "id": "q-000299",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 300,
-      "question": "Ein Gericht kostet netto 20 Euro plus 19 Prozent Umsatzsteuer. Wie hoch ist der Bruttopreis?",
-      "answer": "23,80 Euro",
+      "id": "q-000351",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 500,
+      "question": "Welches kleine Wiesnzelt vor dem Hofbräu-Festzelt ist für seine nur rund 60 Sitzplätze bekannt?",
+      "answer": "Schiebl’s Kaffeehaferl",
       "choices": [
-        "21,90 Euro",
-        "24,00 Euro",
-        "23,80 Euro",
-        "39,00 Euro"
+        "Bodo’s Cafézelt",
+        "Café Kaiserschmarrn",
+        "Schiebl’s Kaffeehaferl",
+        "Glöckle Wirt"
       ],
       "correctChoiceIndex": 2
     },
     {
-      "id": "q-000300",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 300,
-      "question": "Ein Fass enthält 200 Liter. Bei fünf Prozent unvermeidbarem Verlust bleiben wie viele Liter?",
-      "answer": "190 Liter",
+      "id": "q-000352",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 500,
+      "question": "Welcher Architekt entwarf das 2004 eröffnete Servicezentrum auf der Theresienwiese?",
+      "answer": "Volker Staab",
       "choices": [
-        "195 Liter",
-        "180 Liter",
-        "150 Liter",
-        "190 Liter"
+        "Günter Behnisch",
+        "Frei Otto",
+        "Stephan Braunfels",
+        "Volker Staab"
       ],
       "correctChoiceIndex": 3
     },
     {
-      "id": "q-000301",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 300,
-      "question": "Vier Kassen bearbeiten jeweils 30 Gäste pro Stunde. Wie viele Gäste schaffen sie gemeinsam in drei Stunden?",
-      "answer": "360",
+      "id": "q-000353",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 500,
+      "question": "Welches Referat der Münchner Stadtverwaltung ist für die Organisation des Oktoberfests zuständig?",
+      "answer": "Das Referat für Arbeit und Wirtschaft",
       "choices": [
-        "360",
-        "90",
-        "120",
-        "240"
+        "Das Referat für Arbeit und Wirtschaft",
+        "Das Kulturreferat",
+        "Das Kreisverwaltungsreferat",
+        "Das Baureferat"
       ],
       "correctChoiceIndex": 0
     },
     {
-      "id": "q-000302",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 300,
-      "question": "Eine Lieferung umfasst 24 Kisten mit je 20 Flaschen. Wie viele Flaschen kommen an?",
-      "answer": "480",
+      "id": "q-000354",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 500,
+      "question": "Unter welchem Spitznamen ist der Bundesprojektpreis bekannt, den das Oktoberfest 1997 für seine umweltschonende Organisation erhielt?",
+      "answer": "Öko-Oscar",
       "choices": [
-        "44",
-        "480",
-        "240",
-        "2.400"
+        "Grüner Bambi",
+        "Öko-Oscar",
+        "Umwelt-Löwe",
+        "Klima-Palme"
       ],
       "correctChoiceIndex": 1
     },
     {
-      "id": "q-000303",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 300,
-      "question": "Ein Fahrgeschäft benötigt 120 Kilowatt und läuft fünf Stunden. Wie viel elektrische Energie verbraucht es?",
-      "answer": "600 Kilowattstunden",
+      "id": "q-000355",
+      "category": "Wiesn-Alltag & Hintergründe",
+      "points": 500,
+      "question": "Welches Unternehmen stellt den offiziellen Oktoberfest-Sammlerkrug aus Steinzeug mit dem jährlichen Wiesn-Motiv her?",
+      "answer": "Rastal",
       "choices": [
-        "24 Kilowattstunden",
-        "125 Kilowattstunden",
-        "600 Kilowattstunden",
-        "6.000 Kilowattstunden"
+        "Ritzenhoff",
+        "Villeroy & Boch",
+        "Rastal",
+        "Rosenthal"
       ],
       "correctChoiceIndex": 2
     },
     {
-      "id": "q-000304",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 300,
-      "question": "Wie viele Quadratmeter entsprechen 34,5 Hektar genutzter Festfläche?",
-      "answer": "345.000 Quadratmeter",
-      "choices": [
-        "34.500 Quadratmeter",
-        "3.450 Quadratmeter",
-        "3.450.000 Quadratmeter",
-        "345.000 Quadratmeter"
-      ],
-      "correctChoiceIndex": 3
-    },
-    {
-      "id": "q-000305",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 400,
-      "question": "Der Preis steigt von 12 auf 15 Euro. Um wie viel Prozent ist er gestiegen?",
-      "answer": "25 Prozent",
-      "choices": [
-        "25 Prozent",
-        "20 Prozent",
-        "3 Prozent",
-        "30 Prozent"
-      ],
-      "correctChoiceIndex": 0
-    },
-    {
-      "id": "q-000306",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 400,
-      "question": "Ein Zelt verkauft 7.200 Maß in zwölf Stunden. Wie hoch ist der Durchschnitt pro Stunde?",
-      "answer": "600 Maß",
-      "choices": [
-        "60 Maß",
-        "600 Maß",
-        "720 Maß",
-        "864 Maß"
-      ],
-      "correctChoiceIndex": 1
-    },
-    {
-      "id": "q-000307",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 400,
-      "question": "Von 13.000 Beschäftigten arbeiten 40 Prozent in der Gastronomie. Wie viele sind das?",
-      "answer": "5.200",
-      "choices": [
-        "3.250",
-        "4.000",
-        "5.200",
-        "7.800"
-      ],
-      "correctChoiceIndex": 2
-    },
-    {
-      "id": "q-000308",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 400,
-      "question": "Eine Warteschlange wächst netto um sechs Personen pro Minute. Wie viele zusätzliche Personen stehen nach 25 Minuten an?",
-      "answer": "150",
-      "choices": [
-        "31",
-        "125",
-        "600",
-        "150"
-      ],
-      "correctChoiceIndex": 3
-    },
-    {
-      "id": "q-000309",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 400,
-      "question": "Ein Betrieb kauft Ware für 80.000 Euro und erzielt 25 Prozent Rohaufschlag auf den Einstandspreis. Welcher Umsatz ergibt sich?",
-      "answer": "100.000 Euro",
-      "choices": [
-        "100.000 Euro",
-        "85.000 Euro",
-        "105.000 Euro",
-        "120.000 Euro"
-      ],
-      "correctChoiceIndex": 0
-    },
-    {
-      "id": "q-000310",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 400,
-      "question": "Eine Halle ist zu 80 Prozent ausgelastet und zählt 6.400 Gäste. Wie hoch ist ihre volle Kapazität?",
-      "answer": "8.000",
-      "choices": [
-        "5.120",
-        "8.000",
-        "7.200",
-        "10.000"
-      ],
-      "correctChoiceIndex": 1
-    },
-    {
-      "id": "q-000311",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 400,
-      "question": "Ein Team von 24 Personen wird in drei gleich große Schichten geteilt. Zwei Personen pro Schicht übernehmen Logistik. Wie viele andere Aufgabenplätze bleiben je Schicht?",
-      "answer": "6",
-      "choices": [
-        "8",
-        "18",
-        "6",
-        "22"
-      ],
-      "correctChoiceIndex": 2
-    },
-    {
-      "id": "q-000312",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 400,
-      "question": "7,2 Millionen Besuche verteilen sich rechnerisch auf 18 Festtage. Wie viele sind das im Mittel pro Tag?",
-      "answer": "400.000",
-      "choices": [
-        "40.000",
-        "72.000",
-        "1.296.000",
-        "400.000"
-      ],
-      "correctChoiceIndex": 3
-    },
-    {
-      "id": "q-000313",
-      "category": "Organisation & Wiesn-Zahlen",
+      "id": "q-000356",
+      "category": "Wiesn-Alltag & Hintergründe",
       "points": 500,
-      "question": "Ein Zelt verkauft 6.000 Maß zu 14 Euro und 1.500 Maß zu 10 Euro. Welcher Durchschnittspreis ergibt sich pro Maß?",
-      "answer": "13,20 Euro",
+      "question": "Seit welchem Jahr veranstaltet die Stadt München den Wettbewerb für das offizielle Oktoberfest-Plakatmotiv?",
+      "answer": "1952",
       "choices": [
-        "13,20 Euro",
-        "12,00 Euro",
-        "13,50 Euro",
-        "14,80 Euro"
-      ],
-      "correctChoiceIndex": 0
-    },
-    {
-      "id": "q-000314",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 500,
-      "question": "Drei Zapfstellen leisten 12, 15 und 18 Maß pro Minute. Wie viele Maß schaffen sie zusammen in 40 Minuten?",
-      "answer": "1.800",
-      "choices": [
-        "600",
-        "1.800",
-        "1.200",
-        "2.400"
-      ],
-      "correctChoiceIndex": 1
-    },
-    {
-      "id": "q-000315",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 500,
-      "question": "Ein Betrieb hat 60.000 Euro Fixkosten und verdient pro verkauftem Menü 6 Euro Deckungsbeitrag. Bei wie vielen Menüs liegt der Break-even?",
-      "answer": "10.000",
-      "choices": [
-        "1.000",
-        "6.000",
-        "10.000",
-        "360.000"
-      ],
-      "correctChoiceIndex": 2
-    },
-    {
-      "id": "q-000316",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 500,
-      "question": "Eine Besucherzahl wächst zwei Jahre nacheinander um jeweils zehn Prozent. Wie groß ist das Gesamtwachstum?",
-      "answer": "21 Prozent",
-      "choices": [
-        "20 Prozent",
-        "100 Prozent",
-        "22 Prozent",
-        "21 Prozent"
-      ],
-      "correctChoiceIndex": 3
-    },
-    {
-      "id": "q-000317",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 500,
-      "question": "Ein 200-Liter-Fass kostet 2.000 Euro. Zehn Prozent gehen verloren, der Rest wird in Maß verkauft. Welche reinen Bierkosten entfallen je verkaufbarer Maß?",
-      "answer": "Etwa 11,11 Euro",
-      "choices": [
-        "Etwa 11,11 Euro",
-        "10 Euro",
-        "12 Euro",
-        "20 Euro"
-      ],
-      "correctChoiceIndex": 0
-    },
-    {
-      "id": "q-000318",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 500,
-      "question": "Ein Fahrgeschäft verbraucht 900 Kilowattstunden. Bei 0,30 Euro je Kilowattstunde und 20 Prozent Aufschlag kostet die Energie wie viel?",
-      "answer": "324 Euro",
-      "choices": [
-        "270 Euro",
-        "324 Euro",
-        "300 Euro",
-        "540 Euro"
-      ],
-      "correctChoiceIndex": 1
-    },
-    {
-      "id": "q-000319",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 500,
-      "question": "Eine Warteschlange hat 300 Personen. Vier Zugänge schaffen je 25 Personen in zehn Minuten. Wie lange dauert der Abbau ohne neue Gäste?",
-      "answer": "30 Minuten",
-      "choices": [
-        "12 Minuten",
-        "40 Minuten",
-        "30 Minuten",
-        "75 Minuten"
-      ],
-      "correctChoiceIndex": 2
-    },
-    {
-      "id": "q-000320",
-      "category": "Organisation & Wiesn-Zahlen",
-      "points": 500,
-      "question": "Von 79.225 Hektolitern Bier können 95 Prozent als Ein-Liter-Maß ausgeschenkt werden. Wie viele Maß sind das rechnerisch?",
-      "answer": "7.526.375 Maß",
-      "choices": [
-        "7.130.250 Maß",
-        "7.922.500 Maß",
-        "8.318.625 Maß",
-        "7.526.375 Maß"
+        "1810",
+        "1910",
+        "1972",
+        "1952"
       ],
       "correctChoiceIndex": 3
     }
